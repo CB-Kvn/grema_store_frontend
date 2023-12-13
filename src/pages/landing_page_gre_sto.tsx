@@ -17,16 +17,16 @@ export const LandingPage = () => {
         <Navigation_Gre_Sto></Navigation_Gre_Sto>
         <BannerPrincipal></BannerPrincipal>
         <InfoBanner></InfoBanner>
-        <div className="divider divider-warning"></div>
+        
         <Promos></Promos>
-        <div className="divider divider-warning"></div>
+        
         <InlineProducts></InlineProducts>
-        <div className="divider divider-warning"></div>
+       
         <Comments></Comments>
-        <div className="divider divider-warning"></div>
+       
         {/* <MessageInfo></MessageInfo> */}
         <ContactUs></ContactUs>
-        <div className="divider divider-warning"></div>
+       
         <Footer></Footer>
         
         
