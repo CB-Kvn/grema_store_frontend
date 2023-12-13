@@ -1,4 +1,4 @@
-import './nav-bar-styles.css'
+import "./nav-bar-styles.css";
 const products = [
   {
     id: 1,
@@ -47,11 +47,14 @@ export const InlineProducts = () => {
   return (
     <div className="bg-white my-16">
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold tracking-tight sm:text-6xl" style={{fontFamily:'Dancing Script,cursive', color:'#C2A78D'}}>
+        <h2
+          className="text-4xl font-bold tracking-tight sm:text-6xl"
+          style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}
+        >
           Productos Destacados
         </h2>
         <p className="mt-1 text-lg leading-8 text-gray-600">
-          Tenemos gran variedad de productos listos para ser entregados 
+          Tenemos gran variedad de productos listos para ser entregados
         </p>
       </div>
       <div className="navbar justify-center bg-base-100">
@@ -61,7 +64,7 @@ export const InlineProducts = () => {
               <aside className="">Aretes</aside>
             </li>
             <li className="">
-              <aside className="" >Pulseras</aside>
+              <aside className="">Pulseras</aside>
             </li>
             <li className="">
               <aside className="">Collares</aside>
@@ -75,36 +78,39 @@ export const InlineProducts = () => {
           </ul>
         </div>
       </div>
-      <div className="mx-auto max-w-2xl px-4 py-5 sm:px-6 sm:py-5 lg:max-w-7xl lg:px-8">
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+      <div className="grid justify-center w-100">
+        <div className="carousel rounded-box w-100">
           {products.map((product) => (
-            <div key={product.id} className="group relative">
-              <div className="aspect-h-1 aspect-w-1 w-30 overflow rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                />
-              </div>
-              <div className="mt-4 flex justify-between">
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                    <a href={product.href}>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.name}
-                    </a>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+            <div className="carousel-item w-1/2 mx-1 sm:w-1/4">
+              <div key={product.id} className="group relative">
+                <div className="aspect-h-1 aspect-w-1 w-30 sm:overflow-x-auto rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                  <img
+                    src={product.imageSrc}
+                    alt={product.imageAlt}
+                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  />
                 </div>
-                <p className="text-sm font-medium text-gray-900">
-                  {product.price}
-                </p>
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-sm text-gray-700">
+                      <a href={product.href}>
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        {product.name}
+                      </a>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">
+                      {product.color}
+                    </p>
+                  </div>
+                  <p className="text-sm font-medium text-gray-900">
+                    {product.price}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
     </div>
   );
 };
