@@ -4,7 +4,7 @@ interface ToastAlertMsg  {
     msg: string
 }
 
-export const ToastAlert = ({msg}:ToastAlertMsg) => {
+export const ToastAlert = () => {
   const msgToast = useAppSelector((state) => state.toast.msg);
   return (
     <div role="alert" className="alert">
