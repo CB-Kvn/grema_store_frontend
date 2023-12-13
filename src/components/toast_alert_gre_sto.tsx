@@ -1,8 +1,5 @@
 import { useAppSelector } from "../redux/store";
 
-interface ToastAlertMsg  {
-    msg: string
-}
 
 export const ToastAlert = () => {
   const msgToast = useAppSelector((state) => state.toast.msg);
