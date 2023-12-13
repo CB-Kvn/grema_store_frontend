@@ -22,8 +22,9 @@ export const Login = () => {
   const handleLogin = async () => {
     // document.querySelector("#my_modal_7").checked = false;
     const response = await loginService({ email, password });
-    if (response.data.msg === "Found User") {
-      document.querySelector("#my_modal_7").checked = false;
+    if (response.data.msg! === "Found User") {
+      const element = document.querySelector("#my_modal_7") as HTMLInputElement ;
+      element.checked = false
       dispatch(login_successful(response.data));
       setEmail('')
       setPassword('')
