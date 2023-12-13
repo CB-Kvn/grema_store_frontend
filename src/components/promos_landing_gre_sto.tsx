@@ -13,7 +13,7 @@ export const Promos=()=> {
               </p>
             </div>
             <div>
-              <div className="mt-10 pt-8">
+              <div className="pt-8">
                 {/* Decorative image grid */}
                 <div
                   aria-hidden="true"
@@ -82,7 +82,7 @@ export const Promos=()=> {
   
                 <a
                   href="#"
-                  className="  inline-block rounded-md border border-transparent bg-font-nav px-8 py-3 text-center font-medium text-nav hover:bg-indigo-700"
+                  className="  inline-block rounded-md border border-transparent bg-font-nav px-3 py-3 text-center font-medium text-nav sm:mb-5"
                 >
                   Ir a los descuentos
                 </a>
