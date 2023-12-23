@@ -29,8 +29,8 @@ export const ModalLogin = () => {
 
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       <div className="modal" role="dialog">
-        <div className="modal-box">
-          <h3 className="text-lg font-bold">Hello!</h3>
+        <div className="modal-box bg-nav">
+          
           {!changeForm.show ? <Login></Login> : <SignUp></SignUp>}
         </div>
         <label

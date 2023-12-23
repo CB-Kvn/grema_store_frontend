@@ -57,10 +57,10 @@ export const InlineProducts = () => {
           Tenemos gran variedad de productos listos para ser entregados
         </p>
       </div>
-      <div className="navbar justify-center bg-base-100">
+      <div className="navbar justify-center">
         <div className="navbar-center lg:flex">
           <ul className="menu menu-horizontal">
-            <li className="mx-auto">
+            <li className="mx-auto hover:bg-nav">
               <aside className="">Aretes</aside>
             </li>
             <li className="">
