@@ -35,7 +35,7 @@ export const Navigation_Gre_Sto = () => {
           </div>
           <div className="w-60 h-20" style={{border:'none'}} >
             <div className="w-60 h-20 border:'none' " style={{border:'none'}}>
-              <div className="w-48 h-20" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/Screenshot_1.png', backgroundSize:'cover',backgroundPosition:'center',backgroundRepeat:'no-repeat',border:'none'}}></div>
+              <div className="w-48 h-20" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/Screenshot_11.png', backgroundSize:'cover',backgroundPosition:'center',backgroundRepeat:'no-repeat',border:'none'}}></div>
             </div>
           </div>
         </div>
