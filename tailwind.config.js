@@ -7,6 +7,7 @@ export default {
   theme: {
    
     colors:{
+      'white':'#FFFFF',
       'nav':'#F6DAEF',
       'font-nav':'#393939',
       'principal':'#FFBF8',

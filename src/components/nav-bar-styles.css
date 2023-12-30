@@ -38,3 +38,9 @@ aside {
     background-color:none !important;
     transform: scale(1);
   }
+
+
+
+  .menux{
+    --n: 20.321785 0.02476 255.701678 !important;
+  }
