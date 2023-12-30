@@ -45,8 +45,8 @@ const products = [
 
 export const InlineProducts = () => {
   return (
-    <div className="bg-white my-16">
-      <div className="mx-auto max-w-2xl text-center">
+    <div className="bg-white my-12">
+      <div className="text-center">
         <h2
           className="text-4xl font-bold tracking-tight sm:text-6xl"
           style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}
@@ -59,11 +59,11 @@ export const InlineProducts = () => {
       </div>
       <div className="navbar justify-center">
         <div className="navbar-center lg:flex">
-          <ul className="menu menu-horizontal hover:bg-white menux" style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D", fontSize:'1.6rem' }}>
-            <li className="mx-auto menux">
-              <aside className="menux">Aretes</aside>
+          <ul className="menu menu-horizontal menux sm:text-2xl" style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}>
+            <li className="mx-auto">
+              <aside className="">Aretes</aside>
             </li>
-            <li className="menux">
+            <li className="">
               <aside className="">Pulseras</aside>
             </li>
             <li className="">
