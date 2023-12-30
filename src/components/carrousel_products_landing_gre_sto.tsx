@@ -59,8 +59,8 @@ export const InlineProducts = () => {
       </div>
       <div className="navbar justify-center">
         <div className="navbar-center lg:flex">
-          <ul className="menu menu-horizontal text-2xl menux sm:text-4xl" style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}>
-            <li className="px-2 sm:px-4">
+          <ul className="menu menu-horizontal menux sm:text-4xl" style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}>
+            <li className="">
               <aside className="">Aretes</aside>
             </li>
             <li className="">
