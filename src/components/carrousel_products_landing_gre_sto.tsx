@@ -53,7 +53,7 @@ export const InlineProducts = () => {
         >
           Productos Destacados
         </h2>
-        <p className="mt-1 text-lg leading-8 text-gray-600">
+        <p className="mt-1 text-lg leading-8">
           Tenemos gran variedad de productos listos para ser entregados
         </p>
       </div>

@@ -1,10 +1,10 @@
 // import './nav-bar-styles.css'
 
 const navigation = [
-    { name: "Dashboard", href: "#", current: true },
-    { name: "Team", href: "#", current: false },
-    { name: "Projects", href: "#", current: false },
-    { name: "Calendar", href: "#", current: false },
+    { name: "Inicio", href: "#", current: true },
+    { name: "Tienda", href: "#", current: false },
+    { name: "Conozcanos", href: "#", current: false },
+    { name: "Contactenos", href: "#", current: false },
 ];
 
 export const ButtonsNav = () => {
