@@ -48,7 +48,7 @@ export const InlineProducts = () => {
     <div className="bg-white my-12">
       <div className="text-center">
         <h2
-          className="text-4xl font-bold tracking-tight sm:text-6xl"
+          className="text-4xl font-bold tracking-tight sm:text-7xl"
           style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}
         >
           Productos Destacados
@@ -59,8 +59,8 @@ export const InlineProducts = () => {
       </div>
       <div className="navbar justify-center">
         <div className="navbar-center lg:flex">
-          <ul className="menu menu-horizontal menux sm:text-2xl" style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}>
-            <li className="mx-auto">
+          <ul className="menu menu-horizontal text-2xl menux sm:text-4xl" style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}>
+            <li className="">
               <aside className="">Aretes</aside>
             </li>
             <li className="">
