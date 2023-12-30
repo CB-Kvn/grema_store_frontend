@@ -43,12 +43,12 @@ export const Login = () => {
 
   return (
     <>
-      <div className="flex  min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="flex  min-h-full flex-1 flex-col justify-center px-2 py-12 lg:px-2">
         {activeToast ? <ToastAlert></ToastAlert> : <></>}
 
-        <div className=" bg-nav sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className=" sm:mx-auto sm:w-full sm:max-w-sm">
           <img
-            className="mx-auto h-13 w-auto"
+            className="mx-auto h-13 w-52"
             src="https://grema-store-frontend.vercel.app/images/Screenshot_1.png"
             alt="Your Company"
           />
