@@ -7,8 +7,8 @@ export const Navigation_Gre_Sto = () => {
   const activeLogin = useAppSelector((state) => state.login.success);
   return (
     <>
-      <div className="navbar bg-nav h-20">
-        <div className="navbar-start">
+      <div className="navbar sticky-bar bg-nav h-20 fixed top-0">
+        <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg

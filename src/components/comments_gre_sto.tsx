@@ -103,7 +103,7 @@ export const Comments = () => {
                     {post.title}
                   </a>
                 </h3>
-                <p className="mt-2 line-clamp-none text-sm leading-6 ">{post.description}</p>
+                <p className="mt-2 line-clamp-none text-sm leading-6">{post.description}</p>
               </div>
               <div className="relative mt-8 flex items-center gap-x-4">
                 <img src={post.author.imageUrl} alt="" className="h-10 w-10 rounded-full bg-gray-50" />

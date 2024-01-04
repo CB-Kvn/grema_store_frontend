@@ -11,7 +11,8 @@ export default {
       'nav':'#F6DAEF',
       'font-nav':'#393939',
       'principal':'#FFBF8',
-      'footer':"#C2A78D"
+      'footer':"#C2A78D",
+      'btn-rose':"#9b5176"
     }
   },
   // eslint-disable-next-line no-undef
