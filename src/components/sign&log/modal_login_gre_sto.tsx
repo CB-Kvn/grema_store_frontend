@@ -1,4 +1,4 @@
-import { useAppSelector } from "../redux/store";
+import { useAppSelector } from "../../redux/store";
 import { Login } from "./login_up_gre_sto";
 import { SignUp } from "./sign_up_gre_sto";
 

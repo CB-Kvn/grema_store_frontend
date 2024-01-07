@@ -1,4 +1,4 @@
-import "./nav-bar-styles.css";
+import "../nav-bar-styles.css";
 const products = [
   {
     id: 1,

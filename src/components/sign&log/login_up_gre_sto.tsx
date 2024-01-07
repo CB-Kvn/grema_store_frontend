@@ -1,11 +1,11 @@
-import { loginService } from "../services/login_service_gre_store";
-import { login_successful } from "../redux/reducers_slices/login_gre_sto_slice";
+import { loginService } from "../../services/login_service_gre_store";
+import { login_successful } from "../../redux/reducers_slices/login_gre_sto_slice";
 
-import { useAppDispatch, useAppSelector } from "../redux/store";
-import { ToastAlert } from "./toast_alert_gre_sto";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { ToastAlert } from "../utils/toast_alert_gre_sto";
 import { useState } from "react";
-import { toast_visible } from "../redux/reducers_slices/toast_gre_sto_slice";
-import { new_user_form } from "../redux/reducers_slices/sign_up_gre_sto_slice";
+import { toast_visible } from "../../redux/reducers_slices/toast_gre_sto_slice";
+import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 // import { useDispatch } from "react-redux"
 // import { login_successful } from "../redux/reducers_slices/login_gre_sto_slice"
 
