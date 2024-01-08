@@ -61,19 +61,19 @@ export const InlineProducts = () => {
         <div className="navbar-center lg:flex">
           <ul className="menu menu-horizontal text-xl menux sm:text-4xl" style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}>
             <li className="">
-              <aside className="" style={{ paddingInline: "0.2 rem !important" }}>Aretes</aside>
+              <aside className="" style={{ paddingLeft: "0.45rem" , paddingRight: "0.45rem" }}>Aretes</aside>
             </li>
             <li className="">
-              <aside className=""style={{ paddingInline: "0.2 rem !important" }}>Pulseras</aside>
+              <aside className="" style={{ paddingLeft: "0.45rem" , paddingRight: "0.45rem" }}>Pulseras</aside>
             </li>
             <li className="">
-              <aside className=""style={{ paddingInline: "0.2 rem !important" }}>Collares</aside>
+              <aside className="" style={{ paddingLeft: "0.45rem" , paddingRight: "0.45rem" }}>Collares</aside>
             </li>
             <li className="">
-              <aside className=""style={{ paddingInline: "0.2 rem !important" }}>Anillos</aside>
+              <aside className="" style={{ paddingLeft: "0.45rem" , paddingRight: "0.45rem" }}>Anillos</aside>
             </li>
             <li className="">
-              <aside className=""style={{ paddingInline: "0.2 rem !important" }}>Sets</aside>
+              <aside className="" style={{ paddingLeft: "0.45rem" , paddingRight: "0.45rem" }}>Sets</aside>
             </li>
           </ul>
         </div>
