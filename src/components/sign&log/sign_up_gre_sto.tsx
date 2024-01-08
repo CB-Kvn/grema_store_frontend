@@ -22,19 +22,17 @@ export const SignUp = () => {
      
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-8">
-          <h2 className="mt-5 text-2xl font-semibold leading-7 text-gray-900">Crea tu perfil de usuario</h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
-            Esta informacion no sera compartida con otros usuarios.
-          </p>
+          <h2 className="mt-5 text-3xl text-center font-semibold leading-7 text-gray-900">Crea tu perfil de usuario</h2>
         </div>
 
         <div className="">
         
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
             <div className="sm:col-span-3 ">
               <label htmlFor="first-name" className="block text-2xl font-medium leading-6 text-gray-900">
-                First name
+                Nombre:
               </label>
               <div className="mt-2">
                 <input
@@ -49,7 +47,7 @@ export const SignUp = () => {
 
             <div className="sm:col-span-3">
               <label htmlFor="last-name" className="block text-2xl font-medium leading-6 text-gray-900">
-                Last name
+                Apellidos:
               </label>
               <div className="mt-2">
                 <input
@@ -62,9 +60,25 @@ export const SignUp = () => {
               </div>
             </div>
 
+            <div className="col-span-full">
+              <label htmlFor="about" className="block text-2xl  font-medium leading-6 text-gray-900">
+                About
+              </label>
+              <div className="mt-2">
+                <textarea
+                  id="about"
+                  name="about"
+                  rows={3}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  defaultValue={''}
+                />
+              </div>
+              <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
+            </div>
+
             <div className="sm:col-span-4">
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                Email address
+                Correo electronico
               </label>
               <div className="mt-2">
                 <input
@@ -75,6 +89,34 @@ export const SignUp = () => {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+
+              <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                Contrasena
+              </label>
+              <div className="mt-2">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="password"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+
+              <label htmlFor="passwordTry" className="block text-sm font-medium leading-6 text-gray-900">
+                Verificar contrasena
+              </label>
+              <div className="mt-2">
+                <input
+                  id="passwordTry"
+                  name="passwordTry"
+                  type="password"
+                  autoComplete="passwordTry"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+
+
             </div>
 
             <div className="sm:col-span-3">
@@ -155,21 +197,7 @@ export const SignUp = () => {
               </div>
             </div>
 
-            <div className="col-span-full">
-              <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
-                About
-              </label>
-              <div className="mt-2">
-                <textarea
-                  id="about"
-                  name="about"
-                  rows={3}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={''}
-                />
-              </div>
-              <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
-            </div>
+            
 
             <div className="col-span-full">
               <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
