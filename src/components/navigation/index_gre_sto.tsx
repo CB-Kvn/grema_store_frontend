@@ -1,6 +1,6 @@
 import { useAppSelector } from "../../redux/store";
 import { ButtonsNav } from "./buttons_nav_gre_sto";
-import { ModalLogin } from "../sign&log/modal_login_gre_sto";
+import { ModalLogin } from "../sign&log/index_gre_sto";
 import { OptionProfile } from "./option_profile_gre_sto";
 
 export const Navigation_Gre_Sto = () => {

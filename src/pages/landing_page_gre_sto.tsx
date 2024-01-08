@@ -7,7 +7,7 @@ import { ContactUs } from "../components/landing/contact_us_gre_store";
 import { Footer } from "../components/landing/footer_gre_sto";
 import { InfoBanner } from "../components/landing/info_banner_gre_sto";
 // import { MessageInfo } from "../components/message_info_gre_store";
-import { Navigation_Gre_Sto } from "../components/navigation/navigation_gre_sto";
+import { Navigation_Gre_Sto } from "../components/navigation/index_gre_sto";
 import { Promos } from "../components/landing/promos_landing_gre_sto";
 
 export const LandingPage = () => {
