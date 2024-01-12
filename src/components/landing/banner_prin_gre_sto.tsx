@@ -1,6 +1,6 @@
 export const BannerPrincipal = () => {
   return (
-    <div className="hero min-h-screen" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/stock-photo-jewelry-making-flatlay-with-semi-precious-stone-beads-and-tools-handmade-jewelry-small-business-2209254561-min.jpg'}}>
+    <div className="hero min-h-screen" id="home" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/stock-photo-jewelry-making-flatlay-with-semi-precious-stone-beads-and-tools-handmade-jewelry-small-business-2209254561-min.jpg'}}>
     <div className="hero-overlay bg-opacity-10"></div>
     <div className="hero-content text-center text-neutral-content">
       <div className="max-w-md">

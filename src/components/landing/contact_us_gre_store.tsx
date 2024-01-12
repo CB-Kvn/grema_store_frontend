@@ -1,6 +1,6 @@
 export const ContactUs = () => {
   return (
-    <div className="container my-12 mx-auto px-2 md:px-4">
+    <div className="container my-36 mx-auto px-2 md:px-4" id="contacts">
       <section className="mb-32">
         <div className="flex justify-center">
           <div className="text-center md:max-w-xl lg:max-w-3xl">
@@ -8,7 +8,7 @@ export const ContactUs = () => {
               className="text-footer mb-12 px-6 text-4xl font-bold sm:text-6xl "
               style={{ fontFamily: "Dancing Script,cursive" }}
             >
-              Contact us
+              Contactenos
             </h2>
           </div>
         </div>

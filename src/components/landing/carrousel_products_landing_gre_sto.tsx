@@ -45,7 +45,7 @@ const products = [
 
 export const InlineProducts = () => {
   return (
-    <div className="bg-white my-12">
+    <div className="bg-white my-24" id="store-pre">
       <div className="text-center">
         <h2
           className="text-4xl font-bold tracking-tight sm:text-7xl"

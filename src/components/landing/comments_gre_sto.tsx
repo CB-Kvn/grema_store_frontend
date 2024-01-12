@@ -72,9 +72,9 @@ const posts = [
 
 export const Comments = () => {
   return (
-    <div className="bg-nav py-12 sm:py-12 items-center justify-center">
+    <div className="bg-nav py-20 sm:py-30 items-center justify-center" id="comments">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex items-center justify-center lg:mx-0">
+        <div className="flex mb-20 items-center justify-center lg:mx-0">
           <h2
             className="text-4xl font-bold tracking-tight text-font-nav sm:text-6xl"
             style={{ fontFamily: "Dancing Script,cursive" }}
@@ -85,10 +85,10 @@ export const Comments = () => {
 
 
       </div>
-      <div className="grid justify-center w-100">
+      <div className="grid justify-center w-100 mb-20">
         <div className="carousel rounded-box w-100">
           {posts.map((post) => (
-            <div className="carousel-item justify-center w-1/2 mx-0.5 sm:w-1/3 ">
+            <div className="carousel-item justify-center w-1/2 mx-0.5 sm:w-1/4 ">
               <article key={post.id} className="flex max-w-xl px-5 mt-9 flex-col items-start justify-between">
               <div className="flex items-center gap-x-4 text-xs">
                 <time dateTime={post.datetime} className="text-gray-500">

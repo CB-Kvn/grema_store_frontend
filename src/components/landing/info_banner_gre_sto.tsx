@@ -31,7 +31,7 @@ export const InfoBanner = () => {
 
   return (
     <>
-      <div className="bg-white py-24 sm:py-14">
+      <div className="bg-white my-20 py-24 sm:py-14" id="about-us">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
 
