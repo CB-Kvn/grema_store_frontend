@@ -55,3 +55,7 @@ aside {
     --n: 20.321785 0.02476 255.701678 !important;
     --bc: darkred !important;
   }
+
+  body{
+    scrollbar-width: thin;  
+  }

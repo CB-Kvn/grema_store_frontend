@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 export const SignUp = () => {
   const [country, setCountry] = useState<number>(0);
-  const [state, setState] = useState<number>(0);
+  const [stated, setState] = useState<number>(0);
 
   const handleChangeCountry = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCountry(Number(e.target.value));
@@ -21,36 +21,23 @@ export const SignUp = () => {
 
   useEffect(() => {
     console.log(country);
-    console.log(state);
-  }, [state]);
+    console.log(stated);
+  }, [stated]);
 
   return (
     <>
       <div
-        className="text-font-nav text-8xl flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
-        style={{ fontFamily: "Dancing Script,cursive" }}
+        className="text-font-nav text-3xl flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
+        // style={{ fontFamily: "Dancing Script,cursive" }}
       >
-        <div className=" sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            className="mx-auto "
-            src="https://grema-store-frontend.vercel.app/images/Screenshot_1.png"
-            alt="Your Company"
-          />
-        </div>
-
-        <div className="space-y-12">
-          <div className="border-b border-gray-900/10 pb-8">
-            <h2 className="mt-5 text-3xl text-center font-semibold leading-7 text-gray-900">
-              Crea tu perfil de usuario
-            </h2>
-          </div>
-
+        <div className="space-y-2">
           <div className="border-b border-btn-rose/95 pb-8">
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-full justify-self-center">
                 <div className="mt-2 flex justify-center items-center gap-x-3">
                   <UserCircleIcon
-                    className="h-16 w-16 text-gray-300 justify-center"
+                    className="h-28 w-28 btn-rose justify-center"
+                    color="#9b5176"
                     aria-hidden="true"
                   />
                 </div>
@@ -61,10 +48,11 @@ export const SignUp = () => {
                   />
                 </div>
               </div>
+
               <div className="sm:col-span-3 ">
                 <label
                   htmlFor="first-name"
-                  className="block text-xl font-medium leading-6 text-gray-900"
+                  className="block text-lg  leading-6 text-gray-900"
                 >
                   Nombre:
                 </label>
@@ -74,7 +62,7 @@ export const SignUp = () => {
                     name="first-name"
                     id="first-name"
                     autoComplete="given-name"
-                    className="block w-full rounded-md border-btn-rose py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md p-2 border-btn-rose py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
                   />
                 </div>
               </div>
@@ -82,7 +70,7 @@ export const SignUp = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="last-name"
-                  className="block text-xl font-medium leading-6 text-gray-900"
+                  className="block text-lg   leading-6 text-gray-900"
                 >
                   Apellidos:
                 </label>
@@ -92,7 +80,7 @@ export const SignUp = () => {
                     name="last-name"
                     id="last-name"
                     autoComplete="family-name"
-                    className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -100,7 +88,7 @@ export const SignUp = () => {
               <div className="sm:col-span-3 ">
                 <label
                   htmlFor="type-id"
-                  className="block text-xl font-medium leading-6 text-gray-900"
+                  className="block text-lg  leading-6 text-gray-900"
                 >
                   Tipo de ID:
                 </label>
@@ -126,7 +114,7 @@ export const SignUp = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="id"
-                  className="block text-xl font-medium leading-6 text-gray-900"
+                  className="block text-lg  leading-6 text-gray-900"
                 >
                   # de ID:
                 </label>
@@ -136,7 +124,7 @@ export const SignUp = () => {
                     name="id"
                     id="id"
                     autoComplete="id"
-                    className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -144,7 +132,7 @@ export const SignUp = () => {
               <div className="sm:col-span-3 ">
                 <label
                   htmlFor="telephone"
-                  className="block text-xl font-medium leading-6 text-gray-900"
+                  className="block text-lg  leading-6 text-gray-900"
                 >
                   # celular
                 </label>
@@ -154,14 +142,14 @@ export const SignUp = () => {
                     name="telephone"
                     id="telephone"
                     autoComplete="telephone"
-                    className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
               <div className="col-span-full">
                 <label
                   htmlFor="about"
-                  className="block text-xl text-center font-medium leading-6 text-gray-900"
+                  className="block text-lg text-center  leading-6 text-gray-900"
                 >
                   Sobre ti.
                 </label>
@@ -170,7 +158,7 @@ export const SignUp = () => {
                     id="about"
                     name="about"
                     rows={3}
-                    className="block w-full rounded-md border-0 py-1.5   ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2  focus:ring-nav sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5   ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2  focus:ring-nav sm:text-sm sm:leading-6"
                     defaultValue={""}
                   />
                 </div>
@@ -183,7 +171,7 @@ export const SignUp = () => {
               <div className="sm:col-span-3  justify-self-start text-start ">
                 <label
                   htmlFor="email"
-                  className="block text-xl font-medium leading-6 text-gray-900 my-3"
+                  className="block text-lg  leading-6 text-gray-900 my-3"
                 >
                   Correo electronico
                 </label>
@@ -193,13 +181,13 @@ export const SignUp = () => {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className="block w-52 col-span-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:col-span-3 sm:text-sm sm:leading-6"
+                    className="block w-52 p-2 col-span-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:col-span-3 sm:text-sm sm:leading-6"
                   />
                 </div>
 
                 <label
                   htmlFor="password"
-                  className="block text-xl font-medium leading-6 text-gray-900 my-3"
+                  className="block text-lg  leading-6 text-gray-900 my-3"
                 >
                   Contrasena
                 </label>
@@ -209,13 +197,13 @@ export const SignUp = () => {
                     name="password"
                     type="password"
                     autoComplete="password"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
 
                 <label
                   htmlFor="passwordTry"
-                  className="block text-xl font-medium leading-6 text-gray-900 my-3"
+                  className="block text-lg  leading-6 text-gray-900 my-3"
                 >
                   Verificar contrasena
                 </label>
@@ -225,14 +213,18 @@ export const SignUp = () => {
                     name="passwordTry"
                     type="password"
                     autoComplete="passwordTry"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
-              <div className="sm:col-span-3  text-justify ml-3 mt-24" >
-                <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dicta et consequatur illum suscipit. 
-                  Voluptate repellendus totam rerum harum fugiat dolores assumenda 
-                  officiis sed delectus. Officia cum necessitatibus dolore nostrum.</p>
+              <div className="sm:col-span-3  text-justify ml-3 mt-24">
+                
+                  <ol type="A" className="text-sm">
+                    <li>+ freeCodeCamp</li>
+                    <li>CSS-Tricks</li>
+                    <li>Traversy Media</li>
+                  </ol>
+                
               </div>
             </div>
           </div>
@@ -242,7 +234,7 @@ export const SignUp = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="country"
-                  className="block text-xl font-medium leading-6 text-gray-900"
+                  className="block text-lg  leading-6 text-gray-900"
                 >
                   Country
                 </label>
@@ -269,7 +261,7 @@ export const SignUp = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="region"
-                  className="block text-xl font-medium leading-6 text-gray-900"
+                  className="block text-lg  leading-6 text-gray-900"
                 >
                   State / Province
                 </label>
@@ -298,7 +290,7 @@ export const SignUp = () => {
             <div className="col-span-full">
               <label
                 htmlFor="street-address"
-                className="block text-xl my-3 font-medium leading-6 text-gray-900"
+                className="block text-lg my-3  leading-6 text-gray-900"
               >
                 Street address
               </label>
@@ -316,7 +308,7 @@ export const SignUp = () => {
             <div className="sm:col-span-2">
               <label
                 htmlFor="postal-code"
-                className="block my-3 text-xl font-medium leading-6 text-gray-900"
+                className="block my-3 text-lg  leading-6 text-gray-900"
               >
                 ZIP / Postal code
               </label>
@@ -326,17 +318,17 @@ export const SignUp = () => {
                   name="postal-code"
                   id="postal-code"
                   autoComplete="postal-code"
-                  className="block w-full text-xl rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full text-lg rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
           </div>
 
-          <div className="">
-            <h2 className="text-xl font-semibold leading-7 text-gray-900">
+          <div className="mt-8">
+            <h2 className="text-sm font-semibold leading-7 mt-6">
               Notificaciones
             </h2>
-            <p className="mt-1 text-xl leading-6 text-gray-600">
+            <p className="mt-1 text-sm leading-6 text-gray-600">
               Todas las notificaciones sobre cambios, envios pagos entre otras
               noticias importantes, seran enviadas por el medio de correo
               electronico
@@ -344,16 +336,16 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="mt-6 flex  text-xl items-center justify-end gap-x-6">
+        <div className="mt-6 flex  text-lg items-center justify-end gap-x-6">
           <button
             type="button"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-xl  font-semibold text-white shadow-sm hover:bg-nav focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-indigo-600 px-3 py-2 text-lg  font-semibold text-white shadow-sm hover:bg-nav focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-xl  font-semibold text-white shadow-sm hover:bg-nav focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-indigo-600 px-3 py-2 text-lg  font-semibold text-white shadow-sm hover:bg-nav focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Save
           </button>
