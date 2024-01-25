@@ -72,7 +72,7 @@ const posts = [
 
 export const Comments = () => {
   return (
-    <div className="bg-nav py-20 sm:py-30 items-center justify-center" id="comments">
+    <div className="bg-nav p-20 sm:py-30 items-center justify-center" id="comments">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex mb-20 items-center justify-center lg:mx-0">
           <h2
