@@ -300,7 +300,7 @@ export const SignUp = () => {
                   name="street-address"
                   id="street-address"
                   autoComplete="street-address"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
                 />
               </div>
             </div>
@@ -318,7 +318,7 @@ export const SignUp = () => {
                   name="postal-code"
                   id="postal-code"
                   autoComplete="postal-code"
-                  className="block w-full text-lg rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full text-lg rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 leading-6"
                 />
               </div>
             </div>
