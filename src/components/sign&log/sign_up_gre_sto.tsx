@@ -80,7 +80,7 @@ export const SignUp = () => {
                     name="last-name"
                     id="last-name"
                     autoComplete="family-name"
-                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
                   />
                 </div>
               </div>
@@ -99,7 +99,7 @@ export const SignUp = () => {
                     onChange={(e) => {
                       handleChangeCountry(e);
                     }}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs text-sm leading-6"
                   >
                     <option value="Cedula de Residencial">
                       Cedula de Residencial
@@ -124,7 +124,7 @@ export const SignUp = () => {
                     name="id"
                     id="id"
                     autoComplete="id"
-                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
                   />
                 </div>
               </div>
@@ -142,7 +142,7 @@ export const SignUp = () => {
                     name="telephone"
                     id="telephone"
                     autoComplete="telephone"
-                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
                   />
                 </div>
               </div>
@@ -158,7 +158,7 @@ export const SignUp = () => {
                     id="about"
                     name="about"
                     rows={3}
-                    className="block w-full p-2 rounded-md border-0 py-1.5   ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2  focus:ring-nav sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5   ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2  focus:ring-nav text-sm leading-6"
                     defaultValue={""}
                   />
                 </div>
@@ -181,7 +181,7 @@ export const SignUp = () => {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className="block w-52 p-2 col-span-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:col-span-3 sm:text-sm sm:leading-6"
+                    className="block w-52 p-2 col-span-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:col-span-3 text-sm leading-6"
                   />
                 </div>
 
@@ -197,7 +197,7 @@ export const SignUp = () => {
                     name="password"
                     type="password"
                     autoComplete="password"
-                    className="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
                   />
                 </div>
 
@@ -213,7 +213,7 @@ export const SignUp = () => {
                     name="passwordTry"
                     type="password"
                     autoComplete="passwordTry"
-                    className="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
                   />
                 </div>
               </div>
@@ -246,7 +246,7 @@ export const SignUp = () => {
                     onChange={(e) => {
                       handleChangeCountry(e);
                     }}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs text-sm leading-6"
                   >
                     {countries.map((element) => {
                       return (
@@ -273,7 +273,7 @@ export const SignUp = () => {
                     onChange={(e) => {
                       handleChangeState(e);
                     }}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs text-sm leading-6"
                   >
                     {states.map((element) => {
                       if (element.id_country === country) {
