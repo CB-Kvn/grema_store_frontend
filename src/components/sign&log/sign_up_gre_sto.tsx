@@ -52,7 +52,7 @@ export const SignUp = () => {
               <div className="sm:col-span-3 ">
                 <label
                   htmlFor="first-name"
-                  className="block text-lg  leading-6 text-gray-900"
+                  className="block text-sm  leading-6 text-gray-900"
                 >
                   Nombre:
                 </label>
@@ -70,7 +70,7 @@ export const SignUp = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="last-name"
-                  className="block text-lg   leading-6 text-gray-900"
+                  className="block text-sm  leading-6 text-gray-900"
                 >
                   Apellidos:
                 </label>
@@ -88,9 +88,9 @@ export const SignUp = () => {
               <div className="sm:col-span-3 ">
                 <label
                   htmlFor="type-id"
-                  className="block text-lg  leading-6 text-gray-900"
+                  className="block text-sm leading-6 text-gray-900"
                 >
-                  Tipo de ID:
+                  Tipo identificacion:
                 </label>
                 <div className="mt-2">
                   <select
@@ -114,9 +114,9 @@ export const SignUp = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="id"
-                  className="block text-lg  leading-6 text-gray-900"
+                  className="block text-sm leading-6 text-gray-900"
                 >
-                  # de ID:
+                  Numero identificacion:
                 </label>
                 <div className="mt-2">
                   <input
@@ -132,9 +132,9 @@ export const SignUp = () => {
               <div className="sm:col-span-3 ">
                 <label
                   htmlFor="telephone"
-                  className="block text-lg  leading-6 text-gray-900"
+                  className="block text-sm leading-6 text-gray-900"
                 >
-                  # celular
+                  Numero celular:
                 </label>
                 <div className="mt-2">
                   <input
@@ -149,9 +149,9 @@ export const SignUp = () => {
               <div className="col-span-full">
                 <label
                   htmlFor="about"
-                  className="block text-lg text-center  leading-6 text-gray-900"
+                  className="block text-sm text-center  leading-6 text-gray-900"
                 >
-                  Sobre ti.
+                  Sobre ti:
                 </label>
                 <div className="mt-2">
                   <textarea
@@ -167,29 +167,28 @@ export const SignUp = () => {
           </div>
 
           <div className="border-b border-btn-rose/95 pb-8">
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <label
+              htmlFor="email"
+              className="block text-sm  leading-6 text-gray-900 mt-8"
+            >
+              Correo electronico:
+            </label>
+            <div className="mt-2">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                className="block w-full p-2 col-span-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:col-span-3 text-sm leading-6"
+              />
+            </div>
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3  justify-self-start text-start ">
                 <label
-                  htmlFor="email"
-                  className="block text-lg  leading-6 text-gray-900 my-3"
-                >
-                  Correo electronico
-                </label>
-                <div className="mt-2">
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    className="block w-52 p-2 col-span-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:col-span-3 text-sm leading-6"
-                  />
-                </div>
-
-                <label
                   htmlFor="password"
-                  className="block text-lg  leading-6 text-gray-900 my-3"
+                  className="block text-sm leading-6 text-gray-900 my-3"
                 >
-                  Contrasena
+                  Contrasena:
                 </label>
                 <div className="mt-2">
                   <input
@@ -203,11 +202,11 @@ export const SignUp = () => {
 
                 <label
                   htmlFor="passwordTry"
-                  className="block text-lg  leading-6 text-gray-900 my-3"
+                  className="block text-sm leading-6 text-gray-900 my-3"
                 >
-                  Verificar contrasena
+                  Verificar contrasena:
                 </label>
-                <div className="mt-2">
+                <div className="">
                   <input
                     id="passwordTry"
                     name="passwordTry"
@@ -217,14 +216,12 @@ export const SignUp = () => {
                   />
                 </div>
               </div>
-              <div className="sm:col-span-3  text-justify ml-3 mt-24">
-                
-                  <ol type="A" className="text-sm">
-                    <li>+ freeCodeCamp</li>
-                    <li>CSS-Tricks</li>
-                    <li>Traversy Media</li>
-                  </ol>
-                
+              <div className="sm:col-span-3  text-justify ml-3 mt-6">
+                <ol type="A" className="text-sm">
+                  <li>+ freeCodeCamp</li>
+                  <li>CSS-Tricks</li>
+                  <li>Traversy Media</li>
+                </ol>
               </div>
             </div>
           </div>
@@ -234,9 +231,9 @@ export const SignUp = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="country"
-                  className="block text-lg  leading-6 text-gray-900"
+                  className="block text-sm leading-6 text-gray-900"
                 >
-                  Country
+                  Pais / Nacion
                 </label>
                 <div className="mt-2">
                   <select
@@ -261,9 +258,9 @@ export const SignUp = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="region"
-                  className="block text-lg  leading-6 text-gray-900"
+                  className="block text-sm leading-6 text-gray-900"
                 >
-                  State / Province
+                  Estado / Provincia
                 </label>
                 <div className="mt-2">
                   <select
@@ -290,9 +287,9 @@ export const SignUp = () => {
             <div className="col-span-full">
               <label
                 htmlFor="street-address"
-                className="block text-lg my-3  leading-6 text-gray-900"
+                className="block text-sm my-3  leading-6 text-gray-900"
               >
-                Street address
+                Direccion exacta:
               </label>
               <div className="mt-2">
                 <input
@@ -308,9 +305,9 @@ export const SignUp = () => {
             <div className="sm:col-span-2">
               <label
                 htmlFor="postal-code"
-                className="block my-3 text-lg  leading-6 text-gray-900"
+                className="block my-3 text-sm leading-6 text-gray-900"
               >
-                ZIP / Postal code
+                ZIP / Codigo postal
               </label>
               <div className="mt-2">
                 <input
@@ -318,7 +315,7 @@ export const SignUp = () => {
                   name="postal-code"
                   id="postal-code"
                   autoComplete="postal-code"
-                  className="block w-full text-lg rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 leading-6"
+                  className="block w-full text-smrounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 leading-6"
                 />
               </div>
             </div>
@@ -336,16 +333,16 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="mt-6 flex  text-lg items-center justify-end gap-x-6">
+        <div className="mt-6 flex  text-smitems-center justify-end gap-x-6">
           <button
             type="button"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-lg  font-semibold text-white shadow-sm hover:bg-nav focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-nav focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-lg  font-semibold text-white shadow-sm hover:bg-nav focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-nav focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Save
           </button>
