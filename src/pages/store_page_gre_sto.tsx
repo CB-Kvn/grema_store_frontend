@@ -1,9 +1,10 @@
-import { Navigation_Gre_Sto } from "../components/navigation/index_gre_sto";
 
-export const LandingPage = () => {
+import Example from "../components/store/index_gre_sto";
+
+export const Store = () => {
     return (
       <>
-        <Navigation_Gre_Sto></Navigation_Gre_Sto>
+        <Example></Example>
       </>
     );
   };

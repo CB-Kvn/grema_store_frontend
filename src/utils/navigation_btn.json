@@ -1,0 +1,9 @@
+{ "navigation" : [
+    { "name": "Inicio",  "current": true, "to":"/", "offset":50},
+    { "name": "Conozcanos",  "current": false,"to":"about-us", "offset":-25},
+    { "name": "Promociones",  "current": false, "to":"promotions", "offset":-80},
+    { "name": "Destacados",  "current": false, "to":"store-pre", "offset":-150 },
+    { "name": "Experiencias",  "current": false, "to":"comments", "offset":-60 },
+    { "name": "Contactenos",  "current": false, "to":"contacts", "offset":-150 }
+]
+}

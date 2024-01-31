@@ -4,6 +4,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux"
 import { LoginSlice } from "./reducers_slices/login_gre_sto_slice"
 import { ToastSlice } from "./reducers_slices/toast_gre_sto_slice"
 import { SignUpSlice } from "./reducers_slices/sign_up_gre_sto_slice"
+import { Location } from "./reducers_slices/location.gre.sto.slice"
 import { configureStore } from "@reduxjs/toolkit"
 // import { persistStore, persistReducer } from 'redux-persist'
 // import storage from 'redux-persist/lib/storage'
@@ -24,7 +25,8 @@ export const store  = configureStore({
     reducer:{
         login: LoginSlice.reducer,
         toast: ToastSlice.reducer,
-        newUser: SignUpSlice.reducer
+        newUser: SignUpSlice.reducer,
+        location: Location.reducer
     }
     
 })
