@@ -22,7 +22,7 @@ aside {
     left: 0;
     width: 100%;
     height: 0.1em;
-    background-color: #C2A78D;
+    background-color: #393939;
     opacity: 0;
     transition: opacity 300ms, transform 300ms;
     background-color:none !important;

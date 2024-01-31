@@ -35,7 +35,7 @@ export const InfoBanner = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
 
-            <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl text-footer" style={{fontFamily:'Dancing Script,cursive'}}>
+            <p className="mt-2 text-4xl font-bold tracking-tight  sm:text-5xl text-footer" style={{fontFamily:'Dancing Script,cursive', color:"#C2A78D"}}>
               Por que comprar en  Grema Store?
             </p>
           </div>
@@ -43,16 +43,16 @@ export const InfoBanner = () => {
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {features.map((feature) => (
                 <div key={feature.name} className="relative pl-16">
-                  <dt className="text-base font-semibold leading-7 text-font-nav">
-                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-nav">
+                  <dt className="text-base font-semibold leading-7 text-font-nav" style={{color:"#393939"}}>
+                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg " style={{backgroundColor:"#F6DAEF"}}>
                       <feature.icon
-                        className="h-6 w-6 text-white"
+                        className="h-6 w-6 " 
                         aria-hidden="true"
                       />
                     </div>
                     {feature.name}
                   </dt>
-                  <dd className="mt-2 text-base leading-7 text-gray-600">
+                  <dd className="mt-2 text-base leading-7" style={{color:"#393939"}}>
                     {feature.description}
                   </dd>
                 </div>

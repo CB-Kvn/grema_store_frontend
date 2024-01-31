@@ -53,13 +53,13 @@ export const InlineProducts = () => {
         >
           Productos Destacados
         </h2>
-        <p className="mt-1 text-lg leading-8">
+        <p className="mt-1 text-lg leading-8" style={{ color: "#393939" }}>
           Tenemos gran variedad de productos listos para ser entregados
         </p>
       </div>
       <div className="navbar justify-center">
         <div className="navbar-center lg:flex">
-          <ul className="menu menu-horizontal text-xl menux sm:text-4xl" style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}>
+          <ul className="menu menu-horizontal text-xl menux sm:text-2xl" style={{ color: "#393939" }}>
             <li className="">
               <aside className="" style={{ paddingLeft: "0.45rem" , paddingRight: "0.45rem" }}>Aretes</aside>
             </li>
