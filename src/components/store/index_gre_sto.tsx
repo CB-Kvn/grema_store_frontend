@@ -316,7 +316,7 @@ export default function Example() {
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-8 w-auto"
-                    src="hhttps://grema-store-frontend.vercel.app/images/Screenshot_1y.png"
+                    src='url(https://grema-store-frontend.vercel.app/images/Screenshot_1y.png'
                     alt=""
                   />
                 </a>
