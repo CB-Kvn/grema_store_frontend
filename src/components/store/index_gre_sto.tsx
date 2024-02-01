@@ -21,7 +21,7 @@ const navigation = {
           name: "New Arrivals",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg",
+            "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg",
           imageAlt:
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
@@ -29,7 +29,7 @@ const navigation = {
           name: "Basic Tees",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg",
+            "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.45 PM.jpeg",
           imageAlt:
             "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
         },
