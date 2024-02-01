@@ -4,7 +4,7 @@ import { login_successful } from "../../redux/reducers_slices/login_gre_sto_slic
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { ToastAlert } from "../utils/toast_alert_gre_sto";
 import { useState } from "react";
-import { toast_visible } from "../../redux/reducers_slices/toast_gre_sto_slice";
+import { toast_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 // import { useDispatch } from "react-redux"
 // import { login_successful } from "../redux/reducers_slices/login_gre_sto_slice"
@@ -13,7 +13,7 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
-  const activeToast = useAppSelector((state) => state.toast.show);
+  const activeToast = useAppSelector((state) => state.handler.toast.show);
 
   const showToast = (msg:string,show: boolean) => {
     dispatch(toast_visible({ msg: msg, show: show }));

@@ -2,7 +2,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux"
 // import { rootReducer } from "./reducers_slices/reducer"
 // import { createStore } from 'redux'
 import { LoginSlice } from "./reducers_slices/login_gre_sto_slice"
-import { ToastSlice } from "./reducers_slices/toast_gre_sto_slice"
+import { HandlersSlice } from "./reducers_slices/handler_gre_sto_slice"
 import { SignUpSlice } from "./reducers_slices/sign_up_gre_sto_slice"
 import { Location } from "./reducers_slices/location.gre.sto.slice"
 import { configureStore } from "@reduxjs/toolkit"
@@ -24,7 +24,7 @@ import { configureStore } from "@reduxjs/toolkit"
 export const store  = configureStore({
     reducer:{
         login: LoginSlice.reducer,
-        toast: ToastSlice.reducer,
+        handler: HandlersSlice.reducer,
         newUser: SignUpSlice.reducer,
         location: Location.reducer
     }
