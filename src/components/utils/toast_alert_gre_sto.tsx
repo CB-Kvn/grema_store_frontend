@@ -2,7 +2,7 @@ import { useAppSelector } from "../../redux/store";
 
 
 export const ToastAlert = () => {
-  const msgToast = useAppSelector((state) => state.toast.msg);
+  const msgToast = useAppSelector((state) => state.handler.toast.msg);
   return (
     <div role="alert" className="alert">
       <svg
