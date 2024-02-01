@@ -1,10 +1,10 @@
 
-import Example from "../components/store/index_gre_sto";
+import {MenuStore} from "../components/store/index_gre_sto";
 
 export const Store = () => {
     return (
       <>
-        <Example></Example>
+        <MenuStore></MenuStore>
       </>
     );
   };
