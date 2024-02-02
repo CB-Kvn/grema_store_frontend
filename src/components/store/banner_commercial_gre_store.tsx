@@ -9,7 +9,7 @@ export const BannerCommercial = () => {
             alt="Image 1"
           />
           <div className="flex flex-wrap justify-center">
-          <div className="badge badge-outline">Producto en descuento</div>
+          <div className="badge badge-outline">Descuento</div>
           </div>
           
         </div>
@@ -20,7 +20,7 @@ export const BannerCommercial = () => {
             alt="Image 2"
           />
            <div className="flex flex-wrap justify-center">
-          <div className="badge badge-outline">Producto en descuento</div>
+          <div className="badge badge-outline sm:text-sm">Descuento</div>
           </div>
         </div>
         <div className="w-32 sm:w-44 md:w-48 lg:w-52 xl:w-64 mx-4 ">
@@ -30,7 +30,7 @@ export const BannerCommercial = () => {
             alt="Image 3"
           />
            <div className="flex flex-wrap justify-center">
-          <div className="badge badge-outline">Producto en descuento</div>
+          <div className="badge badge-outline">Descuento</div>
           </div>
         </div>
         <div className="w-32 sm:w-44 md:w-48 lg:w-52 xl:w-64 mx-4 ">
@@ -40,7 +40,7 @@ export const BannerCommercial = () => {
             alt="Image 3"
           />
            <div className="flex flex-wrap justify-center">
-          <div className="badge badge-outline">Producto en descuento</div>
+          <div className="badge badge-outline">Descuento</div>
           </div>
         </div>
       </div>
