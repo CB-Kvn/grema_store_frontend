@@ -94,7 +94,7 @@ export const InlineProducts = () => {
   return (
 
     <>
-     {storeAble === "Store" ? <div className="bg-white my-24" id="store-pre">
+     {storeAble === "Store" ? <div className="bg-white " id="store-pre">
 
       <div className="grid justify-center w-100">
         <div className="carousel rounded-box w-100">

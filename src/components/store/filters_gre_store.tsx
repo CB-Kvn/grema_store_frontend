@@ -14,34 +14,42 @@ const sortOptions = [
   { name: 'Price: High to Low', href: '#', current: false },
 ]
 const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
+  { name: '1', href: '#' },
+  { name: '2', href: '#' },
+  { name: '3', href: '#' },
+  { name: '4', href: '#' },
+  { name: '5', href: '#' },
 ]
 const filters = [
+  {
+    id: 'Genero',
+    name: 'Genero',
+    options: [
+      { value: 'Hombre', label: 'Hombre', checked: false },
+      { value: 'Mujer', label: 'Mujer', checked: false },
+    ],
+  },
   {
     id: 'color',
     name: 'Color',
     options: [
-      { value: 'white', label: 'White', checked: false },
+      { value: 'blanco', label: 'White', checked: false },
       { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: true },
-      { value: 'brown', label: 'Brown', checked: false },
-      { value: 'green', label: 'Green', checked: false },
-      { value: 'purple', label: 'Purple', checked: false },
+      { value: 'azul', label: 'Blue', checked: true },
+      { value: 'cafe', label: 'Brown', checked: false },
+      { value: 'verde', label: 'Green', checked: false },
+      { value: 'morado', label: 'Purple', checked: false },
     ],
   },
   {
-    id: 'category',
+    id: 'categoria',
     name: 'Category',
     options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
+      { value: 'Aretes', label: 'New Arrivals', checked: false },
+      { value: 'Anillos', label: 'Sale', checked: false },
+      { value: 'Collares', label: 'Travel', checked: true },
+      { value: 'Pulseras', label: 'Organization', checked: false },
+      { value: 'Sets', label: 'Accessories', checked: false },
     ],
   },
   {

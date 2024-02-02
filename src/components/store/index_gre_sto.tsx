@@ -14,8 +14,8 @@ import { BannerCommercial } from "./banner_commercial_gre_store";
 const navigation = {
   categories: [
     {
-      id: "women",
-      name: "Women",
+      id: "Mujeres",
+      name: "Mujeres",
       featured: [
         {
           name: "New Arrivals",
@@ -37,21 +37,20 @@ const navigation = {
       sections: [
         {
           id: "accessories",
-          name: "Accessories",
+          name: "Accesorios",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
+            { name: "Aretes", href: "#" },
+            { name: "Anillos", href: "#" },
+            { name: "Collares", href: "#" },
+            { name: "Pulseras", href: "#" },
+            { name: "Sets", href: "#" },
           ],
         },
       ],
     },
     {
-      id: "men",
-      name: "Men",
+      id: "Hombres",
+      name: "Hombres",
       featured: [
         {
           name: "New Arrivals",
@@ -75,12 +74,11 @@ const navigation = {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
+            { name: "Aretes", href: "#" },
+            { name: "Anillos", href: "#" },
+            { name: "Collares", href: "#" },
+            { name: "Pulseras", href: "#" },
+            { name: "Sets", href: "#" },
           ],
         },
       ],
@@ -94,11 +92,9 @@ function classNames(...classes: string[]) {
 
 export const MenuStore = () => {
   const [open, setOpen] = useState(false);
-  // // const dispatch = useAppDispatch();
-  const handlingBannerCommercial = (open2: boolean) => {
+  const handlingBannerCommercial = () => {
     setOpen(false)
-    console.log(open);
-    console.log(open2);
+    
   };
 
   return (
@@ -218,7 +214,7 @@ export const MenuStore = () => {
                                     type="button"
                                     className="-m-2 block p-2 text-gray-500"
                                     onClick={() =>
-                                      handlingBannerCommercial(true)
+                                      handlingBannerCommercial()
                                     }
                                   >
                                     {item.name}
@@ -311,7 +307,7 @@ export const MenuStore = () => {
                                 "relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out"
                               )}
                               onClick={() => {
-                                handlingBannerCommercial(open);
+                                handlingBannerCommercial();
                               }}
                             >
                               {category.name}
@@ -393,7 +389,7 @@ export const MenuStore = () => {
                                                   className="-m-2 block p-2 text-gray-500"
                                                   onClick={() =>
                                                     handlingBannerCommercial(
-                                                      true
+                                                      
                                                     )
                                                   }
                                                 >
@@ -454,6 +450,7 @@ export const MenuStore = () => {
       </header>
 
       {!open ? <BannerCommercial></BannerCommercial> : <></>}
+      
 
       <Filters></Filters>
     </div>
