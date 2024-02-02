@@ -9,6 +9,8 @@ import { Filters } from "./filters_gre_store";
 // import { useAppDispatch } from '../../redux/store'
 // import { bannerCommercial_visible } from '../../redux/reducers_slices/handler_gre_sto_slice'
 import { BannerCommercial } from "./banner_commercial_gre_store";
+import { useAppSelector } from "../../redux/store";
+import { OptionProfile } from "../navigation/option_profile_gre_sto";
 
 
 const navigation = {
@@ -90,7 +92,10 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
+
+
 export const MenuStore = () => {
+  const activeLogin = useAppSelector((state) => state.login.success);
   const [open, setOpen] = useState(false);
   const handlingBannerCommercial = () => {
     setOpen(false)
@@ -98,7 +103,8 @@ export const MenuStore = () => {
   };
 
   return (
-    <div className="bg-white mt-8" id="store">
+    <div className="bg-white mt-8" id="store" style={{color:"#C2A78D"
+  }}>
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -135,23 +141,24 @@ export const MenuStore = () => {
                   >
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Close menu</span>
-                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className="h-6 w-6" aria-hidden="true" style={{color:"#C2A78D"
+                    }}/>
                   </button>
                 </div>
 
                 {/* Links */}
                 <Tab.Group as="div" className="mt-2">
-                  <div className="border-b border-gray-200">
+                  <div className="border-b" style={{borderBottomColor:"#C2A78D"}}>
                     <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map((category) => (
                         <Tab
                           key={category.name}
+                          // className={"Tab"}
                           className={({ selected }) =>
                             classNames(
                               selected
-                                ? "border-indigo-600 text-indigo-600"
-                                : "border-transparent text-gray-900",
-                              "flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium"
+                                ? "Tab selected"
+                                : "Tab",
                             )
                           }
                         >
@@ -165,6 +172,8 @@ export const MenuStore = () => {
                       <Tab.Panel
                         key={category.name}
                         className="space-y-10 px-4 pb-8 pt-10"
+                        style={{color:"#C2A78D"
+                    }}
                       >
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map((item) => (
@@ -267,7 +276,7 @@ export const MenuStore = () => {
           aria-label="Top"
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
-          <div className="border-b border-gray-200">
+          <div className="border-b"style={{borderBottomColor:"#C2A78D"}}>
             <div className="flex h-16 items-center">
               <button
                 type="button"
@@ -276,7 +285,8 @@ export const MenuStore = () => {
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" style={{color:"#C2A78D"
+                    }} />
               </button>
 
               {/* Logo */}
@@ -295,16 +305,17 @@ export const MenuStore = () => {
               <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch"  >
                 <div className="flex h-full space-x-8">
                   {navigation.categories.map((category) => (
-                    <Popover key={category.name} className="flex">
+                    <Popover key={category.name} className="flex" style={{color:"#C2A78D"
+                  }}>
                       {({ open }) => (
                         <>
                           <div className="relative flex">
                             <Popover.Button
                               className={classNames(
                                 open
-                                  ? "border-indigo-600 text-indigo-600"
-                                  : "border-transparent text-gray-700 hover:text-gray-800",
-                                "relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out"
+                                  ? "Pop selected"
+                                  : "Pop",
+                                
                               )}
                               onClick={() => {
                                 handlingBannerCommercial();
@@ -413,36 +424,52 @@ export const MenuStore = () => {
                 </div>
               </Popover.Group>
 
-              <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Sign in
-                  </a>
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Create account
-                  </a>
-                </div>
+              <div className="ml-auto flex items-center" >
+                {
+                    activeLogin ? <></> : <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                    <a
+                      href="#"
+                      className="text-sm font-medium " style={{color:"#C2A78D"}}
+                      onClick={()=>{
+                        console.log("Hola")
+                      }}
+                    >
+                      Ingresar
+                    </a>
+                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                    <a
+                      href="#"
+                      className="text-sm font-medium"
+                      onClick={()=>{
+                        console.log("Hola")
+                      }}
+                      style={{color:"#C2A78D"}}
+                    >
+                      Crear cuenta
+                    </a>
+                  </div>
+                }
+                
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <a href="#" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
-                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                      className="h-6 w-6 flex-shrink-0 text-gray-300 group-hover:text-gray-600"
                       aria-hidden="true"
+                      style={{color:"#C2A78D"
+                    }}
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                    <span className="ml-2 text-sm font-medium" style={{color:"#C2A78D"}}>
                       0
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
+
+                { activeLogin ? <OptionProfile></OptionProfile> : <></>}
+
+
               </div>
             </div>
           </div>

@@ -59,3 +59,74 @@ aside {
   body{
     scrollbar-width: thin;  
   }
+
+  .Tab{
+    flex: 1 1 0%;
+    white-space: nowrap;
+    border-bottom-width: 2px;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1rem/* 16px */;
+    line-height: 1.5rem/* 24px */;
+    font-weight: 500;
+    color : #C2A78D;
+    border-color: transparent;
+  }
+
+  .Tab.selected{
+    flex: 1 1 0%;
+    white-space: nowrap;
+    border-bottom-width: 2px;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1rem/* 16px */;
+    line-height: 1.5rem/* 24px */;
+    font-weight: 500;
+    color : #95806b;
+    border-color: #95806b;
+  }
+
+  .Pop{
+    position: relative;
+    z-index: 10;
+    margin-bottom: -1px;
+    display: flex;
+    align-items: center;
+    border-bottom-width: 2px;
+    padding-top: 1px;
+    font-size: 0.875rem/* 14px */;
+    line-height: 1.25rem/* 20px */;
+    font-weight: 500;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    border-color: transparent;
+    color : #C2A78D;
+  }
+  .Pop.selected{
+    position: relative;
+    z-index: 10;
+    margin-bottom: -1px;
+    display: flex;
+    align-items: center;
+    border-bottom-width: 2px;
+    padding-top: 1px;
+    font-size: 0.875rem/* 14px */;
+    line-height: 1.25rem/* 20px */;
+    font-weight: 500;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    color : #95806b;
+    border-color: #95806b;
+
+
+  }

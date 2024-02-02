@@ -327,15 +327,16 @@ export const Filters = () => {
         </Transition.Root>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-baseline justify-end border-b border-gray-200 pb-6 pt-24">
+          <div className="flex items-baseline justify-end border-b  pb-6 pt-10"style={{borderColor:"#C2A78D"}}>
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                  <Menu.Button className="group inline-flex justify-center text-sm font-medium " style={{color:"#C2A78D"}}>
                     Sort
                     <ChevronDownIcon
-                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0"
                       aria-hidden="true"
+                      style={{color:"#C2A78D"}}
                     />
                   </Menu.Button>
                 </div>
@@ -379,7 +380,7 @@ export const Filters = () => {
                 className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
               >
                 <span className="sr-only">View grid</span>
-                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" style={{color:"#C2A78D"}}/>
               </button>
               <button
                 type="button"
@@ -387,7 +388,7 @@ export const Filters = () => {
                 onClick={() => setMobileFiltersOpen(true)}
               >
                 <span className="sr-only">Filters</span>
-                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+                <FunnelIcon className="h-5 w-5" aria-hidden="true" style={{color:"#C2A78D"}}/>
               </button>
             </div>
           </div>
@@ -403,7 +404,8 @@ export const Filters = () => {
                 <h3 className="sr-only">Categories</h3>
                 <ul
                   role="list"
-                  className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
+                  className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium "
+                  style={{color:"#C2A78D"}}
                 >
                   {subCategories.map((category) => (
                     <li key={category.name}>
@@ -474,9 +476,9 @@ export const Filters = () => {
               {/* Product grid */}
               <div className="lg:col-span-3">
                 <div className="bg-white">
-                  <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+                  <div className="mx-auto max-w-2xl px-4  sm:px-6  lg:max-w-7xl ">
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-                      Customers also purchased
+                      Resultados...
                     </h2>
 
                     <div className="mt-6  grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-3 xl:gap-x-1">
