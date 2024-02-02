@@ -477,7 +477,7 @@ export const Filters = () => {
               <div className="lg:col-span-3">
                 <div className="bg-white">
                   <div className="mx-auto max-w-2xl px-4  sm:px-6  lg:max-w-7xl ">
-                    <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+                    <h2 className="text-2xl font-bold tracking-tight" style={{color:"#C2A78D"}} >
                       Resultados...
                     </h2>
 
@@ -491,9 +491,9 @@ export const Filters = () => {
                               className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                             />
                           </div>
-                          <div className="mt-4 flex justify-between">
+                          <div className="mt-4 flex justify-between font-medium "style={{color:"#95806b"}}>
                             <div>
-                              <h3 className="text-sm text-gray-700">
+                              <h3 className="text-sm ">
                                 <a href={product.href}>
                                   <span
                                     aria-hidden="true"
@@ -502,11 +502,11 @@ export const Filters = () => {
                                   {product.name}
                                 </a>
                               </h3>
-                              <p className="mt-1 text-sm text-gray-500">
+                              <p className="mt-1 text-sm ">
                                 {product.color}
                               </p>
                             </div>
-                            <p className="text-sm font-medium text-gray-900">
+                            <p className="text-sm font-bold ">
                               {product.price}
                             </p>
                           </div>
