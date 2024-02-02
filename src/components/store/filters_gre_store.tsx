@@ -9,7 +9,6 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 
-import { InlineProducts } from "../landing/carrousel_products_landing_gre_sto";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
