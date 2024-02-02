@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -95,15 +95,11 @@ function classNames(...classes: string[]) {
 export const MenuStore = () => {
   const [open, setOpen] = useState(false);
   // // const dispatch = useAppDispatch();
-  const handlingBannerCommercial = (open: boolean) => {
+  const handlingBannerCommercial = (open2: boolean) => {
     setOpen(false)
     console.log(open);
+    console.log(open2);
   };
-
-  useEffect(() => {
-   
-  }, [open])
-  
 
   return (
     <div className="bg-white mt-8" id="store">
@@ -300,7 +296,7 @@ export const MenuStore = () => {
               </div>
 
               {/* Flyout menus */}
-              <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
+              <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch"  >
                 <div className="flex h-full space-x-8">
                   {navigation.categories.map((category) => (
                     <Popover key={category.name} className="flex">
@@ -322,7 +318,7 @@ export const MenuStore = () => {
                             </Popover.Button>
                           </div>
 
-                          <Transition
+                          <Transition.Root 
                             as={Fragment}
                             enter="transition ease-out duration-200"
                             enterFrom="opacity-0"
@@ -413,7 +409,7 @@ export const MenuStore = () => {
                                 </div>
                               </div>
                             </Popover.Panel>
-                          </Transition>
+                          </Transition.Root>
                         </>
                       )}
                     </Popover>
