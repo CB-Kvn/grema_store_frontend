@@ -47,7 +47,7 @@ const filters = [
   },
   {
     id: "categoria",
-    name: "Category",
+    name: "Categoria",
     options: [
       { value: "Aretes", label: "New Arrivals", checked: false },
       { value: "Anillos", label: "Sale", checked: false },
@@ -58,7 +58,7 @@ const filters = [
   },
   {
     id: "size",
-    name: "Size",
+    name: "Tamano",
     options: [
       { value: "2l", label: "2L", checked: false },
       { value: "6l", label: "6L", checked: false },
@@ -255,7 +255,7 @@ export const Filters = () => {
                     >
                       {subCategories.map((category) => (
                         <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
+                          <a href={category.href} className="block px-2 py-3"style={{color:"#C2A78D"}}>
                             {category.name}
                           </a>
                         </li>
@@ -272,7 +272,7 @@ export const Filters = () => {
                           <>
                             <h3 className="-mx-2 -my-3 flow-root">
                               <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                <span className="font-medium text-gray-900">
+                                <span className="font-medium "style={{color:"#C2A78D"}}>
                                   {section.name}
                                 </span>
                                 <span className="ml-6 flex items-center">
@@ -307,7 +307,7 @@ export const Filters = () => {
                                     />
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                      className="ml-3 min-w-0 flex-1 text-gray-500"
+                                      className="ml-3 min-w-0 flex-1 "style={{color:"#C2A78D"}}
                                     >
                                       {option.label}
                                     </label>
@@ -418,13 +418,14 @@ export const Filters = () => {
                   <Disclosure
                     as="div"
                     key={section.id}
-                    className="border-b border-gray-200 py-6"
+                    className="border-b py-6"
+                    style={{color:"#C2A78D"}}
                   >
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
                           <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900">
+                            <span className="font-medium "style={{color:"#C2A78D"}}>
                               {section.name}
                             </span>
                             <span className="ml-6 flex items-center">
@@ -432,11 +433,13 @@ export const Filters = () => {
                                 <MinusIcon
                                   className="h-5 w-5"
                                   aria-hidden="true"
+                                  style={{color:"#95806b"}}
                                 />
                               ) : (
                                 <PlusIcon
                                   className="h-5 w-5"
                                   aria-hidden="true"
+                                  style={{color:"#95806b"}}
                                 />
                               )}
                             </span>
@@ -459,7 +462,8 @@ export const Filters = () => {
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm text-gray-600"
+                                  className="ml-3 text-sm" 
+                                  style={{color:"#C2A78D"}}
                                 >
                                   {option.label}
                                 </label>
