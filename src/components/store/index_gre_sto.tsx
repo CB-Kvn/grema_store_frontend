@@ -9,9 +9,12 @@ import { Filters } from "./filters_gre_store";
 // import { useAppDispatch } from '../../redux/store'
 // import { bannerCommercial_visible } from '../../redux/reducers_slices/handler_gre_sto_slice'
 import { BannerCommercial } from "./banner_commercial_gre_store";
-import { useAppSelector } from "../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
-
+import { Login } from "../sign&log/login_up_gre_sto";
+import { SignUp } from "../sign&log/sign_up_gre_sto";
+import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
+import { Carts } from "./carts_gre_sto";
 
 const navigation = {
   categories: [
@@ -92,19 +95,19 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-
-
 export const MenuStore = () => {
   const activeLogin = useAppSelector((state) => state.login.success);
   const [open, setOpen] = useState(false);
+  const dispatch = useAppDispatch();
   const handlingBannerCommercial = () => {
-    setOpen(false)
-    
+    setOpen(false);
   };
-
+  const handleSignUp = (open:boolean) =>{
+    dispatch(new_user_form({show: open }));
+  }
+ 
   return (
-    <div className="bg-white mt-8" id="store" style={{color:"#C2A78D"
-  }}>
+    <div className="bg-white mt-8" id="store" style={{ color: "#C2A78D" }}>
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -137,29 +140,32 @@ export const MenuStore = () => {
                     className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                     onClick={() => {
                       setOpen(false);
+
                     }}
                   >
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Close menu</span>
-                    <XMarkIcon className="h-6 w-6" aria-hidden="true" style={{color:"#C2A78D"
-                    }}/>
+                    <XMarkIcon
+                      className="h-6 w-6"
+                      aria-hidden="true"
+                      style={{ color: "#C2A78D" }}
+                    />
                   </button>
                 </div>
 
                 {/* Links */}
                 <Tab.Group as="div" className="mt-2">
-                  <div className="border-b" style={{borderBottomColor:"#C2A78D"}}>
+                  <div
+                    className="border-b"
+                    style={{ borderBottomColor: "#C2A78D" }}
+                  >
                     <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map((category) => (
                         <Tab
                           key={category.name}
                           // className={"Tab"}
                           className={({ selected }) =>
-                            classNames(
-                              selected
-                                ? "Tab selected"
-                                : "Tab",
-                            )
+                            classNames(selected ? "Tab selected" : "Tab")
                           }
                         >
                           {category.name}
@@ -172,8 +178,7 @@ export const MenuStore = () => {
                       <Tab.Panel
                         key={category.name}
                         className="space-y-10 px-4 pb-8 pt-10"
-                        style={{color:"#C2A78D"
-                    }}
+                        style={{ color: "#C2A78D" }}
                       >
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map((item) => (
@@ -189,11 +194,11 @@ export const MenuStore = () => {
                                 />
                               </div>
                               <a
-                                href={item.href}
-                                className="mt-6 block font-medium text-gray-900"
+                                
+                                className="mt-6 block font-medium" style={{ borderBottomColor: "#C2A78D" }} 
                               >
                                 <span
-                                  className="absolute inset-0 z-10"
+                                  className="absolute inset-0 z-10" style={{ borderBottomColor: "#C2A78D" }}
                                   aria-hidden="true"
                                 />
                                 {item.name}
@@ -208,7 +213,7 @@ export const MenuStore = () => {
                           <div key={section.name}>
                             <p
                               id={`${category.id}-${section.id}-heading-mobile`}
-                              className="font-medium text-gray-900"
+                              className="font-medium" style={{ borderBottomColor: "#C2A78D" }}
                             >
                               {section.name}
                             </p>
@@ -221,10 +226,8 @@ export const MenuStore = () => {
                                 <div key={item.name} className="flow-root">
                                   <button
                                     type="button"
-                                    className="-m-2 block p-2 text-gray-500"
-                                    onClick={() =>
-                                      handlingBannerCommercial()
-                                    }
+                                    className="-m-2 block p-2"style={{ borderBottomColor: "#C2A78D" }}
+                                    onClick={() => handlingBannerCommercial()}
                                   >
                                     {item.name}
                                   </button>
@@ -256,8 +259,6 @@ export const MenuStore = () => {
                     </a>
                   </div>
                 </div>
-
-
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -276,7 +277,7 @@ export const MenuStore = () => {
           aria-label="Top"
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
-          <div className="border-b"style={{borderBottomColor:"#C2A78D"}}>
+          <div className="border-b" style={{ borderBottomColor: "#C2A78D" }}>
             <div className="flex h-16 items-center">
               <button
                 type="button"
@@ -285,8 +286,11 @@ export const MenuStore = () => {
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" style={{color:"#C2A78D"
-                    }} />
+                <Bars3Icon
+                  className="h-6 w-6"
+                  aria-hidden="true"
+                  style={{ color: "#C2A78D" }}
+                />
               </button>
 
               {/* Logo */}
@@ -302,20 +306,20 @@ export const MenuStore = () => {
               </div>
 
               {/* Flyout menus */}
-              <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch"  >
+              <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
                   {navigation.categories.map((category) => (
-                    <Popover key={category.name} className="flex" style={{color:"#C2A78D"
-                  }}>
+                    <Popover
+                      key={category.name}
+                      className="flex"
+                      style={{ color: "#C2A78D" }}
+                    >
                       {({ open }) => (
                         <>
                           <div className="relative flex">
                             <Popover.Button
                               className={classNames(
-                                open
-                                  ? "Pop selected"
-                                  : "Pop",
-                                
+                                open ? "Pop selected" : "Pop"
                               )}
                               onClick={() => {
                                 handlingBannerCommercial();
@@ -325,7 +329,7 @@ export const MenuStore = () => {
                             </Popover.Button>
                           </div>
 
-                          <Transition.Root 
+                          <Transition.Root
                             as={Fragment}
                             enter="transition ease-out duration-200"
                             enterFrom="opacity-0"
@@ -399,9 +403,7 @@ export const MenuStore = () => {
                                                   type="button"
                                                   className="-m-2 block p-2 text-gray-500"
                                                   onClick={() =>
-                                                    handlingBannerCommercial(
-                                                      
-                                                    )
+                                                    handlingBannerCommercial()
                                                   }
                                                 >
                                                   {item.name}
@@ -424,31 +426,84 @@ export const MenuStore = () => {
                 </div>
               </Popover.Group>
 
-              <div className="ml-auto flex items-center" >
-                {
-                    activeLogin ? <></> : <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                    <a
-                      href="#"
-                      className="text-sm font-medium " style={{color:"#C2A78D"}}
-                      onClick={()=>{
-                        console.log("Hola")
-                      }}
-                    >
-                      Ingresar
-                    </a>
+              <div className="ml-auto flex items-center">
+                
+                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                    <>
+                      <label htmlFor="my_modal_7" className="btn btn-ghost">
+                        <div className="indicator">
+                          
+                            Ingresar
+                          
+                        </div>
+                      </label>
+                      <input
+                        type="checkbox"
+                        id="my_modal_7"
+                        className="modal-toggle"
+                      />
+                      <div className="modal" role="dialog">
+                        <div className="modal-box">
+                          <Login></Login>
+                        </div>
+                        <label
+                          className="modal-backdrop"
+                          htmlFor="my_modal_7"
+                          onClick={() => {
+                            console.log("Cerrando modal");
+                          }}
+                        >
+                          Close
+                        </label>
+                      </div>
+                    </>
+
+                    {/* <a
+                          href="#"
+                          className="text-sm font-medium "
+                          style={{ color: "#C2A78D" }}
+                          onClick={() => {
+                            console.log("Hola");
+                          }}
+                        >
+                          Ingresar
+                        </a>
+                         */}
+
                     <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                    <a
-                      href="#"
-                      className="text-sm font-medium"
-                      onClick={()=>{
-                        console.log("Hola")
-                      }}
-                      style={{color:"#C2A78D"}}
-                    >
-                      Crear cuenta
-                    </a>
+
+                    <>
+                      <label htmlFor="my_modal_8" className="btn btn-ghost" onClick={()=>{handleSignUp(true), console.log("Hola")}}>
+                        <div className="indicator">
+                          
+                            Crear cuenta
+                          
+                        </div>
+                      </label>
+                      <input
+                        type="checkbox"
+                        id="my_modal_8"
+                        className="modal-toggle"
+                        
+                      />
+                      <div className="modal" role="dialog">
+                        <div className="modal-box">
+                          <SignUp></SignUp>
+                        </div>
+                        <label
+                          className="modal-backdrop"
+                          htmlFor="my_modal_8"
+                          onClick={() => {
+                            console.log("Cerrando modal");
+                          }}
+                        >
+                          Close
+                        </label>
+                      </div>
+                    </>
+
+
                   </div>
-                }
                 
 
                 {/* Cart */}
@@ -457,19 +512,19 @@ export const MenuStore = () => {
                     <ShoppingBagIcon
                       className="h-6 w-6 flex-shrink-0 text-gray-300 group-hover:text-gray-600"
                       aria-hidden="true"
-                      style={{color:"#C2A78D"
-                    }}
+                      style={{ color: "#C2A78D" }}
                     />
-                    <span className="ml-2 text-sm font-medium" style={{color:"#C2A78D"}}>
+                    <span
+                      className="ml-2 text-sm font-medium"
+                      style={{ color: "#C2A78D" }}
+                    >
                       0
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
 
-                { activeLogin ? <OptionProfile></OptionProfile> : <></>}
-
-
+                {activeLogin ? <OptionProfile></OptionProfile> : <></>}
               </div>
             </div>
           </div>
@@ -477,9 +532,9 @@ export const MenuStore = () => {
       </header>
 
       {!open ? <BannerCommercial></BannerCommercial> : <></>}
-      
 
       <Filters></Filters>
+      <Carts></Carts>
     </div>
   );
 };

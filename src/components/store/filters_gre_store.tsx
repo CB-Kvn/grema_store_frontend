@@ -198,7 +198,11 @@ function classNames(...classes: string[]) {
 
 export const Filters = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-
+  const handleModalProduct = () => { 
+    console.log("Dale")
+      const element = document.querySelector("#my_modal_10") as HTMLInputElement ;
+      element.checked = true
+  }
   return (
     <div className="bg-white">
       <div>
@@ -233,7 +237,7 @@ export const Filters = () => {
               >
                 <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
                   <div className="flex items-center justify-between px-4">
-                    <h2 className="text-lg font-medium text-gray-900">
+                    <h2 className="text-lg font-medium text-gray-900"style={{color:"#C2A78D"}}>
                       Filters
                     </h2>
                     <button
@@ -242,7 +246,7 @@ export const Filters = () => {
                       onClick={() => setMobileFiltersOpen(false)}
                     >
                       <span className="sr-only">Close menu</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" style={{color:"#C2A78D"}} />
                     </button>
                   </div>
 
@@ -332,7 +336,7 @@ export const Filters = () => {
               <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium " style={{color:"#C2A78D"}}>
-                    Sort
+                    Ordenar
                     <ChevronDownIcon
                       className="-mr-1 ml-1 h-5 w-5 flex-shrink-0"
                       aria-hidden="true"
@@ -481,14 +485,11 @@ export const Filters = () => {
               <div className="lg:col-span-3">
                 <div className="bg-white">
                   <div className="mx-auto max-w-2xl px-4  sm:px-6  lg:max-w-7xl ">
-                    <h2 className="text-2xl font-bold tracking-tight" style={{color:"#C2A78D"}} >
-                      Resultados...
-                    </h2>
 
                     <div className="mt-6  grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-3 xl:gap-x-1">
                       {productsStoreFilters.map((product) => (
                         <div key={product.id} className="group relative">
-                          <div className="aspect-h-1 aspect-w-1 w-full  overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-72">
+                          <div className="aspect-h-1 aspect-w-1 w-full  overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-72" >
                             <img
                               src={product.imageSrc}
                               alt={product.imageAlt}
@@ -498,7 +499,7 @@ export const Filters = () => {
                           <div className="mt-4 flex justify-between font-medium "style={{color:"#95806b"}}>
                             <div>
                               <h3 className="text-sm ">
-                                <a href={product.href}>
+                                <a onClick={()=>{handleModalProduct()}}>
                                   <span
                                     aria-hidden="true"
                                     className="absolute inset-0"
@@ -517,9 +518,16 @@ export const Filters = () => {
                         </div>
                       ))}
                     </div>
+
+
+
+                    
                   </div>
                 </div>
               </div>
+
+
+              
             </div>
           </section>
         </main>
