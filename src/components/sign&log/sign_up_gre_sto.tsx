@@ -14,7 +14,6 @@ export const SignUp = () => {
   const handleChangeCountry = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCountry(Number(e.target.value));
   };
-
   const handleChangeState = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setState(Number(e.target.value));
   };

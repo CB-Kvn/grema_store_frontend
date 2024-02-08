@@ -10,6 +10,7 @@ import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice
 // import { login_successful } from "../redux/reducers_slices/login_gre_sto_slice"
 
 export const Login = () => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
@@ -18,7 +19,6 @@ export const Login = () => {
   const showToast = (msg:string,show: boolean) => {
     dispatch(toast_visible({ msg: msg, show: show }));
   };
-
   const handleLogin = async () => {
     // document.querySelector("#my_modal_7").checked = false;
     const response = await loginService({ email, password });
@@ -36,7 +36,6 @@ export const Login = () => {
     }
       
   };
-
   const handleSignUp = () =>{
     dispatch(new_user_form({show: true }));
   }

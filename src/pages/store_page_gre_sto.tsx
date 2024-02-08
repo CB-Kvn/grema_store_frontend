@@ -7,7 +7,12 @@ import { Modal_Product } from "../components/store/modal_product_gre_sto";
 
 
 export const Store = () => {
+ 
+ 
+ 
   const dispatch = useAppDispatch();
+  
+  
   useEffect(() => {
     dispatch(actuallyLocation({weGo : 'Store', weStay:'Home'}))
   },)

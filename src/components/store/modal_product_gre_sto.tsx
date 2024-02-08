@@ -122,10 +122,9 @@ const productsStoreFilters = [
   // More products...
 ];
 export const Modal_Product = () => {
+ 
   return (
     <>
-      
-      {/* Put this part before </body> tag */}
       <input type="checkbox" id="my_modal_10" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box">

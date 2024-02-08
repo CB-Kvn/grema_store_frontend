@@ -4,7 +4,9 @@ import { ModalLogin } from "../sign&log/index_gre_sto";
 import { OptionProfile } from "./option_profile_gre_sto";
 
 export const Navigation_Gre_Sto = () => {
+  
   const activeLogin = useAppSelector((state) => state.login.success);
+  
   return (
     <>
       <div className="navbar sticky-bar bg-nav h-20 fixed top-0" style={{backgroundColor: "#F6DAEF"}}>

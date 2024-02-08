@@ -3,6 +3,7 @@ import { Login } from "./login_up_gre_sto";
 import { SignUp } from "./sign_up_gre_sto";
 
 export const ModalLogin = () => {
+  
   const changeForm = useAppSelector((state) => state.newUser);
 
   return (

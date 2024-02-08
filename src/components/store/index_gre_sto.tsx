@@ -98,6 +98,8 @@ export const MenuStore = () => {
   const activeLogin = useAppSelector((state) => state.login.success);
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
+  
+  
   const handlingBannerCommercial = () => {
     setOpen(false);
   };
@@ -187,6 +189,7 @@ export const MenuStore = () => {
                             <div
                               key={item.name}
                               className="group relative text-sm"
+                              style={{ color: "#C2A78D" }}
                             >
                               <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                 <img
@@ -244,18 +247,22 @@ export const MenuStore = () => {
                 </Tab.Group>
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  <div className="flow-root">
+                  <div className="flow-root"
+                  style={{ color: "#C2A78D" }} >
                     <a
                       href="#"
-                      className="-m-2 block p-2 font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium "
+                      style={{ color: "#C2A78D" }}
                     >
                       Sign in
                     </a>
                   </div>
-                  <div className="flow-root">
+                  <div className="flow-root"
+                  style={{ color: "#C2A78D" }} >
                     <a
                       href="#"
-                      className="-m-2 block p-2 font-medium text-gray-900"
+                      className="-m-2 block p-2 font-medium "
+                      style={{ color: "#C2A78D" }} 
                     >
                       Create account
                     </a>
@@ -355,6 +362,7 @@ export const MenuStore = () => {
                                         <div
                                           key={item.name}
                                           className="group relative text-base sm:text-sm"
+                                          style={{ color: "#C2A78D" }}
                                         >
                                           <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                             <img
@@ -365,11 +373,13 @@ export const MenuStore = () => {
                                           </div>
                                           <a
                                             href={item.href}
-                                            className="mt-6 block font-medium text-gray-900"
+                                            className="mt-6 block font-medium"
+                                            style={{ color: "#C2A78D" }} 
                                           >
                                             <span
                                               className="absolute inset-0 z-10"
                                               aria-hidden="true"
+                                              style={{ color: "#C2A78D" }}
                                             />
                                             {item.name}
                                           </a>
@@ -387,7 +397,7 @@ export const MenuStore = () => {
                                         <div key={section.name}>
                                           <p
                                             id={`${section.name}-heading`}
-                                            className="font-medium text-gray-900"
+                                            className="font-medium"style={{ color: "#C2A78D" }}
                                           >
                                             {section.name}
                                           </p>
@@ -395,15 +405,17 @@ export const MenuStore = () => {
                                             role="list"
                                             aria-labelledby={`${section.name}-heading`}
                                             className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                            style={{ color: "#C2A78D" }}
                                           >
                                             {section.items.map((item) => (
                                               <div
                                                 key={item.name}
-                                                className="flow-root"
+                                                className="flow-root" style={{ color: "#C2A78D" }}
                                               >
                                                 <button
                                                   type="button"
-                                                  className="-m-2 block p-2 text-gray-500"
+                                                  className="-m-2 block p-2"
+                                                  style={{ color: "#C2A78D" }}
                                                   onClick={() =>
                                                     handlingBannerCommercial()
                                                   }

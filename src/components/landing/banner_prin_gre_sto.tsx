@@ -2,13 +2,17 @@ import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store";
 import { actuallyLocation } from "../../redux/reducers_slices/location.gre.sto.slice";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const goToStore = (dispatch:any)=>{
- dispatch(actuallyLocation({weGo : 'Store', weStay:'Home'}))
-}
+
+
 
 export const BannerPrincipal = () => {
   const dispatch = useAppDispatch();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const goToStore = (dispatch:any)=>{
+    dispatch(actuallyLocation({weGo : 'Store', weStay:'Home'}))
+   }
+   
   return (
     <div className="hero min-h-screen" id="/" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/stock-photo-jewelry-making-flatlay-with-semi-precious-stone-beads-and-tools-handmade-jewelry-small-business-2209254561-min.jpg'}}>
     <div className="hero-overlay bg-opacity-10"></div>

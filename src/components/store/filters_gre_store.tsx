@@ -197,12 +197,14 @@ function classNames(...classes: string[]) {
 }
 
 export const Filters = () => {
+  
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const handleModalProduct = () => { 
     console.log("Dale")
       const element = document.querySelector("#my_modal_10") as HTMLInputElement ;
       element.checked = true
   }
+  
   return (
     <div className="bg-white">
       <div>

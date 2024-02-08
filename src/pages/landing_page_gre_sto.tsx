@@ -13,10 +13,14 @@ import { useAppDispatch } from "../redux/store";
 import { actuallyLocation } from "../redux/reducers_slices/location.gre.sto.slice";
 
 export const LandingPage = () => {
+
+
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(actuallyLocation({weGo : 'Home', weStay:'Store'}))
   },)
+  
+  
   return (
     <>
       <Navigation_Gre_Sto></Navigation_Gre_Sto>

@@ -130,3 +130,20 @@ aside {
 
 
   }
+  
+  .Check{
+    background-color: #F6DAEF;
+    color: #95806b;
+  }
+  .Check:hover{
+    background-color: #F6DAEF;
+    opacity: 0.7;
+    color: #95806b;
+  }
+
+  .Remove{
+    color:#C2A78D
+  }
+  .Remove:hover{
+    color:#9b5176
+  }
