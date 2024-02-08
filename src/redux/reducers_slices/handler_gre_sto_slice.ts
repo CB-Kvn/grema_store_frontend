@@ -9,7 +9,12 @@ const initialState = {
     bannerCommercial:{
         show: false,
         msg:""
+    },
+    shopCart_visible:{
+        show: false,
+        msg:""
     }
+    
 }
 
 export const HandlersSlice = createSlice({
@@ -28,11 +33,14 @@ export const HandlersSlice = createSlice({
             state.bannerCommercial.msg = action.payload.msg
             
         },
+        shopCart_visible: ( state,action) => {
+            state.shopCart_visible.show =action.payload.show
+        }   
         
 
     },
 })
 
-export const { toast_visible,bannerCommercial_visible } = HandlersSlice.actions
+export const { toast_visible,bannerCommercial_visible,shopCart_visible } = HandlersSlice.actions
 
 export default HandlersSlice.reducer

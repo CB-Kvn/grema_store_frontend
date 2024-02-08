@@ -6,8 +6,6 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Filters } from "./filters_gre_store";
-// import { useAppDispatch } from '../../redux/store'
-// import { bannerCommercial_visible } from '../../redux/reducers_slices/handler_gre_sto_slice'
 import { BannerCommercial } from "./banner_commercial_gre_store";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
@@ -15,6 +13,7 @@ import { Login } from "../sign&log/login_up_gre_sto";
 import { SignUp } from "../sign&log/sign_up_gre_sto";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 import { Carts } from "./carts_gre_sto";
+import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 
 const navigation = {
   categories: [
@@ -104,6 +103,9 @@ export const MenuStore = () => {
   };
   const handleSignUp = (open:boolean) =>{
     dispatch(new_user_form({show: open }));
+  }
+  const handleCartShop = (open:boolean)  =>{
+    dispatch(shopCart_visible({show: open }));
   }
  
   return (
@@ -508,7 +510,7 @@ export const MenuStore = () => {
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 flex items-center p-2">
+                  <a onClick={()=>{handleCartShop(true)}} className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       className="h-6 w-6 flex-shrink-0 text-gray-300 group-hover:text-gray-600"
                       aria-hidden="true"
