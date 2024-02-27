@@ -2,7 +2,7 @@
 export const UserCard = () => {
   return (
     <>
-      <div className="ml-28 max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm mt-16 bg-white shadow-xl rounded-lg text-gray-900">
+      <div className="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mt-10 bg-white shadow-xl rounded-lg text-gray-900">
         <div className="rounded-t-lg h-32 overflow-hidden">
           <img
             className="object-cover object-top w-full"
@@ -19,10 +19,9 @@ export const UserCard = () => {
         </div>
         <div className="text-center mt-2">
           <h2 className="font-semibold">Sarah Smith</h2>
-          <p className="text-gray-500">Freelance Web Designer</p>
         </div>
 
-        <div className="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 bg-white shadow-xl rounded-lg text-gray-900">
+        <div className="max-w-2xl mx-4 sm:max-w-sm  md:max-w-md  lg:max-w-md  xl:max-w-md  sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 bg-white shadow-xl rounded-lg text-gray-900">
           <div>
             <div className="mt-6 border-t border-gray-100 p-4">
               <dl className="divide-y divide-gray-100">
@@ -54,7 +53,7 @@ export const UserCard = () => {
                   <dt className="text-sm font-medium leading-6 text-gray-900">
                     Direccion Envio/Facturacion
                   </dt>
-                  <dd className="mt-1 ml-10 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  <dd className="mt-1  text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                     Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
                     incididunt cillum culpa consequat. Excepteur qui ipsum
                     aliquip consequat sint. Sit id mollit nulla mollit nostrud
@@ -67,6 +66,7 @@ export const UserCard = () => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };
