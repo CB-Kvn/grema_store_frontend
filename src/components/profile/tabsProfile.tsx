@@ -45,7 +45,7 @@ export const TabsProfile = () => {
 
   return (
     <div className=" flex justify-start mt-24 md:justify-center ">
-      <div className="w-3/4">
+      <div className="w-full md:w-3/4">
         <div role="tablist" className="tabs tabs-lifted">
           <input
             type="radio"
@@ -63,7 +63,7 @@ export const TabsProfile = () => {
             role="tabpanel"
             className="tab-content bg-base-100 border-base-300 rounded-box p-6"
           >
-            <div className=" inline-grid justify-center xl:flex">
+            <div className=" inline-grid w-full justify-center xl:flex">
               <UserCard></UserCard>
               <Buttons_Profile option="information" tab="1"></Buttons_Profile>
             </div>
