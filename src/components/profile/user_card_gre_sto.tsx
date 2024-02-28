@@ -21,7 +21,7 @@ export const UserCard = () => {
           <h2 className="font-semibold">Sarah Smith</h2>
         </div>
 
-        <div className="max-w-2xl mx-4 sm:max-w-sm  md:max-w-md  lg:max-w-md  xl:max-w-md  sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 bg-white shadow-xl rounded-lg text-gray-900">
+        <div className="max-w-2xl mx-4 sm:max-w-sm  md:max-w-md  lg:max-w-md  xl:max-w-md  sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 ">
           <div>
             <div className="mt-6 border-t border-gray-100 p-4">
               <dl className="divide-y divide-gray-100">
