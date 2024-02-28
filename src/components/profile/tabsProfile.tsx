@@ -44,7 +44,7 @@ export const TabsProfile = () => {
   };
 
   return (
-    <div className=" flex  justify-center mt-24 ">
+    <div className=" flex justify-start mt-24 md:justify-center ">
       <div className="w-3/4">
         <div role="tablist" className="tabs tabs-lifted">
           <input
