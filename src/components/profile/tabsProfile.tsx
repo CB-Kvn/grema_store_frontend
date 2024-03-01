@@ -46,7 +46,7 @@ export const TabsProfile = () => {
   return (
     <div className=" flex justify-start mt-24 md:justify-center ">
       <div className="w-full md:w-3/4">
-        <div role="tablist" className="tabs tabs-lifted">
+        <div role="tablist" className="tabs tabs-lifted mx-4 my-6">
           <input
             type="radio"
             name="my_tabs_2"
@@ -58,6 +58,7 @@ export const TabsProfile = () => {
             onClick={() => {
               handleTabs(1);
             }}
+            style={{color:"#95806b"}}
           />
           <div
             role="tabpanel"
@@ -79,6 +80,7 @@ export const TabsProfile = () => {
             onClick={() => {
               handleTabs(2);
             }}
+            style={{color:"#95806b"}}
           />
           <div
             role="tabpanel"
@@ -98,6 +100,7 @@ export const TabsProfile = () => {
             onClick={() => {
               handleTabs(3);
             }}
+            style={{color:"#95806b"}}
           />
           <div
             role="tabpanel"
@@ -116,6 +119,7 @@ export const TabsProfile = () => {
             onClick={() => {
               handleTabs(4);
             }}
+            style={{color:"#95806b"}}
           />
           <div
             role="tabpanel"

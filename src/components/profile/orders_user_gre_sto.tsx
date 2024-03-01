@@ -1,28 +1,29 @@
+import  './../../styles/tabs_styles.css' 
+
+
 export const Orders = () => {
   return (
     <>
       <div className="overflow-y-scroll h-96  ">
-        <table className="table">
+        <table className="table" style={{color:"#95806b"}}>
           {/* head */}
           <thead>
             <tr>
               <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
+                
               </th>
-              <th>Imagen</th>
-              <th>Descripcion</th>
-              <th>Fecha</th>
-              <th>Estado</th>
+              <th style={{color:"#95806b",fontSize:"1rem"}}>Imagen</th>
+              <th style={{color:"#95806b",fontSize:"1rem"}}>Descripcion</th>
+              <th style={{color:"#95806b",fontSize:"1rem"}}>Fecha</th>
+              <th style={{color:"#95806b",fontSize:"1rem"}}>Estado</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr>
+            <tr style={{borderBottomColor:"#F6DAEF"}}>
               <th>
                 <label>
-                  <input type="checkbox" className="checkbox" />
+                  <input type="checkbox" className="checkbox custom-checkbox" />
                 </label>
               </th>
               <td>
