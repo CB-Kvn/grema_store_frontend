@@ -1,0 +1,19 @@
+.checkbox {
+    flex-shrink: 0;
+    --chkbg: #F6DAEF !important;
+    --chkfg: #95806b !important;
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    cursor: pointer !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    border-radius: var(--rounded-btn, 0.5rem) !important;
+    border-width: 1.5px !important;
+    border-color:#F6DAEF !important;
+    --tw-border-opacity: 0.2 !important;
+}
+
+.checkbox:checked{
+    background-color: white !important;
+}

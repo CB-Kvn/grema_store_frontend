@@ -43,25 +43,29 @@ export const TabsProfile = () => {
     }
   };
 
+  // font-size: medium;
+  //   font-weight: bolder;
+
   return (
     <div className=" flex justify-start mt-24 md:justify-center ">
-      <div className="w-full md:w-3/4">
-        <div role="tablist" className="tabs tabs-lifted">
+      <div className="w-full md:w-3/4 mb-10">
+        <div role="tablist" className="tabs tabs-lifted mx-4 my-6 ">
           <input
             type="radio"
             name="my_tabs_2"
             role="tab"
-            className="tab"
+            className="tab font-medium text-lg"
             aria-label="Perfil"
             id="#perfil"
             checked = {enableTab1}
             onClick={() => {
               handleTabs(1);
             }}
+            style={{color:"#95806b"}}
           />
           <div
             role="tabpanel"
-            className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+            className="tab-content bg-base-100 border-base-300 rounded-box p-6 "
           >
             <div className=" inline-grid w-full justify-center xl:flex">
               <UserCard></UserCard>
@@ -73,12 +77,13 @@ export const TabsProfile = () => {
             type="radio"
             name="my_tabs_2"
             role="tab"
-            className="tab"
+            className="tab font-medium text-lg"
             aria-label="Ordenes"
             id="#ordenes"
             onClick={() => {
               handleTabs(2);
             }}
+            style={{color:"#95806b"}}
           />
           <div
             role="tabpanel"
@@ -92,12 +97,13 @@ export const TabsProfile = () => {
             type="radio"
             name="my_tabs_2"
             role="tab"
-            className="tab"
+            className="tab font-medium text-lg"
             aria-label="Carrito"
             id="@carrito"
             onClick={() => {
               handleTabs(3);
             }}
+            style={{color:"#95806b"}}
           />
           <div
             role="tabpanel"
@@ -110,12 +116,13 @@ export const TabsProfile = () => {
             type="radio"
             name="my_tabs_2"
             role="tab"
-            className="tab"
+            className="tab font-medium text-lg"
             aria-label="Favoritos"
             id="#favoritos"
             onClick={() => {
               handleTabs(4);
             }}
+            style={{color:"#95806b"}}
           />
           <div
             role="tabpanel"
