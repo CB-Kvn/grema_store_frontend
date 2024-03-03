@@ -1,18 +1,11 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../../redux/store";
-import { actuallyLocation } from "../../redux/reducers_slices/location.gre.sto.slice";
+
 
 
 
 
 export const BannerPrincipal = () => {
-  const dispatch = useAppDispatch();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const goToStore = (dispatch:any)=>{
-    dispatch(actuallyLocation({weGo : 'Store', weStay:'Home'}))
-   }
-   
   return (
     <div className="hero min-h-screen" id="/" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/stock-photo-jewelry-making-flatlay-with-semi-precious-stone-beads-and-tools-handmade-jewelry-small-business-2209254561-min.jpg'}}>
     <div className="hero-overlay bg-opacity-10"></div>
@@ -21,9 +14,7 @@ export const BannerPrincipal = () => {
         <h1 className="mb-5 text-5xl font-bold text-font-nav sm:text-7xl"style={{fontFamily:'Dancing Script,cursive', color:"#393939"}}>Bienvenidos a Grema Store</h1>
         <p className="mb-5 text-2xl text-font-nav sm:text-xl" style={{color:"#393939"}}>Haz que tus recuerdos duren para siempre con nuestra bisuteria elegante y hermosa.</p>
         <Link to={"/profile"}>
-          <button className="btn bg-nav border-nav" onClick={(()=>{
-            goToStore(dispatch)
-          })}>Ir a la tienda</button>
+          <button className="btn bg-nav border-nav">Ir a la tienda</button>
         </Link>
         
       </div>

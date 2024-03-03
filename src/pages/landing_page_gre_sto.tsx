@@ -7,18 +7,9 @@ import { ContactUs } from "../components/landing/contact_us_gre_store"
 import { InfoBanner } from "../components/landing/info_banner_gre_sto";
 import { Navigation_Gre_Sto } from "../components/navigation/index_gre_sto";
 import { Promos } from "../components/landing/promos_landing_gre_sto";
-import { useEffect } from "react";
-import { useAppDispatch } from "../redux/store";
-import { actuallyLocation } from "../redux/reducers_slices/location.gre.sto.slice";
+
 
 export const LandingPage = () => {
-
-
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(actuallyLocation({weGo : 'Home', weStay:'Store'}))
-  },)
-  
   
   return (
     <>

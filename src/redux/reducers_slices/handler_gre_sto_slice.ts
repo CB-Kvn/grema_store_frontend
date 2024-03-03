@@ -13,7 +13,12 @@ const initialState = {
     shopCart_visible:{
         show: false,
         msg:""
+    },
+    loader_visible:{
+        show: false,
+        msg:""
     }
+
     
 }
 
@@ -35,12 +40,14 @@ export const HandlersSlice = createSlice({
         },
         shopCart_visible: ( state,action) => {
             state.shopCart_visible.show =action.payload.show
-        }   
-        
+        }, 
+        loader_visible:(state,action) =>{
+            state.loader_visible.show = action.payload.show
+        }
 
     },
 })
 
-export const { toast_visible,bannerCommercial_visible,shopCart_visible } = HandlersSlice.actions
+export const { toast_visible,bannerCommercial_visible,shopCart_visible,loader_visible } = HandlersSlice.actions
 
 export default HandlersSlice.reducer

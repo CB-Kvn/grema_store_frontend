@@ -4,7 +4,7 @@ import { login_successful } from "../../redux/reducers_slices/login_gre_sto_slic
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { ToastAlert } from "../utils/toast_alert_gre_sto";
 import { useState } from "react";
-import { toast_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
+import { loader_visible, toast_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 // import { useDispatch } from "react-redux"
 // import { login_successful } from "../redux/reducers_slices/login_gre_sto_slice"
@@ -21,7 +21,10 @@ export const Login = () => {
   };
   const handleLogin = async () => {
     // document.querySelector("#my_modal_7").checked = false;
+    dispatch(loader_visible({ msg: '', show: true }))
     const response = await loginService({ email, password });
+    dispatch(loader_visible({ msg: '', show: false }))
+    
     if (response.data.msg! === "Found User") {
       const element = document.querySelector("#my_modal_7") as HTMLInputElement ;
       element.checked = false
