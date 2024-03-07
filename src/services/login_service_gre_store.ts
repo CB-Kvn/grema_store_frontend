@@ -7,9 +7,11 @@ export const loginService = async (params:LoginService) =>{
 
     try {
         const response = await axios.post('http://localhost:5000/grema-store/user/loggin-user', { email: params.email, password: params.password  });
-        console.log(response)
-        return response
         
+        console.log(response)
+        
+        return response
+       
     } catch (error) {
         return  {
             data:{error:error,msg:'Error en la consulta'}

@@ -13,7 +13,7 @@ export const BannerPrincipal = () => {
       <div className="max-w-md">
         <h1 className="mb-5 text-5xl font-bold text-font-nav sm:text-7xl"style={{fontFamily:'Dancing Script,cursive', color:"#393939"}}>Bienvenidos a Grema Store</h1>
         <p className="mb-5 text-2xl text-font-nav sm:text-xl" style={{color:"#393939"}}>Haz que tus recuerdos duren para siempre con nuestra bisuteria elegante y hermosa.</p>
-        <Link to={"/profile"}>
+        <Link to={"/store"}>
           <button className="btn bg-nav border-nav">Ir a la tienda</button>
         </Link>
         

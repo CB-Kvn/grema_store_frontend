@@ -20,28 +20,64 @@ export const Login = () => {
     dispatch(toast_visible({ msg: msg, show: show }));
   };
   const handleLogin = async () => {
-    // document.querySelector("#my_modal_7").checked = false;
-    dispatch(loader_visible({ msg: '', show: true }))
-    const response = await loginService({ email, password });
-    dispatch(loader_visible({ msg: '', show: false }))
-    
-    if (response.data.msg! === "Found User") {
-      const element = document.querySelector("#my_modal_7") as HTMLInputElement ;
-      element.checked = false
-      dispatch(login_successful(response.data));
-      setEmail('')
-      setPassword('')
-    } else {
-      showToast("Email or password error",true);
+  
+    try {
+      dispatch(loader_visible({ msg: '', show: true }))
+      const response = await loginService({ email, password });
       setTimeout(() => {
-        showToast('',false);
-      }, 15000);
-    }
+        dispatch(loader_visible({ msg: '', show: false }))
+      }, 2000);
+      
+      
+      
+
+      
+        if (response.data.msg! === "Found User") {
+          
+          const element = document.querySelector("#my_modal_7") as HTMLInputElement ;
+          element.checked = false
+          dispatch(login_successful(response.data));
+          setEmail('')
+          setPassword('')
+
+        } if(response.data.msg! === "Invalid password"){
+
+        
+          dispatch(toast_visible({ msg:"Contrasena invalida", show:true}));
+          setTimeout(() => {
+            dispatch(toast_visible({ msg:"", show:false}));
+          }, 15000);
+          
+
+        }if(response.data.msg! === "User not found"){
+
+          
+          showToast("Correo electronico no existe",true);
+          setTimeout(() => {
+            dispatch(toast_visible({ msg:"", show:false}));
+          }, 15000);
+          
+
+        }
+       
+        
+      
+    } catch (error) {
+
+      console.log(error)
+      setTimeout(() => {
+        dispatch(loader_visible({ msg: '', show: false }))
+      }, 2000);
+
+    }  
+
       
   };
   const handleSignUp = () =>{
     dispatch(new_user_form({show: true }));
   }
+
+  
 
   return (
     <>
@@ -62,23 +98,24 @@ export const Login = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 "
+                style={{color:"#C2A78D",fontSize: "medium",
+                    fontWeight: "500"}}
               >
-                Direccion de correo
+                Direccion de correo:
               </label>
               <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  onChange={(e) => {
+              
+              { activeToast ? <input type="email" placeholder="Type here"  id="email" name="email" required autoComplete="email" className="input input-bordered input-error input-sm w-full max-w-md py-4" onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  value={email}/>  : <input type="email" placeholder="Type here" id="email" name="email" required autoComplete="email" className="input input-bordered input-sm w-full max-w-md py-4" onChange={(e) => {
                     setEmail(e.target.value);
                   }}
                   value={email}
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                  style={{borderColor: "#9b5176", borderWidth:"3px"}}
+                  /> }    
+              
               </div>
             </div>
 
@@ -86,30 +123,36 @@ export const Login = () => {
             <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6 "
+                  style={{color:"#C2A78D",fontSize: "medium",
+                    fontWeight: "500"}}
                 >
-                  Contrasena
+                  Contrasena:
                 </label>
               </div>
               <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  onChange={(e) => {
+
+              { activeToast ? <input type="email" placeholder="Type here" id="password" name="password" required autoComplete="current-password" className="input input-bordered input-error input-sm w-full max-w-md py-4" onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  
+                  value={password}/> : <input type="password" placeholder="Type here" id="password" name="password" required autoComplete="current-password"  className="input input-bordered input-sm w-full max-w-md py-4 mb-2" onChange={(e) => {
                     setPassword(e.target.value);
                   }}
                   value={password}
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 pl-3  text-gray-900 shadow-sm ring-1 ring-inset ring-bg-nav placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                  style={{borderColor: "#9b5176", borderWidth:"3px"}}/>
+                  
+                  }
+              
+              
+                
               </div>
               <div className="flex items-center justify-between">
                 <div className="text-sm">
                   <a
                     href="#"
-                    className="font-semibold text-indigo-600 hover:btn-rose"
+                    className="font-semibol " style={{color:"#C2A78D",fontSize: "medium",
+                    fontWeight: "500"}}
                   >
                     Has olvidado tu contrasena?
                   </a>
@@ -124,6 +167,8 @@ export const Login = () => {
                   handleLogin();
                 }}
                 className="flex w-full justify-center rounded-md bg-nav px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm hover:bg-btn-rose text-white"
+                style={{color:"white",fontSize: "medium",
+                    fontWeight: "500", backgroundColor:"#C2A78D"}}
               >
                 Iniciar
               </button>
@@ -134,7 +179,8 @@ export const Login = () => {
             Aun no eres miembro?{" "}
             <a
               onClick={()=>{ handleSignUp(), console.log("Nuevo usuario")}}
-              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              className="font-semibold leading-6"
+              style={{color:"#9b5176"}}
             >
               Registrate!
             </a>

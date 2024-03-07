@@ -123,11 +123,11 @@ export const Comments = () => {
   }, [testimonialsData.length]);
 
   return (
-    <div className="bg-gray-100 min-h-screen p-8">
+    <div className=" py-36 p-8" style={{backgroundColor:"#F6DAEF"}}>
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Testimonials</h1>
+        <h1 className="text-6xl font-bold mb-8" style={{fontFamily:'Dancing Script,cursive', color:'#393939'}}>Clientes satisfechos</h1>
 
-        <div className="bg-white p-6 rounded-md shadow-md mb-4">
+        <div className="p-10 rounded-md shadow-md mb-4" style={{backgroundColor:"#C2A78D"}}>
           <p className="text-gray-600 mb-4">"{testimonialsData[currentTestimonialIndex].quote}"</p>
           <p className="text-gray-800 font-semibold">{testimonialsData[currentTestimonialIndex].author}</p>
           <p className="text-gray-500">{testimonialsData[currentTestimonialIndex].company}</p>

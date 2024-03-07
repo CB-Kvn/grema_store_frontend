@@ -8,7 +8,7 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-
+import "./store_styles.css"
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -237,9 +237,9 @@ export const Filters = () => {
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
-                  <div className="flex items-center justify-between px-4">
-                    <h2 className="text-lg font-medium text-gray-900"style={{color:"#C2A78D"}}>
+                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl" style={{color:"#C2A78D" , backgroundColor:"antiquewhite"}}>
+                  <div className="flex items-center justify-between px-4" style={{color:"#C2A78D" , backgroundColor:"antiquewhite"}}>
+                    <h2 className="text-lg font-medium text-gray-900"style={{color:"#C2A78D" , backgroundColor:"antiquewhite"}}>
                       Filters
                     </h2>
                     <button
@@ -248,7 +248,7 @@ export const Filters = () => {
                       onClick={() => setMobileFiltersOpen(false)}
                     >
                       <span className="sr-only">Close menu</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" style={{color:"#C2A78D"}} />
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" style={{color:"#C2A78D", backgroundColor:"antiquewhite"}} />
                     </button>
                   </div>
 
@@ -258,10 +258,11 @@ export const Filters = () => {
                     <ul
                       role="list"
                       className="px-2 py-3 font-medium text-gray-900"
+                      style={{color:"#C2A78D",backgroundColor:"antiquewhite"}}
                     >
                       {subCategories.map((category) => (
-                        <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3"style={{color:"#C2A78D"}}>
+                        <li key={category.name} style={{color:"#C2A78D",backgroundColor:"antiquewhite"}}>
+                          <a href={category.href} className="block px-2 py-3"style={{color:"#C2A78D", backgroundColor:"antiquewhite"}}>
                             {category.name}
                           </a>
                         </li>
@@ -273,15 +274,16 @@ export const Filters = () => {
                         as="div"
                         key={section.id}
                         className="border-t border-gray-200 px-4 py-6"
+                        style={{color:"#C2A78D",backgroundColor:"antiquewhite"}}
                       >
                         {({ open }) => (
                           <>
-                            <h3 className="-mx-2 -my-3 flow-root">
-                              <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                <span className="font-medium "style={{color:"#C2A78D"}}>
+                            <h3 className="-mx-2 -my-3 flow-root" style={{color:"#C2A78D",backgroundColor:"antiquewhite"}}>
+                              <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500" style={{color:"#C2A78D",backgroundColor:"antiquewhite"}}>
+                                <span className="font-medium "style={{color:"#C2A78D",backgroundColor:"antiquewhite"}}>
                                   {section.name}
                                 </span>
-                                <span className="ml-6 flex items-center">
+                                <span className="ml-6 flex items-center" style={{color:"#C2A78D",backgroundColor:"antiquewhite"}}>
                                   {open ? (
                                     <MinusIcon
                                       className="h-5 w-5"
@@ -313,7 +315,7 @@ export const Filters = () => {
                                     />
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                      className="ml-3 min-w-0 flex-1 "style={{color:"#C2A78D"}}
+                                      className="ml-3 min-w-0 flex-1 "style={{color:"#C2A78D",backgroundColor:"antiquewhite"}}
                                     >
                                       {option.label}
                                     </label>
@@ -407,11 +409,11 @@ export const Filters = () => {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
-                <h3 className="sr-only">Categories</h3>
+                <h3 className="sr-only" style={{color:"#C2A78D"}} >Categories</h3>
                 <ul
                   role="list"
-                  className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium "
-                  style={{color:"#C2A78D"}}
+                  className="space-y-4 border-b p-3  border-gray-200 pb-6 text-sm font-medium "
+                  style={{color:"#C2A78D", backgroundColor:"antiquewhite"}}
                 >
                   {subCategories.map((category) => (
                     <li key={category.name}>
@@ -425,13 +427,13 @@ export const Filters = () => {
                     as="div"
                     key={section.id}
                     className="border-b py-6"
-                    style={{color:"#C2A78D"}}
+                    style={{color:"#C2A78D", backgroundColor:"antiquewhite"}}
                   >
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
-                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium "style={{color:"#C2A78D"}}>
+                          <Disclosure.Button className="flex w-full  p-3 items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" style={{color:"#C2A78D", backgroundColor:"antiquewhite"}}>
+                            <span className="font-medium "style={{color:"#C2A78D", backgroundColor:"antiquewhite"}}>
                               {section.name}
                             </span>
                             <span className="ml-6 flex items-center">

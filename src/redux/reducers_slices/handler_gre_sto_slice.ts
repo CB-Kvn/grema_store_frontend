@@ -29,8 +29,8 @@ export const HandlersSlice = createSlice({
 
     reducers: {
         toast_visible: (state,action) => {
-            state.toast.show = action.payload.toast.show 
-            state.toast.msg = action.payload.toast.msg
+            state.toast.show = action.payload.show 
+            state.toast.msg = action.payload.msg
             
         },
         bannerCommercial_visible: (state,action) => {
