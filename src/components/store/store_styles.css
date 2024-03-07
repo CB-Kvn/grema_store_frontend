@@ -1,0 +1,15 @@
+.img-contenedor img {
+  -webkit-transition: all 1.9s ease;
+  -moz-transition: all 1.9s ease;
+  -o-transition: all 1.9s ease;
+  -ms-transition: all 1.9s ease;
+  width: 100%;
+}
+
+.img-contenedor:hover img {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+}

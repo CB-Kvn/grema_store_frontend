@@ -1,22 +1,24 @@
 
+
 import { useEffect } from "react";
 import {MenuStore} from "../components/store/index_gre_sto";
-import { useAppDispatch } from "../redux/store";
-import { actuallyLocation } from "../redux/reducers_slices/location.gre.sto.slice";
+
 import { Modal_Product } from "../components/store/modal_product_gre_sto";
+import { loader_visible } from "../redux/reducers_slices/handler_gre_sto_slice";
+import { useAppDispatch } from "../redux/store";
 
 
 export const Store = () => {
- 
- 
- 
-  const dispatch = useAppDispatch();
-  
+  const dispatch = useAppDispatch()
   
   useEffect(() => {
-    dispatch(actuallyLocation({weGo : 'Store', weStay:'Home'}))
-  },)
+    dispatch(loader_visible({msg:'',show:true}))  
+    setTimeout(() => {
+      dispatch(loader_visible({msg:'',show:false})) 
+    }, 1500);
+  },[])
   
+
     return (
       <>
         <MenuStore></MenuStore>

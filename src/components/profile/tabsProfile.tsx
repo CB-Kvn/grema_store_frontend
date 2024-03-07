@@ -47,8 +47,8 @@ export const TabsProfile = () => {
   //   font-weight: bolder;
 
   return (
-    <div className=" flex justify-start mt-24 md:justify-center ">
-      <div className="w-full md:w-3/4 mb-10">
+    <div className=" flex justify-start mt-2 md:justify-center ">
+      <div className="w-full md:w-2/3 mb-4">
         <div role="tablist" className="tabs tabs-lifted mx-4 my-6 ">
           <input
             type="radio"

@@ -30,7 +30,7 @@ export const SignUp = () => {
         // style={{ fontFamily: "Dancing Script,cursive" }}
       >
         <div className="space-y-2">
-          <div className="border-b border-btn-rose/95 pb-8">
+          <div className="border-b pb-8" style={{ borderColor:"#C2A78D"}}>
             <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-full justify-self-center">
                 <div className="mt-2 flex justify-center items-center gap-x-3">
@@ -53,15 +53,14 @@ export const SignUp = () => {
                   htmlFor="first-name"
                   className="block text-sm  leading-6 text-gray-900"
                 >
-                  Nombre:
+                  Nombre :
                 </label>
-                <div className="mt-2">
+                <div className="">
                   <input
                     type="text"
-                    name="first-name"
-                    id="first-name"
-                    autoComplete="given-name"
-                    className="block w-full rounded-md p-2 border-btn-rose py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
+                    placeholder="Type here"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                    className="input input-bordered input-sm w-full max-w-xs"
                   />
                 </div>
               </div>
@@ -71,15 +70,14 @@ export const SignUp = () => {
                   htmlFor="last-name"
                   className="block text-sm  leading-6 text-gray-900"
                 >
-                  Apellidos:
+                  Apellidos :
                 </label>
-                <div className="mt-2">
+                <div className="">
                   <input
                     type="text"
-                    name="last-name"
-                    id="last-name"
-                    autoComplete="family-name"
-                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
+                    placeholder="Type here"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                    className="input input-bordered input-sm w-full max-w-xs"
                   />
                 </div>
               </div>
@@ -89,17 +87,16 @@ export const SignUp = () => {
                   htmlFor="type-id"
                   className="block text-sm leading-6 text-gray-900"
                 >
-                  Tipo identificacion:
+                  Tipo identificacion :
                 </label>
-                <div className="mt-2">
+                <div className="">
                   <select
-                    id="type-id"
-                    name="type-id"
-                    onChange={(e) => {
-                      handleChangeCountry(e);
-                    }}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs text-sm leading-6"
+                    className="select select-bordered select-sm w-full  max-w-xs"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
                   >
+                    <option disabled selected>
+                      Tipo identificacion
+                    </option>
                     <option value="Cedula de Residencial">
                       Cedula de Residencial
                     </option>
@@ -115,15 +112,14 @@ export const SignUp = () => {
                   htmlFor="id"
                   className="block text-sm leading-6 text-gray-900"
                 >
-                  Numero identificacion:
+                  Numero identificacion :
                 </label>
-                <div className="mt-2">
+                <div className="">
                   <input
                     type="text"
-                    name="id"
-                    id="id"
-                    autoComplete="id"
-                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
+                    placeholder="Type here"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                    className="input input-bordered input-sm w-full max-w-xs"
                   />
                 </div>
               </div>
@@ -133,99 +129,98 @@ export const SignUp = () => {
                   htmlFor="telephone"
                   className="block text-sm leading-6 text-gray-900"
                 >
-                  Numero celular:
+                  Numero celular :
                 </label>
-                <div className="mt-2">
+                <div className="">
                   <input
                     type="text"
-                    name="telephone"
-                    id="telephone"
-                    autoComplete="telephone"
-                    className="block w-full p-2 rounded-md border-0 py-1.5  shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
+                    placeholder="Type here"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                    className="input input-bordered input-sm w-full max-w-xs"
                   />
                 </div>
               </div>
-              <div className="col-span-full">
+              <div className="sm:col-span-3 ">
                 <label
-                  htmlFor="about"
-                  className="block text-sm text-center  leading-6 text-gray-900"
+                  htmlFor="telephone"
+                  className="block text-sm leading-6 text-gray-900"
                 >
-                  Sobre ti:
+                  Genero :
                 </label>
-                <div className="mt-2">
-                  <textarea
-                    id="about"
-                    name="about"
-                    rows={3}
-                    className="block w-full p-2 rounded-md border-0 py-1.5   ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2  focus:ring-nav text-sm leading-6"
-                    defaultValue={""}
+                <div className="">
+                  <input
+                    type="text"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                    placeholder="Type here"
+                    className="input input-bordered input-sm w-full max-w-xs"
                   />
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="border-b border-btn-rose/95 pb-8">
+          <div className="border-b  pb-8" style={{ borderColor:"#C2A78D"}}>
             <label
               htmlFor="email"
               className="block text-sm  leading-6 text-gray-900 mt-8"
             >
               Correo electronico:
             </label>
-            <div className="mt-2">
+            <div className="">
               <input
-                id="email"
-                name="email"
                 type="email"
-                autoComplete="email"
-                className="block w-full p-2 col-span-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:col-span-3 text-sm leading-6"
+                placeholder="Type here"
+                style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                className="input input-bordered input-sm w-full max-w-xs"
               />
             </div>
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3  justify-self-start text-start ">
                 <label
                   htmlFor="password"
-                  className="block text-sm leading-6 text-gray-900 my-3"
+                  className="block text-sm leading-6 text-gray-900 "
                 >
                   Contrasena:
                 </label>
-                <div className="mt-2">
+                <div className="">
                   <input
-                    id="password"
-                    name="password"
                     type="password"
-                    autoComplete="password"
-                    className="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
+                    placeholder="Type here"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                    className="input input-bordered input-sm w-full max-w-xs "
                   />
                 </div>
 
-                <label
+                
+              </div>
+              <div className="sm:col-span-3">
+              <label
                   htmlFor="passwordTry"
-                  className="block text-sm leading-6 text-gray-900 my-3"
+                  className="block text-sm leading-6 text-gray-900 "
                 >
                   Verificar contrasena:
                 </label>
-                <div className="">
+                <div className="sm:col-span-3">
                   <input
-                    id="passwordTry"
-                    name="passwordTry"
-                    type="password"
-                    autoComplete="passwordTry"
-                    className="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
+                    type="passwordTry"
+                    placeholder="Type here"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                    className="input input-bordered input-sm w-full max-w-xs "
                   />
                 </div>
               </div>
-              <div className="sm:col-span-3  text-justify ml-3 mt-6">
-                <ol type="A" className="text-sm">
-                  <li>+ freeCodeCamp</li>
-                  <li>CSS-Tricks</li>
-                  <li>Traversy Media</li>
-                </ol>
-              </div>
+              <div className="sm:col-span-full">
+            <h2 className="text-sm font-semibold leading-7">Notificaciones</h2>
+            <p className="mt-1 text-sm leading-6 text-gray-600">
+              Todas las notificaciones sobre cambios, envios pagos entre otras
+              noticias importantes, seran enviadas por el medio de correo
+              electronico
+            </p>
+          </div>
             </div>
           </div>
 
-          <div className="border-b border-btn-rose/95 pb-8">
+          <div className="border-b pb-8" style={{ borderColor:"#C2A78D"}}>
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label
@@ -234,16 +229,21 @@ export const SignUp = () => {
                 >
                   Pais / Nacion
                 </label>
-                <div className="mt-2">
-                  <select
+                <div className="">
+
+                <select
+                    className="select select-bordered select-sm w-full  max-w-xs"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
                     id="country"
                     name="country"
                     autoComplete="country-name"
                     onChange={(e) => {
                       handleChangeCountry(e);
                     }}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs text-sm leading-6"
                   >
+                    <option disabled selected>
+                    Pais / Nacion
+                    </option>
                     {countries.map((element) => {
                       return (
                         <option value={element.id.toString()}>
@@ -252,6 +252,7 @@ export const SignUp = () => {
                       );
                     })}
                   </select>
+
                 </div>
               </div>
               <div className="sm:col-span-3">
@@ -261,16 +262,22 @@ export const SignUp = () => {
                 >
                   Estado / Provincia
                 </label>
-                <div className="mt-2">
-                  <select
+                <div className="">
+
+
+                <select
+                    className="select select-bordered select-sm w-full  max-w-xs"
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
                     id="state"
                     name="state"
                     autoComplete="state-name"
                     onChange={(e) => {
                       handleChangeState(e);
                     }}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs text-sm leading-6"
                   >
+                    <option disabled selected>
+                    Estado / Provincia
+                    </option>
                     {states.map((element) => {
                       if (element.id_country === country) {
                         return (
@@ -279,6 +286,9 @@ export const SignUp = () => {
                       }
                     })}
                   </select>
+
+
+                  
                 </div>
               </div>
             </div>
@@ -290,13 +300,12 @@ export const SignUp = () => {
               >
                 Direccion exacta:
               </label>
-              <div className="mt-2">
+              <div className="">
                 <input
                   type="text"
-                  name="street-address"
-                  id="street-address"
-                  autoComplete="street-address"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-sm leading-6"
+                  placeholder="Type here"
+                  style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                  className="input input-bordered input-sm w-full max-w-xs"
                 />
               </div>
             </div>
@@ -308,22 +317,20 @@ export const SignUp = () => {
               >
                 ZIP / Codigo postal
               </label>
-              <div className="mt-2">
+              <div className="">
                 <input
                   type="text"
-                  name="postal-code"
-                  id="postal-code"
-                  autoComplete="postal-code"
-                  className="block w-full text-smrounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-btn-rose placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 leading-6"
+                  placeholder="Type here"
+                  style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                  className="input input-bordered input-sm w-full max-w-xs"
                 />
               </div>
             </div>
           </div>
+          
 
-          <div className="mt-8">
-            <h2 className="text-sm font-semibold leading-7 mt-6">
-              Notificaciones
-            </h2>
+          <div className="">
+            <h2 className="text-sm font-semibold leading-7">Notificaciones</h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">
               Todas las notificaciones sobre cambios, envios pagos entre otras
               noticias importantes, seran enviadas por el medio de correo

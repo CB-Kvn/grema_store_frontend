@@ -1,8 +1,9 @@
 
+
 export const UserCard = () => {
   return (
     <>
-      <div className="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mt-10 bg-white shadow-xl rounded-lg text-gray-900">
+      <div className="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mt-6 bg-white shadow-xl rounded-lg text-gray-900" style={{backgroundColor: "antiquewhite"}}>
         <div className="rounded-t-lg h-32 overflow-hidden">
           <img
             className="object-cover object-top w-full"
@@ -23,9 +24,9 @@ export const UserCard = () => {
 
         <div className="max-w-2xl mx-4 sm:max-w-sm  md:max-w-md  lg:max-w-md  xl:max-w-md  sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 ">
           <div>
-            <div className="mt-6 border-t border-gray-100 p-4">
+            <div className="mt-6 border-t  p-4" style={{borderColor:"#9b5176"}}>
               <dl className="divide-y divide-gray-100">
-                <div className="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <div className="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 " style={{borderColor: "#9b5176"}}>
                   <dt className="text-sm font-medium leading-6 text-gray-900">
                     Nombre completo
                   </dt>
@@ -33,7 +34,7 @@ export const UserCard = () => {
                     Margot Foster
                   </dd>
                 </div>
-                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0" style={{borderColor: "#9b5176"}}>
                   <dt className="text-sm font-medium leading-6 text-gray-900">
                     Identificacion
                   </dt>
@@ -41,7 +42,7 @@ export const UserCard = () => {
                     Backend Developer
                   </dd>
                 </div>
-                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0" style={{borderColor: "#9b5176"}}>
                   <dt className="text-sm font-medium leading-6 text-gray-900">
                     Correo Electronico
                   </dt>
@@ -49,11 +50,11 @@ export const UserCard = () => {
                     margotfoster@example.com
                   </dd>
                 </div>
-                <div className="mr-5 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0" style={{borderColor: "#9b5176"}}>
                   <dt className="text-sm font-medium leading-6 text-gray-900">
                     Direccion Envio/Facturacion
                   </dt>
-                  <dd className="mt-1  text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                     Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
                     incididunt cillum culpa consequat. Excepteur qui ipsum
                     aliquip consequat sint. Sit id mollit nulla mollit nostrud

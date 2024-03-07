@@ -47,7 +47,7 @@ export const Navigation_Gre_Sto = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className="dropdown dropdown-end">
+          {/* <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
@@ -85,7 +85,7 @@ export const Navigation_Gre_Sto = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {activeLogin ? (
             <OptionProfile></OptionProfile>
           ) : (
