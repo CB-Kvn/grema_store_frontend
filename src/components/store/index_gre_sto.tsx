@@ -111,7 +111,7 @@ export const MenuStore = () => {
   }
  
   return (
-    <div className="bg-white mt-8" id="store" style={{ color: "#C2A78D" }}>
+    <div className="bg-white mt-8" id="store" >
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>

@@ -1,83 +1,31 @@
-import { loginService } from "../../services/login_service_gre_store";
-import { login_successful } from "../../redux/reducers_slices/login_gre_sto_slice";
-
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { ToastAlert } from "../utils/toast_alert_gre_sto";
 import { useState } from "react";
-import { loader_visible, toast_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
+import { loginController } from "../../controllers/login_gre_sto";
+
 // import { useDispatch } from "react-redux"
 // import { login_successful } from "../redux/reducers_slices/login_gre_sto_slice"
 
 export const Login = () => {
-  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
   const activeToast = useAppSelector((state) => state.handler.toast.show);
 
-  const showToast = (msg:string,show: boolean) => {
-    dispatch(toast_visible({ msg: msg, show: show }));
-  };
+  
   const handleLogin = async () => {
-  
-    try {
-      dispatch(loader_visible({ msg: '', show: true }))
-      const response = await loginService({ email, password });
-      setTimeout(() => {
-        dispatch(loader_visible({ msg: '', show: false }))
-      }, 2000);
-      
-      
-      
-
-      
-        if (response.data.msg! === "Found User") {
-          
-          const element = document.querySelector("#my_modal_7") as HTMLInputElement ;
-          element.checked = false
-          dispatch(login_successful(response.data));
-          setEmail('')
-          setPassword('')
-
-        } if(response.data.msg! === "Invalid password"){
-
-        
-          dispatch(toast_visible({ msg:"Contrasena invalida", show:true}));
-          setTimeout(() => {
-            dispatch(toast_visible({ msg:"", show:false}));
-          }, 15000);
-          
-
-        }if(response.data.msg! === "User not found"){
-
-          
-          showToast("Correo electronico no existe",true);
-          setTimeout(() => {
-            dispatch(toast_visible({ msg:"", show:false}));
-          }, 15000);
-          
-
-        }
-       
-        
-      
-    } catch (error) {
-
-      console.log(error)
-      setTimeout(() => {
-        dispatch(loader_visible({ msg: '', show: false }))
-      }, 2000);
-
-    }  
-
-      
+    loginController(
+      dispatch,
+      email,
+      password,
+      setEmail,
+      setPassword,
+    );
   };
-  const handleSignUp = () =>{
-    dispatch(new_user_form({show: true }));
-  }
-
-  
+  const handleModal = () => {
+    dispatch(new_user_form({ show: true }));
+  };
 
   return (
     <>
@@ -90,7 +38,6 @@ export const Login = () => {
             src="https://grema-store-frontend.vercel.app/images/Screenshot_1.png"
             alt="Your Company"
           />
-
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -99,60 +46,104 @@ export const Login = () => {
               <label
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 "
-                style={{color:"#C2A78D",fontSize: "medium",
-                    fontWeight: "500"}}
+                style={{
+                  color: "#C2A78D",
+                  fontSize: "medium",
+                  fontWeight: "500",
+                }}
               >
                 Direccion de correo:
               </label>
               <div className="mt-2">
-              
-              { activeToast ? <input type="email" placeholder="Type here"  id="email" name="email" required autoComplete="email" className="input input-bordered input-error input-sm w-full max-w-md py-4" onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                  value={email}/>  : <input type="email" placeholder="Type here" id="email" name="email" required autoComplete="email" className="input input-bordered input-sm w-full max-w-md py-4" onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                  value={email}
-                  style={{borderColor: "#9b5176", borderWidth:"3px"}}
-                  /> }    
-              
+                {activeToast ? (
+                  <input
+                    type="email"
+                    placeholder="Type here"
+                    id="email"
+                    name="email"
+                    required
+                    autoComplete="email"
+                    className="input input-bordered input-error input-sm w-full max-w-md py-4"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                    value={email}
+                  />
+                ) : (
+                  <input
+                    type="email"
+                    placeholder="Type here"
+                    id="email"
+                    name="email"
+                    required
+                    autoComplete="email"
+                    className="input input-bordered input-sm w-full max-w-md py-4"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                    value={email}
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                  />
+                )}
               </div>
             </div>
 
             <div>
-            <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
                   className="block text-sm font-medium leading-6 "
-                  style={{color:"#C2A78D",fontSize: "medium",
-                    fontWeight: "500"}}
+                  style={{
+                    color: "#C2A78D",
+                    fontSize: "medium",
+                    fontWeight: "500",
+                  }}
                 >
                   Contrasena:
                 </label>
               </div>
               <div className="mt-2">
-
-              { activeToast ? <input type="email" placeholder="Type here" id="password" name="password" required autoComplete="current-password" className="input input-bordered input-error input-sm w-full max-w-md py-4" onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                  
-                  value={password}/> : <input type="password" placeholder="Type here" id="password" name="password" required autoComplete="current-password"  className="input input-bordered input-sm w-full max-w-md py-4 mb-2" onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                  value={password}
-                  style={{borderColor: "#9b5176", borderWidth:"3px"}}/>
-                  
-                  }
-              
-              
-                
+                {activeToast ? (
+                  <input
+                    type="email"
+                    placeholder="Type here"
+                    id="password"
+                    name="password"
+                    required
+                    autoComplete="current-password"
+                    className="input input-bordered input-error input-sm w-full max-w-md py-4"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                    value={password}
+                  />
+                ) : (
+                  <input
+                    type="password"
+                    placeholder="Type here"
+                    id="password"
+                    name="password"
+                    required
+                    autoComplete="current-password"
+                    className="input input-bordered input-sm w-full max-w-md py-4 mb-2"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                    value={password}
+                    style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                  />
+                )}
               </div>
               <div className="flex items-center justify-between">
                 <div className="text-sm">
                   <a
                     href="#"
-                    className="font-semibol " style={{color:"#C2A78D",fontSize: "medium",
-                    fontWeight: "500"}}
+                    className="font-semibol "
+                    style={{
+                      color: "#C2A78D",
+                      fontSize: "medium",
+                      fontWeight: "500",
+                    }}
                   >
                     Has olvidado tu contrasena?
                   </a>
@@ -167,8 +158,12 @@ export const Login = () => {
                   handleLogin();
                 }}
                 className="flex w-full justify-center rounded-md bg-nav px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm hover:bg-btn-rose text-white"
-                style={{color:"white",fontSize: "medium",
-                    fontWeight: "500", backgroundColor:"#C2A78D"}}
+                style={{
+                  color: "white",
+                  fontSize: "medium",
+                  fontWeight: "500",
+                  backgroundColor: "#C2A78D",
+                }}
               >
                 Iniciar
               </button>
@@ -178,9 +173,11 @@ export const Login = () => {
           <p className="mt-10 text-center text-sm text-gray-500">
             Aun no eres miembro?{" "}
             <a
-              onClick={()=>{ handleSignUp(), console.log("Nuevo usuario")}}
+              onClick={() => {
+                handleModal()
+              }}
               className="font-semibold leading-6"
-              style={{color:"#9b5176"}}
+              style={{ color: "#9b5176" }}
             >
               Registrate!
             </a>
@@ -189,4 +186,4 @@ export const Login = () => {
       </div>
     </>
   );
-}
+};
