@@ -1,10 +1,17 @@
-import { useAppSelector } from "../../redux/store";
+import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { Login } from "./login_up_gre_sto";
 import { SignUp } from "./sign_up_gre_sto";
 
 export const ModalLogin = () => {
   
   const changeForm = useAppSelector((state) => state.newUser);
+  const dispatch = useAppDispatch();
+
+
+  const handleModal = () => {
+    dispatch(new_user_form({ show: false }));
+  };
 
   return (
     <>
@@ -12,6 +19,7 @@ export const ModalLogin = () => {
       !changeForm.show ? (
         <>
         <label htmlFor="my_modal_7" className="btn btn-ghost btn-circlerelative flex rounded-full bg-nav border-color: transparent">
+          Ingresar / Registrarse
         <div className="indicator">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +27,7 @@ export const ModalLogin = () => {
             viewBox="0 0 24 24"
             // stroke-width="1.5"
             stroke="currentColor"
-            className="h-5 w-5"
+            className="h-9 w-9"
           >
             <path
               stroke-linecap="round"
@@ -32,10 +40,11 @@ export const ModalLogin = () => {
       </label>
 
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+      
       <div className="modal" role="dialog">
         <div className="modal-box" >
           
-          <Login></Login>
+          <Login location=""></Login>
         </div>
         <label
           className="modal-backdrop"
@@ -74,13 +83,13 @@ export const ModalLogin = () => {
       <div className="modal" role="dialog">
         <div className="modal-box" >
           
-          <SignUp location = {""}></SignUp>
+          <SignUp location={""}></SignUp>
         </div>
         <label
           className="modal-backdrop"
           htmlFor="my_modal_8"
           onClick={() => {
-            console.log("Cerrando modal");
+            handleModal()
           }}
         >
           Close

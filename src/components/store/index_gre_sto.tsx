@@ -458,7 +458,7 @@ export const MenuStore = () => {
                       />
                       <div className="modal" role="dialog">
                         <div className="modal-box">
-                          <Login></Login>
+                          <Login location="store"></Login>
                         </div>
                         <label
                           className="modal-backdrop"
@@ -502,7 +502,7 @@ export const MenuStore = () => {
                       />
                       <div className="modal" role="dialog">
                         <div className="modal-box">
-                          <SignUp></SignUp>
+                          <SignUp location={"store"}></SignUp>
                         </div>
                         <label
                           className="modal-backdrop"

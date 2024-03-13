@@ -23,6 +23,7 @@ export default function Example() {
     </Routes>
     <Footer></Footer>
     { loader ? <Loader></Loader> : <></>}
+    
     </>
     
   );

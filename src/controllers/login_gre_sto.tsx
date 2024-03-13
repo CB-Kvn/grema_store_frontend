@@ -24,13 +24,13 @@ export const loginController = async (dispatch: any,email: any, password: any, s
       setPassword("");
     }
     if (response.data.msg! === "Invalid password") {
-      dispatch(toast_visible({ msg: "Contrasena invalida", show: true }));
+      dispatch(toast_visible({ msg: "Invalid password", show: true }));
       setTimeout(() => {
         dispatch(toast_visible({ msg: "", show: false }));
       }, 15000);
     }
     if (response.data.msg! === "User not found") {
-        dispatch(toast_visible({msg:"Correo electronico no existe",show:true}));
+        dispatch(toast_visible({msg:"Not found email",show:true}));
       setTimeout(() => {
         dispatch(toast_visible({ msg: "", show: false }));
       }, 15000);
