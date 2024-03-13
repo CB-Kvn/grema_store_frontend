@@ -3,6 +3,21 @@ export interface LoginService {
     password: string
 }
 
+export interface UsersService {
+    id: number;
+    name: string;
+    lastName: string;
+    cellphone: string;
+    genre: string;
+    profile:{
+      email: string;
+      password: string;
+      address: string;
+      image: string
+    }
+    
+  }
+
 export interface LoginServiceSlice {
     success?: string | undefined;
     status?: number;

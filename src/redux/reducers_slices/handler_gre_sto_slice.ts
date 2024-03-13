@@ -6,9 +6,8 @@ const initialState = {
         show: false,
         msg:""
     },
-    bannerCommercial:{
+    signUp:{
         show: false,
-        msg:""
     },
     shopCart_visible:{
         show: false,
@@ -17,6 +16,9 @@ const initialState = {
     loader_visible:{
         show: false,
         msg:""
+    },
+    password_verify:{
+        show: false,
     }
 
     
@@ -33,9 +35,8 @@ export const HandlersSlice = createSlice({
             state.toast.msg = action.payload.msg
             
         },
-        bannerCommercial_visible: (state,action) => {
-            state.bannerCommercial.show = action.payload.show 
-            state.bannerCommercial.msg = action.payload.msg
+        signUp_visible: (state,action) => {
+            state.signUp.show = action.payload.show 
             
         },
         shopCart_visible: ( state,action) => {
@@ -43,11 +44,14 @@ export const HandlersSlice = createSlice({
         }, 
         loader_visible:(state,action) =>{
             state.loader_visible.show = action.payload.show
-        }
+        },
+        password_verify:(state,action) =>{
+            state.password_verify.show = action.payload.show
+        },
 
     },
 })
 
-export const { toast_visible,bannerCommercial_visible,shopCart_visible,loader_visible } = HandlersSlice.actions
+export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify } = HandlersSlice.actions
 
 export default HandlersSlice.reducer
