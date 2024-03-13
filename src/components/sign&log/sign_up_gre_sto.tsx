@@ -6,7 +6,7 @@ import { countries } from "../../../src/utils/countries.json";
 import { states } from "../../../src/utils/states.json";
 
 import { useState } from "react";
-import { RegexVerify } from "../../controllers/sign_gre_sto";
+import { RegexVerify, SignController } from "../../controllers/sign_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 
 export const SignUp = ({ location }: { location: string }) => {
@@ -73,7 +73,7 @@ export const SignUp = ({ location }: { location: string }) => {
       },
     };
 
-    signController(data, dispatch, location);
+    SignController(data, dispatch, location);
   };
 
   return (
