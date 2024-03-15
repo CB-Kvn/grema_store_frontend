@@ -6,7 +6,11 @@ import { countries } from "../../../src/utils/countries.json";
 import { states } from "../../../src/utils/states.json";
 
 import { useState } from "react";
-import { RegexVerify, SignController } from "../../controllers/sign_gre_sto";
+import {
+  ConfirmPassword,
+  RegexVerify,
+  SignController,
+} from "../../controllers/sign_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 
 export const SignUp = ({ location }: { location: string }) => {
@@ -22,6 +26,7 @@ export const SignUp = ({ location }: { location: string }) => {
   const [genre, setGenre] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [passwordConfirm, setPasswordConfirm] = useState<boolean>(false);
   const [address, setAddress] = useState<string>("");
   const [codePostal, setCodePostal] = useState<string>("");
   const [image, setImage] = useState<string>("");
@@ -44,6 +49,10 @@ export const SignUp = ({ location }: { location: string }) => {
   };
   const handlePassword = (data: string) => {
     RegexVerify(data, dispatch);
+  };
+
+  const handlePasswordConfirm = (data: string) => {
+    setPasswordConfirm(ConfirmPassword(data, password, dispatch));
   };
 
   const handleGenre = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -254,74 +263,120 @@ export const SignUp = ({ location }: { location: string }) => {
                   }}
                 />
               </div>
-              <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <div className="sm:col-span-3  justify-self-start text-start ">
-                  <label
-                    htmlFor="password"
-                    className="block text-sm leading-6 text-gray-900 "
-                  >
-                    Contrasena:
-                  </label>
 
-                  {!passwordVerify ? (
-                    <>
-                      <div className="">
+              <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+               
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="password"
+                      className="block text-sm leading-6 text-gray-900 "
+                    >
+                      Contrasena:
+                    </label>
+
+                    {!passwordVerify ? (
+                      <>
+                        <div className="">
+                          <input
+                            type="password"
+                            pattern="^(?=(?:.*\d){2})(?=(?:.*[A-Z]){2})(?=(?:.*[a-z]){2})\S{8,}$"
+                            style={{
+                              borderColor: "#9b5176",
+                              borderWidth: "3px",
+                            }}
+                            className="input input-bordered input-sm w-full max-w-xs "
+                            required
+                            onBlur={(e) => {
+                              setPassword(e.target.value);
+                            }}
+                            onChange={(e) => {
+                              handlePassword(e.target.value);
+                            }}
+                          />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="">
+                          <input
+                            type="password"
+                            pattern="^(?=(?:.*\d){2})(?=(?:.*[A-Z]){2})(?=(?:.*[a-z]){2})\S{8,}$"
+                            style={{
+                              borderColor: "#9b5176",
+                              borderWidth: "3px",
+                            }}
+                            className="input input-bordered input-error input-sm w-full max-w-xs "
+                            required
+                            onBlur={(e) => {
+                              setPassword(e.target.value);
+                            }}
+                            onChange={(e) => {
+                              handlePassword(e.target.value);
+                            }}
+                          />
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="passwordTry"
+                      className="block text-sm leading-6 text-gray-900 "
+                    >
+                      Verificar contrasena:
+                    </label>
+
+                    {!passwordConfirm ? (
+                      <input
+                        type="password"
+                        required
+                        style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                        className="input input-bordered input-sm w-full max-w-xs "
+                        onBlur={(e) => {
+                          setPassword(e.target.value);
+                        }}
+                        onChange={(e) => {
+                          handlePasswordConfirm(e.target.value);
+                        }}
+                      />
+                    ) : (
+                      <>
                         <input
                           type="password"
-                          pattern="^(?=(?:.*\d){2})(?=(?:.*[A-Z]){2})(?=(?:.*[a-z]){2})\S{8,}$"
-                          style={{ borderColor: "#9b5176", borderWidth: "3px" }}
-                          className="input input-bordered input-sm w-full max-w-xs "
                           required
-                          onChange={(e) => {
-                            handlePassword(e.target.value);
-                          }}
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="">
-                        <input
-                          type="password"
-                          pattern="^(?=(?:.*\d){2})(?=(?:.*[A-Z]){2})(?=(?:.*[a-z]){2})\S{8,}$"
                           style={{ borderColor: "#9b5176", borderWidth: "3px" }}
                           className="input input-bordered input-error input-sm w-full max-w-xs "
-                          required
+                          onBlur={(e) => {
+                            setPassword(e.target.value);
+                          }}
                           onChange={(e) => {
-                            handlePassword(e.target.value);
+                            handlePasswordConfirm(e.target.value);
                           }}
                         />
-                      </div>
-                    </>
-                  )}
 
-                </div>
-                <div className="sm:col-span-3">
-                  <label
-                    htmlFor="passwordTry"
-                    className="block text-sm leading-6 text-gray-900 "
-                  >
-                    Verificar contrasena:
-                  </label>
-                  <div className="sm:col-span-3">
-                    <input
-                      type="password"
-                      required
-                      style={{ borderColor: "#9b5176", borderWidth: "3px" }}
-                      className="input input-bordered input-sm w-full max-w-xs "
-                      onBlur={(e) => {
-                        setPassword(e.target.value);
-                      }}
-                    />
+                        <div className="label -mt-1 ">
+                          <span></span>
+                          <span className="label-text-alt text-sm text-red-800">
+                            contrasenas no coinciden
+                          </span>
+                        </div>
+                      </>
+                    )}
                   </div>
-                </div>
+           
+
                 <div className="sm:col-span-full">
                   <h2 className="text-sm font-semibold leading-7">
                     Notificaciones
                   </h2>
                   <p className="mt-1 text-sm leading-6 text-gray-600">
-                    Existan al menos dos dígitos-Existan al menos dos
-                    mayúsculas-Existan al menos dos minúsculas
+                    -Existan al menos dos dígitos
+                    <br />
+                    -Existan al menos dos mayúsculas
+                    <br />
+                    -Existan al menos dos minúsculas
+                    <br />
                   </p>
                 </div>
               </div>
@@ -444,22 +499,26 @@ export const SignUp = ({ location }: { location: string }) => {
             </div>
           </div>
 
-          <div className="mt-6 flex  text-smitems-center justify-end gap-x-6">
-            <button
-              type="submit"
-              className=" flex w-full btn btn-active btn-neutral mt-4 btn-sm"
-              style={{
-                backgroundColor: "#F6DAEF",
-                borderColor: "#9b5176",
-                color: "#95806b",
-              }}
-              onClick={() => {
-                handleSave(location);
-              }}
-            >
-              Guardar
-            </button>
-          </div>
+          {!passwordConfirm ? (
+            <></>
+          ) : (
+            <div className="mt-6 flex  text-smitems-center justify-end gap-x-6">
+              <button
+                type="submit"
+                className=" flex w-full btn btn-active btn-neutral mt-4 btn-sm"
+                style={{
+                  backgroundColor: "#F6DAEF",
+                  borderColor: "#9b5176",
+                  color: "#95806b",
+                }}
+                onClick={() => {
+                  handleSave(location);
+                }}
+              >
+                Guardar
+              </button>
+            </div>
+          )}
         </form>
       </div>
     </>

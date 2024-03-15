@@ -109,6 +109,9 @@ export const MenuStore = () => {
   const handleCartShop = (open:boolean)  =>{
     dispatch(shopCart_visible({show: open }));
   }
+  const handleModal = () => {
+    dispatch(new_user_form({ show: false }));
+  }
  
   return (
     <div className="bg-white mt-8" id="store" >
@@ -508,7 +511,7 @@ export const MenuStore = () => {
                           className="modal-backdrop"
                           htmlFor="my_modal_8"
                           onClick={() => {
-                            console.log("Cerrando modal");
+                            handleModal()
                           }}
                         >
                           Close
