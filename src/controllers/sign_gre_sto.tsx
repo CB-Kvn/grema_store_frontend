@@ -79,13 +79,13 @@ export const ConfirmPassword = (
   passwordConfirm: string,
   dispatch: any
 ) => {
-  
+  debugger;
   if (password === passwordConfirm) {
     dispatch(password_confirm({show:false}));
-    return false
+    
   }
   else {
     dispatch(password_confirm({ show: true }));
-    return true
+    
   }
 };

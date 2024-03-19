@@ -13,7 +13,7 @@ export interface UsersService {
       email: string;
       password: string;
       address: string;
-      image: string
+      image: File
     }
     
   }

@@ -26,13 +26,17 @@ export const SignUp = ({ location }: { location: string }) => {
   const [genre, setGenre] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [passwordConfirm, setPasswordConfirm] = useState<boolean>(false);
+  const [passConfirm, setPassConfirm] = useState<string>("");
   const [address, setAddress] = useState<string>("");
   const [codePostal, setCodePostal] = useState<string>("");
-  const [image, setImage] = useState<string>("");
+  const [image, setImage] = useState<File>();
 
   const passwordVerify: boolean = useAppSelector(
     (state) => state.handler.password_verify.show
+  );
+
+  const passwordConfirm: boolean = useAppSelector(
+    (state) => state.handler.password_confirm.show
   );
 
   const handleChangeCountry = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -50,11 +54,9 @@ export const SignUp = ({ location }: { location: string }) => {
   const handlePassword = (data: string) => {
     RegexVerify(data, dispatch);
   };
-
   const handlePasswordConfirm = (data: string) => {
-    setPasswordConfirm(ConfirmPassword(data, password, dispatch));
+    ConfirmPassword(data, password, dispatch);
   };
-
   const handleGenre = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const z = e.target.value;
     console.log(z);
@@ -78,11 +80,28 @@ export const SignUp = ({ location }: { location: string }) => {
           address +
           ", codigo postal: " +
           codePostal,
-        image: image,
+        image: image!,
       },
     };
 
     SignController(data, dispatch, location);
+  };
+  const handleImages = (e: React.FocusEvent<HTMLInputElement, Element>) => {
+    // console.log(e);
+
+    if (e.target.files === undefined) return;
+
+    const target = e.target as HTMLInputElement & {
+      files: FileList;
+    };
+
+    setImage(target.files[0]!);
+
+    // const data = new FormData()
+    // data.append('images', image!)
+
+    // axios.post('http://localhost:5000/grema-store/product/upload',data)
+    // console.log(target.files)
   };
 
   return (
@@ -108,7 +127,7 @@ export const SignUp = ({ location }: { location: string }) => {
                       type="file"
                       className="file-input file-input-sm w-full max-w-xs "
                       onBlur={(e) => {
-                        setImage(e.target.value);
+                        handleImages(e);
                       }}
                     />
                   </div>
@@ -265,90 +284,94 @@ export const SignUp = ({ location }: { location: string }) => {
               </div>
 
               <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-               
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="password"
-                      className="block text-sm leading-6 text-gray-900 "
-                    >
-                      Contrasena:
-                    </label>
+                <div className="sm:col-span-3">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm leading-6 text-gray-900 "
+                  >
+                    Contrasena:
+                  </label>
 
-                    {!passwordVerify ? (
-                      <>
-                        <div className="">
-                          <input
-                            type="password"
-                            pattern="^(?=(?:.*\d){2})(?=(?:.*[A-Z]){2})(?=(?:.*[a-z]){2})\S{8,}$"
-                            style={{
-                              borderColor: "#9b5176",
-                              borderWidth: "3px",
-                            }}
-                            className="input input-bordered input-sm w-full max-w-xs "
-                            required
-                            onBlur={(e) => {
-                              setPassword(e.target.value);
-                            }}
-                            onChange={(e) => {
-                              handlePassword(e.target.value);
-                            }}
-                          />
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="">
-                          <input
-                            type="password"
-                            pattern="^(?=(?:.*\d){2})(?=(?:.*[A-Z]){2})(?=(?:.*[a-z]){2})\S{8,}$"
-                            style={{
-                              borderColor: "#9b5176",
-                              borderWidth: "3px",
-                            }}
-                            className="input input-bordered input-error input-sm w-full max-w-xs "
-                            required
-                            onBlur={(e) => {
-                              setPassword(e.target.value);
-                            }}
-                            onChange={(e) => {
-                              handlePassword(e.target.value);
-                            }}
-                          />
-                        </div>
-                      </>
-                    )}
-                  </div>
+                  {!passwordVerify ? (
+                    <>
+                      <div className="">
+                        <input
+                          type="password"
+                          pattern="^(?=(?:.*\d){2})(?=(?:.*[A-Z]){2})(?=(?:.*[a-z]){2})\S{8,}$"
+                          style={{
+                            borderColor: "#9b5176",
+                            borderWidth: "3px",
+                          }}
+                          className="input input-bordered input-sm w-full max-w-xs "
+                          required
+                          onBlur={(e) => {
+                            setPassword(e.target.value);
+                          }}
+                          onChange={(e) => {
+                            handlePassword(e.target.value);
+                          }}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="">
+                        <input
+                          type="password"
+                          pattern="^(?=(?:.*\d){2})(?=(?:.*[A-Z]){2})(?=(?:.*[a-z]){2})\S{8,}$"
+                          style={{
+                            borderColor: "#9b5176",
+                            borderWidth: "3px",
+                          }}
+                          className="input input-bordered input-error input-sm w-full max-w-xs "
+                          required
+                          onBlur={(e) => {
+                            setPassword(e.target.value);
+                          }}
+                          onChange={(e) => {
+                            handlePassword(e.target.value);
+                          }}
+                        />
+                      </div>
+                    </>
+                  )}
+                </div>
 
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="passwordTry"
-                      className="block text-sm leading-6 text-gray-900 "
-                    >
-                      Verificar contrasena:
-                    </label>
+                <div className="sm:col-span-3">
+                  <label
+                    htmlFor="passwordTry"
+                    className="block text-sm leading-6 text-gray-900 "
+                  >
+                    Verificar contrasena:
+                  </label>
 
-                    {!passwordConfirm ? (
-                      <input
-                        type="password"
-                        required
-                        style={{ borderColor: "#9b5176", borderWidth: "3px" }}
-                        className="input input-bordered input-sm w-full max-w-xs "
-                        onBlur={(e) => {
-                          setPassword(e.target.value);
-                        }}
-                        onChange={(e) => {
-                          handlePasswordConfirm(e.target.value);
-                        }}
-                      />
-                    ) : (
-                      <>
+                  {!passwordConfirm ? (
+                    <>
+                      <div className="">
+                        <input
+                          type="password"
+                          required
+                          style={{ borderColor: "#9b5176", borderWidth: "3px" }}
+                          className="input input-bordered input-sm w-full max-w-xs "
+                          onBlur={(e) => {
+                            setPassConfirm(e.target.value);
+                          }}
+                          onChange={(e) => {
+                            handlePasswordConfirm(e.target.value);
+                          }}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="">
                         <input
                           type="password"
                           required
                           style={{ borderColor: "#9b5176", borderWidth: "3px" }}
                           className="input input-bordered input-error input-sm w-full max-w-xs "
                           onBlur={(e) => {
-                            setPassword(e.target.value);
+                            setPassConfirm(e.target.value);
                           }}
                           onChange={(e) => {
                             handlePasswordConfirm(e.target.value);
@@ -361,10 +384,10 @@ export const SignUp = ({ location }: { location: string }) => {
                             contrasenas no coinciden
                           </span>
                         </div>
-                      </>
-                    )}
-                  </div>
-           
+                      </div>
+                    </>
+                  )}
+                </div>
 
                 <div className="sm:col-span-full">
                   <h2 className="text-sm font-semibold leading-7">
