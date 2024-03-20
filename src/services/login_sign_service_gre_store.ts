@@ -13,16 +13,7 @@ export const loginService = async (params: LoginService) => {
             }
         });
 
-        console.log(response)
-
         return response
-
-
-        // axios.post('http://localhost:5000/grema-store/user/loggin-user/', body, {
-        //     headers: {
-        //       'Content-Type': 'application/json'
-        //     })
-            
 
     } catch (error) {
         return {

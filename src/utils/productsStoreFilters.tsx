@@ -1,3 +1,13 @@
+
+
+// // eslint-disable-next-line @typescript-eslint/no-unused-vars
+// export const parseProduct = (params:any[]) =>{
+
+// }
+
+
+
+
 const productsStoreFilters = [
   {
     id: 1,

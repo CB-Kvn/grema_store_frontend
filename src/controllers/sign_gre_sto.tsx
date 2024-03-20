@@ -79,7 +79,6 @@ export const ConfirmPassword = (
   passwordConfirm: string,
   dispatch: any
 ) => {
-  debugger;
   if (password === passwordConfirm) {
     dispatch(password_confirm({show:false}));
     

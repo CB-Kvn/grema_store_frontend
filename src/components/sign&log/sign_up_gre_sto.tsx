@@ -71,7 +71,7 @@ export const SignUp = ({ location }: { location: string }) => {
       cellphone: celphone,
       profile: {
         email: email,
-        password: password,
+        password: passConfirm,
         address:
           country +
           ", " +
@@ -208,6 +208,7 @@ export const SignUp = ({ location }: { location: string }) => {
                   <div className="">
                     <input
                       type="text"
+                      
                       required
                       style={{ borderColor: "#9b5176", borderWidth: "3px" }}
                       className="input input-bordered input-sm w-full max-w-xs"
@@ -522,7 +523,7 @@ export const SignUp = ({ location }: { location: string }) => {
             </div>
           </div>
 
-          {!passwordConfirm ? (
+          {passwordConfirm ? (
             <></>
           ) : (
             <div className="mt-6 flex  text-smitems-center justify-end gap-x-6">
