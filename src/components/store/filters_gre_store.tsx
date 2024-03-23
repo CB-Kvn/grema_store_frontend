@@ -594,7 +594,7 @@ export const Filters = () => {
               <div className="lg:col-span-3">
                 <div className="bg-white">
                   <div className="mx-auto max-w-2xl px-4  sm:px-6  lg:max-w-7xl ">
-                    <div className="mt-6  grid grid-cols-2 justify-items-center gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-x-1 md:grid-cols-3 md:gap-x-32  lg:grid-cols-3  lg:gap-x-24  xl:gap-x-4 xl:grid-cols-3" >
+                    <div className="mt-6  grid grid-cols-1 justify-items-center gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-x-1 md:grid-cols-3 md:gap-x-32  lg:grid-cols-3  lg:gap-x-24  xl:gap-x-4 xl:grid-cols-3" >
 {/*                     
                         // <div key={product.id} className="group relative">
                         //   <div className="aspect-h-1 aspect-w-1 w-full  overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-72">
@@ -654,12 +654,12 @@ export const Filters = () => {
                         //     </button>
                         //   </div>
                         // </div> */}
-                        <div className="w-40 sm:w-64 md:w-56 lg:w-60 xl:w-64 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                        <div className="w-72 sm:w-64 md:w-56 lg:w-60 xl:w-64 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
                           <a href="#">
                             <img
                               src="https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg"
                               alt="Product"
-                              className="h-20 w-20 sm:h-72 sm:w-64  md:h-64 md:w-60 lg:h-72 lg:w-64 xl:w-64 xl:h-72 object-cover rounded-t-xl"
+                              className="h-72 w-72 sm:h-72 sm:w-64  md:h-64 md:w-60 lg:h-72 lg:w-64 xl:w-64 xl:h-72 object-cover rounded-t-xl"
                             />
                             <div className="px-4 py-3 w-20 sm:w-60 md:40 lg:w-48 xl:w-60">
                               <p className="text-lg font-bold text-black truncate block capitalize">
