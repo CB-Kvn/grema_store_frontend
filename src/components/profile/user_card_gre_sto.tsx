@@ -3,7 +3,7 @@
 export const UserCard = () => {
   return (
     <>
-      <div className="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mt-6 bg-white shadow-xl rounded-lg text-gray-900" style={{backgroundColor: "antiquewhite"}}>
+      <div className="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mt-6 bg-white shadow-xl rounded-lg text-gray-900" style={{backgroundColor: "rgb(246, 218, 239)"}}>
         <div className="rounded-t-lg h-32 overflow-hidden">
           <img
             className="object-cover object-top w-full"

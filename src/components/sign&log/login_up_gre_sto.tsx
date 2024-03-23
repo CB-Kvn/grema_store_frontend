@@ -12,7 +12,9 @@ export const Login = ({ location }: { location: string }) => {
   const dispatch = useAppDispatch();
   const activeToast = useAppSelector((state) => state.handler.toast);
 
-  const handleLogin = async () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const handleLogin =  () => {
+   
     loginController(dispatch, email, password, setEmail, setPassword);
   };
 
@@ -180,6 +182,7 @@ export const Login = ({ location }: { location: string }) => {
                 }}
                 onClick={() => {
                   handleLogin();
+                  
                 }}
               >
                 Iniciar

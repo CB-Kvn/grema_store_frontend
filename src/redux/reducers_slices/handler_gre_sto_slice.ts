@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     toast:{
         show: false,
-        msg:""
+        msg:"",
+        
     },
     signUp:{
         show: false,
@@ -18,6 +19,9 @@ const initialState = {
         msg:""
     },
     password_verify:{
+        show: false,
+    },
+    password_confirm:{
         show: false,
     }
 
@@ -48,10 +52,13 @@ export const HandlersSlice = createSlice({
         password_verify:(state,action) =>{
             state.password_verify.show = action.payload.show
         },
+        password_confirm:(state,action) =>{
+            state.password_confirm.show = action.payload.show
+        },
 
     },
 })
 
-export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify } = HandlersSlice.actions
+export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify,password_confirm } = HandlersSlice.actions
 
 export default HandlersSlice.reducer

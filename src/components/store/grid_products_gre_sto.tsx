@@ -1,5 +1,4 @@
 
-
 const products = [
     {
       id: 1,
@@ -67,8 +66,12 @@ const products = [
       },
     // More products...
   ]
+
+ 
   
   export const  GridProducts =()=> {
+
+
     
     return (
       <div className="bg-white">

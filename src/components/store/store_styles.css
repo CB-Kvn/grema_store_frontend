@@ -13,3 +13,7 @@
   -o-transform: scale(1.5);
   transform: scale(1.5);
 }
+
+.mt-revert {
+  margin-top: revert;
+}

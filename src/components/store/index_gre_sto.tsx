@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment,useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -14,6 +14,7 @@ import { SignUp } from "../sign&log/sign_up_gre_sto";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 import { Carts } from "./carts_gre_sto";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
+import { Modal_Product } from "./modal_product_gre_sto";
 
 const navigation = {
   categories: [
@@ -109,6 +110,10 @@ export const MenuStore = () => {
   const handleCartShop = (open:boolean)  =>{
     dispatch(shopCart_visible({show: open }));
   }
+  const handleModal = () => {
+    dispatch(new_user_form({ show: false }));
+  }
+  
  
   return (
     <div className="bg-white mt-8" id="store" >
@@ -508,7 +513,7 @@ export const MenuStore = () => {
                           className="modal-backdrop"
                           htmlFor="my_modal_8"
                           onClick={() => {
-                            console.log("Cerrando modal");
+                            handleModal()
                           }}
                         >
                           Close
@@ -545,10 +550,11 @@ export const MenuStore = () => {
         </nav>
       </header>
 
-      {!open ? <BannerCommercial></BannerCommercial> : <></>}
+      <BannerCommercial></BannerCommercial>
 
       <Filters></Filters>
       <Carts></Carts>
+      <Modal_Product></Modal_Product>
     </div>
   );
 };
