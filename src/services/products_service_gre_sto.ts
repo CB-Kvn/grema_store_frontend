@@ -1,4 +1,5 @@
 import axios from "axios";
+import { APIResponseProducts } from "../interfaces/products_interface_gre_sto";
 
 
 
@@ -7,14 +8,12 @@ export const getAllProducts = async () => {
     try {
         const response = await axios.get('http://localhost:5000/grema-store/product/get-all');
 
-        console.log(response)
-
-        return response
+        return response.data as APIResponseProducts
 
     } catch (error) {
-        return {
-            data: { error: error, msg: 'Error en la consulta' }
-        }
+        console.log({
+           error: error, msg: 'Error en la consulta' 
+        })
     }
 
 }

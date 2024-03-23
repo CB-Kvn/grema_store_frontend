@@ -6,6 +6,8 @@ import { HandlersSlice } from "./reducers_slices/handler_gre_sto_slice"
 import { SignUpSlice } from "./reducers_slices/sign_up_gre_sto_slice"
 
 import { configureStore } from "@reduxjs/toolkit"
+import { ProductSlice } from "./reducers_slices/products_gre_sto_slice"
+import { FiltersSlice } from "./reducers_slices/filters_gre_sto_slice"
 // import { persistStore, persistReducer } from 'redux-persist'
 // import storage from 'redux-persist/lib/storage'
 
@@ -26,6 +28,8 @@ export const store  = configureStore({
         login: LoginSlice.reducer,
         handler: HandlersSlice.reducer,
         newUser: SignUpSlice.reducer,
+        products: ProductSlice.reducer,
+        filters: FiltersSlice.reducer
     }
     
 })

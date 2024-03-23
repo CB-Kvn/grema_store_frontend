@@ -8,7 +8,7 @@ import { Loader } from "./components/loader";
 import { useAppSelector } from "./redux/store";
 
 
-export default function Example() {
+export const App =()=> {
 
  
   const loader = useAppSelector((state) => state.handler.loader_visible.show);
@@ -21,7 +21,7 @@ export default function Example() {
       <Route path="/profile" element={<Profile></Profile>}></Route> 
       <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
     </Routes>
-    <Footer></Footer>
+    <Footer></Footer> 
     { loader ? <Loader></Loader> : <></>}
     
     </>

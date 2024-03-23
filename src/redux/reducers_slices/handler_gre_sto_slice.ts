@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     toast:{
         show: false,
-        msg:""
+        msg:"",
+        
     },
     signUp:{
         show: false,

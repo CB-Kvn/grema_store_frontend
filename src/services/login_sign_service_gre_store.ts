@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import { LoginService, UsersService } from "../interfaces/login_gre_sto_service";
+import { LoginService, UsersService } from "../interfaces/login_interface_gre_sto";
 
 
 export const loginService = async (params: LoginService) => {

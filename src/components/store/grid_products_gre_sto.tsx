@@ -1,6 +1,3 @@
-import { useEffect } from "react"
-import { getAll } from "../../controllers/products_gre_sto"
-
 
 const products = [
     {
@@ -74,11 +71,7 @@ const products = [
   
   export const  GridProducts =()=> {
 
-    useEffect(() => {
-     
-      getAll()
-    })
-    
+
     
     return (
       <div className="bg-white">

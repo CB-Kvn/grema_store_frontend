@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { UsersService } from "../interfaces/login_gre_sto_service";
+import { UsersService } from "../interfaces/login_interface_gre_sto";
 import {
   loader_visible,
   password_confirm,
@@ -8,7 +8,7 @@ import {
 } from "../redux/reducers_slices/handler_gre_sto_slice";
 import { new_user_form } from "../redux/reducers_slices/sign_up_gre_sto_slice";
 import { signService } from "../services/login_sign_service_gre_store";
-import { verifyRgx } from "../utils/verify data && parse/verifyRgx";
+import { verifyRgx } from "../utils/verify_parse_data/verifyRgx";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const SignController = async (
