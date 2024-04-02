@@ -1,13 +1,13 @@
 
 import axios from "axios";
 import { LoginService, UsersService } from "../interfaces/login_interface_gre_sto";
-
+const url = import.meta.env.BASE_URL
 
 export const loginService = async (params: LoginService) => {
 
     const body = { email: params.email, password: params.password }
     try {
-        const response = await axios.post(`http://localhost:5000/grema-store/user/loggin-user/`,body , {
+        const response = await axios.post(url+`/grema-store/user/loggin-user/`,body , {
             headers:{
                 'Content-Type': 'application/json'
             }
@@ -26,7 +26,7 @@ export const loginService = async (params: LoginService) => {
 export const signService = async (params: UsersService) => {
 
     try {
-        const response = await axios.post('http://localhost:5000/grema-store/user/create-user', params);
+        const response = await axios.post(url+'/grema-store/user/create-user', params);
 
         console.log(response)
 
