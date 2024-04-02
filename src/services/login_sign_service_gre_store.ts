@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import { LoginService, UsersService } from "../interfaces/login_interface_gre_sto";
-const url = import.meta.env.BASE_URL
+const url = import.meta.env.URL_BACKEND
 
 export const loginService = async (params: LoginService) => {
 
