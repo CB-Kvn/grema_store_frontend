@@ -3,11 +3,12 @@ import { APIResponseFilters, FiltersToApi } from "../interfaces/filters_interfac
 import { APIResponseProducts } from "../interfaces/products_interface_gre_sto";
 
 
+const url = import.meta.env.BASE_URL
 
 export const getAllFilters = async () => {
-
+    
     try {
-        const response = await axios.get('http://localhost:5000/grema-store/filters/filters');
+        const response = await axios.get(url+'/grema-store/filters/filters');
 
 
         return response.data as APIResponseFilters
@@ -23,7 +24,7 @@ export const getAllFilters = async () => {
 export const getProductFilters = async (data:FiltersToApi) => {
 
     try {
-        const response = await axios.post('http://localhost:5000/grema-store/product/get-all-filters',data
+        const response = await axios.post(url+'/product/get-all-filters',data
           );
 
 
