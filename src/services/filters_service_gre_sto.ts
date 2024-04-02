@@ -3,8 +3,7 @@ import { APIResponseFilters, FiltersToApi } from "../interfaces/filters_interfac
 import { APIResponseProducts } from "../interfaces/products_interface_gre_sto";
 
 
-const url = import.meta.env.BASE_URL
-
+const url = import.meta.env.URL_BACKEND
 export const getAllFilters = async () => {
     
     try {
