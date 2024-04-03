@@ -37,6 +37,6 @@ export interface ArrayParseProducts{
     category: string
   }
 
-export interface reducerInitial{
+export interface reducerInitialProducts{
     data: ArrayParseProducts[]
 }
