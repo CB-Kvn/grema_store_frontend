@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import {reducerInitial, ArrayParseProducts } from "../../interfaces/products_interface_gre_sto";
+import {ArrayParseProducts, reducerInitialProducts } from "../../interfaces/products_interface_gre_sto";
 interface addProducts {
     payload: {
         data: ArrayParseProducts[]
@@ -7,7 +7,7 @@ interface addProducts {
 }
 
 // Define the initial state using that type
-const initialState: reducerInitial = {
+const initialState: reducerInitialProducts = {
     data: [] 
     
 }
