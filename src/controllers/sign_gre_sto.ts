@@ -11,14 +11,31 @@ import { signService } from "../services/login_sign_service_gre_store";
 import { verifyRgx } from "../utils/verify_parse_data/verifyRgx";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const SignController = async (
+export const SignSave = async (
   data: UsersService,
   dispatch: any,
   location: string
 ) => {
   try {
     dispatch(loader_visible({ msg: "", show: true }));
-    const response = await signService(data);
+    const info = {
+
+      id: Number(data.personal.id),
+      name: data.personal.name,
+      lastName: data.personal.lastName,
+      cellphone: data.personal.cellphone,
+      genre: data.personal.genre,
+      status: true,
+      profile: {
+        email: data.profile.email,
+        password: data.profile.password,
+        address: data.address.address +", "+ data.address.state +", "+ data.address.country +", "+ data.address.code,
+        image: "data.profile.email",
+        createAtProfile: new Date(),
+        updateAtProfile: new Date(),
+      }
+    }
+    const response = await signService(info);
     setTimeout(() => {
       dispatch(loader_visible({ msg: "", show: false }));
     }, 2000);
@@ -80,11 +97,11 @@ export const ConfirmPassword = (
   dispatch: any
 ) => {
   if (password === passwordConfirm) {
-    dispatch(password_confirm({show:false}));
-    
+    dispatch(password_confirm({ show: false }));
+
   }
   else {
     dispatch(password_confirm({ show: true }));
-    
+
   }
 };

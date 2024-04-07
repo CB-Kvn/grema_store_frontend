@@ -4,8 +4,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     toast:{
         show: false,
-        msg:"",
-        
+        msg:"", 
     },
     signUp:{
         show: false,
@@ -23,10 +22,36 @@ const initialState = {
     },
     password_confirm:{
         show: false,
+    },
+    info_user:{
+        personal:{
+            id: '',
+            name: '',
+            lastName: '',
+            cellphone: '',
+            genre: '',
+        },
+        profile:{
+            email: '',
+            password: '',
+            address: '',
+            image: '' 
+        },
+        address:{
+            country:'',
+            state:'',
+            address:'',
+            code:''
+        },
+        page: 0
+
+
     }
 
     
 }
+
+
 
 export const HandlersSlice = createSlice({
     name: 'handlers',
@@ -55,10 +80,25 @@ export const HandlersSlice = createSlice({
         password_confirm:(state,action) =>{
             state.password_confirm.show = action.payload.show
         },
+        add_personal_info:(state,action)=>{
+            state.info_user.personal = action.payload.personal
+
+        },
+         add_profile_info:(state,action)=>{
+            state.info_user.profile = action.payload.profile
+
+        },
+        add_address_info:(state,action)=>{
+            state.info_user.address = action.payload.address
+
+        },
+        counter_page:(state,action)=>{
+            state.info_user.page = action.payload.page
+        }
 
     },
 })
 
-export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify,password_confirm } = HandlersSlice.actions
+export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify,password_confirm,counter_page,add_personal_info,add_address_info,add_profile_info } = HandlersSlice.actions
 
 export default HandlersSlice.reducer
