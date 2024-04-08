@@ -14,7 +14,8 @@ import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice
 import { Carts } from "./carts_gre_sto";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { Modal_Product } from "./modal_product_gre_sto";
-import Categories from "./categories_products_gre_sto";
+import { Categories } from "./categories_products_gre_sto";
+
 
 const navigation = {
   categories: [
