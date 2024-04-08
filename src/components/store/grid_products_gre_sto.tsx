@@ -8,7 +8,7 @@ export const GridProducts = ({
 }: {
   products: ArrayParseProducts[];
 }) => {
-  // const products = useAppSelector((state) => state.products.data);
+  
   const love = useAppSelector((state) => state.love.data);
   const dispatch = useAppDispatch();
   const handleLovinArticle = (data: LoveProduct) => {
@@ -28,6 +28,7 @@ export const GridProducts = ({
               src="https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg"
               alt="Product"
               className="h-72 w-72 sm:h-72 sm:w-64  md:h-64 md:w-60 lg:h-72 lg:w-64 xl:w-64 xl:h-72 object-cover rounded-t-xl"
+             
             />
             <div className="px-4 py-3 w-72 sm:w-64 md:40 lg:w-60 xl:w-64">
               <p className="text-lg font-bold text-black truncate block capitalize">
