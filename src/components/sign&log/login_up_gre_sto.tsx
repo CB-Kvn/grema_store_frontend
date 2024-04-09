@@ -34,7 +34,7 @@ export const Login = ({ location }: { location: string }) => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6">
+          <div className="space-y-6">
             <div>
               <label
                 htmlFor="email"
@@ -173,7 +173,7 @@ export const Login = ({ location }: { location: string }) => {
 
             <div>
               <button
-                type="submit"
+                type="button"
                 className="flex w-full btn btn-active btn-neutral mt-4 btn-ssm"
                 style={{
                   backgroundColor: "#F6DAEF",
@@ -188,7 +188,7 @@ export const Login = ({ location }: { location: string }) => {
                 Iniciar
               </button>
             </div>
-          </form>
+          </div>
 
           {location === "store" ? (
             <></>

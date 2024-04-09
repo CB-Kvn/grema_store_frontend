@@ -11,7 +11,10 @@ export const loginController = async (dispatch: any,email: any, password: any, s
   
   try {
     dispatch(loader_visible({ msg: "", show: true }));
+    
     const response = await loginService({ email, password });
+    console.log(response)
+    
     setTimeout(() => {
       dispatch(loader_visible({ msg: "", show: false }));
     }, 2000);

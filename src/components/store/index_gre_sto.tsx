@@ -6,7 +6,6 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Filters } from "./filters_gre_store";
-import { BannerCommercial } from "./banner_commercial_gre_store";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
 import { Login } from "../sign&log/login_up_gre_sto";
@@ -15,6 +14,8 @@ import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice
 import { Carts } from "./carts_gre_sto";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { Modal_Product } from "./modal_product_gre_sto";
+import { Categories } from "./categories_products_gre_sto";
+
 
 const navigation = {
   categories: [
@@ -547,11 +548,13 @@ export const MenuStore = () => {
               </div>
             </div>
           </div>
+          <Categories></Categories>
         </nav>
+       
       </header>
 
-      <BannerCommercial></BannerCommercial>
-
+      
+    
       <Filters></Filters>
       <Carts></Carts>
       <Modal_Product></Modal_Product>
