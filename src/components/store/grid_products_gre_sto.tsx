@@ -18,7 +18,11 @@ export const GridProducts = ({
   const handleUnLovinArticle = (data:number)=>{
     dispatch(remove_products_love({id:data}))
   }
-
+  const handleModalProduct = () => {
+    console.log("Dale");
+    const element = document.querySelector("#my_modal_10") as HTMLInputElement;
+    element.checked = true;
+  };
   return (
     <div className="mt-6  grid grid-cols-1 justify-items-center gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-x-1 md:grid-cols-3 md:gap-x-32  lg:grid-cols-3  lg:gap-x-24  xl:gap-x-4 xl:grid-cols-3">
       {products.map((e) => (
@@ -28,6 +32,7 @@ export const GridProducts = ({
               src="https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg"
               alt="Product"
               className="h-72 w-72 sm:h-72 sm:w-64  md:h-64 md:w-60 lg:h-72 lg:w-64 xl:w-64 xl:h-72 object-cover rounded-t-xl"
+              onClick={()=> handleModalProduct()}
              
             />
             <div className="px-4 py-3 w-72 sm:w-64 md:40 lg:w-60 xl:w-64">
@@ -54,6 +59,7 @@ export const GridProducts = ({
                       overflow="visible"
                       version="1.1"
                       xmlns="http://www.w3.org/2000/svg"
+                      onClick={()=> handleModalProduct()}
                     >
                       <g id="Layer_1" />
 

@@ -548,12 +548,13 @@ export const MenuStore = () => {
               </div>
             </div>
           </div>
+          <Categories></Categories>
         </nav>
+       
       </header>
 
-      <Categories></Categories>
-       
-
+      
+    
       <Filters></Filters>
       <Carts></Carts>
       <Modal_Product></Modal_Product>

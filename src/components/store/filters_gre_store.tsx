@@ -212,11 +212,6 @@ export const Filters = () => {
   const [selectionFilters, setSelectionFilter] = useState<Filter[]>([]);
   const products = useAppSelector((state) => state.products.data);
 
-  // const handleModalProduct = () => {
-  //   console.log("Dale");
-  //   const element = document.querySelector("#my_modal_10") as HTMLInputElement;
-  //   element.checked = true;
-  // };
   const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
     setSelectionFilter((prevFilter) => {
@@ -238,7 +233,6 @@ export const Filters = () => {
     return checked;
   };
   useEffect(() => {
-    
     getProductsFilters(filters, selectionFilters, dispatch);
   }, [selectionFilters]); // Se activa solo cuando el estado frutasSeleccionadas cambia
 
@@ -321,98 +315,100 @@ export const Filters = () => {
 
                   {/* Filters */}
                   <form className="mt-4 border-t border-gray-200">
-                    {filters.map((section) => (
-                      <Disclosure
-                        as="div"
-                        key={section.id}
-                        className="border-t border-gray-200 px-4 py-6"
-                        style={{
-                          color: "#C2A78D",
-                          backgroundColor: "rgb(246, 218, 239)",
-                        }}
-                      >
-                        {({ open }) => (
-                          <>
-                            <h3
-                              className="-mx-2 -my-3 flow-root"
-                              style={{
-                                color: "#C2A78D",
-                                backgroundColor: "rgb(246, 218, 239)",
-                              }}
-                            >
-                              <Disclosure.Button
-                                className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
+                    <div style={{backgroundImage: "url(/src/assets/Historia frase emprendedores Degradado Rosa.gif)"}}>
+                      {filters.map((section) => (
+                        <Disclosure
+                          as="div"
+                          key={section.id}
+                          className="border-t border-gray-200 px-4 py-6"
+                          style={{
+                            color: "#C2A78D",
+                            backgroundColor: "transparent",
+                          }}
+                        >
+                          {({ open }) => (
+                            <>
+                              <h3
+                                className="-mx-2 -my-3 flow-root"
                                 style={{
                                   color: "#C2A78D",
                                   backgroundColor: "rgb(246, 218, 239)",
                                 }}
                               >
-                                <span
-                                  className="font-medium "
+                                <Disclosure.Button
+                                  className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
                                   style={{
                                     color: "#C2A78D",
                                     backgroundColor: "rgb(246, 218, 239)",
                                   }}
                                 >
-                                  {section.name}
-                                </span>
-                                <span
-                                  className="ml-6 flex items-center"
-                                  style={{
-                                    color: "#C2A78D",
-                                    backgroundColor: "rgb(246, 218, 239)",
-                                  }}
-                                >
-                                  {open ? (
-                                    <MinusIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
-                                    />
-                                  ) : (
-                                    <PlusIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
-                                    />
-                                  )}
-                                </span>
-                              </Disclosure.Button>
-                            </h3>
-                            <Disclosure.Panel className="pt-6">
-                              <div className="space-y-6">
-                                {section.options.map((option, optionIdx) => (
-                                  <div
-                                    key={option.value}
-                                    className="flex items-center"
+                                  <span
+                                    className="font-medium "
+                                    style={{
+                                      color: "#C2A78D",
+                                      backgroundColor: "rgb(246, 218, 239)",
+                                    }}
                                   >
-                                    <input
-                                      id={`filter-mobile-${section.id}-${optionIdx}`}
-                                      name={`${section.id}[]`}
-                                      type="checkbox"
-                                      checked={isChecked(option.value)}
-                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                      value={option.value}
-                                      onChange={(e) => {
-                                        handleCheckbox(e);
-                                      }}
-                                    />
-                                    <label
-                                      htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                      className="ml-3 min-w-0 flex-1 "
-                                      style={{
-                                        color: "#C2A78D",
-                                        backgroundColor: "rgb(246, 218, 239)",
-                                      }}
+                                    {section.name}
+                                  </span>
+                                  <span
+                                    className="ml-6 flex items-center"
+                                    style={{
+                                      color: "#C2A78D",
+                                      backgroundColor: "rgb(246, 218, 239)",
+                                    }}
+                                  >
+                                    {open ? (
+                                      <MinusIcon
+                                        className="h-5 w-5"
+                                        aria-hidden="true"
+                                      />
+                                    ) : (
+                                      <PlusIcon
+                                        className="h-5 w-5"
+                                        aria-hidden="true"
+                                      />
+                                    )}
+                                  </span>
+                                </Disclosure.Button>
+                              </h3>
+                              <Disclosure.Panel className="pt-6">
+                                <div className="space-y-6">
+                                  {section.options.map((option, optionIdx) => (
+                                    <div
+                                      key={option.value}
+                                      className="flex items-center"
                                     >
-                                      {option.label}
-                                    </label>
-                                  </div>
-                                ))}
-                              </div>
-                            </Disclosure.Panel>
-                          </>
-                        )}
-                      </Disclosure>
-                    ))}
+                                      <input
+                                        id={`filter-mobile-${section.id}-${optionIdx}`}
+                                        name={`${section.id}[]`}
+                                        type="checkbox"
+                                        checked={isChecked(option.value)}
+                                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                        value={option.value}
+                                        onChange={(e) => {
+                                          handleCheckbox(e);
+                                        }}
+                                      />
+                                      <label
+                                        htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                        className="ml-3 min-w-0 flex-1 "
+                                        style={{
+                                          color: "#C2A78D",
+                                          backgroundColor: "rgb(246, 218, 239)",
+                                        }}
+                                      >
+                                        {option.label}
+                                      </label>
+                                    </div>
+                                  ))}
+                                </div>
+                              </Disclosure.Panel>
+                            </>
+                          )}
+                        </Disclosure>
+                      ))}
+                    </div>
                   </form>
                 </Dialog.Panel>
               </Transition.Child>
@@ -509,6 +505,7 @@ export const Filters = () => {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
+              <div > 
                 {filters.map((section) => (
                   <Disclosure
                     as="div"
@@ -588,6 +585,8 @@ export const Filters = () => {
                     )}
                   </Disclosure>
                 ))}
+                </div>
+              
               </form>
 
               {/* Product grid */}
