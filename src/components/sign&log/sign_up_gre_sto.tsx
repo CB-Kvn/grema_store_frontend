@@ -24,7 +24,7 @@ export const SignUp = ({ location }: { location: string }) => {
           
             <div className="space-y-2">
               {info == 0 ? (
-                <SignPersonalInfo location={location}></SignPersonalInfo>
+                <SignPersonalInfo></SignPersonalInfo>
               ) : info == 1 ? (
                 <ProfileData></ProfileData>
               ) : info == 2 ? (

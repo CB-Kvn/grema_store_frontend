@@ -5,11 +5,11 @@ import { states } from "../../../src/utils/states.json";
 
 import { useEffect, useState } from "react";
 
-import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { useAppSelector } from "../../redux/store";
 import { ButtonNavPage } from "./button_nav_pag_gre_sto";
 
 export const AddressInfo = () => {
-  const dispatch = useAppDispatch();
+ 
 
   const [country, setCountry] = useState<string>("");
   const [idCountry, setIdCountry] = useState<number>(0);
