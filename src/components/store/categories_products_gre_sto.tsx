@@ -38,6 +38,14 @@ export const Categories = () => {
             style={{ border: "solid 2px", borderColor: "#C2A78D" }}
           />
         </div>
+
+        <div className="">
+          <img
+            src="/src/assets/Historia frase emprendedores Degradado Rosa (4).gif"
+            className="w-36 h-20 hidden lg:block xl:block sm:w-64 ssm:h-32 md:w-64 md:h-32 lg:w-64 lg:h-32 xl:w-64 xl:h-32    shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
+            style={{ border: "solid 2px", borderColor: "#C2A78D" }}
+          />
+        </div>
       </div>
 
       
