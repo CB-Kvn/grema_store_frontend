@@ -1,21 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+
 import { UserCircleIcon } from "@heroicons/react/24/outline";
 
 import { useEffect, useState } from "react";
 
-import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { useAppSelector } from "../../redux/store";
 import { ButtonNavPage } from "./button_nav_pag_gre_sto";
 
-export const SignPersonalInfo = ({ location }: { location: string }) => {
-  const dispatch = useAppDispatch();
+export const SignPersonalInfo = () => {
+  
 
   const [name, setName] = useState<string>("");
   const [lastname, setLastName] = useState<string>("");
   const [id, setId] = useState<string>("");
   const [celphone, setCelphone] = useState<string>("");
   const [genre, setGenre] = useState<string>("");
-  const [image, setImage] = useState<File>();
+  // const [setImage] = useState<File>();
   const info = useAppSelector((state) => state.handler.info_user);
 
   const handleGenre = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -24,23 +25,23 @@ export const SignPersonalInfo = ({ location }: { location: string }) => {
     setGenre(z);
   };
 
-  const handleImages = (e: React.FocusEvent<HTMLInputElement, Element>) => {
-    // console.log(e);
+  // const handleImages = (e: React.FocusEvent<HTMLInputElement, Element>) => {
+  //   // console.log(e);
 
-    if (e.target.files === undefined) return;
+  //   if (e.target.files === undefined) return;
 
-    const target = e.target as HTMLInputElement & {
-      files: FileList;
-    };
+  //   const target = e.target as HTMLInputElement & {
+  //     files: FileList;
+  //   };
 
-    setImage(target.files[0]!);
+  //   setImage(target.files[0]!);
 
-    // const data = new FormData()
-    // data.append('images', image!)
+  //   // const data = new FormData()
+  //   // data.append('images', image!)
 
-    // axios.post('http://localhost:5000/grema-store/product/upload',data)
-    // console.log(target.files)
-  };
+  //   // axios.post('http://localhost:5000/grema-store/product/upload',data)
+  //   // console.log(target.files)
+  // };
 
   useEffect(() => {
     setName(info.personal.name != "" || info.personal.name != undefined ? info.personal.name : "")
@@ -70,9 +71,9 @@ export const SignPersonalInfo = ({ location }: { location: string }) => {
               <input
                 type="file"
                 className="file-input file-input-sm w-full max-w-xs "
-                onBlur={(e) => {
-                  handleImages(e);
-                }}
+                // onBlur={(e) => {
+                //   // handleImages(e);
+                // }}
               />
             </div>
           </div>
