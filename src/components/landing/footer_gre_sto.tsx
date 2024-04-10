@@ -1,7 +1,7 @@
 
 export const Footer = () => {
   return (
-    <footer className="footer p-10 bg-nav text-base-content " id="footer" style={{backgroundColor: '#F6DAEF'}}>
+    <footer className="footer p-10 bg-nav text-base-content " id="footer" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs3.png'}}>
       <nav>
         <header className="footer-title">Services</header>
         <a className="link link-hover">Branding</a>
