@@ -315,16 +315,13 @@ export const Filters = () => {
 
                   {/* Filters */}
                   <form className="mt-4 border-t border-gray-200">
-                    <div style={{backgroundImage: "url(/src/assets/Historia frase emprendedores Degradado Rosa.gif)"}}>
+                    <div >
                       {filters.map((section) => (
                         <Disclosure
                           as="div"
                           key={section.id}
                           className="border-t border-gray-200 px-4 py-6"
-                          style={{
-                            color: "#C2A78D",
-                            backgroundColor: "transparent",
-                          }}
+                          
                         >
                           {({ open }) => (
                             <>
@@ -505,32 +502,31 @@ export const Filters = () => {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
-              <div > 
+              <div className=""> 
                 {filters.map((section) => (
                   <Disclosure
                     as="div"
                     key={section.id}
-                    className="border-b py-6"
+                    className="border-b py-6 font-semibold "
                     style={{
                       color: "#C2A78D",
-                      backgroundColor: "rgb(246, 218, 239)",
+                      
                     }}
                   >
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
                           <Disclosure.Button
-                            className="flex w-full  p-3 items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
+                            className="flex w-full font-semibold   p-3 items-center justify-between bg-white py-3 text-lg"
                             style={{
-                              color: "#C2A78D",
-                              backgroundColor: "rgb(246, 218, 239)",
+                              color: "rgb(194, 167, 141)",
+                        
                             }}
                           >
                             <span
-                              className="font-medium "
+                              className="font-semibold"
                               style={{
-                                color: "#C2A78D",
-                                backgroundColor: "rgb(246, 218, 239)",
+                                color: "rgb(194, 167, 141)",
                               }}
                             >
                               {section.name}
@@ -540,24 +536,24 @@ export const Filters = () => {
                                 <MinusIcon
                                   className="h-5 w-5"
                                   aria-hidden="true"
-                                  style={{ color: "#95806b" }}
+                                  style={{color: "rgb(194, 167, 141)" }}
                                 />
                               ) : (
                                 <PlusIcon
                                   className="h-5 w-5"
                                   aria-hidden="true"
-                                  style={{ color: "#95806b" }}
+                                  style={{ color: "rgb(194, 167, 141)" }}
                                 />
                               )}
                             </span>
                           </Disclosure.Button>
                         </h3>
                         <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4">
+                          <div className="space-y-4 ml-8 ">
                             {section.options.map((option, optionIdx) => (
                               <div
                                 key={option.value}
-                                className="flex items-center"
+                                className="flex items-center "
                               >
                                 <input
                                   id={`filter-${section.id}-${optionIdx}`}
@@ -565,7 +561,7 @@ export const Filters = () => {
                                   value={option.value}
                                   type="checkbox"
                                   checked={isChecked(option.value)}
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                  className="h-4 w-4 rounded border-gray-300 "
                                   onChange={(e) => {
                                     handleCheckbox(e);
                                   }}
@@ -573,7 +569,7 @@ export const Filters = () => {
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
                                   className="ml-3 text-sm"
-                                  style={{ color: "#C2A78D" }}
+                                  style={{color: "rgb(194, 167, 141)" }}
                                 >
                                   {option.label}
                                 </label>
