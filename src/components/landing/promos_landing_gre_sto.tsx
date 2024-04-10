@@ -1,9 +1,9 @@
 
 export const Promos=()=> {
     return (
-      <div className="relative overflow-hidden py-20" id="promotions" style={{backgroundColor:"#F6DAEF"}}>
-        <div className="pb-80 pt-16 ">
-          <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden " id="promotions" style={{backgroundColor:"#F6DAEF"}}>
+        <div className="">
+          <div className="relative mx-auto max-w-7xl sm:static">
             <div className="sm:max-w-lg">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl" style={{fontFamily:'Dancing Script,cursive', color:'#393939'}}>
                 Visita nuestra seccion de descuentos y promociones!
