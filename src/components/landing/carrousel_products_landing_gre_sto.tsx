@@ -51,7 +51,7 @@ export const InlineProducts = () => {
   return (
     <>
       
-        <div className="bg-white my-24" id="store-pre" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/Pink Rose Watercolor Organic Creative Project Presentation.png'}}>
+        <div className="my-24" id="store-pre" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs3.png'}}>
           <div className="text-center">
             <h2
               className="text-4xl font-bold tracking-tight sm:text-7xl"
