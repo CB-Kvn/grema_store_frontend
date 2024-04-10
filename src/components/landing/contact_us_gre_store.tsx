@@ -1,6 +1,6 @@
 export const ContactUs = () => {
   return (
-    <div className="flex" style={{ backgroundColor: "#F6DAEF" }}>
+    <div className="flex" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs4.png'}}>
       <div
         className="container mt-20 mx-auto px-2 md:px-4"
         id="contacts"
