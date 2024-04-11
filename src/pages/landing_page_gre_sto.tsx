@@ -13,7 +13,7 @@ export const LandingPage = () => {
   
 
   return (
-    <div className="" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/Diseño sin título.png'}}>
+    <div className="" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/backs5.png'}}>
       <Navigation_Gre_Sto></Navigation_Gre_Sto>
       <BannerPrincipal></BannerPrincipal>
       <InfoBanner></InfoBanner>
