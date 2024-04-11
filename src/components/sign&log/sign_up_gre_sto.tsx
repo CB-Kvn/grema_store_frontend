@@ -19,6 +19,7 @@ export const SignUp = ({ location }: { location: string }) => {
       <div
         className="text-font-nav text-3xl flex min-h-full flex-1 flex-col justify-center px-6 py-8 lg:px-8"
         // style={{ fontFamily: "Dancing Script,cursive" }}
+        
       >
         <div className="transition ease-out duration-500 transform hover:scale-105">
           

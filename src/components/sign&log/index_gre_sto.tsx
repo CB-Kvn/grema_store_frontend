@@ -42,7 +42,7 @@ export const ModalLogin = () => {
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       
       <div className="modal" role="dialog">
-        <div className="modal-box" >
+        <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs3.png'}}>
           
           <Login location=""></Login>
         </div>
@@ -81,7 +81,7 @@ export const ModalLogin = () => {
 
       <input type="checkbox" id="my_modal_8" className="modal-toggle" />
       <div className="modal" role="dialog">
-        <div className="modal-box" >
+        <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs3.png'}} >
           
           <SignUp location={""}></SignUp>
         </div>
