@@ -31,7 +31,7 @@ export const InfoBanner = () => {
 
   return (
     <>
-      <div className="py-10"id="about-us">
+      <div className="py-10"id="about-us" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/backs5.png'}}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
 
