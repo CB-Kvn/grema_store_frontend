@@ -35,9 +35,10 @@ export const Navigation_Gre_Sto = () => {
               <ButtonsNav></ButtonsNav>
             </ul>
           </div>
-          <div className="w-64 h-20" style={{border:'none'}} >
-            <div className="w-64 h-20 border:'none' " style={{border:'none'}}>
-              <div className="w-44 h-20" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/logoH.png', backgroundSize:'cover',backgroundPosition:'center',backgroundRepeat:'no-repeat',border:'none'}}></div>
+          <div className="w-64 h-28 p-3" style={{border:'none'}} >
+            <div className="w-64 h-28 border:'none' " style={{border:'none'}}>
+              <div className="w-64 h-24 hidden sm:block" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/logoH.png', backgroundSize:'cover',backgroundPosition:'center',backgroundRepeat:'no-repeat',border:'none'}}></div>
+              <div className="w-64 h-24 block " style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/logoS.png', backgroundSize:'cover',backgroundPosition:'center',backgroundRepeat:'no-repeat',border:'none'}}></div>
             </div>
           </div>
         </div>
