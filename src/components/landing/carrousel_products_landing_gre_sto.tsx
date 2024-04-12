@@ -65,15 +65,15 @@ export const InlineProducts = () => {
           </div>
 
           <div className="navbar justify-center">
-            <div className="navbar-center lg:flex">
+            <div className="navbar-center flex">
               <ul
-                className="menu menu-horizontal text-xl menux sm:text-2xl"
+                className="menu menu-horizontal text-xs menux sm:text-2xl"
                 style={{ color: "#393939" }}
               >
                 <li className="">
                   <aside
                     className=""
-                    style={{ paddingLeft: "0.45rem", paddingRight: "0.45rem" }}
+                    style={{ paddingRight: "0.45rem" }}
                   >
                     Aretes
                   </aside>
@@ -97,7 +97,7 @@ export const InlineProducts = () => {
                 <li className="">
                   <aside
                     className=""
-                    style={{ paddingLeft: "0.45rem", paddingRight: "0.45rem" }}
+                    style={{ paddingLeft: "0.45rem"}}
                   >
                     Anillos
                   </aside>
