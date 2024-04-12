@@ -24,8 +24,8 @@ export const Login = ({ location }: { location: string }) => {
 
   return (
     <>
-      <div className="flex  min-h-full flex-1 flex-col justify-center px-2 py-12 lg:px-2">
-        <div className=" sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="flex  min-h-full flex-1 flex-col justify-center 2">
+        <div className=" sm:mx-auto sm:w-full sm:max-w-6xl">
           <img
             className="mx-auto "
             src="https://grema-store-frontend.vercel.app/images/logologo.png"
@@ -33,7 +33,7 @@ export const Login = ({ location }: { location: string }) => {
           />
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="space-y-6">
             <div>
               <label
