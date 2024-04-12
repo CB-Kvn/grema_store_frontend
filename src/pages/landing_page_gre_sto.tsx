@@ -7,14 +7,14 @@ import { ContactUs } from "../components/landing/contact_us_gre_store";
 import { InfoBanner } from "../components/landing/info_banner_gre_sto";
 import { Navigation_Gre_Sto } from "../components/navigation/index_gre_sto";
 import { Promos } from "../components/landing/promos_landing_gre_sto";
-import { Footer } from "../components/landing/footer_gre_sto";
+
 
 
 export const LandingPage = () => {
   
 
   return (
-    <div className="" style={{backgroundImage: 'url(/src/assets/backs6.png', backgroundSize:"cover"}}>
+    <div className="" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/backs6.png', backgroundSize:"cover"}}>
       <Navigation_Gre_Sto></Navigation_Gre_Sto>
       <BannerPrincipal></BannerPrincipal>
       <InfoBanner></InfoBanner>
@@ -22,7 +22,7 @@ export const LandingPage = () => {
       <InlineProducts></InlineProducts>
       {/* <Comments></Comments> */}
       <ContactUs></ContactUs>
-      <Footer></Footer> 
+      
     </div>
   );
 };

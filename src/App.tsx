@@ -5,6 +5,7 @@ import { Profile } from "./pages/profile_page_gre_sto";
 import { InvoiceToSend } from "./pages/invoice_to_send_gre_sto";
 import { Loader } from "./components/loader";
 import { useAppSelector } from "./redux/store";
+import { Footer } from "./components/landing/footer_gre_sto";
 
 
 export const App =()=> {
@@ -21,6 +22,7 @@ export const App =()=> {
       <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
     </Routes>
     
+    <Footer></Footer>
     { loader ? <Loader></Loader> : <></>}
     
     </>

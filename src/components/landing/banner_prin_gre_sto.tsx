@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export const BannerPrincipal = () => {
 
   return (
-    <div className="hero min-h-screen" id="/" style={{backgroundImage: 'url(/src/assets/3.jpg)'}}>
+    <div className="hero min-h-screen" id="/" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/src/assets/backs7.jpg)'}}>
     <div className="hero-overlay bg-opacity-10"></div>
     <div className="hero-content text-center text-neutral-content bg-white bg-opacity-20">
       <div className="max-w-md">
