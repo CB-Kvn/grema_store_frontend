@@ -19,7 +19,7 @@ export const ModalLogin = () => {
       !changeForm.show ? (
         <>
         <label htmlFor="my_modal_7" className="btn btn-ghost btn-circlerelative flex rounded-full bg-nav border-color: transparent">
-          Ingresar / Registrarse
+         <div className="hidden sm:block">Ingresar / Registrarse</div>
         <div className="indicator">
           <svg
             xmlns="http://www.w3.org/2000/svg"

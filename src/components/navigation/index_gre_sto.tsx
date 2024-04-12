@@ -4,12 +4,14 @@ import { ModalLogin } from "../sign&log/index_gre_sto";
 import { OptionProfile } from "./option_profile_gre_sto";
 
 export const Navigation_Gre_Sto = () => {
-  
   const activeLogin = useAppSelector((state) => state.login.success);
-  
+
   return (
     <>
-      <div className="navbar sticky-bar bg-nav h-20 fixed top-0" style={{backgroundColor: "#F6DAEF"}}>
+      <div
+        className="navbar sticky-bar bg-nav h-20 fixed top-0"
+        style={{ backgroundColor: "#F6DAEF" }}
+      >
         <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -35,13 +37,43 @@ export const Navigation_Gre_Sto = () => {
               <ButtonsNav></ButtonsNav>
             </ul>
           </div>
-          <div className="w-64 h-28 p-3" style={{border:'none'}} >
-            <div className="w-64 h-28 border:'none' " style={{border:'none'}}>
-              <div className="w-64 h-24 hidden sm:block" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/logoH.png', backgroundSize:'cover',backgroundPosition:'center',backgroundRepeat:'no-repeat',border:'none'}}></div>
-              <div className="w-64 h-24 block " style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/logoS.png', backgroundSize:'cover',backgroundPosition:'center',backgroundRepeat:'no-repeat',border:'none'}}></div>
+          <div className="w-64 h-28 hidden sm:block" style={{ border: "none" }}>
+            <div className="w-64 h-28 border:none  " style={{ border: "none" }}>
+              <div
+                className="w-64 h-24 "
+                style={{
+                  backgroundImage:
+                    "url(https://grema-store-frontend.vercel.app/images/logoH.png",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  border: "none",
+                }}
+              ></div>
             </div>
           </div>
         </div>
+        <div className="navbar-center block sm:hidden">
+          <div >
+            <div
+              className=" border:none inline-flex justify-center"
+              style={{ border: "none" }}
+            >
+              <div
+                className="w-16 h-16  my-auto"
+                style={{
+                  backgroundImage:
+                    "url(https://grema-store-frontend.vercel.app/images/logoS.png",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  border: "none",
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <ButtonsNav></ButtonsNav>
