@@ -31,15 +31,15 @@ export const InfoBanner = () => {
 
   return (
     <>
-      <div className="py-10"id="about-us" style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/backs5.png'}}>
+      <div className="py-48"  id="about-us"  >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
+          <div className="mx-auto max-w-2xl lg:text-center" >
 
-            <p className="mt-2 text-4xl font-bold tracking-tight  sm:text-5xl text-footer" style={{fontFamily:'Dancing Script,cursive', color:"#C2A78D"}}>
+            <p className="mt-2 text-4xl font-bold tracking-tight  sm:text-5xl text-footer"  style={{fontFamily:'Dancing Script,cursive', color:"#C2A78D"}}>
               Por que comprar en  Grema Store?
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+          <div  className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {features.map((feature) => (
                 <div key={feature.name} className="relative pl-16">
