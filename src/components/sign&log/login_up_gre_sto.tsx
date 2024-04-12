@@ -24,7 +24,7 @@ export const Login = ({ location }: { location: string }) => {
 
   return (
     <>
-      <div className="flex  min-h-full flex-1 flex-col justify-center 2">
+      <div className="flex  min-h-full flex-1 flex-col justify-center 2 -mt-10">
         <div className=" sm:mx-auto sm:w-full sm:max-w-6xl">
           <img
             className="mx-auto "
@@ -33,7 +33,7 @@ export const Login = ({ location }: { location: string }) => {
           />
         </div>
 
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm -mt-10">
           <div className="space-y-6">
             <div>
               <label
