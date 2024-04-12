@@ -28,7 +28,7 @@ export const Login = ({ location }: { location: string }) => {
         <div className=" sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto "
-            src="https://grema-store-frontend.vercel.app/images/Screenshot_1.png"
+            src="https://grema-store-frontend.vercel.app/images/logoLogin.png"
             alt="Your Company"
           />
         </div>
