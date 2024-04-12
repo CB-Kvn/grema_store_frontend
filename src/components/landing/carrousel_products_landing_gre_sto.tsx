@@ -51,7 +51,7 @@ export const InlineProducts = () => {
   return (
     <>
       
-        <div className="" id="store-pre">
+        <div className="py-48" id="store-pre">
           <div className="text-center">
             <h2
               className="text-4xl font-bold tracking-tight sm:text-7xl"

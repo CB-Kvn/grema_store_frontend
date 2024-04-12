@@ -1,15 +1,22 @@
-
-export const Promos=()=> {
-    return (
-      <div className="relative overflow-hidden " id="promotions" style={{backgroundColor:"#F6DAEF"}}>
+export const Promos = () => {
+  return (
+    <div className="py-48" id="promotions">
+      <div className="relative overflow-hidden py-48 px-10" >
         <div className="">
           <div className="relative mx-auto max-w-7xl sm:static">
             <div className="sm:max-w-lg">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl" style={{fontFamily:'Dancing Script,cursive', color:'#393939'}}>
+              <h1
+                className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                style={{
+                  fontFamily: "Dancing Script,cursive",
+                  color: "#393939",
+                }}
+              >
                 Visita nuestra seccion de descuentos y promociones!
               </h1>
-              <p className="mt-4 text-xl text-gray-500" >
-                Aqui encontraras los mejores productos a precios bajos. Productos de temporadas pasadas entre otros.
+              <p className="mt-4 text-xl text-gray-500">
+                Aqui encontraras los mejores productos a precios bajos.
+                Productos de temporadas pasadas entre otros.
               </p>
             </div>
             <div>
@@ -79,9 +86,10 @@ export const Promos=()=> {
                     </div>
                   </div>
                 </div>
-  
+
                 <a
                   href="#"
+                  id="promotions"
                   className="  inline-block rounded-md border border-transparent bg-font-nav px-3 py-3 text-center font-medium text-nav sm:mb-5"
                 >
                   Ir a los descuentos
@@ -91,6 +99,6 @@ export const Promos=()=> {
           </div>
         </div>
       </div>
-    )
-  }
-  
+    </div>
+  );
+};
