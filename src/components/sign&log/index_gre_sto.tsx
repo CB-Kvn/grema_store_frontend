@@ -42,7 +42,7 @@ export const ModalLogin = () => {
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       
       <div className="modal" role="dialog">
-        <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs3.png'}}>
+        <div className="modal-box" >
           
           <Login location=""></Login>
         </div>
