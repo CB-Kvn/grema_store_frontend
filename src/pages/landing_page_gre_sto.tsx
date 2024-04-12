@@ -20,7 +20,6 @@ export const LandingPage = () => {
       <InfoBanner></InfoBanner>
       <Promos></Promos>
       <InlineProducts></InlineProducts>
-      {/* <Comments></Comments> */}
       <ContactUs></ContactUs>
       
     </div>
