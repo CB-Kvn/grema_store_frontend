@@ -4,20 +4,22 @@ import { Notification } from "./notifications_gre_sto";
 import { SignPersonalInfo } from "./sign_personal_info_gre_sto";
 import { ProfileData } from "./profile_data_gre_store";
 import { useAppSelector } from "../../redux/store";
-import { useEffect } from "react";
+
 
 export const SignUp = ({ location }: { location: string }) => {
   const info = useAppSelector((state)=> state.handler.info_user.page)
 
-  useEffect(() => {
-   alert(info)
-  }, [])
-  
+
 
   return (
     <>
       <div
         className="text-font-nav text-3xl flex min-h-full flex-1 flex-col justify-center px-6 py-8 lg:px-8"
+        style={{
+          color: "#393939",
+          fontSize: "medium",
+          fontWeight: "500",
+        }}
         // style={{ fontFamily: "Dancing Script,cursive" }}
         
       >

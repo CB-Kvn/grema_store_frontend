@@ -40,7 +40,7 @@ export const Login = ({ location }: { location: string }) => {
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 "
                 style={{
-                  color: "#C2A78D",
+                  color: "#393939",
                   fontSize: "medium",
                   fontWeight: "500",
                 }}
@@ -98,7 +98,7 @@ export const Login = ({ location }: { location: string }) => {
                   htmlFor="password"
                   className="block text-sm font-medium leading-6 "
                   style={{
-                    color: "#C2A78D",
+                    color: "#393939",
                     fontSize: "medium",
                     fontWeight: "500",
                   }}
@@ -160,7 +160,7 @@ export const Login = ({ location }: { location: string }) => {
                     href="#"
                     className="font-semibol "
                     style={{
-                      color: "#C2A78D",
+                      color: "#393939",
                       fontSize: "medium",
                       fontWeight: "500",
                     }}

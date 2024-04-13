@@ -9,7 +9,7 @@ export const Navigation_Gre_Sto = () => {
   return (
     <>
       <div
-        className="navbar sticky-bar bg-nav h-20 fixed top-0"
+        className="navbar sticky-bar h-24 fixed top-0 opacity-80"
         style={{ backgroundColor: "#F6DAEF" }}
       >
         <div className="navbar-start ">
@@ -37,8 +37,8 @@ export const Navigation_Gre_Sto = () => {
               <ButtonsNav></ButtonsNav>
             </ul>
           </div>
-          <div className="w-64 h-28 hidden sm:block" style={{ border: "none" }}>
-            <div className="w-64 h-28 border:none  " style={{ border: "none" }}>
+          <div className="w-72- h-32 hidden md:block" style={{ border: "none" }}>
+            <div className="w-72 h-32 border:none mt-5 " style={{ border: "none" }}>
               <div
                 className="w-64 h-24 "
                 style={{
@@ -53,7 +53,7 @@ export const Navigation_Gre_Sto = () => {
             </div>
           </div>
         </div>
-        <div className="navbar-center block sm:hidden">
+        <div className="navbar-center block sm:hidden md:hidden">
           <div >
             <div
               className=" border:none inline-flex justify-center"
@@ -64,6 +64,27 @@ export const Navigation_Gre_Sto = () => {
                 style={{
                   backgroundImage:
                     "url(https://grema-store-frontend.vercel.app/images/logoS.png",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  border: "none",
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="navbar-center hidden sm:block md:hidden">
+          <div >
+            <div
+              className=" border:none inline-flex justify-center"
+              style={{ border: "none" }}
+            >
+              <div
+                className="w-64 h-24 "
+                style={{
+                  backgroundImage:
+                    "url(https://grema-store-frontend.vercel.app/images/logoH.png",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
