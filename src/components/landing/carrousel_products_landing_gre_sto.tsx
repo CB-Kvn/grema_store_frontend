@@ -51,11 +51,11 @@ export const InlineProducts = () => {
   return (
     <>
       
-        <div className="py-48" id="store-pre">
+        <div className="pt-48" id="store-pre">
           <div className="text-center">
             <h2
               className="text-4xl font-bold tracking-tight sm:text-7xl"
-              style={{ fontFamily: "Dancing Script,cursive", color: "#C2A78D" }}
+              style={{ fontFamily: "Dancing Script,cursive", color: "#393939" }}
             >
               Productos Destacados
             </h2>

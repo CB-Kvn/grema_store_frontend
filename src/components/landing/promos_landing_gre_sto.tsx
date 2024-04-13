@@ -1,6 +1,6 @@
 export const Promos = () => {
   return (
-    <div className="py-48" id="promotions">
+    <div className="pt-48" id="promotions">
       <div className="relative overflow-hidden py-48 px-10" >
         <div className="">
           <div className="relative mx-auto max-w-7xl sm:static">
@@ -14,7 +14,10 @@ export const Promos = () => {
               >
                 Visita nuestra seccion de descuentos y promociones!
               </h1>
-              <p className="mt-4 text-xl text-gray-500">
+              <p className="mt-4 text-xl text-gray-500" style={{
+                
+                  color: "#393939",
+                }}>
                 Aqui encontraras los mejores productos a precios bajos.
                 Productos de temporadas pasadas entre otros.
               </p>

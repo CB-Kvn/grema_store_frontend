@@ -1,12 +1,12 @@
 export const ContactUs = () => {
   return (
-    <div className="flex pt-48 pb-96" id="contacts" >
+    <div className="flex pt-48 pb-64" id="contacts" >
       <div
         className="container mt-20 mx-auto px-2 md:px-4"
         
         
       >
-        <section className="mb-32">
+        <section className="">
           <div className="flex justify-center">
             <div className="text-center md:max-w-xl lg:max-w-3xl">
               <h2

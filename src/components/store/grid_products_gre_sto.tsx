@@ -61,7 +61,7 @@ export const GridProducts = ({
                     </p>
                   </div>
                 </div>
-                <div className="flex justify-end -m-1 ">
+                <div className="flex justify-end -mx-1 py-2 ">
                   <div className="inline-flex ">
                     <aside className="inline-flex " >
 

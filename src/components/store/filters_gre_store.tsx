@@ -242,7 +242,7 @@ export const Filters = () => {
   }, []);
 
   return (
-    <div className="bg-white">
+    <div className="">
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -315,13 +315,12 @@ export const Filters = () => {
 
                   {/* Filters */}
                   <form className="mt-4 border-t border-gray-200">
-                    <div >
+                    <div>
                       {filters.map((section) => (
                         <Disclosure
                           as="div"
                           key={section.id}
                           className="border-t border-gray-200 px-4 py-6"
-                          
                         >
                           {({ open }) => (
                             <>
@@ -502,92 +501,98 @@ export const Filters = () => {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
-              <div className=""> 
-                {filters.map((section) => (
-                  <Disclosure
-                    as="div"
-                    key={section.id}
-                    className="border-b py-6 font-semibold "
-                    style={{
-                      color: "#C2A78D",
-                      
-                    }}
-                  >
-                    {({ open }) => (
-                      <>
-                        <h3 className="-my-3 flow-root">
-                          <Disclosure.Button
-                            className="flex w-full font-semibold   p-3 items-center justify-between bg-white py-3 text-lg"
-                            style={{
-                              color: "rgb(194, 167, 141)",
-                        
-                            }}
-                          >
-                            <span
-                              className="font-semibold"
+                <div className="collapse bg-base-200">
+                  <input type="checkbox" />
+                  <div className="collapse-title text-xl font-medium">
+                    Click me to show/hide content
+                  </div>
+                  <div className="collapse-content">
+                  <div className="border-2 rounded-2xl">
+                  {filters.map((section) => (
+                    <Disclosure
+                      as="div"
+                      key={section.id}
+                      className=" py-6 font-semibold "
+                      style={{
+                        color: "#C2A78D",
+                      }}
+                    >
+                      {({ open }) => (
+                        <>
+                          <h3 className="-my-3 flow-root">
+                            <Disclosure.Button
+                              className="flex w-full font-semibold   p-3 items-center justify-between bg-white py-3 text-lg"
                               style={{
                                 color: "rgb(194, 167, 141)",
                               }}
                             >
-                              {section.name}
-                            </span>
-                            <span className="ml-6 flex items-center">
-                              {open ? (
-                                <MinusIcon
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                  style={{color: "rgb(194, 167, 141)" }}
-                                />
-                              ) : (
-                                <PlusIcon
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                  style={{ color: "rgb(194, 167, 141)" }}
-                                />
-                              )}
-                            </span>
-                          </Disclosure.Button>
-                        </h3>
-                        <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4 ml-8 ">
-                            {section.options.map((option, optionIdx) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center "
+                              <span
+                                className="font-semibold"
+                                style={{
+                                  color: "rgb(194, 167, 141)",
+                                }}
                               >
-                                <input
-                                  id={`filter-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  value={option.value}
-                                  type="checkbox"
-                                  checked={isChecked(option.value)}
-                                  className="h-4 w-4 rounded border-gray-300 "
-                                  onChange={(e) => {
-                                    handleCheckbox(e);
-                                  }}
-                                />
-                                <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm"
-                                  style={{color: "rgb(194, 167, 141)" }}
+                                {section.name}
+                              </span>
+                              <span className="ml-6 flex items-center">
+                                {open ? (
+                                  <MinusIcon
+                                    className="h-5 w-5"
+                                    aria-hidden="true"
+                                    style={{ color: "rgb(194, 167, 141)" }}
+                                  />
+                                ) : (
+                                  <PlusIcon
+                                    className="h-5 w-5"
+                                    aria-hidden="true"
+                                    style={{ color: "rgb(194, 167, 141)" }}
+                                  />
+                                )}
+                              </span>
+                            </Disclosure.Button>
+                          </h3>
+                          <Disclosure.Panel className="pt-6">
+                            <div className="space-y-4 ml-8 ">
+                              {section.options.map((option, optionIdx) => (
+                                <div
+                                  key={option.value}
+                                  className="flex items-center "
                                 >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
-                          </div>
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
-                ))}
+                                  <input
+                                    id={`filter-${section.id}-${optionIdx}`}
+                                    name={`${section.id}[]`}
+                                    value={option.value}
+                                    type="checkbox"
+                                    checked={isChecked(option.value)}
+                                    className="h-4 w-4 rounded border-gray-300 "
+                                    onChange={(e) => {
+                                      handleCheckbox(e);
+                                    }}
+                                  />
+                                  <label
+                                    htmlFor={`filter-${section.id}-${optionIdx}`}
+                                    className="ml-3 text-sm"
+                                    style={{ color: "rgb(194, 167, 141)" }}
+                                  >
+                                    {option.label}
+                                  </label>
+                                </div>
+                              ))}
+                            </div>
+                          </Disclosure.Panel>
+                        </>
+                      )}
+                    </Disclosure>
+                  ))}
                 </div>
-              
+                  </div>
+                </div>
+                
               </form>
 
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <div className="bg-white">
+                <div className="">
                   <div className="mx-auto max-w-2xl px-4  sm:px-6  lg:max-w-7xl ">
                     <GridProducts products={products}></GridProducts>
                   </div>
