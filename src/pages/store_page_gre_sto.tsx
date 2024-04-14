@@ -14,5 +14,5 @@ export const Store = () => {
     
   },[]);
 
-  return <> <MenuStore></MenuStore></>;
+  return <div style={{backgroundImage: 'url(https://grema-store-frontend.vercel.app/images/backs8.png', backgroundSize:"cover"}}> <MenuStore></MenuStore></div>;
 };
