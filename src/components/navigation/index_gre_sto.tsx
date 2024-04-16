@@ -10,7 +10,7 @@ export const Navigation_Gre_Sto = () => {
     <>
       <div
         className="navbar sticky-bar h-24 fixed top-0 "
-        style={{ backgroundColor: "rgba(246,218,239, 0.3)" }}
+        style={{ backgroundColor: "rgba(246,218,239, 0.45)" }}
       >
         <div className="navbar-start ">
           <div className="dropdown">
