@@ -1,0 +1,23 @@
+import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
+import { useAppDispatch } from "../../redux/store";
+import { SignUp } from "../sign&log/sign_up_gre_sto";
+
+export const ModalLogin = () => {
+  const dispatch = useAppDispatch()
+  const handleModal = () => {
+    dispatch(new_user_form({ show: false }));
+  }
+  return (
+    <>
+      <input type="checkbox" id="my_modal_8" className="modal-toggle" />
+      <div className="modal" role="dialog">
+        <div className="modal-box">
+          <SignUp location={"store"}></SignUp>
+        </div>
+        <label className="modal-backdrop" htmlFor="my_modal_8" onClick={()=>handleModal()}>
+          Close
+        </label>
+      </div>
+    </>
+  );
+};

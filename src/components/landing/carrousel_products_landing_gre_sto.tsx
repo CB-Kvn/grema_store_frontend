@@ -116,7 +116,7 @@ export const InlineProducts = () => {
           <div className="grid justify-center w-100 px-10">
             <div className="carousel rounded-box w-100">
               {products.map((product) => (
-                <div className="carousel-item w-1/3 mx-0.5 sm:w-1/3 sm:w-1/3 md:w-1/4 ">
+                <div className="carousel-item w-1/3 mx-0.5 sm:w-1/3 md:w-1/4 ">
                   <div key={product.id} className="group relative">
                     <div className="aspect-h-1 aspect-w-1 w-30 sm:overflow-x-auto rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                       <img

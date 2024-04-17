@@ -8,13 +8,14 @@ import {
 import { Filters } from "./filters_gre_store";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
-import { Login } from "../sign&log/login_up_gre_sto";
-import { SignUp } from "../sign&log/sign_up_gre_sto";
+
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 import { Carts } from "./carts_gre_sto";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { Modal_Product } from "./modal_product_gre_sto";
 import { Categories } from "./categories_products_gre_sto";
+import { ModalLogin } from "./modal_login_gre_sto";
+import { ModalSign } from "./modal_sign_gre_sto";
 
 
 const navigation = {
@@ -111,9 +112,7 @@ export const MenuStore = () => {
   const handleCartShop = (open:boolean)  =>{
     dispatch(shopCart_visible({show: open }));
   }
-  const handleModal = () => {
-    dispatch(new_user_form({ show: false }));
-  }
+  
   
  
   return (
@@ -334,69 +333,23 @@ export const MenuStore = () => {
                           
                         </div>
                       </label>
-                      <input
-                        type="checkbox"
-                        id="my_modal_7"
-                        className="modal-toggle"
-                      />
-                      <div className="modal" role="dialog">
-                        <div className="modal-box">
-                          <Login location="store"></Login>
-                        </div>
-                        <label
-                          className="modal-backdrop"
-                          htmlFor="my_modal_7"
-                          onClick={() => {
-                            console.log("Cerrando modal");
-                          }}
-                        >
-                          Close
-                        </label>
-                      </div>
+                      
                     </>
 
-                    {/* <a
-                          href="#"
-                          className="text-sm font-medium "
-                          style={{ color: "#C2A78D" }}
-                          onClick={() => {
-                            console.log("Hola");
-                          }}
-                        >
-                          Ingresar
-                        </a>
-                         */}
+        
+                        
 
                     <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
 
                     <>
-                      <label htmlFor="my_modal_8" className="btn btn-ghost" onClick={()=>{handleSignUp(true), console.log("Hola")}}>
+                      <label htmlFor="my_modal_8" className="btn btn-ghost" onClick={()=>{handleSignUp(true)}}>
                         <div className="indicator">
                           
                             Crear cuenta
                           
                         </div>
                       </label>
-                      <input
-                        type="checkbox"
-                        id="my_modal_8"
-                        className="modal-toggle"
-                        
-                      />
-                      <div className="modal" role="dialog">
-                        <div className="modal-box">
-                          <SignUp location={"store"}></SignUp>
-                        </div>
-                        <label
-                          className="modal-backdrop"
-                          htmlFor="my_modal_8"
-                          onClick={() => {
-                            handleModal()
-                          }}
-                        >
-                          Close
-                        </label>
-                      </div>
+                      
                     </>
 
 
@@ -435,6 +388,8 @@ export const MenuStore = () => {
       <Filters></Filters>
       <Carts></Carts>
       <Modal_Product></Modal_Product>
+      <ModalLogin></ModalLogin>
+      <ModalSign></ModalSign>
     </div>
   );
 };
