@@ -415,7 +415,7 @@ export const Filters = () => {
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
             className="flex items-baseline justify-end border-b  pb-6 pt-10"
-            style={{ borderColor: "#C2A78D" }}
+            
           >
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
@@ -501,13 +501,13 @@ export const Filters = () => {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
-                <div className="collapse bg-base-200">
+                <div className="collapse bg-base-200 " style={{border:"solid 3px",borderColor: "#9B5176"}}>
                   <input type="checkbox" />
                   <div className="collapse-title text-xl font-medium">
-                    Click me to show/hide content
+                    Filtrar busqueda:
                   </div>
                   <div className="collapse-content">
-                  <div className="border-2 rounded-2xl">
+                  <div className="">
                   {filters.map((section) => (
                     <Disclosure
                       as="div"
@@ -521,7 +521,7 @@ export const Filters = () => {
                         <>
                           <h3 className="-my-3 flow-root">
                             <Disclosure.Button
-                              className="flex w-full font-semibold   p-3 items-center justify-between bg-white py-3 text-lg"
+                              className="flex w-full font-semibold   p-3 items-center justify-between bg-base-200 py-3 text-lg"
                               style={{
                                 color: "rgb(194, 167, 141)",
                               }}
@@ -593,7 +593,7 @@ export const Filters = () => {
               {/* Product grid */}
               <div className="lg:col-span-3">
                 <div className="">
-                  <div className="mx-auto max-w-2xl px-4  sm:px-6  lg:max-w-7xl ">
+                  <div className="mx-auto max-w-5xl">
                     <GridProducts products={products}></GridProducts>
                   </div>
                 </div>
