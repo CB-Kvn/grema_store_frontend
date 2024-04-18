@@ -2,7 +2,7 @@ import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice
 import { useAppDispatch } from "../../redux/store";
 import { SignUp } from "../sign&log/sign_up_gre_sto";
 
-export const ModalLogin = () => {
+export const ModalLoginStore = () => {
   const dispatch = useAppDispatch()
   const handleModal = () => {
     dispatch(new_user_form({ show: false }));

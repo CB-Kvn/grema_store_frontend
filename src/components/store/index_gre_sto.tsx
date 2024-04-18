@@ -12,10 +12,12 @@ import { OptionProfile } from "../navigation/option_profile_gre_sto";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 import { Carts } from "./carts_gre_sto";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
+
+
 import { Modal_Product } from "./modal_product_gre_sto";
-import { Categories } from "./categories_products_gre_sto";
-import { ModalLogin } from "./modal_login_gre_sto";
+import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
+
 
 
 const navigation = {
@@ -166,7 +168,7 @@ export const MenuStore = () => {
                 <Tab.Group as="div" className="mt-2">
                   <div
                     className="border-b"
-                    style={{ borderBottomColor: "#C2A78D" }}
+                    
                   >
                     <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map((category) => (
@@ -291,7 +293,7 @@ export const MenuStore = () => {
           aria-label="Top"
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
-          <div className="border-b" style={{ borderBottomColor: "#C2A78D" }}>
+          <div className="border-b">
             <div className="flex h-16 items-center">
               <button
                 type="button"
@@ -378,18 +380,19 @@ export const MenuStore = () => {
               </div>
             </div>
           </div>
-          <Categories></Categories>
+          {/* <Categories></Categories> */}
         </nav>
+      <Modal_Product></Modal_Product>
+      <ModalLoginStore></ModalLoginStore>
+      <ModalSign></ModalSign> 
        
       </header>
 
       
     
-      <Filters></Filters>
+       <Filters></Filters>
       <Carts></Carts>
-      <Modal_Product></Modal_Product>
-      <ModalLogin></ModalLogin>
-      <ModalSign></ModalSign>
+      
     </div>
   );
 };
