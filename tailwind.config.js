@@ -1,14 +1,16 @@
-
+import defaultTheme from "tailwindcss/defaultTheme";
+import daisyui from "daisyui";
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
- 
+    screens: {
+      'xxxs': "375px",
+      'xxs': "460px",
+      'xmd':'700px',
+      ...defaultTheme.screens,
+    },
   },
 
   // eslint-disable-next-line no-undef
-  plugins: [require("daisyui")],
-}
-
+  plugins: [daisyui],
+};
