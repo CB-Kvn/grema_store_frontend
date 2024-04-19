@@ -27,17 +27,19 @@ export const GridProducts = ({
     element.checked = true;
   };
   return (
-    <div className="justify-items-center grid grid-cols-2 gap-x-5 gap-y-5">
+    <div className="justify-items-center grid grid-cols-1 gap-x-5 gap-y-5 xxxs:grid-cols-2 xxxs:gap-x-2 xxs:grid-cols-2 xxs:gap-x-5
+      sm:grid-cols-3 sm:gap-x-6 xmd:grid-cols-3 xmd:gap-x-5  md:grid-cols-3 md:gap-x-5  lg:grid-cols-3 lg:gap-x-5 
+      xl:grid-cols-3 xl:gap-x-5 ">
       {products.map((e) => (
         <div className="relative">
-          <div className="w-32  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+          <div className="w-44 xxxs:w-40 xxs:w-56 sm:w-48  xmd:w-52 md:w-60 lg:w-60 xl:w-72  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
             <img
               src="https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg"
               alt="Product"
-              className=" w-32  object-cover rounded-t-xl"
+              className=" w-44 xxxs:w-40 xxs:w-56 sm:w-48 xmd:w-52 md:w-60 lg:w-60 xl:w-72 object-cover rounded-t-xl"
               // onClick={() => handleModalProduct()}
             />
-            <div className="w-32 ml-1">
+            <div className="w-44 xxxs:w-40 xxs:w-56 sm:w-48 xmd:w-52  md:w-60 lg:w-60 xl:w-72  ml-1">
               <p
                 className="text-xs font-bold  text-black truncate block capitalize"
                 style={{ color: "rgb(194, 167, 141)" }}
