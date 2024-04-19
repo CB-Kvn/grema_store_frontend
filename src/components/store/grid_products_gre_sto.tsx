@@ -41,7 +41,7 @@ export const GridProducts = ({
             />
             <div className="w-44 xxxs:w-40 xxs:w-56 sm:w-48 xmd:w-52  md:w-60 lg:w-60 xl:w-72  ml-1">
               <p
-                className="text-xs font-bold  text-black truncate block capitalize"
+                className="text-base font-bold  text-black truncate block capitalize"
                 style={{ color: "rgb(194, 167, 141)" }}
               >
                 {e.name}
@@ -50,13 +50,13 @@ export const GridProducts = ({
               <div className="flex items-center justify-between">
                 <div className="inline-flex">
                   <p
-                    className="text-xs font-semibold   my-2"
+                    className="text-base  font-semibold   my-2"
                     style={{ color: "rgb(194, 167, 141)" }}
                   >
                     {e.price}
                   </p>
                   <p
-                    className="text-xs font-semibold   my-2"
+                    className="text-base font-semibold  line-through my-2"
                     style={{ color: "rgb(194, 167, 141)" }}
                   >
                     {e.price}
@@ -65,12 +65,12 @@ export const GridProducts = ({
               </div>
 
               <div className="flex justify-end ">
-                <div className="inline-flex ">
-                  <aside className="inline-flex -mt-9 mr-3 ">
+                <div className="inline-flex mr-5 ">
+                  <aside className="inline-flex -mt-9 ">
                     <aside className="tooltip tooltip-left" data-tip="Comprar">
                       <svg
-                        width="25px"
-                        height="25px"
+                        width="35px"
+                        height="35px"
                         viewBox="0 0 512 512"
                         baseProfile="tiny"
                         overflow="visible"
@@ -325,7 +325,7 @@ export const GridProducts = ({
                     // Render filled heart icon if item is in the love array
                     <>
                   
-                    <aside className="absolute top-0 right-0">
+                    <aside className="absolute top-0 right-0 mr-3">
                       <svg
                         width="35px"
                         height="35px"
@@ -356,7 +356,7 @@ export const GridProducts = ({
                     
                   ) : (
                     // Render outlined heart icon if item is not in the love array
-                    <aside className="absolute top-0 right-0">
+                    <aside className="absolute top-0 right-0 mr-3">
                       <svg
                         width="35px"
                         height="35px"
