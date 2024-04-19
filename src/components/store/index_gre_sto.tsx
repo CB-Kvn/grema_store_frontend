@@ -283,7 +283,7 @@ export const MenuStore = () => {
 
       <header className="relative z-10">
         <p
-          className="flex h-10 items-center justify-center px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
+          className="flex h-10 items-center justify-center mb-5 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
           style={{ backgroundColor: "#F6DAEF", color: "#393939" }}
         >
           Get free delivery on orders over $100
@@ -314,8 +314,8 @@ export const MenuStore = () => {
                 <a href="#">
                   <span className="sr-only">Your Company</span>
                   <img
-                    className="h-11 w-auto"
-                    src="https://grema-store-frontend.vercel.app/images/Screenshot_1y.png"
+                    className="w-64 h-24 "
+                    src="https://grema-store-frontend.vercel.app/images/logoH.png"
                     alt=""
                   />
                 </a>

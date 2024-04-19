@@ -79,8 +79,8 @@ export const Carts = () => {
                       <a href="#">
                         
                         <img
-                          className="h-20 w-auto"
-                          src="https://grema-store-frontend.vercel.app/images/Screenshot_1y.png"
+                          className="w-64 h-24 "
+                          src="https://grema-store-frontend.vercel.app/images/logoH.png"
                           alt=""
                         />
                       </a>
