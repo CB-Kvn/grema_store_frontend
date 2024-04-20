@@ -48,14 +48,14 @@ export const GridProducts = ({
       >
         {products.map((element) => (
           <div className="relative">
-            <div className="w-44 xxxs:w-40 xxs:w-56 sm:w-48  xmd:w-52 md:w-60 lg:w-60 xl:w-72  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" style={{backgroundColor:"#f7f7f7"}}>
+            <div className="w-44 xxxs:w-44 xxs:w-56 sm:w-48  xmd:w-52 md:w-60 lg:w-60 xl:w-72  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" style={{backgroundColor:"#f7f7f7"}}>
               <LazyLoadImage
                 src="https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg"
                 alt="Product"
-                className=" w-44 xxxs:w-40 xxs:w-56 sm:w-48 xmd:w-52 md:w-60 lg:w-60 xl:w-72 object-cover rounded-t-xl"
+                className=" w-44 xxxs:w-44 xxs:w-56 sm:w-48 xmd:w-52 md:w-60 lg:w-60 xl:w-72 object-cover rounded-t-xl"
                 onClick={() => handleModalProduct(element)}
               />
-              <div className="w-44 mt-3 xxxs:w-40 xxs:w-56 sm:w-48 xmd:w-52  md:w-60 lg:w-60 xl:w-72  ml-1" >
+              <div className="w-44 mt-3 xxxs:w-44 xxs:w-56 sm:w-48 xmd:w-52  md:w-60 lg:w-60 xl:w-72  ml-1" >
                 <p
                   className="text-base ml-3 font-bold truncate block capitalize"
                   style={{ color: "#393939" }}
