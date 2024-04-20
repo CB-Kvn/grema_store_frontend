@@ -4,38 +4,13 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
 
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    price: "$32.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
-];
 
 export const Carts = () => {
   const dispatch = useAppDispatch();
   const open = useAppSelector((state) => state.handler.shopCart_visible.show);
+  const shoppingCar:ProductSelect[] = useAppSelector((state)=>state.shopcar.data)  
 
   const handleCartShopping = (open: boolean) => {
     dispatch(shopCart_visible({ show: open }));
@@ -89,7 +64,7 @@ export const Carts = () => {
                     <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium" style={{color:"#95806b"}}>
-                          Shopping cart
+                          Bolsa de Compras
                         </Dialog.Title>
                         <div className="ml-3 flex h-7 items-center">
                           <button
@@ -112,12 +87,12 @@ export const Carts = () => {
                             role="list"
                             className="-my-6 divide-y divide-gray-200"
                           >
-                            {products.map((product) => (
+                            {shoppingCar.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-50 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <LazyLoadImage
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
+                                    src={product.images[0]}
+                                    alt={product.nombre}
                                     className="h-full w-full object-cover object-center"
                                   />
                                 </div>
@@ -126,16 +101,16 @@ export const Carts = () => {
                                   <div>
                                     <div className="flex justify-between text-base font-medium " style={{color:"#95806b"}} >
                                       <h3>
-                                        <a href={product.href}>
-                                          {product.name}
+                                        <a>
+                                          {product.nombre}
                                         </a>
                                       </h3>
-                                      <p className="ml-4">{product.price}</p>
+                                      <p className="ml-4">{(product.precio)-(product.precio * (product.desc/100))}</p>
                                     </div>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <p className="" style={{color:"#95806b"}}> 
-                                      Qty {product.quantity}
+                                      Qty {product.quantyOrder}
                                     </p>
 
                                     <div className="flex">

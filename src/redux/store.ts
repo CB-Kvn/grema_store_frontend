@@ -9,6 +9,7 @@ import { configureStore } from "@reduxjs/toolkit"
 import { ProductSlice } from "./reducers_slices/products_gre_sto_slice"
 import { FiltersSlice } from "./reducers_slices/filters_gre_sto_slice"
 import { LoveSlice } from "./reducers_slices/love_gre_sto_slice"
+import { SelectedSlice } from "./reducers_slices/shopcar_gre_sto_slice"
 // import { persistStore, persistReducer } from 'redux-persist'
 // import storage from 'redux-persist/lib/storage'
 
@@ -31,7 +32,8 @@ export const store  = configureStore({
         newUser: SignUpSlice.reducer,
         products: ProductSlice.reducer,
         filters: FiltersSlice.reducer,
-        love: LoveSlice.reducer
+        love: LoveSlice.reducer,
+        shopcar: SelectedSlice.reducer
     }
     
 })

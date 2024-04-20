@@ -210,7 +210,7 @@ export const Filters = () => {
   // const productsStoreFilters = useAppSelector((state) => state.products.data);
   const filters = useAppSelector((state) => state.filters.filters);
   const [selectionFilters, setSelectionFilter] = useState<Filter[]>([]);
-  const products = useAppSelector((state) => state.products.data);
+  const products = useAppSelector((state) => state.products.dataProducts);
 
   const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;

@@ -47,6 +47,9 @@ const initialState = {
         page: 0
 
 
+    },
+    alert:{
+        type:"",
     }
 
     
@@ -95,11 +98,16 @@ export const HandlersSlice = createSlice({
         },
         counter_page:(state,action)=>{
             state.info_user.page = action.payload.page
+        },
+        alert_type:(state,action)=>{
+            state.alert.type = action.payload.type
+            
         }
+
 
     },
 })
 
-export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify,password_confirm,counter_page,add_personal_info,add_address_info,add_profile_info } = HandlersSlice.actions
+export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify,password_confirm,counter_page,add_personal_info,add_address_info,add_profile_info,alert_type } = HandlersSlice.actions
 
 export default HandlersSlice.reducer

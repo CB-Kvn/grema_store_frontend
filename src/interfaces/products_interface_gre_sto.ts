@@ -12,6 +12,8 @@ export interface Datum {
     material:        string;
     size:            string;
     shape:           string;
+    quantyInv:       number
+    descPorcen:      number
     categoryId:      number;
     price:           string;
     status:          boolean;
@@ -28,15 +30,31 @@ export interface Category {
 export interface ArrayParseProducts{
     id: number
     name: string
+    description:string
     material: string
-    imageSrc: string
+    imageSrc: string[]
     imageAlt: string
     price: string
+    quantyInv:number
+    descPorcen: number
     color: string
     shape: string
     category: string
   }
 
 export interface reducerInitialProducts{
-    data: ArrayParseProducts[]
+    dataProducts: ArrayParseProducts[]
+    dataSelected: ProductSelect | null
 }
+
+export interface ProductSelect {
+    id: string,
+    nombre:string,
+    precio:number,
+    quantyInv:number,
+    desc:number
+    description:string
+    images:string[]
+    quantyOrder?:number
+  
+  }
