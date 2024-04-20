@@ -1,15 +1,22 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import {ArrayParseProducts, reducerInitialProducts } from "../../interfaces/products_interface_gre_sto";
+import {ArrayParseProducts, ProductSelect, reducerInitialProducts } from "../../interfaces/products_interface_gre_sto";
+
 interface addProducts {
     payload: {
         data: ArrayParseProducts[]
     }
 }
+interface ProductSelected {
+    payload:{
+        data:ProductSelect
+    }
+}
 
 // Define the initial state using that type
 const initialState: reducerInitialProducts = {
-    data: [] 
+    dataProducts: [],
+    dataSelected: null 
     
 }
 
@@ -20,16 +27,18 @@ export const ProductSlice = createSlice({
 
     reducers: {
         add_products_store: (state, action: addProducts) => {
-            state.data = action.payload.data
+            state.dataProducts = action.payload.data
         },
         update_products_filters_store: (state, action: addProducts) => {
-            state.data = action.payload.data
+            state.dataProducts = action.payload.data
         },
-
+        selected_product:(state,action:ProductSelected)=>{
+            state.dataSelected = action.payload.data
+        }
 
     },
 })
 
-export const { add_products_store,update_products_filters_store } = ProductSlice.actions
+export const { add_products_store,update_products_filters_store,selected_product } = ProductSlice.actions
 
 export default ProductSlice.reducer

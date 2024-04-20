@@ -1,145 +1,24 @@
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-const productsStoreFilters = [
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 2,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.39 PM (1).jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 3,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.42 PM (1).jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 4,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.36 PM.jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 5,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 6,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.39 PM (1).jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 7,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.42 PM (1).jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 8,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.36 PM.jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 9,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 10,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.39 PM (1).jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 11,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.42 PM (1).jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 12,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.36 PM.jpeg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  // More products...
-];
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
+import { addSelectionOrder } from "../../controllers/shopCar_gre_sto";
 
-interface ProductSelect {
-  id: string,
-  nombre:string,
-  precio:number,
-  description:string
-  images:string[]
 
-}
-export const Modal_Product = ({data}:{data:ProductSelect}) => {
+export const Modal_Product = () => {
+const data = useAppSelector((state)=> state.products.dataSelected)
+ 
+  const dispatch = useAppDispatch()
   const [counter, setCounter] = useState<number>(0);
 
   const Increment = () => {
-    console.log("mas");
+    
     let num = 0;
     num = counter + 1;
-    setCounter(num);
+    if(data!.quantyInv >=num){
+      setCounter(num);
+    }
+    
   };
 
   const Decrement = () => {
@@ -150,6 +29,15 @@ export const Modal_Product = ({data}:{data:ProductSelect}) => {
       setCounter(num);
     }
   };
+
+  const Order = (data:ProductSelect,counter:number) =>{
+      addSelectionOrder(data,dispatch,counter)
+      const element = document.querySelector("#my_modal_10") as HTMLInputElement;
+      element.checked = false;
+  }
+  
+  
+
   return (
     <>
       <input type="checkbox" id="my_modal_10" className="modal-toggle" />
@@ -157,13 +45,13 @@ export const Modal_Product = ({data}:{data:ProductSelect}) => {
         <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs8.png'}}>
           <div className="grid justify-center w-100 ">
             <div className="carousel rounded-box w-100 ">
-              {productsStoreFilters.map((product) => (
+              {data!.images.map((product) => (
                 <div className="carousel-item w-1/2 mx-0.5 sm:w-1/2 ">
-                  <div key={product.id} className="group relative">
+                  <div key={data!.id} className="group relative">
                     <div className=" aspect-h-1 aspect-w-1 w-30 h-80 sm:overflow-x-auto rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
                       <LazyLoadImage 
-                        src={product.imageSrc}
-                        alt={product.imageAlt}
+                        src={product}
+                        alt={data!.nombre}
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                       />
                     </div>
@@ -173,9 +61,10 @@ export const Modal_Product = ({data}:{data:ProductSelect}) => {
               <div className="mt-4 px-3 flex justify-between"></div>
             </div>
           </div>
-          <h3 className="text-lg font-bold mt-4">Nombre del articulo</h3>
+          <h3 className="text-lg font-bold mt-4">{data!.nombre}</h3>
           <div className="block xxxs:flex justify-between">
-            <p className="py-4">Precio: $300</p>
+            <p className="py-4">₡{Number(data!.precio) -
+                          Number(data!.precio) * data!.desc}</p>
             <div className="inline-flex">
               <div className="flex items-center">
                 <button
@@ -208,20 +97,11 @@ export const Modal_Product = ({data}:{data:ProductSelect}) => {
           <h3 className="text-lg font-bold mt-4">Descripcion del articulo</h3>
           <div className="flex justify-between">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-              totam quidem ullam rerum nisi impedit perferendis quo illo, fugit
-              facilis hic eveniet! Minus atque ipsa magni esse corrupti optio
-              ipsam.
+              {data!.description }
             </p>
+             
           </div>
-          <div className="flex justify-between">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-              totam quidem ullam rerum nisi impedit perferendis quo illo, fugit
-              facilis hic eveniet! Minus atque ipsa magni esse corrupti optio
-              ipsam.
-            </p>
-          </div>
+
           <div className="flex justify-end">
             <button
               className="btn btn-active btn-neutral mt-4"
@@ -230,6 +110,7 @@ export const Modal_Product = ({data}:{data:ProductSelect}) => {
                 borderColor: "#9b5176",
                 color: "#95806b",
               }}
+              onClick={()=>{Order(data!,counter)}}
             >
               Comprar
               <svg
@@ -484,7 +365,7 @@ export const Modal_Product = ({data}:{data:ProductSelect}) => {
             </button>
           </div>
         </div>
-        <label className="modal-backdrop" htmlFor="my_modal_10">
+        <label className="modal-backdrop" htmlFor="my_modal_10" onClick={()=>setCounter(0)}>
           Close
         </label>
       </div>

@@ -14,7 +14,7 @@ import { Carts } from "./carts_gre_sto";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 
 
-import { Modal_Product } from "./modal_product_gre_sto";
+
 import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -102,6 +102,7 @@ function classNames(...classes: string[]) {
 
 export const MenuStore = () => {
   const activeLogin = useAppSelector((state) => state.login.success);
+  const total = useAppSelector((state) => state.shopcar.suma);
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
   
@@ -306,7 +307,7 @@ export const MenuStore = () => {
                 <Bars3Icon
                   className="h-6 w-6"
                   aria-hidden="true"
-                  style={{ color: "#C2A78D" }}
+                  style={{ color: "#393939" }}
                 />
               </button>
 
@@ -360,18 +361,19 @@ export const MenuStore = () => {
                 
 
                 {/* Cart */}
+                
                 <div className="ml-4 flow-root lg:ml-6">
                   <a onClick={()=>{handleCartShop(true)}} className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
-                      className="h-6 w-6 flex-shrink-0 text-gray-300 group-hover:text-gray-600"
+                      className="h-10 w-10 flex-shrink-0 text-gray-300 group-hover:text-gray-600"
                       aria-hidden="true"
-                      style={{ color: "#C2A78D" }}
+                      style={{ color: "#393939" }}
                     />
                     <span
-                      className="ml-2 text-sm font-medium"
-                      style={{ color: "#C2A78D" }}
+                      className="ml-2 text-base font-medium"
+                      style={{ color: "#393939" }}
                     >
-                      0
+                     {total}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
@@ -383,7 +385,7 @@ export const MenuStore = () => {
           </div>
           {/* <Categories></Categories> */}
         </nav>
-      <Modal_Product></Modal_Product>
+      
       <ModalLoginStore></ModalLoginStore>
       <ModalSign></ModalSign> 
        
