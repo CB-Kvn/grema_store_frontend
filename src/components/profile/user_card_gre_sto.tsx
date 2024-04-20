@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
 export const UserCard = () => {
@@ -5,18 +6,18 @@ export const UserCard = () => {
     <>
       <div className="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mt-6 bg-white shadow-xl rounded-lg text-gray-900" style={{backgroundColor: "rgb(246, 218, 239)"}}>
         <div className="rounded-t-lg h-32 overflow-hidden">
-          <img
+          <LazyLoadImage
             className="object-cover object-top w-full"
             src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
             alt="Mountain"
-          ></img>
+          ></LazyLoadImage>
         </div>
         <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
-          <img
+          <LazyLoadImage
             className="object-cover object-center h-32"
             src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
             alt="Woman looking front"
-          ></img>
+          ></LazyLoadImage>
         </div>
         <div className="text-center mt-2">
           <h2 className="font-semibold">Sarah Smith</h2>

@@ -1,9 +1,36 @@
-export const BannerSpecial = () => {
+export const BannerSpecial = ({ color }: { color: string }) => {
   return (
     <>
-     <div className="flex h-10 rounded-b-xl" style={{background:"linear-gradient(to right, #f7a8b8, #fbcad0)"}}>
-    
-  </div>
+      {color === "red" ? (
+        <div
+          className="flex h-10 rounded-b-xl"
+          style={{ background: "linear-gradient(to right, #f5b2b2, #f49d9d)" }}
+        >
+          <p className="m-auto" style={{color: "#393939" }}>Grema-Store</p>
+        </div>
+      ) : color === "green" ? (
+        <div
+          className="flex h-10 rounded-b-xl"
+          style={{ background: "linear-gradient(to right, #b2f5ea, #9df4d3)" }}
+        >
+          <p className="m-auto" style={{color: "#393939" }}>Grema-Store</p>
+        </div>
+      ) : color === "blue" ? (
+        <div
+          className="flex h-10 rounded-b-xl"
+          style={{ background: "linear-gradient(to right, #a0c4ff, #a0e9ff)" }}
+        >
+          <p className="m-auto" style={{color: "#393939" }}>Grema-Store</p>
+        </div>
+      ) : (
+        <div
+          className="flex h-10 rounded-b-xl"
+          style={{ background: "linear-gradient(to right, #f7a8b8, #fbcad0)" }}
+        >
+          <p className="m-auto " style={{color: "#393939" }}>Grema-Store</p>
+        </div>
+      )}
+
       {/* <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 rounded-b-xl">
         <div
           className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"

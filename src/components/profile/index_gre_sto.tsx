@@ -3,6 +3,7 @@ import { Bars3Icon} from "@heroicons/react/24/outline";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
 import { TabsProfile } from "./tabsProfile";
 import { useAppSelector } from "../../redux/store";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // const navigation = {
 //   categories: [
@@ -124,7 +125,7 @@ export const MenuProfile = () => {
               <div className="ml-4 flex lg:ml-0">
                 <a href="#">
                   <span className="sr-only">Your Company</span>
-                  <img
+                  <LazyLoadImage
                     className="h-11 w-auto"
                     src="https://grema-store-frontend.vercel.app/images/Screenshot_1y.png"
                     alt=""

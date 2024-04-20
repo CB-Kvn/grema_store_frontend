@@ -5,7 +5,7 @@ export const ModalSign = () => {
     <>
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       <div className="modal" role="dialog">
-        <div className="modal-box">
+        <div className="modal-box" >
           <Login location="store"></Login>
         </div>
         <label

@@ -9,6 +9,11 @@ export default {
       'xmd':'700px',
       ...defaultTheme.screens,
     },
+    extends:{
+      spacing:{
+        '600px':"600px"
+      }
+    }
   },
 
   // eslint-disable-next-line no-undef

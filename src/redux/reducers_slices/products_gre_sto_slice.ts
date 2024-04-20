@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
+
+import { createSlice } from "@reduxjs/toolkit";
 import {ArrayParseProducts, reducerInitialProducts } from "../../interfaces/products_interface_gre_sto";
 interface addProducts {
     payload: {

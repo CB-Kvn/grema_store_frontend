@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
+
+import { createSlice } from "@reduxjs/toolkit";
 import { FiltersFront } from "../../interfaces/filters_interface_gre_sto";
 interface addFilters {
     payload: {
