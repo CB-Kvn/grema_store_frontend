@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 export const OptionProfile = () => {
@@ -10,7 +11,7 @@ export const OptionProfile = () => {
         className="btn btn-ghost btn-circle avatar"
       >
         <div className="w-10 rounded-full">
-          <img
+          <LazyLoadImage
             alt="Tailwind CSS Navbar component"
             src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
           />

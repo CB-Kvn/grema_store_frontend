@@ -17,6 +17,7 @@ import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_sl
 import { Modal_Product } from "./modal_product_gre_sto";
 import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
 
@@ -199,7 +200,7 @@ export const MenuStore = () => {
                               style={{ color: "#C2A78D" }}
                             >
                               <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                <img
+                                <LazyLoadImage
                                   src={item.imageSrc}
                                   alt={item.imageAlt}
                                   className="object-cover object-center"
@@ -313,7 +314,7 @@ export const MenuStore = () => {
               <div className="ml-4 flex lg:ml-0">
                 <a href="#">
                   <span className="sr-only">Your Company</span>
-                  <img
+                  <LazyLoadImage
                     className="w-64 h-24 "
                     src="https://grema-store-frontend.vercel.app/images/logoH.png"
                     alt=""

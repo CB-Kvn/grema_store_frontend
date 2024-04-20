@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { LoveProduct } from "../../interfaces/lovin_interface_gre_sto";
 import { ArrayParseProducts } from "../../interfaces/products_interface_gre_sto";
 import {
@@ -35,7 +36,7 @@ export const GridProducts = ({
       {products.map((e) => (
         <div className="relative">
           <div className="w-44 xxxs:w-40 xxs:w-56 sm:w-48  xmd:w-52 md:w-60 lg:w-60 xl:w-72  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-            <img
+            <LazyLoadImage
               src="https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg"
               alt="Product"
               className=" w-44 xxxs:w-40 xxs:w-56 sm:w-48 xmd:w-52 md:w-60 lg:w-60 xl:w-72 object-cover rounded-t-xl"

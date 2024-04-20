@@ -11,7 +11,7 @@ export const ModalLoginStore = () => {
     <>
       <input type="checkbox" id="my_modal_8" className="modal-toggle" />
       <div className="modal" role="dialog">
-        <div className="modal-box">
+        <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs3.png'}}>
           <SignUp location={"store"}></SignUp>
         </div>
         <label className="modal-backdrop" htmlFor="my_modal_8" onClick={()=>handleModal()}>

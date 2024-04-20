@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const productsStoreFilters = [
   {
     id: 1,
@@ -123,7 +123,16 @@ const productsStoreFilters = [
   },
   // More products...
 ];
-export const Modal_Product = () => {
+
+interface ProductSelect {
+  id: string,
+  nombre:string,
+  precio:number,
+  description:string
+  images:string[]
+
+}
+export const Modal_Product = ({data}:{data:ProductSelect}) => {
   const [counter, setCounter] = useState<number>(0);
 
   const Increment = () => {
@@ -145,14 +154,14 @@ export const Modal_Product = () => {
     <>
       <input type="checkbox" id="my_modal_10" className="modal-toggle" />
       <div className="modal" role="dialog">
-        <div className="modal-box">
-          <div className="grid justify-center w-100">
-            <div className="carousel rounded-box w-100 overflow-y-auto">
+        <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs8.png'}}>
+          <div className="grid justify-center w-100 ">
+            <div className="carousel rounded-box w-100 ">
               {productsStoreFilters.map((product) => (
-                <div className="carousel-item w-1/2 mx-0.5 sm:w-1/2">
+                <div className="carousel-item w-1/2 mx-0.5 sm:w-1/2 ">
                   <div key={product.id} className="group relative">
                     <div className=" aspect-h-1 aspect-w-1 w-30 h-80 sm:overflow-x-auto rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
-                      <img
+                      <LazyLoadImage 
                         src={product.imageSrc}
                         alt={product.imageAlt}
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
