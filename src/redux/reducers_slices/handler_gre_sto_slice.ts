@@ -31,6 +31,7 @@ const initialState = {
             lastName: '',
             cellphone: '',
             genre: '',
+            images: FileList,
         },
         profile:{
             email: '',
@@ -44,6 +45,7 @@ const initialState = {
             address:'',
             code:''
         },
+        
         page: 0
 
 

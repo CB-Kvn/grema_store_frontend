@@ -4,6 +4,8 @@ export const Categories = () => {
   return (
     <>
       <div className="mt-10  grid grid-cols-2 gap-x-5 gap-y-5 sm:grid-cols-5 md:grid-cols-5  lg:grid-cols-5  lg:gap-x-2  xl:gap-x-3 xl:grid-cols-5">
+        
+        
         <div className="justify-self-end sm:justify-self-center">
           <LazyLoadImage
             src="https://grema-store-frontend.vercel.app/images/Historia frase emprendedores Degradado Rosa (1).gif"

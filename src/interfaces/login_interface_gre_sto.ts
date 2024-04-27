@@ -57,6 +57,6 @@ export interface UserHttpService{
       password: string,
       address: string,
       image: string
-  }
+  },
 }
 

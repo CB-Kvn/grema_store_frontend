@@ -2,7 +2,6 @@ import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
-  ChevronDownIcon,
   FunnelIcon,
   MinusIcon,
   PlusIcon,
@@ -18,192 +17,6 @@ import {
 import { Filter } from "../../interfaces/filters_interface_gre_sto";
 import { GridProducts } from "./grid_products_gre_sto";
 
-const sortOptions = [
-  { name: "Most Popular", href: "#", current: true },
-  { name: "Best Rating", href: "#", current: false },
-  { name: "Newest", href: "#", current: false },
-  { name: "Price: Low to High", href: "#", current: false },
-  { name: "Price: High to Low", href: "#", current: false },
-];
-// const subCategories = [
-//   { name: "1", href: "#" },
-//   { name: "2", href: "#" },
-//   { name: "3", href: "#" },
-//   { name: "4", href: "#" },
-//   { name: "5", href: "#" },
-// ];
-// const filters = [
-//   {
-//     id: "Genero",
-//     name: "Genero",
-//     options: [
-//       { value: "Hombre", label: "Hombre", checked: false },
-//       { value: "Mujer", label: "Mujer", checked: false },
-//     ],
-//   },
-//   {
-//     id: "color",
-//     name: "Color",
-//     options: [
-//       { value: "blanco", label: "White", checked: false },
-//       { value: "beige", label: "Beige", checked: false },
-//       { value: "azul", label: "Blue", checked: true },
-//       { value: "cafe", label: "Brown", checked: false },
-//       { value: "verde", label: "Green", checked: false },
-//       { value: "morado", label: "Purple", checked: false },
-//     ],
-//   },
-//   {
-//     id: "categoria",
-//     name: "Categoria",
-//     options: [
-//       { value: "Aretes", label: "New Arrivals", checked: false },
-//       { value: "Anillos", label: "Sale", checked: false },
-//       { value: "Collares", label: "Travel", checked: true },
-//       { value: "Pulseras", label: "Organization", checked: false },
-//       { value: "Sets", label: "Accessories", checked: false },
-//     ],
-//   },
-//   {
-//     id: "size",
-//     name: "Tamano",
-//     options: [
-//       { value: "2l", label: "2L", checked: false },
-//       { value: "6l", label: "6L", checked: false },
-//       { value: "12l", label: "12L", checked: false },
-//       { value: "18l", label: "18L", checked: false },
-//       { value: "20l", label: "20L", checked: false },
-//       { value: "40l", label: "40L", checked: true },
-//     ],
-//   },
-// ];
-// const productsStoreFilters = [
-//   {
-//     id: 1,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 2,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.39 PM (1).jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 3,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.42 PM (1).jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 4,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.36 PM.jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 5,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 6,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.39 PM (1).jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 7,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.42 PM (1).jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 8,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.36 PM.jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 9,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 10,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.39 PM (1).jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 11,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.42 PM (1).jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   },
-//   {
-//     id: 12,
-//     name: "Basic Tee",
-//     href: "#",
-//     imageSrc:
-//       "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.36 PM.jpeg",
-//     imageAlt: "Front of men's Basic Tee in black.",
-//     price: "$35",
-//     color: "Black",
-//   }
-//   // More products...
-// ];
-function classNames(...classNamees: string[]) {
-  return classNamees.filter(Boolean).join(" ");
-}
-
 export const Filters = () => {
   const dispatch = useAppDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -211,7 +24,7 @@ export const Filters = () => {
   const filters = useAppSelector((state) => state.filters.filters);
   const [selectionFilters, setSelectionFilter] = useState<Filter[]>([]);
   const products = useAppSelector((state) => state.products.dataProducts);
-
+  const [topPrice,setTopPrice] = useState<number>(0)
   const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
     setSelectionFilter((prevFilter) => {
@@ -232,6 +45,7 @@ export const Filters = () => {
     });
     return checked;
   };
+
   useEffect(() => {
     getProductsFilters(filters, selectionFilters, dispatch);
   }, [selectionFilters]); // Se activa solo cuando el estado frutasSeleccionadas cambia
@@ -275,24 +89,15 @@ export const Filters = () => {
               >
                 <Dialog.Panel
                   className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl"
-                  style={{
-                    color: "#C2A78D",
-                    backgroundColor: "rgb(246, 218, 239)",
-                  }}
+                  
                 >
                   <div
                     className="flex items-center justify-between px-4"
-                    style={{
-                      color: "#C2A78D",
-                      backgroundColor: "rgb(246, 218, 239)",
-                    }}
+                    
                   >
                     <h2
                       className="text-lg font-medium text-gray-900"
-                      style={{
-                        color: "#C2A78D",
-                        backgroundColor: "rgb(246, 218, 239)",
-                      }}
+                      
                     >
                       Filters
                     </h2>
@@ -305,10 +110,7 @@ export const Filters = () => {
                       <XMarkIcon
                         className="h-6 w-6"
                         aria-hidden="true"
-                        style={{
-                          color: "#C2A78D",
-                          backgroundColor: "rgb(246, 218, 239)",
-                        }}
+                        
                       />
                     </button>
                   </div>
@@ -326,33 +128,21 @@ export const Filters = () => {
                             <>
                               <h3
                                 className="-mx-2 -my-3 flow-root"
-                                style={{
-                                  color: "#C2A78D",
-                                  backgroundColor: "rgb(246, 218, 239)",
-                                }}
+                                
                               >
                                 <Disclosure.Button
-                                  className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
-                                  style={{
-                                    color: "#C2A78D",
-                                    backgroundColor: "rgb(246, 218, 239)",
-                                  }}
+                                  className="flex w-full items-center justify-between bg-white"
+                                  
                                 >
                                   <span
-                                    className="font-medium "
-                                    style={{
-                                      color: "#C2A78D",
-                                      backgroundColor: "rgb(246, 218, 239)",
-                                    }}
+                                    
+                                    
                                   >
                                     {section.name}
                                   </span>
                                   <span
                                     className="ml-6 flex items-center"
-                                    style={{
-                                      color: "#C2A78D",
-                                      backgroundColor: "rgb(246, 218, 239)",
-                                    }}
+                                    
                                   >
                                     {open ? (
                                       <MinusIcon
@@ -368,7 +158,7 @@ export const Filters = () => {
                                   </span>
                                 </Disclosure.Button>
                               </h3>
-                              <Disclosure.Panel className="pt-6">
+                              <Disclosure.Panel className="">
                                 <div className="space-y-6">
                                   {section.options.map((option, optionIdx) => (
                                     <div
@@ -380,7 +170,7 @@ export const Filters = () => {
                                         name={`${section.id}[]`}
                                         type="checkbox"
                                         checked={isChecked(option.value)}
-                                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                        className="h-4 w-4 rounded border-gray-3"
                                         value={option.value}
                                         onChange={(e) => {
                                           handleCheckbox(e);
@@ -389,10 +179,7 @@ export const Filters = () => {
                                       <label
                                         htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
                                         className="ml-3 min-w-0 flex-1 "
-                                        style={{
-                                          color: "#C2A78D",
-                                          backgroundColor: "rgb(246, 218, 239)",
-                                        }}
+                                        
                                       >
                                         {option.label}
                                       </label>
@@ -414,23 +201,13 @@ export const Filters = () => {
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div
-            className="flex items-baseline justify-end border-b  pb-6 pt-10"
+            className="flex items-baseline justify-end border-b  mb-6"
             
           >
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button
-                    className="group inline-flex justify-center text-sm font-medium "
-                    style={{ color: "#C2A78D" }}
-                  >
-                    Ordenar
-                    <ChevronDownIcon
-                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0"
-                      aria-hidden="true"
-                      style={{ color: "#C2A78D" }}
-                    />
-                  </Menu.Button>
+                
                 </div>
 
                 <Transition
@@ -442,28 +219,7 @@ export const Filters = () => {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-1">
-                      {sortOptions.map((option) => (
-                        <Menu.Item key={option.name}>
-                          {({ active }) => (
-                            <a
-                              href={option.href}
-                              className={classNames(
-                                option.current
-                                  ? "font-medium text-gray-900"
-                                  : "text-gray-500",
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm"
-                              )}
-                            >
-                              {option.name}
-                            </a>
-                          )}
-                        </Menu.Item>
-                      ))}
-                    </div>
-                  </Menu.Items>
+                
                 </Transition>
               </Menu>
 
@@ -475,7 +231,7 @@ export const Filters = () => {
                 <Squares2X2Icon
                   className="h-5 w-5"
                   aria-hidden="true"
-                  style={{ color: "#C2A78D" }}
+                
                 />
               </button>
               <button
@@ -487,7 +243,7 @@ export const Filters = () => {
                 <FunnelIcon
                   className="h-5 w-5"
                   aria-hidden="true"
-                  style={{ color: "#C2A78D" }}
+                 
                 />
               </button>
             </div>
@@ -501,36 +257,77 @@ export const Filters = () => {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
-                <div className="collapse bg-base-200 " style={{border:"solid 3px",borderColor: "#9B5176"}}>
+                <div className="collapse" style={{backgroundColor: "rgb(211, 211, 211,0.25)"}}>
                   <input type="checkbox" />
                   <div className="collapse-title text-xl font-medium">
                     Filtrar busqueda:
                   </div>
                   <div className="collapse-content">
                   <div className="">
-                  {filters.map((section) => (
-                    <Disclosure
+
+                  <Disclosure
                       as="div"
-                      key={section.id}
-                      className=" py-6 font-semibold "
-                      style={{
-                        color: "#C2A78D",
-                      }}
+                      key={"priceRange"}
+                      className=" py-6 "
+                     
                     >
                       {({ open }) => (
                         <>
                           <h3 className="-my-3 flow-root">
                             <Disclosure.Button
-                              className="flex w-full font-semibold   p-3 items-center justify-between bg-base-200 py-3 text-lg"
-                              style={{
-                                color: "rgb(194, 167, 141)",
-                              }}
+                              className="flex w-full   items-center justify-between  text-lg"
+                              
                             >
                               <span
-                                className="font-semibold"
-                                style={{
-                                  color: "rgb(194, 167, 141)",
-                                }}
+                                className=""
+                              >
+                                Precio
+                              </span>
+                              <span className="ml-6 flex items-center">
+                                {open ? (
+                                  <MinusIcon
+                                    className="h-5 w-5"
+                                    aria-hidden="true"
+                                    
+                                  />
+                                ) : (
+                                  <PlusIcon
+                                    className="h-5 w-5"
+                                    aria-hidden="true"
+                                    
+                                  />
+                                )}
+                              </span>
+                            </Disclosure.Button>
+                          </h3>
+                          <Disclosure.Panel className="pt-6">
+                            <div className="space-y-4 ml-8 ">
+                            <input type="range" min="0" max="50000" step="500"  className="range range-xs [--range-shdw:gray]" onChange={(e)=>{setTopPrice(Number(e.target.value))}} />
+                            <div className="inline-flex text-sm"><h4>El precio maximo : </h4> {topPrice}</div>
+                           
+                            
+                            </div>
+                          </Disclosure.Panel>
+                        </>
+                      )}
+                    </Disclosure>
+                  {filters.map((section) => (
+                    <Disclosure
+                      as="div"
+                      key={section.id}
+                      className=" py-6 "
+                     
+                    >
+                      {({ open }) => (
+                        <>
+                          <h3 className="-my-3 flow-root">
+                            <Disclosure.Button
+                              className="flex w-full   items-center justify-between   text-lg"
+                              
+                            >
+                              <span
+                                className=""
+                                
                               >
                                 {section.name}
                               </span>
@@ -539,13 +336,13 @@ export const Filters = () => {
                                   <MinusIcon
                                     className="h-5 w-5"
                                     aria-hidden="true"
-                                    style={{ color: "rgb(194, 167, 141)" }}
+                                    
                                   />
                                 ) : (
                                   <PlusIcon
                                     className="h-5 w-5"
                                     aria-hidden="true"
-                                    style={{ color: "rgb(194, 167, 141)" }}
+                                    
                                   />
                                 )}
                               </span>
@@ -572,7 +369,7 @@ export const Filters = () => {
                                   <label
                                     htmlFor={`filter-${section.id}-${optionIdx}`}
                                     className="ml-3 text-sm"
-                                    style={{ color: "rgb(194, 167, 141)" }}
+                                    
                                   >
                                     {option.label}
                                   </label>

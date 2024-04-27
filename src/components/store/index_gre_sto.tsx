@@ -1,4 +1,4 @@
-import { Fragment,useState } from "react";
+import { Fragment,useEffect,useState } from "react";
 import { Dialog,Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -18,6 +18,8 @@ import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_sl
 import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import {Carousel} from "./carousel_cat_gre_sto";
+import { DateHour } from "../../utils/date-hour";
 
 
 
@@ -105,6 +107,7 @@ export const MenuStore = () => {
   const total = useAppSelector((state) => state.shopcar.suma);
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
+  const [dateHour,setDateHour] = useState<string>('')
   
   
   const handlingBannerCommercial = () => {
@@ -116,6 +119,15 @@ export const MenuStore = () => {
   const handleCartShop = (open:boolean)  =>{
     dispatch(shopCart_visible({show: open }));
   }
+
+  useEffect(() => {
+    const cl = setInterval(() => {
+      const date = DateHour()
+      setDateHour(date)
+    }, 1000);
+  
+    return () => clearInterval(cl);
+  }, []);
   
   
  
@@ -288,7 +300,7 @@ export const MenuStore = () => {
           className="flex h-10 items-center justify-center mb-5 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
           style={{ backgroundColor: "#F6DAEF", color: "#393939" }}
         >
-          Get free delivery on orders over $100
+          <h1>{dateHour} </h1>
         </p>
 
         <nav
@@ -384,6 +396,7 @@ export const MenuStore = () => {
             </div>
           </div>
           {/* <Categories></Categories> */}
+          <Carousel></Carousel>
         </nav>
       
       <ModalLoginStore></ModalLoginStore>

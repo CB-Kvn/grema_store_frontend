@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* @keyframes carouselAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Apply animation to the carousel items */
+  /* .carousel-max-item {
+    display: flex; /* Ensure items are displayed in a row */
+    /* animation: carouselAnimation 10s infinite linear;
+  } */
+   */
+  /* Optionally, you can add styles to the container to control its size and overflow */
+  /* .carousel-max {
+    overflow: hidden;
+  } */ */
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
