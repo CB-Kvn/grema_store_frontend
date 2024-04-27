@@ -21,12 +21,25 @@ export const loginService = async (params: LoginService) => {
 
 }
 
-export const signService = async (params: UserHttpService) => {
+export const signService = async (params1: UserHttpService,params2:FileList) => {
 
     try {
 
+        
+        const formData = new FormData()
+        
+        for (let i = 0; i < params2.length; i++) {
+            formData.append(`images`, params2[i]);
+        }
+
+        formData.append('body',JSON.stringify(params1))
+
         const url_user = '/user/create-user'
-        const response = await axios.post(url+url_user , params);
+        const response = await axios.post(url+url_user , formData , {
+            headers: {
+                'Content-Type': 'multipart/form-data', // Set the content type to multipart/form-data
+              },
+        });
 
         console.log(response)
 

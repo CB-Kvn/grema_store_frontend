@@ -1,7 +1,10 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../redux/store";
 
 export const OptionProfile = () => {
+
+  const profile = useAppSelector((state)=> state.login)
   
   return (
     <div className="dropdown dropdown-end">
@@ -13,7 +16,7 @@ export const OptionProfile = () => {
         <div className="w-10 rounded-full">
           <LazyLoadImage
             alt="Tailwind CSS Navbar component"
-            src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+            src= {profile.image}
           />
         </div>
       </div>
@@ -23,15 +26,12 @@ export const OptionProfile = () => {
       >
         <li>
           <Link to={"/profile"} className="justify-between">
-            Profile
+            Perfil
  
           </Link>
         </li>
         <li>
-          <a>Settings</a>
-        </li>
-        <li>
-          <a>Logout</a>
+          <a>Salir</a>
         </li>
       </ul>
     </div>

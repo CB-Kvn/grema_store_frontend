@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useAppSelector } from "../../redux/store";
 import { ButtonNavPage } from "./button_nav_pag_gre_sto";
 
-export const SignPersonalInfo = () => {
+export const SignPersonalInfo = ({onSendDataImages}:{onSendDataImages:(e: React.ChangeEvent<HTMLInputElement>) => void}) => {
   
 
   const [name, setName] = useState<string>("");
@@ -16,7 +16,6 @@ export const SignPersonalInfo = () => {
   const [id, setId] = useState<string>("");
   const [celphone, setCelphone] = useState<string>("");
   const [genre, setGenre] = useState<string>("");
-  // const [setImage] = useState<File>();
   const info = useAppSelector((state) => state.handler.info_user);
 
   const handleGenre = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -25,23 +24,11 @@ export const SignPersonalInfo = () => {
     setGenre(z);
   };
 
-  // const handleImages = (e: React.FocusEvent<HTMLInputElement, Element>) => {
-  //   // console.log(e);
+  const handleImages = (e:React.ChangeEvent<HTMLInputElement> ) =>{
+    onSendDataImages(e)
+  }
 
-  //   if (e.target.files === undefined) return;
-
-  //   const target = e.target as HTMLInputElement & {
-  //     files: FileList;
-  //   };
-
-  //   setImage(target.files[0]!);
-
-  //   // const data = new FormData()
-  //   // data.append('images', image!)
-
-  //   // axios.post('http://localhost:5000/grema-store/product/upload',data)
-  //   // console.log(target.files)
-  // };
+ 
 
   useEffect(() => {
     setName(info.personal.name != "" || info.personal.name != undefined ? info.personal.name : "")
@@ -70,10 +57,11 @@ export const SignPersonalInfo = () => {
             <div className="mt-2 flex items-center gap-x-3">
               <input
                 type="file"
+                multiple={true}
                 className="file-input file-input-sm w-full max-w-xs "
-                // onBlur={(e) => {
-                //   // handleImages(e);
-                // }}
+                onChange={(e) => {
+                  handleImages(e);
+                }}
               />
             </div>
           </div>

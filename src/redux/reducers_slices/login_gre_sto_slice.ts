@@ -6,6 +6,8 @@ interface LoginSuccessful {
         data: { 
             email: string
             token?: string
+            image: string
+            userID: string
         }
         msg: string
         success:boolean
@@ -18,6 +20,8 @@ const initialState = {
     msg: '',
     email: '',
     token: '',
+    userID:'',
+    image:'',
     success: false
 }
 
@@ -30,6 +34,8 @@ export const LoginSlice = createSlice({
         login_successful: (state, action: LoginSuccessful) => {
             state.msg = action.payload.msg
             state.email = action.payload.data.email
+            state.userID = action.payload.data.userID
+            state.image = action.payload.data.image
             state.token = action.payload.data.token!
             state.success = true
 

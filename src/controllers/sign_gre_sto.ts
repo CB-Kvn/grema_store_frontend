@@ -14,7 +14,8 @@ import { verifyRgx } from "../utils/verify_parse_data/verifyRgx";
 export const SignSave = async (
   data: UsersService,
   dispatch: any,
-  location: string
+  location: string,
+  images: FileList
 ) => {
   try {
     dispatch(loader_visible({ msg: "", show: true }));
@@ -30,12 +31,14 @@ export const SignSave = async (
         email: data.profile.email,
         password: data.profile.password,
         address: data.address.address +", "+ data.address.state +", "+ data.address.country +", "+ data.address.code,
-        image: "data.profile.email",
+        image: "",
         createAtProfile: new Date(),
         updateAtProfile: new Date(),
       }
     }
-    const response = await signService(info);
+    console.log(images)
+    
+    const response = await signService(info,images);
     setTimeout(() => {
       dispatch(loader_visible({ msg: "", show: false }));
     }, 2000);

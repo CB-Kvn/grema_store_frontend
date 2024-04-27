@@ -44,11 +44,11 @@ const data = useAppSelector((state)=> state.products.dataSelected)
       <div className="modal" role="dialog">
         <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs8.png'}}>
           <div className="grid justify-center w-100 ">
-            <div className="carousel rounded-box w-100 ">
+            <div className="carousel  rounded-box w-100 ">
               {data!.images.map((product) => (
-                <div className="carousel-item w-1/2 mx-0.5 sm:w-1/2 ">
+                <div className="carousel-item   w-1/2 mx-0.5 sm:w-1/2 ">
                   <div key={data!.id} className="group relative">
-                    <div className=" aspect-h-1 aspect-w-1 w-30 h-80 sm:overflow-x-auto rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
+                    <div className=" aspect-h-1 cursor-grab aspect-w-1 w-30 h-80 sm:overflow-x-auto rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
                       <LazyLoadImage 
                         src={product}
                         alt={data!.nombre}

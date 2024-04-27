@@ -3,7 +3,12 @@ import { SignSave } from '../../controllers/sign_gre_sto';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { ButtonNavPage } from './button_nav_pag_gre_sto'
 
-export const Notification = ({location}:{location:string}) => {
+interface NotificationProps {
+    location:string,
+    images:FileList | undefined
+}
+
+export const Notification = ({data}:{data:NotificationProps}) => {
     const dispatch = useAppDispatch()
     const {personal,profile,address} = useAppSelector((state) => state.handler.info_user);
 
@@ -44,7 +49,7 @@ export const Notification = ({location}:{location:string}) => {
                     color: "#95806b",
                     }}
                     onClick={()=>{
-                        SignSave({personal:personal,profile:profile,address:address},dispatch,location as string)
+                        SignSave({personal:personal,profile:profile,address:address},dispatch,data.location as string,data.images!)
 
                     }}
                 >
@@ -53,7 +58,7 @@ export const Notification = ({location}:{location:string}) => {
             </div>
                 
         </div>
-        <ButtonNavPage data= {location} ></ButtonNavPage>
+        <ButtonNavPage data= {data.location} ></ButtonNavPage>
     </>
     
   )

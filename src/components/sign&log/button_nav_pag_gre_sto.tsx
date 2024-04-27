@@ -12,7 +12,7 @@ export const ButtonNavPage = ({data}:{data:ProfileInfo|AddressInfo|PersonalInfo|
 
   const handleForm = (type: string) => {
     let num = 0 | page;
-   
+   console.log(data)
     switch (type) {
       case "max":
         num += 1;
