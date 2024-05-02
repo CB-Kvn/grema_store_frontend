@@ -6,11 +6,13 @@ export interface LoveProduct {
 
 export interface reducerInitialLove{
     data: LoveProduct[]
+    user:string
 }
 
 export interface AddLove {
     payload: {
         data: LoveProduct
+        user:string
     }
 }
 

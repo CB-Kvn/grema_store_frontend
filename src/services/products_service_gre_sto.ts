@@ -3,11 +3,15 @@ import { APIResponseProducts } from "../interfaces/products_interface_gre_sto";
 
 const url = import.meta.env.VITE_URL_BACKEND
 
-export const getAllProducts = async () => {
+export const getAllProducts = async (token:string) => {
 
     try {
         const url_products = '/product/get-all'
-        const response = await axios.get(url+url_products);
+        const response = await axios.get(url+url_products,{
+            headers:{
+                grema_store_token : token
+            }
+        });
 
         return response.data as APIResponseProducts
 

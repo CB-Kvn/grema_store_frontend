@@ -17,15 +17,17 @@ export const GridProducts = ({
 }: {
   products: ArrayParseProducts[];
 }) => {
+
+  const dispatch = useAppDispatch();
   const love = useAppSelector((state) => state.love.data);
   const alert = useAppSelector((state) => state.handler.alert);
-  const productSelected = useAppSelector(
-    (state) => state.products.dataSelected
-  );
-  const dispatch = useAppDispatch();
+  const login = useAppSelector((state) => state.login.userId);
+  const productSelected = useAppSelector((state) => state.products.dataSelected);
+ 
+
   const handleLovinArticle = (data: LoveProduct) => {
     console.log(data);
-    dispatch(add_products_love({ data }));
+    dispatch(add_products_love({ data, user: login }));
   };
   const handleUnLovinArticle = (data: number) => {
     dispatch(remove_products_love({ id: data }));
@@ -35,6 +37,7 @@ export const GridProducts = ({
     const element = document.querySelector("#my_modal_10") as HTMLInputElement;
     element.checked = true;
   };
+
   return (
     <>
       <div className="my-5">
@@ -48,14 +51,17 @@ export const GridProducts = ({
       >
         {products.map((element) => (
           <div className="relative">
-            <div className="w-44 xxxs:w-44 xxs:w-56 sm:w-52  xmd:w-56 md:w-60 lg:w-60 xl:w-72  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" style={{backgroundColor:"#f7f7f7"}}>
+            <div
+              className="w-44 xxxs:w-44 xxs:w-56 sm:w-52  xmd:w-56 md:w-60 lg:w-60 xl:w-72  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
+              style={{ backgroundColor: "#f7f7f7" }}
+            >
               <LazyLoadImage
                 src="https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg"
                 alt="Product"
                 className=" w-44 xxxs:w-44 xxs:w-56 sm:w-52 xmd:w-56 md:w-60 lg:w-60 xl:w-72 object-cover rounded-t-xl"
                 onClick={() => handleModalProduct(element)}
               />
-              <div className="w-44 mt-3 xxxs:w-44 xxs:w-56 sm:w-52 xmd:w-56  md:w-60 lg:w-60 xl:w-72  ml-1" >
+              <div className="w-44 mt-3 xxxs:w-44 xxs:w-56 sm:w-52 xmd:w-56  md:w-60 lg:w-60 xl:w-72  ml-1">
                 <p
                   className="text-base ml-3 font-bold truncate block capitalize"
                   style={{ color: "#393939" }}

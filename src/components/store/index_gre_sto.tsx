@@ -103,12 +103,13 @@ function classNames(...classes: string[]) {
 }
 
 export const MenuStore = () => {
-  const activeLogin = useAppSelector((state) => state.login.success);
+  
+  const login = useAppSelector((state) => state.login);
   const total = useAppSelector((state) => state.shopcar.suma);
+
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
   const [dateHour,setDateHour] = useState<string>('')
-  
   
   const handlingBannerCommercial = () => {
     setOpen(false);
@@ -391,7 +392,7 @@ export const MenuStore = () => {
                   </a>
                 </div>
 
-                {activeLogin ? <OptionProfile></OptionProfile> : <></>}
+                {login.success && login.email != "" ? <OptionProfile></OptionProfile> : <></>}
               </div>
             </div>
           </div>

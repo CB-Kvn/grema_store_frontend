@@ -59,4 +59,38 @@ export interface UserHttpService{
       image: string
   },
 }
+export interface LoginSuccessful {
+  payload: {
+      data: { 
+          email: string
+          token?: string
+          image: string
+          userId: string
+          type:string
+      }
+      msg: string
+      success:boolean
 
+  }
+}
+
+export interface LoginInit {
+  msg: string,
+  email: string,
+  token: string,
+  userId:string,
+  image:string,
+  success: boolean
+  type:string
+}
+
+export interface RefreskToken {
+  payload: {
+    data: { 
+        
+        token: string
+        
+    }
+
+}
+}
