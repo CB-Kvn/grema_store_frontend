@@ -11,6 +11,7 @@ export const selectedProduct = (data:ArrayParseProducts, dispatch:any) =>{
         desc: data.desc,
         description: data.description,
         images: data.imageSrc,
+        
       }
 
       dispatch(selected_product({data:selected}))

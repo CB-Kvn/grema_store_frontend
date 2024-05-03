@@ -60,8 +60,8 @@ export interface reducerInitialProducts{
 
 export interface ProductSelect {
     id:string
-    userId:number
-    productId: number,
+    userId?:number
+    productId?: number,
     nombre:string,
     precio:number,
     quantyInv:number,
@@ -69,6 +69,6 @@ export interface ProductSelect {
     description:string
     images:string[]
     quantyOrder?:number
-    type:string
+    type?:string
   
   }
