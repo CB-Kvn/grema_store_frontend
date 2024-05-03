@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ConfirmPassword, RegexVerify } from "../../controllers/sign_gre_sto";
+import { ConfirmPassword, RegexVerify } from "../../controllers/sign_controller_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { ButtonNavPage } from "./button_nav_pag_gre_sto";
 

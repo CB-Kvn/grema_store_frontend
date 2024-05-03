@@ -2,12 +2,15 @@ import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
-import { addSelectionOrder } from "../../controllers/shopCar_gre_sto";
+import { addSelectionOrder } from "../../controllers/shopCar_controller_gre_sto";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+
 
 
 export const Modal_Product = () => {
 const data = useAppSelector((state)=> state.products.dataSelected)
- 
+const login = useAppSelector((state)=> state.login)
   const dispatch = useAppDispatch()
   const [counter, setCounter] = useState<number>(0);
 
@@ -31,7 +34,7 @@ const data = useAppSelector((state)=> state.products.dataSelected)
   };
 
   const Order = (data:ProductSelect,counter:number) =>{
-      addSelectionOrder(data,dispatch,counter)
+      addSelectionOrder(data,dispatch,counter,login)
       const element = document.querySelector("#my_modal_10") as HTMLInputElement;
       element.checked = false;
   }
@@ -47,13 +50,16 @@ const data = useAppSelector((state)=> state.products.dataSelected)
             <div className="carousel  rounded-box w-100 ">
               {data!.images.map((product) => (
                 <div className="carousel-item   w-1/2 mx-0.5 sm:w-1/2 ">
-                  <div key={data!.id} className="group relative">
+                  <div key={data!.id!} className="group relative">
                     <div className=" aspect-h-1 cursor-grab aspect-w-1 w-30 h-80 sm:overflow-x-auto rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
+                      <Zoom>
                       <LazyLoadImage 
                         src={product}
                         alt={data!.nombre}
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                       />
+                      </Zoom>
+                      
                     </div>
                   </div>
                 </div>

@@ -1,11 +1,19 @@
-// import { configureStore } from "@reduxjs/toolkit";
-// import { LoginSlice } from "./login_gre_sto_slice";
-// import { ToastSlice } from "./toast_gre_sto_slice";
-// import { SignUpSlice} from "./sign_up_gre_sto_slice";
+import { combineReducers} from "@reduxjs/toolkit";
+import { LoginSlice } from "./login_gre_sto_slice";
+import { SignUpSlice } from "./sign_up_gre_sto_slice";
+import { HandlersSlice } from "./handler_gre_sto_slice";
+import { ProductSlice } from "./products_gre_sto_slice";
+import { FiltersSlice } from "./filters_gre_sto_slice";
+import { LoveSlice } from "./love_gre_sto_slice";
+import { SelectedSlice } from "./shopcar_gre_sto_slice";
 
-// export const rootReducer = combineReducers({
-//     login: LoginSlice.reducer,
-//     toast: ToastSlice.reducer,
-//     newUser: SignUpSlice.reducer
-// })
+export const rootReducer = combineReducers({
+    login: LoginSlice.reducer,
+    handler: HandlersSlice.reducer,
+    newUser: SignUpSlice.reducer,
+    products: ProductSlice.reducer,
+    filters: FiltersSlice.reducer,
+    love: LoveSlice.reducer,
+    shopcar: SelectedSlice.reducer
+})
 

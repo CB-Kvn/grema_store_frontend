@@ -4,7 +4,7 @@ import { ModalLogin } from "../sign&log/index_gre_sto";
 import { OptionProfile } from "./option_profile_gre_sto";
 
 export const Navigation_Gre_Sto = () => {
-  const activeLogin = useAppSelector((state) => state.login.success);
+  const login = useAppSelector((state) => state.login);
 
   return (
     <>
@@ -102,7 +102,7 @@ export const Navigation_Gre_Sto = () => {
         </div>
         <div className="navbar-end">
          
-          {activeLogin ? (
+          {login.success && login.email != ""  ? (
             <OptionProfile></OptionProfile>
           ) : (
             <ModalLogin></ModalLogin>

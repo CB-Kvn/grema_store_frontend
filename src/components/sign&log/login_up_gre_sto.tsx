@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { useState } from "react";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
-import { loginController } from "../../controllers/login_gre_sto";
+import { loginController } from "../../controllers/login_controller_gre_sto";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // import { useDispatch } from "react-redux"

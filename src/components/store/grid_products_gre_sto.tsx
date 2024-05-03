@@ -1,40 +1,42 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { LoveProduct } from "../../interfaces/lovin_interface_gre_sto";
+import { Favorites_Carts } from "../../interfaces/lovin_interface_gre_sto";
 import { ArrayParseProducts } from "../../interfaces/products_interface_gre_sto";
-import {
-  add_products_love,
-  remove_products_love,
-} from "../../redux/reducers_slices/love_gre_sto_slice";
+
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { BannerSpecial } from "./banner_special_gre_sto";
 import { Modal_Product } from "./modal_product_gre_sto";
 
-import { selectedProduct } from "../../controllers/store_gre_sto";
+import { selectedProduct } from "../../controllers/store_controller_gre_sto";
 import { AlertMsg } from "./alert_gre_sto";
+import { addFavorities, removeFavorities } from "../../controllers/favorities_controller_gre_sto";
 
 export const GridProducts = ({
   products,
 }: {
   products: ArrayParseProducts[];
 }) => {
+
+  const dispatch = useAppDispatch();
   const love = useAppSelector((state) => state.love.data);
   const alert = useAppSelector((state) => state.handler.alert);
-  const productSelected = useAppSelector(
-    (state) => state.products.dataSelected
-  );
-  const dispatch = useAppDispatch();
-  const handleLovinArticle = (data: LoveProduct) => {
-    console.log(data);
-    dispatch(add_products_love({ data }));
+  const login = useAppSelector((state) => state.login);
+  const productSelected = useAppSelector((state) => state.products.dataSelected);
+ 
+
+  const handleLovinArticle = (info: Favorites_Carts) => {
+    console.log(info)
+    console.log(love)
+    addFavorities(dispatch,info,login)
   };
   const handleUnLovinArticle = (data: number) => {
-    dispatch(remove_products_love({ id: data }));
+    removeFavorities(dispatch,data,login,love)
   };
   const handleModalProduct = async (data: ArrayParseProducts) => {
     await selectedProduct(data, dispatch);
     const element = document.querySelector("#my_modal_10") as HTMLInputElement;
     element.checked = true;
   };
+
   return (
     <>
       <div className="my-5">
@@ -48,14 +50,17 @@ export const GridProducts = ({
       >
         {products.map((element) => (
           <div className="relative">
-            <div className="w-44 xxxs:w-44 xxs:w-56 sm:w-52  xmd:w-56 md:w-60 lg:w-60 xl:w-72  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" style={{backgroundColor:"#f7f7f7"}}>
+            <div
+              className="w-44 xxxs:w-44 xxs:w-56 sm:w-52  xmd:w-56 md:w-60 lg:w-60 xl:w-72  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
+              style={{ backgroundColor: "#f7f7f7" }}
+            >
               <LazyLoadImage
                 src="https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg"
                 alt="Product"
                 className=" w-44 xxxs:w-44 xxs:w-56 sm:w-52 xmd:w-56 md:w-60 lg:w-60 xl:w-72 object-cover rounded-t-xl"
                 onClick={() => handleModalProduct(element)}
               />
-              <div className="w-44 mt-3 xxxs:w-44 xxs:w-56 sm:w-52 xmd:w-56  md:w-60 lg:w-60 xl:w-72  ml-1" >
+              <div className="w-44 mt-3 xxxs:w-44 xxs:w-56 sm:w-52 xmd:w-56  md:w-60 lg:w-60 xl:w-72  ml-1">
                 <p
                   className="text-base ml-3 font-bold truncate block capitalize"
                   style={{ color: "#393939" }}
@@ -72,14 +77,14 @@ export const GridProducts = ({
                       ₡{element.price}
                     </p>
 
-                    {element.descPorcen > 0 ? (
+                    {element.desc > 0 ? (
                       <p
                         className="text-base font-semibold  line-through my-1"
                         style={{ color: "#393939" }}
                       >
                         ₡
                         {Number(element.price) -
-                          Number(element.price) * element.descPorcen}
+                          Number(element.price) * (element.desc/100)}
                       </p>
                     ) : (
                       <></>
@@ -347,7 +352,7 @@ export const GridProducts = ({
                       </aside>
                     </aside>
 
-                    {love.some((item) => item.id === element.id) ? (
+                    {love.some((item) => item.productId === element.id) ? (
                       // Render filled heart icon if item is in the love array
                       <>
                         <aside className="absolute top-0 right-0 mr-3">
@@ -391,9 +396,13 @@ export const GridProducts = ({
                           onClick={(event) => {
                             event.preventDefault(),
                               handleLovinArticle({
+                                productId: element.id,
+                                userId: Number(login.userId),
+                                type:"Fav",
+                                quantity:0,
+                                image: element.imageSrc,
                                 name: element.name,
-                                id: element.id,
-                                img: element.imageSrc[0],
+                                
                               });
                           }}
                           version="1.1"

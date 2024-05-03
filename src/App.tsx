@@ -8,11 +8,12 @@ import { useAppSelector } from "./redux/store";
 import { Footer } from "./components/landing/footer_gre_sto";
 
 
+
 export const App =()=> {
 
  
   const loader = useAppSelector((state) => state.handler.loader_visible.show);
-
+  
   return (
     <>
     <Routes>
@@ -21,6 +22,7 @@ export const App =()=> {
       <Route path="/profile" element={<Profile></Profile>}></Route> 
       <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
     </Routes>
+      
     
     <Footer></Footer>
     { loader ? <Loader></Loader> : <></>}

@@ -20,7 +20,7 @@ export interface AddProductSelect {
 
 export interface RemoveProductSelect {
     payload: {
-        id:number
+        id:string
     }
 }
 

@@ -3,16 +3,22 @@ import { APIResponseFilters, FiltersToApi } from "../interfaces/filters_interfac
 import { APIResponseProducts } from "../interfaces/products_interface_gre_sto";
 
 
+
 const url = import.meta.env.VITE_URL_BACKEND
-export const getAllFilters = async () => {
+export const getAllFilters = async ( token:string) => {
     
     try {
 
         console.log('==========================================')
-        console.log(url)
+        console.log({url,token})
 
         const url_filter = '/filters/filters'
-        const response = await axios.get(url+url_filter);
+        const response = await axios.get(url+url_filter,{
+            headers:{
+                grema_store_token : token
+            }
+
+        });
 
 
         return response.data as APIResponseFilters
@@ -25,12 +31,16 @@ export const getAllFilters = async () => {
 
 }
 
-export const getProductFilters = async (data:FiltersToApi) => {
+export const getProductFilters = async (data:FiltersToApi, token:string) => {
 
     try {
-
+        
         const url_filter = '/product/get-all-filters'
-        const response = await axios.post(url+url_filter,data
+        const response = await axios.post(url+url_filter,data,{
+            headers:{
+                grema_store_token : token
+            }
+        }
           );
 
 

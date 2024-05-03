@@ -5,8 +5,8 @@ import { AddLove,reducerInitialLove, RemoveLove } from "../../interfaces/lovin_i
 
 // Define the initial state using that type
 const initialState: reducerInitialLove = {
-    data: [] 
-    
+    data: [], 
+    user: ''
 }
 
 export const LoveSlice = createSlice({
@@ -17,9 +17,11 @@ export const LoveSlice = createSlice({
     reducers: {
         add_products_love: (state, action: AddLove) => {
             state.data.push(action.payload.data);
+            state.user = action.payload.user
+
         },
         remove_products_love: (state, action: RemoveLove) => {
-            state.data = state.data.filter(love => love.id !== action.payload.id);
+            state.data = state.data.filter(love => love.productId !== action.payload.id);
         },
 
 
