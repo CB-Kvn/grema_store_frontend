@@ -3,13 +3,14 @@ import { LoginInit, LoginSuccessful, RefreskToken } from "../../interfaces/login
 
 
 const initialState: LoginInit = {
-    msg: '',
+    
     email: '',
     token: '',
-    userId: '',
+    userId: 0,
     image: '',
-    success: false,
-    type: ''
+    type: '',
+    profileId: 0,
+    success: false
 }
 
 
@@ -21,25 +22,17 @@ export const LoginSlice = createSlice({
 
     reducers: {
         login_successful_guest: (state, action: LoginSuccessful) => {
-
-
-            state.msg = action.payload.msg
             state.email = action.payload.data.email
             state.userId = action.payload.data.userId
             state.image = action.payload.data.image
             state.token = action.payload.data.token!
-            state.success = true
             state.type = action.payload.data.type
-
-
+            state.profileId = action.payload.data.profileId
+            state.success = action.payload.data.success
         },
         refresh_token: (state, action: RefreskToken) => {
-
             console.log(action.payload)
             state.token = action.payload.data.token!
-
-
-
         }
 
 

@@ -7,8 +7,8 @@ export const selectedProduct = (data:ArrayParseProducts, dispatch:any) =>{
         id: data.id.toString(),
         nombre: data.name,
         precio: Number(data.price),
-        quantyInv: data.quantyInv,
-        desc: data.descPorcen,
+        quantyInv: data.quantity,
+        desc: data.desc,
         description: data.description,
         images: data.imageSrc,
       }

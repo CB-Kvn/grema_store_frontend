@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { MenuStore } from "../components/store/index_gre_sto";
 import { loader_visible } from "../redux/reducers_slices/handler_gre_sto_slice";
 import { useAppDispatch  } from "../redux/store"
-import { AlertsGuest } from "../components/alerts/alerts_guest_gre_sto";
+import { Alerts } from "../components/alerts/alerts_guest_gre_sto";
 
 export const Store = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +27,13 @@ export const Store = () => {
     >
       {" "}
       <MenuStore></MenuStore>
-      <AlertsGuest></AlertsGuest>
+      <Alerts msg={{
+        msg1:"No estas logeado, continuaras como invitado",
+        msg2:"Recuerda que la informacion se guardara temporalmente!",
+        msg3:"Procura abrir una sesion",
+        msg4:"Continuar!",
+      }}
+      ></Alerts>
     </div>
   );
 };

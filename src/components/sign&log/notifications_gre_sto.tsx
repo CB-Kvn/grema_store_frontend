@@ -1,5 +1,5 @@
 
-import { SignSave } from '../../controllers/sign_gre_sto';
+import { SignSave } from '../../controllers/sign_controller_gre_sto';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { ButtonNavPage } from './button_nav_pag_gre_sto'
 

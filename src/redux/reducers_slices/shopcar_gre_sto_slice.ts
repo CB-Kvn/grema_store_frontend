@@ -24,6 +24,11 @@ export const SelectedSlice = createSlice({
         },
         remove_products_selected: (state, action: RemoveProductSelect) => {
             state.data = state.data.filter(love => love.id !== action.payload.id.toString());
+            const num = state.data.reduce((acumulador, producto) => {
+                return acumulador + producto.quantyOrder!;
+              }, 0);
+            
+            state.suma = num
         },
         update_products_selected: (state, action: UpdateQuantyProductSelect) => {
             state.data = state.data.filter((love) => {

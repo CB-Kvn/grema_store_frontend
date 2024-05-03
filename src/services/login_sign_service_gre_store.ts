@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
-import { LoginInit, LoginService, UserHttpService } from "../interfaces/login_interface_gre_sto";
+import { APIResponseLogin, LoginInit, LoginService, UserHttpService } from "../interfaces/login_interface_gre_sto";
 
 
 const url = import.meta.env.VITE_URL_BACKEND
@@ -16,12 +16,25 @@ export const loginService = async (params: LoginService) => {
             }
         });
 
-        return response
+        const data = {
+            success: response.data.success,
+            status:  response.data.status,
+            msg:     response.data.msg,
+            data:{
+                ...response.data.data,
+                success: response.data.success  === "Ok" ? true: false
+            }
+            
+        }
+        
+        console.log(data)
+
+        return data as APIResponseLogin
 
     } catch (error) {
-        return {
-            data: { error: error, msg: 'Error en la consulta' }
-        }
+        console.log({
+            error: error, msg: 'Error en la consulta' 
+         })
     }
 
 }

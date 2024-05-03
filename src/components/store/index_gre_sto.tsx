@@ -1,4 +1,4 @@
-import { Fragment,useEffect,useState } from "react";
+import { Fragment,useState } from "react";
 import { Dialog,Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -19,7 +19,8 @@ import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import {Carousel} from "./carousel_cat_gre_sto";
-import { DateHour } from "../../utils/date-hour";
+// import { DateHour } from "../../utils/date-hour";
+import { Alerts } from "../alerts/alerts_guest_gre_sto";
 
 
 
@@ -109,7 +110,7 @@ export const MenuStore = () => {
 
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
-  const [dateHour,setDateHour] = useState<string>('')
+  // const [dateHour,setDateHour] = useState<string>('')
   
   const handlingBannerCommercial = () => {
     setOpen(false);
@@ -121,14 +122,14 @@ export const MenuStore = () => {
     dispatch(shopCart_visible({show: open }));
   }
 
-  useEffect(() => {
-    const cl = setInterval(() => {
-      const date = DateHour()
-      setDateHour(date)
-    }, 1000);
+  // useEffect(() => {
+  //   const cl = setInterval(() => {
+  //     const date = DateHour()
+  //     setDateHour(date)
+  //   }, 1000);
   
-    return () => clearInterval(cl);
-  }, []);
+  //   return () => clearInterval(cl);
+  // }, []);
   
   
  
@@ -297,12 +298,12 @@ export const MenuStore = () => {
       </Transition.Root>
 
       <header className="relative z-10">
-        <p
+        {/* <p
           className="flex h-10 items-center justify-center mb-5 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
           style={{ backgroundColor: "#F6DAEF", color: "#393939" }}
         >
           <h1>{dateHour} </h1>
-        </p>
+        </p> */}
 
         <nav
           aria-label="Top"
@@ -409,6 +410,14 @@ export const MenuStore = () => {
     
        <Filters></Filters>
       <Carts></Carts>
+
+      <Alerts msg={{
+        msg1:"Quieres eliminar el articulo de la bolsa?",
+        msg2:"",
+        msg3:"",
+        msg4:"Eliminar!",
+      }}></Alerts>
+     
       
     </div>
   );

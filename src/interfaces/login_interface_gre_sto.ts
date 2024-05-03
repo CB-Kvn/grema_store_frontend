@@ -1,96 +1,110 @@
 export interface LoginService {
-    email : string,
-    password: string
+  email: string,
+  password: string
 }
 
 export interface UsersService {
-    personal:{
-      id: string;
-      name: string;
-      lastName: string;
-      cellphone: string;
-      genre: string;
-    },  
-    profile:{
-      email: string;
-      password: string;
-      address: string;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      image?: any
-    },
-    address:AddressInfo,
-    
-  }
+  personal: {
+    id: string;
+    name: string;
+    lastName: string;
+    cellphone: string;
+    genre: string;
+  },
+  profile: {
+    email: string;
+    password: string;
+    address: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    image?: any
+  },
+  address: AddressInfo,
 
-  export interface PersonalInfo{
-    id: string,
-    name: string,
-    lastName: string,
-    cellphone: string,
-    genre: string,
+}
+
+export interface PersonalInfo {
+  id: string,
+  name: string,
+  lastName: string,
+  cellphone: string,
+  genre: string,
 }
 
 export interface ProfileInfo {
-  email : string,
+  email: string,
   password: string
 }
 
 export interface AddressInfo {
   country: string,
   state: string,
-  address:string,
-  code:string
+  address: string,
+  code: string
 }
 
-export interface Location{
-  location:string
+export interface Location {
+  location: string
 }
 
-export interface UserHttpService{
+export interface UserHttpService {
   id: number,
   name: string,
   lastName: string,
   cellphone: string,
   genre: string,
-  profile:{
-      email: string,
-      password: string,
-      address: string,
-      image: string
+  profile: {
+    email: string,
+    password: string,
+    address: string,
+    image: string
   },
 }
 export interface LoginSuccessful {
   payload: {
-      data: { 
-          email: string
-          token?: string
-          image: string
-          userId: string
-          type:string
-      }
-      msg: string
+    data: {
+      email:string
+      userId:number
+      image: string
+      token:string
+      type:string
+      profileId:number
       success:boolean
-
+    }
   }
 }
 
-export interface LoginInit {
-  msg: string,
-  email: string,
-  token: string,
-  userId:string,
-  image:string,
-  success: boolean
+export interface APIResponseLogin {
+  success: string;
+  status:  number;
+  msg:     string;
+  data:    Log;
+}
+
+export interface Log{
+  email:string
+  userId:number
+  image: string
+  token:string
   type:string
+  profileId:number
+  success:boolean
+}
+
+export interface LoginInit {
+
+  email: string
+  token: string
+  userId: number
+  image: string
+  type: string
+  profileId:number
+  success:boolean
 }
 
 export interface RefreskToken {
   payload: {
-    data: { 
-        
-        token: string
-        
+    data: {
+      token: string
     }
-
-}
+  }
 }

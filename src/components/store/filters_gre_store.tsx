@@ -8,15 +8,15 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import "./store_styles.css";
-import { getAll } from "../../controllers/products_gre_sto";
+import { getAll } from "../../controllers/products_controller_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import {
   getFilters,
   getProductsFilters,
-} from "../../controllers/filters_gre_sto";
+} from "../../controllers/filters_controller_gre_sto";
 import { Filter } from "../../interfaces/filters_interface_gre_sto";
 import { GridProducts } from "./grid_products_gre_sto";
-import {loginController, loginRefreshController} from "../../controllers/login_gre_sto";
+import {loginController, loginRefreshController} from "../../controllers/login_controller_gre_sto";
 
 export const Filters = () => {
   const dispatch = useAppDispatch();
@@ -73,7 +73,7 @@ export const Filters = () => {
   }, [selectionFilters]);
 
   useEffect(() => {
-    if(login.success == true){
+    if(login.success === true){
       console.log("Cambio el token")
       getAll(dispatch, login);
       getFilters(dispatch, login);

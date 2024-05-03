@@ -15,24 +15,21 @@ export const loginController = async (dispatch: any, email: any, password: any, 
     dispatch(loader_visible({ msg: "", show: true }));
 
     const response = await loginService({ email, password });
-    console.log(response)
 
-
-
-    if (response.data.msg! === "Found User") {
+    if (response?.msg === "Found User") {
       const element = document.querySelector("#my_modal_7") as HTMLInputElement;
       element.checked = false;
-      dispatch(login_successful_guest(response.data));
+      dispatch(login_successful_guest({ data: response.data }));
       setEmail("");
       setPassword("");
     }
-    if (response.data.msg! === "Invalid password") {
+    if (response?.msg === "Invalid password") {
       dispatch(toast_visible({ msg: "Invalid password", show: true }));
       setTimeout(() => {
         dispatch(toast_visible({ msg: "", show: false }));
       }, 15000);
     }
-    if (response.data.msg! === "User not found") {
+    if (response?.msg === "User not found") {
       dispatch(toast_visible({ msg: "Not found email", show: true }));
       setTimeout(() => {
         dispatch(toast_visible({ msg: "", show: false }));
@@ -86,7 +83,7 @@ export const loginGuestController = async (dispatch: any, email: string, passwor
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const loginRefreshController = async (dispatch: any, login:LoginInit) => {
+export const loginRefreshController = async (dispatch: any, login: LoginInit) => {
 
   try {
     dispatch(loader_visible({ msg: "", show: true }));

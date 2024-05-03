@@ -13,6 +13,7 @@ export const Loader = () => {
   return (
     <>
       {/* Put this part before </body> tag */}
+      <div>
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div
@@ -27,6 +28,8 @@ export const Loader = () => {
           </div>
         </div>
       </div>
+      </div>
+     
     </>
   );
 };

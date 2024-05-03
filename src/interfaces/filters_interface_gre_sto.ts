@@ -61,3 +61,4 @@ export interface Filter {
     value: string;
     checked: boolean;
   }
+
