@@ -13,7 +13,7 @@ export const SignUp = ({ location }: { location: string }) => {
   const [images,setImages] = useState<FileList | undefined>(undefined);
 
   const handleImages = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log(e);
+   
 
     if (e.target.files === undefined) return;
 
@@ -23,13 +23,8 @@ export const SignUp = ({ location }: { location: string }) => {
 
     setImages(target.files);
 
-    console.log(images)
 
-    // const data = new FormData()
-    // data.append('images', image!)
 
-    // axios.post('http://localhost:5000/grema-store/product/upload',data)
-    // console.log(target.files)
   };
 
   return (

@@ -1,16 +1,16 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
-import { Alerts} from "../alerts/alerts_guest_gre_sto";
+// import { Alerts} from "../alerts/alerts_guest_gre_sto";
 
 export const Carts = () => {
   const dispatch = useAppDispatch();
-  const [id,setId] = useState<string>("")
-  const login = useAppSelector((state)=>state.login)
+  // const [id,setId] = useState<string>("")
+  // const login = useAppSelector((state)=>state.login)
   const open = useAppSelector((state) => state.handler.shopCart_visible.show);
   const shoppingCar: ProductSelect[] = useAppSelector(
     (state) => state.shopcar.data
@@ -19,16 +19,16 @@ export const Carts = () => {
   const handleCartShopping = (open: boolean) => {
     dispatch(shopCart_visible({ show: open }));
   };
-  const handlerOpen = () => {
-    const element = document.querySelector("#my_modal_3") as HTMLInputElement;
-    element.checked = true;
-  };
+  // const handlerOpen = () => {
+  //   const element = document.querySelector("#my_modal_3") as HTMLInputElement;
+  //   element.checked = true;
+  // };
 
-  const handleCartShoppingRemove = (id:string)=>{
-    handlerOpen()
-    setId(id)
-    dispatch(shopCart_visible({ show: false }));
-  }
+  // const handleCartShoppingRemove = (id:string)=>{
+  //   // handlerOpen()
+  //   // setId(id)
+  //   dispatch(shopCart_visible({ show: false }));
+  // }
 
   return (
     <>
@@ -150,7 +150,7 @@ export const Carts = () => {
                                         <button
                                           type="button"
                                           className="font-medium Remove"
-                                          onClick={()=>{handleCartShoppingRemove(product.id)}}
+                                          // onClick={()=>{handleCartShoppingRemove(product.id)}}
                                         >
                                           <aside>
                                             <svg
@@ -243,7 +243,7 @@ export const Carts = () => {
         </Dialog>
         
       </Transition.Root>
-      <Alerts msg={{
+      {/* <Alerts msg={{
         msg1:"Quieres eliminar el articulo de la bolsa?",
         msg2:"",
         msg3:"",
@@ -251,7 +251,7 @@ export const Carts = () => {
         id:id,
         type:"alert-eliminar-cart",
         login:login
-      }}></Alerts>
+      }}></Alerts> */}
     </>
   );
 };

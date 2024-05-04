@@ -27,7 +27,7 @@ export const loginService = async (params: LoginService) => {
             
         }
         
-        console.log(data)
+     
 
         return data as APIResponseLogin
 
@@ -80,7 +80,7 @@ export const signService = async (params1: UserHttpService,params2:FileList) => 
               },
         });
 
-        console.log(response)
+        
 
         return response
 
@@ -94,7 +94,7 @@ export const signService = async (params1: UserHttpService,params2:FileList) => 
 
 export const loginRefreshService = async (login:LoginInit)=>{
     try {
-        console.log(login)
+       
         const url_user = '/user/loggin-user-guest-refresh'
         const response = await axios.post(url+url_user,'',{
             headers:{

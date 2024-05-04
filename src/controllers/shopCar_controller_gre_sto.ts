@@ -33,11 +33,11 @@ export const addSelectionOrder = async (data: ProductSelect, dispatch: any, coun
     
     dispatch(add_products_selected({ data: orderData }))
 
-    console.log(orderData)
+   
 
     if(login.type === "inscript"){
-        const response = await addShoppingService(orderData,login.token)
-        console.log(response)
+        await addShoppingService(orderData,login.token)
+      
         dispatch(loader_visible({ msg: "", show: false }));
         dispatch(alert_type({type:"successAddCar"}))
         setTimeout(() => {
@@ -72,8 +72,8 @@ export const RemoveSelectionOrder = async (data: RemoveProductSelect, dispatch: 
         dispatch(remove_products_selected({ id: data.payload.id }))
 
         if(login.type === "inscript"){
-            const response = await removeShoppingService(data.payload.id ,login.token)
-            console.log(response)
+            await removeShoppingService(data.payload.id ,login.token)
+           
             dispatch(loader_visible({ msg: "", show: false }));
         }
 

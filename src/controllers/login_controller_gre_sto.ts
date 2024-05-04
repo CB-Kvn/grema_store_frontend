@@ -57,7 +57,7 @@ export const loginGuestController = async (dispatch: any, email: string, passwor
   try {
     dispatch(loader_visible({ msg: "", show: true }));
     const response = await loginGuestService({ email, password });
-    console.log(response)
+   
 
     setTimeout(() => {
       dispatch(loader_visible({ msg: "", show: false }));
@@ -87,10 +87,10 @@ export const loginRefreshController = async (dispatch: any, login: LoginInit) =>
 
   try {
     dispatch(loader_visible({ msg: "", show: true }));
-    console.log(login)
+    
     const response = await loginRefreshService(login)
 
-    console.log(response)
+    
     if (response.data.msg! === "Token generate") {
 
 

@@ -36,7 +36,7 @@ export const SignSave = async (
         updateAtProfile: new Date(),
       }
     }
-    console.log(images)
+   
     
     const response = await signService(info,images);
     setTimeout(() => {
@@ -86,7 +86,7 @@ export const RegexVerify = (data: string, dispatch: any) => {
   const rgx = /^(?=(?:.*\d){2})(?=(?:.*[A-Z]){2})(?=(?:.*[a-z]){2})\S{8,}$/;
 
   const valid = verifyRgx(data, rgx);
-  console.log(valid);
+ 
   if (valid) {
     dispatch(password_verify({ show: false }));
   } else {

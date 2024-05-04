@@ -50,7 +50,7 @@ export const ModalLogin = () => {
           className="modal-backdrop"
           htmlFor="my_modal_7"
           onClick={() => {
-            console.log("Cerrando modal");
+         
           }}
         >
           Close

@@ -24,8 +24,7 @@ export const GridProducts = ({
  
 
   const handleLovinArticle = (info: Favorites_Carts) => {
-    console.log(info)
-    console.log(love)
+   
     addFavorities(dispatch,info,login)
   };
   const handleUnLovinArticle = (data: number) => {

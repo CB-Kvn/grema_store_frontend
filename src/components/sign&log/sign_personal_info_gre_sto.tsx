@@ -20,7 +20,7 @@ export const SignPersonalInfo = ({onSendDataImages}:{onSendDataImages:(e: React.
 
   const handleGenre = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const z = e.target.value;
-    console.log(z);
+    
     setGenre(z);
   };
 

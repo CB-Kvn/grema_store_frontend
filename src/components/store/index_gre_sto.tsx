@@ -412,11 +412,13 @@ export const MenuStore = () => {
       <Carts></Carts>
 
       <Alerts msg={{
-        msg1:"Quieres eliminar el articulo de la bolsa?",
-        msg2:"",
-        msg3:"",
-        msg4:"Eliminar!",
-      }}></Alerts>
+        msg1:"No estas logeado, continuaras como invitado",
+        msg2:"Recuerda que la informacion se guardara temporalmente!",
+        msg3:"Procura abrir una sesion",
+        msg4:"Continuar!",
+        type:"Init-store"
+      }}
+      ></Alerts>
      
       
     </div>
