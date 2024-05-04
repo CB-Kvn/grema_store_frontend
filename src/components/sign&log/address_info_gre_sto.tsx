@@ -27,7 +27,7 @@ export const AddressInfo = () => {
   };
   const handleChangeState = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const x = e.target.value;
-    console.log(x);
+  
     setState(x);
   };
 

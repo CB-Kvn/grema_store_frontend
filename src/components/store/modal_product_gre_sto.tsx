@@ -25,7 +25,7 @@ const login = useAppSelector((state)=> state.login)
   };
 
   const Decrement = () => {
-    console.log("menos");
+  
     if (counter > 0) {
       let num = 0;
       num = counter - 1;

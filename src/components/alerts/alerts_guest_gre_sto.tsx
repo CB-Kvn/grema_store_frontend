@@ -33,6 +33,8 @@ export const Alerts = ({msg}:{msg:MensajesAlert}) => {
           
           RemoveSelectionOrder(data,dispatch,msg.login!)
           break;
+        
+          
       
         default:
           break;

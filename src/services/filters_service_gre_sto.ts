@@ -9,9 +9,7 @@ export const getAllFilters = async ( token:string) => {
     
     try {
 
-        console.log('==========================================')
-        console.log({url,token})
-
+        
         const url_filter = '/filters/filters'
         const response = await axios.get(url+url_filter,{
             headers:{

@@ -53,7 +53,9 @@ export const Filters = () => {
     element.checked = true;
   };
   const loginFlow =()=>{
+    console.log(login)
     if(login.success == false && login.type === ""){
+      
       handlerGuestOpen()
       loginController(dispatch, "", "");
     }
@@ -65,7 +67,7 @@ export const Filters = () => {
 
       loginRefreshController(dispatch,login)
 
-      console.log(login)
+     
     }
   }
   useEffect(() => {
@@ -74,7 +76,7 @@ export const Filters = () => {
 
   useEffect(() => {
     if(login.success === true){
-      console.log("Cambio el token")
+    
       getAll(dispatch, login);
       getFilters(dispatch, login);
     }
