@@ -1,5 +1,6 @@
 import { RemoveSelectionOrder } from "../../controllers/shopCar_controller_gre_sto";
 import { LoginInit } from "../../interfaces/login_interface_gre_sto";
+import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { useAppDispatch } from "../../redux/store";
 
 interface MensajesAlert {
@@ -20,7 +21,6 @@ export const Alerts = ({msg}:{msg:MensajesAlert}) => {
     const element = document.querySelector("#my_modal_3") as HTMLInputElement;
     element.checked = false;
   };
-
   const handlerButton = () =>{
 
     const data={
@@ -29,16 +29,17 @@ export const Alerts = ({msg}:{msg:MensajesAlert}) => {
       }
     } 
       switch (msg.type) {
-        case "alert-eliminar-cart":
-          
+        case "alert-eliminar-cart": 
           RemoveSelectionOrder(data,dispatch,msg.login!)
-          break;
-        
-          
-      
+          handlerClose()
+          handleCartShopping()
+          break;  
         default:
           break;
       }
+  }
+  const handleCartShopping = () => {
+    dispatch(shopCart_visible({ show: true }));
   }
 
   return (

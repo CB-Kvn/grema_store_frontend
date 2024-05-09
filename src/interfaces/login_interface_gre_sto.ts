@@ -65,6 +65,9 @@ export interface LoginSuccessful {
       email:string
       userId:number
       image: string
+      address:string
+      phone:string
+      name:string
       token:string
       type:string
       profileId:number
@@ -83,6 +86,9 @@ export interface APIResponseLogin {
 export interface Log{
   email:string
   userId:number
+  phone: string
+  name: string
+  address: string
   image: string
   token:string
   type:string
@@ -94,6 +100,9 @@ export interface LoginInit {
 
   email: string
   token: string
+  phone: string
+  name: string
+  address: string
   userId: number
   image: string
   type: string

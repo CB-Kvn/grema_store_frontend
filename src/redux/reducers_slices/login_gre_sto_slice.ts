@@ -8,6 +8,9 @@ const initialState: LoginInit = {
     token: '',
     userId: 0,
     image: '',
+    address:'',
+    phone:'',
+    name:'',
     type: '',
     profileId: 0,
     success: false
@@ -24,6 +27,9 @@ export const LoginSlice = createSlice({
         login_successful_guest: (state, action: LoginSuccessful) => {
             state.email = action.payload.data.email
             state.userId = action.payload.data.userId
+            state.address = action.payload.data.address
+            state.phone = action.payload.data.phone
+            state.name = action.payload.data.name
             state.image = action.payload.data.image
             state.token = action.payload.data.token!
             state.type = action.payload.data.type
