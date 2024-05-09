@@ -63,7 +63,7 @@ export interface LoginSuccessful {
   payload: {
     data: {
       email:string
-      userId:number
+      userId:string
       image: string
       address:string
       phone:string
@@ -85,7 +85,7 @@ export interface APIResponseLogin {
 
 export interface Log{
   email:string
-  userId:number
+  userId:string
   phone: string
   name: string
   address: string
@@ -103,7 +103,7 @@ export interface LoginInit {
   phone: string
   name: string
   address: string
-  userId: number
+  userId: string
   image: string
   type: string
   profileId:number

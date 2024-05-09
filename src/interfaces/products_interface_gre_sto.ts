@@ -6,8 +6,8 @@ export interface APIResponseProducts {
 }
 
 export interface Inventory {
-    id:                       number;
-    productId:                number;
+    id:                       string;
+    productId:                string;
     quantity:                 number;
     image:                    string[];
     price:                    string;
@@ -20,8 +20,8 @@ export interface Inventory {
 }
 
 export interface Product {
-    id:          number;
-    productId?:  number;
+    id:          string;
+    productId?:  string;
     name:        string;
     description: string;
     material:    string;
@@ -60,7 +60,7 @@ export interface reducerInitialProducts{
 
 export interface ProductSelect {
     id:string
-    userId?:number
+    userId?:string
     productId?: number,
     nombre:string,
     precio:number,

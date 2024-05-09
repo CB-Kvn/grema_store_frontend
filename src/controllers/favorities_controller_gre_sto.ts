@@ -41,7 +41,7 @@ export const addFavorities = async (dispatch:any,info:Favorites_Carts,login:Logi
 
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const removeFavorities = async (dispatch:any,data: number ,login:LoginInit,love:LoveProduct[]) =>{
+export const removeFavorities = async (dispatch:any,data: string ,login:LoginInit,love:LoveProduct[]) =>{
 
     try {
         dispatch(remove_products_love({ id: data }));

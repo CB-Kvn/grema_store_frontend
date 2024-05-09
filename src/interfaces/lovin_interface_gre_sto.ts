@@ -1,6 +1,6 @@
 export interface LoveProduct {
     id : string
-    productId:number
+    productId:string
     image: string[]
     name:string
 } 
@@ -19,7 +19,7 @@ export interface AddLove {
 
 export interface RemoveLove {
     payload: {
-        id:number
+        id:string
     }
 }
 
@@ -32,8 +32,8 @@ export interface APIResponseFavorities {
 
 export interface Favorites_Carts {
     id?: string
-    userId: number
-    productId: number
+    userId: string
+    productId: string
     type: string
     quantity: number
     status?: boolean

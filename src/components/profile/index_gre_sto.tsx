@@ -1,12 +1,5 @@
-
-// import { Bars3Icon} from "@heroicons/react/24/outline";
-// import { OptionProfile } from "../navigation/option_profile_gre_sto";
-// import { TabsProfile } from "./tabsProfile";
-// import { useAppSelector } from "../../redux/store";
-// import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useAppSelector } from "../../redux/store";
-import { MenuProfile } from "./menu_profile_gre_sto";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
 

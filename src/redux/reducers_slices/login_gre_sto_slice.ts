@@ -6,7 +6,7 @@ const initialState: LoginInit = {
     
     email: '',
     token: '',
-    userId: 0,
+    userId: '',
     image: '',
     address:'',
     phone:'',
