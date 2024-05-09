@@ -85,7 +85,7 @@ export interface APIResponseLogin {
 
 export interface Log{
   email:string
-  userId:number
+  userId:string
   phone: string
   name: string
   address: string

@@ -27,7 +27,7 @@ export const GridProducts = ({
    
     addFavorities(dispatch,info,login)
   };
-  const handleUnLovinArticle = (data: number) => {
+  const handleUnLovinArticle = (data: string) => {
     removeFavorities(dispatch,data,login,love)
   };
   const handleModalProduct = async (data: ArrayParseProducts) => {
@@ -396,7 +396,7 @@ export const GridProducts = ({
                             event.preventDefault(),
                               handleLovinArticle({
                                 productId: element.id,
-                                userId: Number(login.userId),
+                                userId: login.userId,
                                 type:"Fav",
                                 quantity:0,
                                 image: element.imageSrc,

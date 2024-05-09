@@ -60,7 +60,7 @@ export interface reducerInitialProducts{
 
 export interface ProductSelect {
     id:string
-    userId?:number
+    userId?:string
     productId?: number,
     nombre:string,
     precio:number,
