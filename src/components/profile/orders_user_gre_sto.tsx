@@ -1,4 +1,4 @@
-import { LazyLoadImage } from "react-lazy-load-image-component";
+
 import "./../../styles/tabs_styles.css";
 
 export const Orders = () => {
