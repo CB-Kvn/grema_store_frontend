@@ -38,7 +38,7 @@ export interface Category {
 
 
 export interface ArrayParseProducts{
-    id: number
+    id: string
     quantity: number
     name: string
     description:string

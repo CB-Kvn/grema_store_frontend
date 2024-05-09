@@ -1,5 +1,5 @@
-import { Fragment,useState } from "react";
-import { Dialog,Tab, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
+import { Dialog, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   ShoppingBagIcon,
@@ -13,16 +13,12 @@ import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice
 import { Carts } from "./carts_gre_sto";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 
-
-
 import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import {Carousel} from "./carousel_cat_gre_sto";
+import { Carousel } from "./carousel_cat_gre_sto";
 // import { DateHour } from "../../utils/date-hour";
 import { Alerts } from "../alerts/alerts_guest_gre_sto";
-
-
 
 const navigation = {
   categories: [
@@ -104,37 +100,35 @@ function classNames(...classes: string[]) {
 }
 
 export const MenuStore = () => {
-  
   const login = useAppSelector((state) => state.login);
   const total = useAppSelector((state) => state.shopcar.suma);
+  const modalAlert = useAppSelector((state)=>state.handler.modal_alert.type)
 
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
   // const [dateHour,setDateHour] = useState<string>('')
-  
+
   const handlingBannerCommercial = () => {
     setOpen(false);
   };
-  const handleSignUp = (open:boolean) =>{
-    dispatch(new_user_form({show: open }));
-  }
-  const handleCartShop = (open:boolean)  =>{
-    dispatch(shopCart_visible({show: open }));
-  }
+  const handleSignUp = (open: boolean) => {
+    dispatch(new_user_form({ show: open }));
+  };
+  const handleCartShop = (open: boolean) => {
+    dispatch(shopCart_visible({ show: open }));
+  };
 
   // useEffect(() => {
   //   const cl = setInterval(() => {
   //     const date = DateHour()
   //     setDateHour(date)
   //   }, 1000);
-  
+
   //   return () => clearInterval(cl);
   // }, []);
-  
-  
- 
+
   return (
-    <div className=" mt-8" id="store" >
+    <div className=" mt-8" id="store">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -167,7 +161,6 @@ export const MenuStore = () => {
                     className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                     onClick={() => {
                       setOpen(false);
-
                     }}
                   >
                     <span className="absolute -inset-0.5" />
@@ -182,10 +175,7 @@ export const MenuStore = () => {
 
                 {/* Links */}
                 <Tab.Group as="div" className="mt-2">
-                  <div
-                    className="border-b"
-                    
-                  >
+                  <div className="border-b">
                     <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map((category) => (
                         <Tab
@@ -222,11 +212,12 @@ export const MenuStore = () => {
                                 />
                               </div>
                               <a
-                                
-                                className="mt-6 block font-medium" style={{ borderBottomColor: "#C2A78D" }} 
+                                className="mt-6 block font-medium"
+                                style={{ borderBottomColor: "#C2A78D" }}
                               >
                                 <span
-                                  className="absolute inset-0 z-10" style={{ borderBottomColor: "#C2A78D" }}
+                                  className="absolute inset-0 z-10"
+                                  style={{ borderBottomColor: "#C2A78D" }}
                                   aria-hidden="true"
                                 />
                                 {item.name}
@@ -241,7 +232,8 @@ export const MenuStore = () => {
                           <div key={section.name}>
                             <p
                               id={`${category.id}-${section.id}-heading-mobile`}
-                              className="font-medium" style={{ borderBottomColor: "#C2A78D" }}
+                              className="font-medium"
+                              style={{ borderBottomColor: "#C2A78D" }}
                             >
                               {section.name}
                             </p>
@@ -254,7 +246,8 @@ export const MenuStore = () => {
                                 <div key={item.name} className="flow-root">
                                   <button
                                     type="button"
-                                    className="-m-2 block p-2"style={{ borderBottomColor: "#C2A78D" }}
+                                    className="-m-2 block p-2"
+                                    style={{ borderBottomColor: "#C2A78D" }}
                                     onClick={() => handlingBannerCommercial()}
                                   >
                                     {item.name}
@@ -270,8 +263,7 @@ export const MenuStore = () => {
                 </Tab.Group>
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  <div className="flow-root"
-                  style={{ color: "#C2A78D" }} >
+                  <div className="flow-root" style={{ color: "#C2A78D" }}>
                     <a
                       href="#"
                       className="-m-2 block p-2 font-medium "
@@ -280,12 +272,11 @@ export const MenuStore = () => {
                       Sign in
                     </a>
                   </div>
-                  <div className="flow-root"
-                  style={{ color: "#C2A78D" }} >
+                  <div className="flow-root" style={{ color: "#C2A78D" }}>
                     <a
                       href="#"
                       className="-m-2 block p-2 font-medium "
-                      style={{ color: "#C2A78D" }} 
+                      style={{ color: "#C2A78D" }}
                     >
                       Create account
                     </a>
@@ -338,46 +329,19 @@ export const MenuStore = () => {
               </div>
 
               {/* Flyout menus */}
-              
 
               <div className="ml-auto flex items-center">
                 
-                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                    <>
-                      <label htmlFor="my_modal_7" className="btn btn-ghost">
-                        <div className="indicator">
-                          
-                            Ingresar
-                          
-                        </div>
-                      </label>
-                      
-                    </>
-
-        
-                        
-
-                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-
-                    <>
-                      <label htmlFor="my_modal_8" className="btn btn-ghost" onClick={()=>{handleSignUp(true)}}>
-                        <div className="indicator">
-                          
-                            Crear cuenta
-                          
-                        </div>
-                      </label>
-                      
-                    </>
-
-
-                  </div>
-                
 
                 {/* Cart */}
-                
+
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a onClick={()=>{handleCartShop(true)}} className="group -m-2 flex items-center p-2">
+                  <a
+                    onClick={() => {
+                      handleCartShop(true);
+                    }}
+                    className="group -m-2 flex items-center p-2"
+                  >
                     <ShoppingBagIcon
                       className="h-10 w-10 flex-shrink-0 text-gray-300 group-hover:text-gray-600"
                       aria-hidden="true"
@@ -387,39 +351,77 @@ export const MenuStore = () => {
                       className="ml-2 text-base font-medium"
                       style={{ color: "#393939" }}
                     >
-                     {total}
+                      {total}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
 
-                {login.success && login.email != "" ? <OptionProfile></OptionProfile> : <></>}
+                {login.success && login.email != "" ? (
+                  <OptionProfile></OptionProfile>
+                ) : (
+                  <>
+                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  <>
+                    <label htmlFor="my_modal_7" className="btn btn-ghost">
+                      <div className="indicator">Ingresar</div>
+                    </label>
+                  </>
+
+                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+
+                  <>
+                    <label
+                      htmlFor="my_modal_8"
+                      className="btn btn-ghost"
+                      onClick={() => {
+                        handleSignUp(true);
+                      }}
+                    >
+                      <div className="indicator">Crear cuenta</div>
+                    </label>
+                  </>
+                </div>
+                  </>
+                )}
               </div>
             </div>
+          </div>
+          <div className="text-sm breadcrumbs">
+            <ul>
+              <li>
+                <a>Pagina Principal</a>
+              </li>
+              <li>
+                <a>Tienda</a>
+              </li>
+              {/* <li>Add Document</li> */}
+            </ul>
           </div>
           {/* <Categories></Categories> */}
           <Carousel></Carousel>
         </nav>
-      
-      <ModalLoginStore></ModalLoginStore>
-      <ModalSign></ModalSign> 
-       
+
+        <ModalLoginStore></ModalLoginStore>
+        <ModalSign></ModalSign>
       </header>
 
-      
-    
-       <Filters></Filters>
+      <Filters></Filters>
       <Carts></Carts>
 
-      <Alerts msg={{
-        msg1:"No estas logeado, continuaras como invitado",
-        msg2:"Recuerda que la informacion se guardara temporalmente!",
-        msg3:"Procura abrir una sesion",
-        msg4:"Continuar!",
-        type:"Init-store"
-      }}
-      ></Alerts>
-     
+      {
+          modalAlert === "" ? <><Alerts
+          msg={{
+            msg1: "No estas logeado, continuaras como invitado",
+            msg2: "Recuerda que la informacion se guardara temporalmente!",
+            msg3: "Procura abrir una sesion",
+            msg4: "Continuar!",
+            type: "Init-store",
+          }}
+        ></Alerts>
+          </> : <></>
+      }
+
       
     </div>
   );

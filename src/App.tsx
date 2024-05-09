@@ -6,6 +6,7 @@ import { InvoiceToSend } from "./pages/invoice_to_send_gre_sto";
 import { Loader } from "./components/loader";
 import { useAppSelector } from "./redux/store";
 import { Footer } from "./components/landing/footer_gre_sto";
+import { Checkout } from "./pages/checkout_page_gre_sto";
 
 
 
@@ -16,11 +17,13 @@ export const App =()=> {
   
   return (
     <>
+   
     <Routes>
       <Route path="/" element={<LandingPage></LandingPage>}></Route>
       <Route path="/store" element={<Store></Store> }></Route>
       <Route path="/profile" element={<Profile></Profile>}></Route> 
       <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
+      <Route path="/checkout" element={<Checkout></Checkout>}> </Route>
     </Routes>
       
     

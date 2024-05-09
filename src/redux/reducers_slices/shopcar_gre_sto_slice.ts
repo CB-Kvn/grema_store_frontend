@@ -4,7 +4,10 @@ import { AddProductSelect, reducerInitialProductSelect, RemoveProductSelect, Upd
 
 const initialState: reducerInitialProductSelect = {
     data: [] ,
-    suma: 0
+    suma: 0,
+    total: 0,
+    envio_type: "",
+    envio_price:0
 }
 
 export const SelectedSlice = createSlice({
@@ -19,16 +22,24 @@ export const SelectedSlice = createSlice({
             const num = state.data.reduce((acumulador, producto) => {
                 return acumulador + producto.quantyOrder!;
               }, 0);
+            const total = state.data.reduce((acumulador, producto) => {
+                return acumulador + ( producto.quantyOrder! * ( producto.precio - (producto.precio * ( producto.desc / 100))) );
+              }, 0);
             
             state.suma = num
+            state.total = total 
         },
         remove_products_selected: (state, action: RemoveProductSelect) => {
             state.data = state.data.filter(love => love.id !== action.payload.id.toString());
             const num = state.data.reduce((acumulador, producto) => {
                 return acumulador + producto.quantyOrder!;
               }, 0);
+            const total = state.data.reduce((acumulador, producto) => {
+                return acumulador + ( producto.quantyOrder! * ( producto.precio - (producto.precio * ( producto.desc / 100))) );
+              }, 0);
             
             state.suma = num
+            state.total = total 
         },
         update_products_selected: (state, action: UpdateQuantyProductSelect) => {
             state.data = state.data.filter((love) => {
@@ -38,9 +49,14 @@ export const SelectedSlice = createSlice({
                 });
         },
 
+        update_carrier_selected:(state,action)=>{
+            state.envio_type = action.payload.type
+            state.envio_price = action.payload.price
+        }
+
     },
 })
 
-export const { add_products_selected,remove_products_selected, update_products_selected } = SelectedSlice.actions
+export const { add_products_selected,remove_products_selected, update_products_selected,update_carrier_selected } = SelectedSlice.actions
 
 export default SelectedSlice.reducer

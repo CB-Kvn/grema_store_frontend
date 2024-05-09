@@ -1,34 +1,40 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
+import { modal_type, shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
+import { Link } from "react-router-dom";
+import { Alerts } from "../alerts/alerts_guest_gre_sto";
 // import { Alerts} from "../alerts/alerts_guest_gre_sto";
 
 export const Carts = () => {
   const dispatch = useAppDispatch();
-  // const [id,setId] = useState<string>("")
-  // const login = useAppSelector((state)=>state.login)
+  const [id,setId] = useState<string>("")
+  const login = useAppSelector((state)=>state.login)
   const open = useAppSelector((state) => state.handler.shopCart_visible.show);
-  const shoppingCar: ProductSelect[] = useAppSelector(
-    (state) => state.shopcar.data
+  const shoppingCar  = useAppSelector(
+    (state) => state.shopcar
   );
 
   const handleCartShopping = (open: boolean) => {
     dispatch(shopCart_visible({ show: open }));
   };
-  // const handlerOpen = () => {
-  //   const element = document.querySelector("#my_modal_3") as HTMLInputElement;
-  //   element.checked = true;
-  // };
+  const handlerOpen = () => {
+    const element = document.querySelector("#my_modal_3") as HTMLInputElement;
+    element.checked = true;
+  };
 
-  // const handleCartShoppingRemove = (id:string)=>{
-  //   // handlerOpen()
-  //   // setId(id)
-  //   dispatch(shopCart_visible({ show: false }));
-  // }
+  const handleCartShoppingRemove = (id:string)=>{
+    handlerOpen()
+    setId(id)
+    dispatch(shopCart_visible({ show: false }));
+  }
+
+  useEffect(() => {
+    dispatch(modal_type({type:"alert-eliminar-cart"}))
+  }, [])
+  
 
   return (
     <>
@@ -112,7 +118,7 @@ export const Carts = () => {
                               role="list"
                               className="-my-6 divide-y divide-gray-200"
                             >
-                              {shoppingCar.map((product) => (
+                              {shoppingCar.data.map((product) => (
                                 <li key={product.id} className="flex py-6">
                                   <div className="h-50 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                     <LazyLoadImage
@@ -132,7 +138,7 @@ export const Carts = () => {
                                           <a>{product.nombre}</a>
                                         </h3>
                                         <p className="ml-4">
-                                          {product.precio -
+                                         ₡ {product.precio -
                                             product.precio *
                                               (product.desc / 100)}
                                         </p>
@@ -150,12 +156,12 @@ export const Carts = () => {
                                         <button
                                           type="button"
                                           className="font-medium Remove"
-                                          // onClick={()=>{handleCartShoppingRemove(product.id)}}
+                                          onClick={()=>{handleCartShoppingRemove(product.id)}}
                                         >
                                           <aside>
                                             <svg
-                                              width="35px"
-                                              height="35px"
+                                              width="30px"
+                                              height="30px"
                                               viewBox="-3 0 32 32"
                                               version="1.1"
                                               xmlns="http://www.w3.org/2000/svg"
@@ -216,18 +222,21 @@ export const Carts = () => {
                       <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <p>Subtotal</p>
-                          <p>$262.00</p>
+                          <p>₡ {shoppingCar.total}</p>
                         </div>
                         <p className="mt-0.5 text-sm text-gray-500">
                           Shipping and taxes calculated at checkout.
                         </p>
                         <div className="mt-6">
+                          <Link to={"/checkout"}>
                           <a
-                            href="#"
+                            
                             className="flex items-center justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium Check"
                           >
-                            Checkout
+                            Proceder a pagar
                           </a>
+                          </Link>
+                          
                         </div>
                       </div>
                       
@@ -243,7 +252,7 @@ export const Carts = () => {
         </Dialog>
         
       </Transition.Root>
-      {/* <Alerts msg={{
+      <Alerts msg={{
         msg1:"Quieres eliminar el articulo de la bolsa?",
         msg2:"",
         msg3:"",
@@ -251,7 +260,7 @@ export const Carts = () => {
         id:id,
         type:"alert-eliminar-cart",
         login:login
-      }}></Alerts> */}
+      }}></Alerts> 
     </>
   );
 };

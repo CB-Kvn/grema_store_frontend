@@ -1,8 +1,8 @@
 // import { useEffect } from "react";
 import { useState } from "react";
-import { Buttons_Profile } from "./buttons_profile_gre_sto";
-import { Orders } from "./orders_user_gre_sto";
 import { UserCard } from "./user_card_gre_sto";
+import { Account } from "./account_gre_sto";
+import { ProfileSendOrderInformation } from "./send_order_information_gre_sto";
 
 export const TabsProfile = () => {
   // useEffect(() => {
@@ -43,9 +43,6 @@ export const TabsProfile = () => {
     }
   };
 
-  // font-size: medium;
-  //   font-weight: bolder;
-
   return (
     <div className=" flex justify-start mt-2 md:justify-center ">
       <div className="w-full md:w-2/3 mb-4">
@@ -69,7 +66,7 @@ export const TabsProfile = () => {
           >
             <div className=" inline-grid w-full justify-center xl:flex">
               <UserCard></UserCard>
-              <Buttons_Profile option="information" tab="1"></Buttons_Profile>
+              
             </div>
           </div>
 
@@ -78,7 +75,7 @@ export const TabsProfile = () => {
             name="my_tabs_2"
             role="tab"
             className="tab font-medium text-lg"
-            aria-label="Ordenes"
+            aria-label="Cuenta"
             id="#ordenes"
             onClick={() => {
               handleTabs(2);
@@ -89,8 +86,7 @@ export const TabsProfile = () => {
             role="tabpanel"
             className="tab-content bg-base-100 border-base-300 rounded-box p-6"
           >
-            <Orders></Orders>
-            <Buttons_Profile option="" tab="2"></Buttons_Profile>
+            <Account></Account>
           </div>
 
           <input
@@ -98,10 +94,10 @@ export const TabsProfile = () => {
             name="my_tabs_2"
             role="tab"
             className="tab font-medium text-lg"
-            aria-label="Carrito"
-            id="@carrito"
+            aria-label="Envios"
+            id="#ordenes"
             onClick={() => {
-              handleTabs(3);
+              handleTabs(2);
             }}
             style={{color:"#95806b"}}
           />
@@ -109,28 +105,11 @@ export const TabsProfile = () => {
             role="tabpanel"
             className="tab-content bg-base-100 border-base-300 rounded-box p-6"
           >
-            <Orders></Orders>
-            <Buttons_Profile option="" tab="3"></Buttons_Profile>
+            <ProfileSendOrderInformation></ProfileSendOrderInformation>
           </div>
-          <input
-            type="radio"
-            name="my_tabs_2"
-            role="tab"
-            className="tab font-medium text-lg"
-            aria-label="Favoritos"
-            id="#favoritos"
-            onClick={() => {
-              handleTabs(4);
-            }}
-            style={{color:"#95806b"}}
-          />
-          <div
-            role="tabpanel"
-            className="tab-content bg-base-100 border-base-300 rounded-box p-6"
-          >
-            <Orders></Orders>
-            <Buttons_Profile option="" tab="4"></Buttons_Profile>
-          </div>
+
+
+
         </div>
       </div>
     </div>

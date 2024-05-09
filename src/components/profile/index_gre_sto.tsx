@@ -1,88 +1,18 @@
 
-import { Bars3Icon} from "@heroicons/react/24/outline";
-import { OptionProfile } from "../navigation/option_profile_gre_sto";
-import { TabsProfile } from "./tabsProfile";
+// import { Bars3Icon} from "@heroicons/react/24/outline";
+// import { OptionProfile } from "../navigation/option_profile_gre_sto";
+// import { TabsProfile } from "./tabsProfile";
+// import { useAppSelector } from "../../redux/store";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useAppSelector } from "../../redux/store";
+import { MenuProfile } from "./menu_profile_gre_sto";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
-// const navigation = {
-//   categories: [
-//     {
-//       id: "Mujeres",
-//       name: "Mujeres",
-//       featured: [
-//         {
-//           name: "New Arrivals",
-//           href: "#",
-//           imageSrc:
-//             "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.10 PM.jpeg",
-//           imageAlt:
-//             "Models sitting back to back, wearing Basic Tee in black and bone.",
-//         },
-//         {
-//           name: "Basic Tees",
-//           href: "#",
-//           imageSrc:
-//             "https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-02-01 at 1.28.45 PM.jpeg",
-//           imageAlt:
-//             "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
-//         },
-//       ],
-//       sections: [
-//         {
-//           id: "accessories",
-//           name: "Accesorios",
-//           items: [
-//             { name: "Aretes", href: "#" },
-//             { name: "Anillos", href: "#" },
-//             { name: "Collares", href: "#" },
-//             { name: "Pulseras", href: "#" },
-//             { name: "Sets", href: "#" },
-//           ],
-//         },
-//       ],
-//     },
-//     {
-//       id: "Hombres",
-//       name: "Hombres",
-//       featured: [
-//         {
-//           name: "New Arrivals",
-//           href: "#",
-//           imageSrc:
-//             "https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
-//           imageAlt:
-//             "Drawstring top with elastic loop closure and textured interior padding.",
-//         },
-//         {
-//           name: "Artwork Tees",
-//           href: "#",
-//           imageSrc:
-//             "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
-//           imageAlt:
-//             "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
-//         },
-//       ],
-//       sections: [
-//         {
-//           id: "accessories",
-//           name: "Accessories",
-//           items: [
-//             { name: "Aretes", href: "#" },
-//             { name: "Anillos", href: "#" },
-//             { name: "Collares", href: "#" },
-//             { name: "Pulseras", href: "#" },
-//             { name: "Sets", href: "#" },
-//           ],
-//         },
-//       ],
-//     },
-//   ],
-// };
+import { OptionProfile } from "../navigation/option_profile_gre_sto";
 
 
 
-export const MenuProfile = () => {
+export const Profile = () => {
   const activeLogin = useAppSelector((state) => state.login.success);
 
 
@@ -152,9 +82,11 @@ export const MenuProfile = () => {
         </nav>
       </header>
 
-      <TabsProfile></TabsProfile> 
+      {/* <TabsProfile></TabsProfile>  */}
 
 {/* compenentes interior */}
     </div>
+
+
   );
 };

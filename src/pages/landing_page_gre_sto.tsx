@@ -2,8 +2,9 @@ import { BannerPrincipal } from "../components/landing/banner_prin_gre_sto";
 import { InlineProducts } from "../components/landing/carrousel_products_landing_gre_sto";
 import { ContactUs } from "../components/landing/contact_us_gre_store";
 import { InfoBanner } from "../components/landing/info_banner_gre_sto";
-import { Navigation_Gre_Sto } from "../components/navigation/index_gre_sto";
+
 import { Promos } from "../components/landing/promos_landing_gre_sto";
+import { Navigation_Gre_Sto } from "../components/navigation/index_gre_sto";
 
 export const LandingPage = () => {
   return (
@@ -22,6 +23,7 @@ export const LandingPage = () => {
       <Promos></Promos>
       <InlineProducts></InlineProducts>
       <ContactUs></ContactUs>
+      
     </div>
   );
 };
