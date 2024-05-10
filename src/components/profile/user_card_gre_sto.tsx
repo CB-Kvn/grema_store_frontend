@@ -7,10 +7,10 @@ export const UserCard = () => {
     <>
       <div className=" px-8  max-w-screen-xl xl:mx-auto">
         <div className="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">
-          <div className="col-span-12 overflow-hidden rounded-xl sm:bg-gray-50  sm:shadow">
+          <div className="col-span-12 overflow-hidden rounded-xl ">
             <div
-              className="w-full  bg-white shadow-xl rounded-lg text-gray-900"
-              style={{ backgroundColor: "rgb(246, 218, 239)" }}
+              className="w-full  bg-[#F6DAEF] bg-opacity-75 shadow-xl rounded-lg text-gray-900"
+            
             >
               <div className="rounded-t-lg h-32 overflow-hidden">
                 <LazyLoadImage
