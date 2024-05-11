@@ -398,7 +398,7 @@ export const MenuStore = () => {
               {/* <li>Add Document</li> */}
             </ul>
           </div>
-          <Carousel></Carousel>
+          {/* <Carousel></Carousel> */}
         
         </nav>
 
