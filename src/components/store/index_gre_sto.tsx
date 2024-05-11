@@ -176,7 +176,7 @@ export const MenuStore = () => {
 
                 {/* Links */}
                 <Tab.Group as="div" className="mt-2">
-                  <div className="border-b pb-4">
+                  <div className="border-b ">
                     <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map((category) => (
                         <Tab
@@ -301,7 +301,7 @@ export const MenuStore = () => {
           aria-label="Top"
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
-          <div className="border-b">
+          <div className="border-b pb-4">
             <div className="flex h-16 items-center">
               <button
                 type="button"
