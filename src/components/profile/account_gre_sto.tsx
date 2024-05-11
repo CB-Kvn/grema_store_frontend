@@ -7,7 +7,7 @@ export const Account = () => {
       <div className="px-8   max-w-screen-xl  xl:mx-auto">
        
         <div className="grid grid-cols-8 pt-3 sm:grid-cols-10">
-          <div className="col-span-12 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
+          <div className="col-span-12 overflow-hidden rounded-xl bg-gray-50 bg-opacity-75 px-8 shadow ">
             <div className="pt-4">
               <h1 className="py-2 text-2xl font-semibold">Detalles de cuenta</h1>
              
@@ -18,7 +18,7 @@ export const Account = () => {
               <p className="text-gray-600">
                 El correo electronico es <strong>{login.email}</strong>
               </p>
-              <button className="inline-flex text-sm font-semibold text-blue-600 underline decoration-2">
+              <button className="inline-flex text-sm font-semibold text-[#9F587B] underline decoration-2 hover:text-[#7e7e80]">
                 Modificar
               </button>
             </div>
@@ -75,7 +75,7 @@ export const Account = () => {
                 Recuperar contraseña
               </a>
             </p>
-            <button className="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-white">
+            <button className="btn bg-[#9F587B] mt-3 text-white hover:text-[#9F587B] hover:bg-[#E5E7EB]">
               Guardar contraseña
             </button>
             <hr className="mt-4 mb-8" />

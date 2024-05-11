@@ -24,6 +24,7 @@ export const App =()=> {
       <Route path="/profile" element={<Profile></Profile>}></Route> 
       <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
       <Route path="/checkout" element={<Checkout></Checkout>}> </Route>
+      <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}> </Route>
     </Routes>
       
     

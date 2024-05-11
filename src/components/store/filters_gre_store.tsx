@@ -202,7 +202,7 @@ export const Filters = () => {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <main className="mx-auto max-w-7xl px-4 sm:px-6  lg:px-8">
           <div className="flex items-baseline justify-end border-b  mb-6">
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
@@ -251,7 +251,7 @@ export const Filters = () => {
                 >
                   <input type="checkbox" />
                   <div className="collapse-title text-xl font-medium">
-                    Filtrar busqueda:
+                    Filtrar:
                   </div>
                   <div className="collapse-content">
                     <div className="">

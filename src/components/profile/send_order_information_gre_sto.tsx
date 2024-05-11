@@ -6,7 +6,7 @@ export const ProfileSendOrderInformation = () => {
     <>
       <div className=" px-8 my-10 max-w-screen-xl xl:mx-auto">
         <div className="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">
-          <div className="col-span-12 rounded-xl sm:bg-gray-50  sm:px-8 sm:shadow">
+          <div className="col-span-12 rounded-xl bg-gray-50 bg-opacity-75  px-8 shadow">
             <div className="pt-4">
               <h1 className="py-2 text-2xl font-semibold">Detalles envio y facturacion</h1>
              
