@@ -15,27 +15,31 @@ export const Carousel = () => {
   return (
     <>
       <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
+        slidesPerView={2}
+        spaceBetween={20}
         pagination={{
           clickable: true,
         }}
         breakpoints={{
           512:{
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 25,
           },
           640: {
             slidesPerView: 3,
-            spaceBetween: 20,
+            spaceBetween: 25,
           },
           768: {
-            slidesPerView: 4,
-            spaceBetween: 40,
+            slidesPerView: 3,
+            spaceBetween: 25,
           },
           1024: {
             slidesPerView: 4,
-            spaceBetween: 50,
+            spaceBetween: 25,
+          },
+          1440: {
+            slidesPerView: 4,
+            spaceBetween: 25,
           },
         }}
         modules={[Pagination]}

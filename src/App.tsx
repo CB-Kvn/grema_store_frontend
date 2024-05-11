@@ -7,6 +7,7 @@ import { Loader } from "./components/loader";
 import { useAppSelector } from "./redux/store";
 import { Footer } from "./components/landing/footer_gre_sto";
 import { Checkout } from "./pages/checkout_page_gre_sto";
+import { BtnFloat } from "./components/btn flotante/btn_float_gre_sto";
 
 
 
@@ -27,7 +28,8 @@ export const App =()=> {
       <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}> </Route>
     </Routes>
       
-    
+
+    <BtnFloat></BtnFloat>
     <Footer></Footer>
     { loader ? <Loader></Loader> : <></>}
     

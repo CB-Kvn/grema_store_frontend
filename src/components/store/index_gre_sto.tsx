@@ -176,7 +176,7 @@ export const MenuStore = () => {
 
                 {/* Links */}
                 <Tab.Group as="div" className="mt-2">
-                  <div className="border-b">
+                  <div className="border-b pb-4">
                     <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map((category) => (
                         <Tab
@@ -322,7 +322,7 @@ export const MenuStore = () => {
                 <a href="#">
                   <span className="sr-only">Your Company</span>
                   <LazyLoadImage
-                    className="w-64 h-24 "
+                    className="w-80 h-28 "
                     src="https://grema-store-frontend.vercel.app/images/logoH.png"
                     alt=""
                   />
