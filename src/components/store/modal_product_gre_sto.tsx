@@ -5,6 +5,16 @@ import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
 import { addSelectionOrder } from "../../controllers/shopCar_controller_gre_sto";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import './style.css';
+
+
+
 
 
 
@@ -46,31 +56,51 @@ const login = useAppSelector((state)=> state.login)
       <input type="checkbox" id="my_modal_10" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs8.png'}}>
-          <div className="grid justify-center w-100 ">
-            <div className="carousel  rounded-box w-100 ">
+          <div className="grid justify-center w-full ">
+
+          <Swiper
+            slidesPerView={2}
+            spaceBetween={5}
+           
+            className="mySwiper"
+          >
+
+
+
+           
               {data!.images.map((product) => (
-                <div className="carousel-item   w-1/2 mx-0.5 sm:w-1/2 ">
-                  <div key={data!.id!} className="group relative">
-                    <div className=" aspect-h-1 cursor-grab aspect-w-1 w-30 h-80 sm:overflow-x-auto rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
-                      <Zoom>
+                
+                <SwiperSlide>
+                  <Zoom>
                       <LazyLoadImage 
                         src={product}
                         alt={data!.nombre}
-                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                        className="h-80 w-80 object-cover object-center"
                       />
                       </Zoom>
+
+                </SwiperSlide>
                       
-                    </div>
-                  </div>
-                </div>
+                      
+                  
+                  
               ))}
-              <div className="mt-4 px-3 flex justify-between"></div>
-            </div>
+              
+
+          </Swiper>
+
+
           </div>
           <h3 className="text-lg font-bold mt-4">{data!.nombre}</h3>
           <div className="block xxxs:flex justify-between">
-            <p className="py-4">₡{Number(data!.precio) -
-                          Number(data!.precio) * data!.desc}</p>
+            <p className="py-4">
+
+            
+              {new Intl.NumberFormat("es-CR", {
+                    style: "currency",
+                    currency: "CRC",
+                  }).format(Number(data!.precio) -
+                          (Number(data!.precio) * (data!.desc/100)))}</p>
             <div className="inline-flex">
               <div className="flex items-center">
                 <button

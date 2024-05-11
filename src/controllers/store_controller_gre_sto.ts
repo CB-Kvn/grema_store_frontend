@@ -4,7 +4,7 @@ import { selected_product } from "../redux/reducers_slices/products_gre_sto_slic
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const selectedProduct = (data:ArrayParseProducts, dispatch:any) =>{
     const selected = {
-        id: data.id.toString(),
+        id: data.id,
         nombre: data.name,
         precio: Number(data.price),
         quantyInv: data.quantity,

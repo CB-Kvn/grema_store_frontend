@@ -16,9 +16,9 @@ import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_sl
 import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { Carousel } from "./carousel_cat_gre_sto";
 // import { DateHour } from "../../utils/date-hour";
 import { Alerts } from "../alerts/alerts_guest_gre_sto";
+import { Carousel } from "./carousel_cat_gre_sto";
 
 const navigation = {
   categories: [
@@ -398,8 +398,8 @@ export const MenuStore = () => {
               {/* <li>Add Document</li> */}
             </ul>
           </div>
-          {/* <Categories></Categories> */}
           <Carousel></Carousel>
+        
         </nav>
 
         <ModalLoginStore></ModalLoginStore>
