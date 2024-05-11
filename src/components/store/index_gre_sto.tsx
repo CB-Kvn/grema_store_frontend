@@ -18,7 +18,7 @@ import { ModalSign } from "./modal_sign_gre_sto";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 // import { DateHour } from "../../utils/date-hour";
 import { Alerts } from "../alerts/alerts_guest_gre_sto";
-import { Carousel } from "./carousel_cat_gre_sto";
+// import { Carousel } from "./carousel_cat_gre_sto";
 
 const navigation = {
   categories: [
