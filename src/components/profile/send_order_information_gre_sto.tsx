@@ -3,37 +3,45 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { updateUserController } from "../../controllers/profile_controller_gre_sto";
 
 export const ProfileSendOrderInformation = () => {
-  const login = useAppSelector((state)=>state.login)
-  const dispatch = useAppDispatch()
-  const styleInput = "w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1"
-  const [changeInfo, setChangeInfo] = useState<boolean>(false)
-  const [changeAddress, setChangeAddress] = useState<string>(login.address)
-  const [changePhone, setChangePhone] = useState<string>(login.phone)
-  const [changeId, setChangeId] = useState<string>(login.userId)
-  
-
+  const login = useAppSelector((state) => state.login);
+  const dispatch = useAppDispatch();
+  const styleInput =
+    "w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1";
+  const [changeInfo, setChangeInfo] = useState<boolean>(false);
+  const [changeAddress, setChangeAddress] = useState<string>(login.address);
+  const [changePhone, setChangePhone] = useState<string>(login.phone);
+  const [changeId, setChangeId] = useState<string>(login.userId);
 
   const handleChangeInformation = () => {
-    updateUserController(dispatch,login.userId,changeAddress,changePhone)
-  }
+    updateUserController(dispatch, login.userId, changeAddress, changePhone);
+  };
   return (
     <>
       <div className=" px-8 my-10 max-w-screen-xl xl:mx-auto">
         <div className="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">
           <div className="col-span-12 rounded-xl bg-gray-50 bg-opacity-75  px-8 shadow">
             <div className="pt-4 flex items-center">
-              <h1 className="py-2 text-2xl font-semibold">Detalles envio y facturacion</h1>
+              <h1 className="py-2 text-2xl font-semibold">
+                Detalles envio y facturacion
+              </h1>
 
-              {
-                changeInfo ? (<button className="inline-block ml-auto text-sm font-semibold text-[#9F587B] underline decoration-2 hover:text-[#7e7e80]" 
-                onClick={()=>{setChangeInfo(false),handleChangeInformation()}}>
-                Guardar
-              </button>):(<button className="inline-block ml-auto text-sm font-semibold text-[#9F587B] underline decoration-2 hover:text-[#7e7e80]" 
-                onClick={()=>{setChangeInfo(true)}}>
-                Modificar
-              </button>)
-              }
-              
+              {changeInfo ? (
+                <button
+                className="btn bg-[#9F587B] mt-3 inline-block ml-auto text-sm font-semibold text-white hover:text-[#9F587B] hover:bg-[#E5E7EB]" 
+                  onClick={() => {
+                    setChangeInfo(false), handleChangeInformation();
+                  }}
+                >
+                  Guardar
+                </button>
+              ) : (
+                <button className="btn bg-[#9F587B] mt-3 inline-block ml-auto text-sm font-semibold text-white hover:text-[#9F587B] hover:bg-[#E5E7EB]" onClick={() => {
+                  setChangeInfo(true);
+                }}>
+                
+                  Modificar
+                </button>
+              )}
             </div>
             <hr className="mt-4 mb-8" />
 
@@ -42,33 +50,65 @@ export const ProfileSendOrderInformation = () => {
                 <label className="block sm:col-span-2">
                   <p className="text-sm">Direccion de envio</p>
                   <textarea
-                    className={ login.type === "guest" || changeInfo ? styleInput : styleInput +" "+ "disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"}                    
-                    disabled ={ login.type === "guest" || changeInfo ? false : true}
-                    placeholder={ login.type === "guest" || changeInfo ? "": login.address}
-                    onChange={(e)=>setChangeAddress(e.target.value)}
-                    value = {changeAddress}
+                    className={
+                      login.type === "guest" || changeInfo
+                        ? styleInput
+                        : styleInput +
+                          " " +
+                          "disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
+                    }
+                    disabled={
+                      login.type === "guest" || changeInfo ? false : true
+                    }
+                    placeholder={
+                      login.type === "guest" || changeInfo ? "" : login.address
+                    }
+                    onChange={(e) => setChangeAddress(e.target.value)}
+                    value={changeAddress}
                   />
                 </label>
                 <label className="block">
                   <p className="text-sm"># Identificacion</p>
                   <input
-                    className={ login.type === "guest" ? styleInput : styleInput +" "+ "disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"}   
-                    disabled ={ login.type === "guest" || changeInfo ? false : true}
-                    type="text"  
-                    placeholder={ login.type === "guest" || changeInfo ? "": login.userId}
-                    onChange={(e)=>setChangeId(e.target.value)}
-                    value={ login.type != "guest" || !changeInfo ? changeId : ""}
+                    className={
+                      login.type === "guest"
+                        ? styleInput
+                        : styleInput +
+                          " " +
+                          "disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
+                    }
+                    disabled={
+                      login.type === "guest" || changeInfo ? false : true
+                    }
+                    type="text"
+                    placeholder={
+                      login.type === "guest" || changeInfo ? "" : login.userId
+                    }
+                    onChange={(e) => setChangeId(e.target.value)}
+                    value={login.type != "guest" || !changeInfo ? changeId : ""}
                   />
                 </label>
                 <label className="block">
                   <p className="text-sm"># Telefonico</p>
                   <input
-                    className={ login.type === "guest" ? styleInput : styleInput +" "+ "disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"}  
-                    disabled ={ login.type === "guest" || changeInfo ? false : true}
+                    className={
+                      login.type === "guest"
+                        ? styleInput
+                        : styleInput +
+                          " " +
+                          "disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
+                    }
+                    disabled={
+                      login.type === "guest" || changeInfo ? false : true
+                    }
                     type="text"
-                    placeholder={ login.type === "guest" || changeInfo ? "": "+506 " + login.phone}
-                    onChange={(e)=>setChangePhone(e.target.value)}
-                    value = {"+506 "+changePhone}
+                    placeholder={
+                      login.type === "guest" || changeInfo
+                        ? ""
+                        : "+506 " + login.phone
+                    }
+                    onChange={(e) => setChangePhone(e.target.value)}
+                    value={"+506 " + changePhone}
                   />
                 </label>
               </div>

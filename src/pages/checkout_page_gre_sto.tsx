@@ -1,4 +1,5 @@
-import { CheckoutPrincipal } from "../components/checkout/index_gre_sto";
+import { AmountCheck } from "../components/checkout/amount_check_gre_sto";
+import { ProductsCheck } from "../components/checkout/products_check_gre_sto";
 import { MenuProfile } from "../components/profile/menu_profile_gre_sto";
 
 export const Checkout = () => {
@@ -13,7 +14,12 @@ export const Checkout = () => {
         }}
       >
         <MenuProfile></MenuProfile>
-        <CheckoutPrincipal></CheckoutPrincipal>
+        <div className=" max-w-screen-xl xl:mx-auto">
+          <div className="grid grid-cols-1 pt-3 pb-10 sm:grid-cols-1">
+            <ProductsCheck></ProductsCheck>
+            <AmountCheck></AmountCheck>
+          </div>
+        </div>
       </div>
     </>
   );
