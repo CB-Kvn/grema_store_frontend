@@ -1,5 +1,5 @@
 
-;
+
 import "../nav-bar-styles.css";
 const products = [
   {

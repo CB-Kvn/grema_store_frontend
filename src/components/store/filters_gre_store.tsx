@@ -1,12 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import {
-  FunnelIcon,
-  MinusIcon,
-  PlusIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/20/solid";
+import { FunnelIcon, MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import "./store_styles.css";
 import { getAll } from "../../controllers/products_controller_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
@@ -16,7 +11,11 @@ import {
 } from "../../controllers/filters_controller_gre_sto";
 import { Filter } from "../../interfaces/filters_interface_gre_sto";
 import { GridProducts } from "./grid_products_gre_sto";
-import {loginController, loginRefreshController} from "../../controllers/login_controller_gre_sto";
+import {
+  loginController,
+  loginRefreshController,
+} from "../../controllers/login_controller_gre_sto";
+import { Filtering } from "./filterin_gre_sto";
 
 export const Filters = () => {
   const dispatch = useAppDispatch();
@@ -52,38 +51,33 @@ export const Filters = () => {
     const element = document.querySelector("#my_modal_3") as HTMLInputElement;
     element.checked = true;
   };
-  const loginFlow =()=>{
-    console.log(login)
-    if(login.success == false && login.type === ""){
-      
-      handlerGuestOpen()
+  const loginFlow = () => {
+    console.log(login);
+    if (login.success == false && login.type === "") {
+      handlerGuestOpen();
       loginController(dispatch, "", "");
     }
-    if(login.success == true && login.type === "guest"){
-      handlerGuestOpen()
-      loginRefreshController(dispatch,login)
+    if (login.success == true && login.type === "guest") {
+      handlerGuestOpen();
+      loginRefreshController(dispatch, login);
     }
-    if(login.success === true && login.type === "inscript"){
-
-      loginRefreshController(dispatch,login)
-
-     
+    if (login.success === true && login.type === "inscript") {
+      loginRefreshController(dispatch, login);
     }
-  }
+  };
   useEffect(() => {
     getProductsFilters(filters, selectionFilters, dispatch, login);
   }, [selectionFilters]);
 
   useEffect(() => {
-    if(login.success === true){
-    
+    if (login.success === true) {
       getAll(dispatch, login);
       getFilters(dispatch, login);
     }
   }, [login]);
 
   useEffect(() => {
-    loginFlow()
+    loginFlow();
   }, []);
 
   return (
@@ -196,6 +190,8 @@ export const Filters = () => {
                       ))}
                     </div>
                   </form>
+
+
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -203,7 +199,11 @@ export const Filters = () => {
         </Transition.Root>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6  lg:px-8">
-          <div className="flex items-baseline justify-end border-b  mb-6">
+          <div className="flex items-baseline justify-end border-b border-t mt-20 mb-6 pt-3">
+            <Filtering name={"Categoria"}></Filtering>
+            <Filtering name={"Cateoria"}></Filtering>
+            <Filtering name={"Cateoria"}></Filtering>
+            <Filtering name={"Cateoria"}></Filtering>
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div></div>
@@ -221,19 +221,19 @@ export const Filters = () => {
 
               <button
                 type="button"
-                className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
+                className=" pb-3 text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">View grid</span>
-                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
               </button>
-              <button
+              {/* <button
                 type="button"
-                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                className=" my-auto text-gray-400 hover:text-gray-500 lg:hidden"
                 onClick={() => setMobileFiltersOpen(true)}
               >
                 <span className="sr-only">Filters</span>
                 <FunnelIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
+              </button> */}
             </div>
           </div>
 
@@ -243,130 +243,14 @@ export const Filters = () => {
             </h2>
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-              {/* Filters */}
-              <form className="hidden lg:block">
-                <div
-                  className="collapse"
-                  style={{ backgroundColor: "rgb(211, 211, 211,0.25)" }}
-                >
-                  <input type="checkbox" />
-                  <div className="collapse-title text-xl font-medium">
-                    Filtrar:
-                  </div>
-                  <div className="collapse-content">
-                    <div className="">
-                      <Disclosure
-                        as="div"
-                        key={"priceRange"}
-                        className=" py-6 "
-                      >
-                        {({ open }) => (
-                          <>
-                            <h3 className="-my-3 flow-root">
-                              <Disclosure.Button className="flex w-full   items-center justify-between  text-lg">
-                                <span className="">Precio</span>
-                                <span className="ml-6 flex items-center">
-                                  {open ? (
-                                    <MinusIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
-                                    />
-                                  ) : (
-                                    <PlusIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
-                                    />
-                                  )}
-                                </span>
-                              </Disclosure.Button>
-                            </h3>
-                            <Disclosure.Panel className="pt-6">
-                              <div className="space-y-4 ml-8 ">
-                                <input
-                                  type="range"
-                                  min="0"
-                                  max="50000"
-                                  step="500"
-                                  className="range range-xs [--range-shdw:gray]"
-                                  onChange={(e) => {
-                                    setTopPrice(Number(e.target.value));
-                                  }}
-                                />
-                                <div className="inline-flex text-sm">
-                                  <h4>El precio maximo : </h4> {topPrice}
-                                </div>
-                              </div>
-                            </Disclosure.Panel>
-                          </>
-                        )}
-                      </Disclosure>
-                      {filters.map((section) => (
-                        <Disclosure
-                          as="div"
-                          key={section.id}
-                          className=" py-6 "
-                        >
-                          {({ open }) => (
-                            <>
-                              <h3 className="-my-3 flow-root">
-                                <Disclosure.Button className="flex w-full   items-center justify-between   text-lg">
-                                  <span className="">{section.name}</span>
-                                  <span className="ml-6 flex items-center">
-                                    {open ? (
-                                      <MinusIcon
-                                        className="h-5 w-5"
-                                        aria-hidden="true"
-                                      />
-                                    ) : (
-                                      <PlusIcon
-                                        className="h-5 w-5"
-                                        aria-hidden="true"
-                                      />
-                                    )}
-                                  </span>
-                                </Disclosure.Button>
-                              </h3>
-                              <Disclosure.Panel className="pt-6">
-                                <div className="space-y-4 ml-8 ">
-                                  {section.options.map((option, optionIdx) => (
-                                    <div
-                                      key={option.value}
-                                      className="flex items-center "
-                                    >
-                                      <input
-                                        id={`filter-${section.id}-${optionIdx}`}
-                                        name={`${section.id}[]`}
-                                        value={option.value}
-                                        type="checkbox"
-                                        checked={isChecked(option.value)}
-                                        className="h-4 w-4 rounded border-gray-300 "
-                                        onChange={(e) => {
-                                          handleCheckbox(e);
-                                        }}
-                                      />
-                                      <label
-                                        htmlFor={`filter-${section.id}-${optionIdx}`}
-                                        className="ml-3 text-sm"
-                                      >
-                                        {option.label}
-                                      </label>
-                                    </div>
-                                  ))}
-                                </div>
-                              </Disclosure.Panel>
-                            </>
-                          )}
-                        </Disclosure>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </form>
+            
 
               {/* Product grid */}
-              <div className="lg:col-span-3">
+              <div className="lg:col-span-4">
                 <div className="">
                   <div className="mx-auto max-w-5xl">
+                   
+
                     <GridProducts products={products}></GridProducts>
                   </div>
                 </div>
