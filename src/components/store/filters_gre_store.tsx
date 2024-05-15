@@ -25,7 +25,7 @@ export const Filters = () => {
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [selectionFilters, setSelectionFilter] = useState<Filter[]>([]);
-  const [topPrice, setTopPrice] = useState<number>(0);
+  
 
   const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
@@ -201,9 +201,10 @@ export const Filters = () => {
         <main className="mx-auto max-w-7xl px-4 sm:px-6  lg:px-8">
           <div className="flex items-baseline justify-end border-b border-t mt-20 mb-6 pt-3">
             <Filtering name={"Categoria"}></Filtering>
-            <Filtering name={"Cateoria"}></Filtering>
-            <Filtering name={"Cateoria"}></Filtering>
-            <Filtering name={"Cateoria"}></Filtering>
+            <Filtering name={"Color"}></Filtering>
+            <Filtering name={"Forma"}></Filtering>
+            <Filtering name={"Largo"}></Filtering>
+            <Filtering name={"Material"}></Filtering>
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div></div>
