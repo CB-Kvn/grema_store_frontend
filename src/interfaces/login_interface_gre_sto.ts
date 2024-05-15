@@ -81,7 +81,7 @@ export interface APIResponseLogin {
   success: string;
   status: number;
   msg: string;
-  data: Log | UpdateResponseInfo;
+  data: Log;
 }
 
 export interface APIResponseUpdate {
