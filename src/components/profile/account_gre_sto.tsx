@@ -1,16 +1,33 @@
-import { useAppSelector } from "../../redux/store";
+import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { changePasswordController, deleteUserController } from "../../controllers/profile_controller_gre_sto";
 
 export const Account = () => {
-  const login = useAppSelector((state)=>state.login)
+  const dispatch = useAppDispatch()
+  const login = useAppSelector((state) => state.login);
+  const [passwordOld,setPasswordOld] = useState<string>("")
+  const [passwordNew,setPasswordNew] = useState<string>("")
+
+  const handleChangePassword = () => {
+    changePasswordController(dispatch,login.email, passwordOld,passwordNew,setPasswordOld,setPasswordNew)
+  }
+
+  const handleDeleteUser = () => {
+    deleteUserController(dispatch,login.userId)
+  }
+  
   return (
     <>
       <div className="px-8   max-w-screen-xl  xl:mx-auto">
-       
         <div className="grid grid-cols-8 pt-3 sm:grid-cols-10">
           <div className="col-span-12 overflow-hidden rounded-xl bg-gray-50 bg-opacity-75 px-8 shadow ">
-            <div className="pt-4">
-              <h1 className="py-2 text-2xl font-semibold">Detalles de cuenta</h1>
-             
+            <div className="pt-4 flex items-center">
+              <h1 className="py-2 text-2xl font-semibold">
+                Detalles de cuenta
+              </h1>
+              <button className="inline-block ml-auto text-sm font-semibold text-[#9F587B] underline decoration-2 hover:text-[#7e7e80]">
+                Modificar
+              </button>
             </div>
             <hr className="mt-4 mb-8" />
             <p className="py-2 text-xl font-semibold">Correo Electronico</p>
@@ -18,9 +35,6 @@ export const Account = () => {
               <p className="text-gray-600">
                 El correo electronico es <strong>{login.email}</strong>
               </p>
-              <button className="inline-flex text-sm font-semibold text-[#9F587B] underline decoration-2 hover:text-[#7e7e80]">
-                Modificar
-              </button>
             </div>
             <hr className="mt-4 mb-8" />
             <p className="py-2 text-xl font-semibold">Contraseña</p>
@@ -36,17 +50,21 @@ export const Account = () => {
                       id="login-password"
                       className="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
                       placeholder="***********"
+                      onChange={(e)=>{setPasswordOld(e.target.value)}}
                     />
                   </div>
                 </label>
                 <label>
-                  <span className="text-sm text-gray-500">Nueva Contraseña</span>
+                  <span className="text-sm text-gray-500">
+                    Nueva Contraseña
+                  </span>
                   <div className="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600">
                     <input
                       type="password"
                       id="login-password"
                       className="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
                       placeholder="***********"
+                      onChange={(e)=>{setPasswordNew(e.target.value)}}
                     />
                   </div>
                 </label>
@@ -75,7 +93,7 @@ export const Account = () => {
                 Recuperar contraseña
               </a>
             </p>
-            <button className="btn bg-[#9F587B] mt-3 text-white hover:text-[#9F587B] hover:bg-[#E5E7EB]">
+            <button className="btn bg-[#9F587B] mt-3 text-white hover:text-[#9F587B] hover:bg-[#E5E7EB]" onClick={()=>{handleChangePassword()}}>
               Guardar contraseña
             </button>
             <hr className="mt-4 mb-8" />
@@ -98,9 +116,10 @@ export const Account = () => {
                 Proceder con precaucion
               </p>
               <p className="mt-2">
-              Una vez que confirmes la acción, borraremos por completo tus datos y no habrá forma de acceder a tu cuenta después de esto.
+                Una vez que confirmes la acción, borraremos por completo tus
+                datos y no habrá forma de acceder a tu cuenta después de esto.
               </p>
-              <button className="ml-auto text-sm font-semibold text-rose-600 underline decoration-2">
+              <button className="ml-auto text-sm font-semibold text-rose-600 underline decoration-2" onClick={()=>{handleDeleteUser()}}>
                 Continuar con el borrado
               </button>
             </div>

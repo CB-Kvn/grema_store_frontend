@@ -3,7 +3,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { modal_type, shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import { Alerts } from "../alerts/alerts_guest_gre_sto";
 // import { Alerts} from "../alerts/alerts_guest_gre_sto";
@@ -77,7 +76,7 @@ export const Carts = () => {
                       <div className=" justify-center ml-4 flex lg:ml-0 mt-8">
                         <a href="#">
                         
-                          <LazyLoadImage
+                          <img
                             className="w-64 h-24 "
                             src="https://grema-store-frontend.vercel.app/images/logoH.png"
                             alt=""
@@ -121,7 +120,7 @@ export const Carts = () => {
                               {shoppingCar.data.map((product) => (
                                 <li key={product.id} className="flex py-6">
                                   <div className="h-50 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                    <LazyLoadImage
+                                    <img
                                       src={product.images[0]}
                                       alt={product.nombre}
                                       className="h-full w-full object-cover object-center"

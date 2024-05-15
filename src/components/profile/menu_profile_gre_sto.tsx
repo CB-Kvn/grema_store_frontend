@@ -2,7 +2,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
 
@@ -125,7 +124,7 @@ export const MenuProfile = () => {
                 <div className="ml-4 flex lg:ml-0">
                   <a href="#">
                     <span className="sr-only">Your Company</span>
-                    <LazyLoadImage
+                    <img
                       className="w-64 h-24 "
                       src="https://grema-store-frontend.vercel.app/images/logoH.png"
                       alt=""

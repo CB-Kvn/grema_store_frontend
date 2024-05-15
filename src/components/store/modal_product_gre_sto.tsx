@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+;
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
 import { addSelectionOrder } from "../../controllers/shopCar_controller_gre_sto";
@@ -72,7 +72,7 @@ const login = useAppSelector((state)=> state.login)
                 
                 <SwiperSlide>
                   <Zoom>
-                      <LazyLoadImage 
+                      <img 
                         src={product}
                         alt={data!.nombre}
                         className="h-80 w-80 object-cover object-center"
