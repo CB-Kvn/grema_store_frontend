@@ -1,6 +1,7 @@
 export interface LoginService {
   email: string,
   password: string
+  passwordNew?: string
 }
 
 export interface UsersService {
@@ -62,38 +63,54 @@ export interface UserHttpService {
 export interface LoginSuccessful {
   payload: {
     data: {
-      email:string
-      userId:string
+      email: string
+      userId: string
       image: string
-      address:string
-      phone:string
-      name:string
-      token:string
-      type:string
-      profileId:number
-      success:boolean
+      address: string
+      phone: string
+      name: string
+      token: string
+      type: string
+      profileId: number
+      success: boolean
     }
   }
 }
 
 export interface APIResponseLogin {
   success: string;
-  status:  number;
-  msg:     string;
-  data:    Log;
+  status: number;
+  msg: string;
+  data: Log | UpdateResponseInfo;
 }
 
-export interface Log{
-  email:string
-  userId:string
+export interface APIResponseUpdate {
+  success: string;
+  status: number;
+  msg: string;
+  data: UpdateResponseInfo;
+}
+
+export interface UpdateResponseInfo {
+  user: {
+    cellphone: string,
+    profile: {
+        address: string
+    }
+}
+}
+
+export interface Log {
+  email: string
+  userId: string
   phone: string
   name: string
   address: string
   image: string
-  token:string
-  type:string
-  profileId:number
-  success:boolean
+  token: string
+  type: string
+  profileId: number
+  success: boolean
 }
 
 export interface LoginInit {
@@ -106,8 +123,8 @@ export interface LoginInit {
   userId: string
   image: string
   type: string
-  profileId:number
-  success:boolean
+  profileId: number
+  success: boolean
 }
 
 export interface RefreskToken {
@@ -117,3 +134,14 @@ export interface RefreskToken {
     }
   }
 }
+export interface DeleteUser {
+  id: string
+}
+
+export interface UpdateUser{
+    address:string,
+    id:string,
+    phone:string
+  
+}
+

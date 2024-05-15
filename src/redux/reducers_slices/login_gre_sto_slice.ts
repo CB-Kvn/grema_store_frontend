@@ -39,12 +39,16 @@ export const LoginSlice = createSlice({
         refresh_token: (state, action: RefreskToken) => {
             console.log(action.payload)
             state.token = action.payload.data.token!
+        },
+        update_information:(state,action)=>{
+            state.address = action.payload.address
+            state.phone =  action.payload.phone
         }
 
 
     },
 })
 
-export const { login_successful_guest, refresh_token } = LoginSlice.actions
+export const { login_successful_guest, refresh_token,update_information } = LoginSlice.actions
 
 export default LoginSlice.reducer

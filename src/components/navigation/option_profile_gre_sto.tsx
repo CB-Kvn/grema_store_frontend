@@ -1,4 +1,4 @@
-import { LazyLoadImage } from "react-lazy-load-image-component";
+;
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../redux/store";
 
@@ -14,7 +14,7 @@ export const OptionProfile = () => {
         className="btn btn-ghost btn-circle avatar"
       >
         <div className="w-10 rounded-full">
-          <LazyLoadImage
+          <img
             alt="Tailwind CSS Navbar component"
             src= {profile.image}
           />

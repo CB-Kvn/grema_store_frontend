@@ -1,4 +1,4 @@
-import { LazyLoadImage } from "react-lazy-load-image-component";
+;
 import { useAppSelector } from "../../redux/store";
 import { useDispatch } from "react-redux";
 import { update_carrier_selected } from "../../redux/reducers_slices/shopcar_gre_sto_slice";
@@ -20,7 +20,7 @@ export const ProductsCheck = () => {
             <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
               {checkProduct.data.map((element) => (
                 <div className="flex flex-col rounded-lg bg-white sm:flex-row">
-                  <LazyLoadImage
+                  <img
                     className="h-24 w-28 rounded-md border object-cover object-center"
                     src={element.images[0]}
                     alt=""
@@ -54,7 +54,7 @@ export const ProductsCheck = () => {
                   className="peer-checked:border-2 peer-checked:border-[#9C5478] peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
                   htmlFor="radio_1"
                 >
-                  <LazyLoadImage
+                  <img
                     className="w-28 object-contain"
                     src="/src/assets/logo_web_retina1.jpg"
                     alt=""
@@ -88,7 +88,7 @@ export const ProductsCheck = () => {
                   className="peer-checked:border-2 peer-checked:border-[#9C5478] peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
                   htmlFor="radio_2"
                 >
-                  <LazyLoadImage
+                  <img
                     className="w-28 object-contain"
                     src="/src/assets/logo_web_retina1.jpg"
                     alt=""

@@ -1,4 +1,3 @@
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useAppSelector } from "../../redux/store";
 
 export const UserCard = () => {
@@ -13,18 +12,18 @@ export const UserCard = () => {
             
             >
               <div className="rounded-t-lg h-32 overflow-hidden">
-                <LazyLoadImage
+                <img
                   className="object-cover object-top w-full"
                   src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
                   alt="Mountain"
-                ></LazyLoadImage>
+                ></img>
               </div>
               <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
-                <LazyLoadImage
+                <img
                   className="object-cover object-center h-32"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-                  alt="Woman looking front"
-                ></LazyLoadImage>
+                  src={login.image}
+                  alt={login.name}
+                ></img>
               </div>
 
               <div className="max-w-2xl mx-4 sm:max-w-sm  md:max-w-md  lg:max-w-md  xl:max-w-md  sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-6 ">
