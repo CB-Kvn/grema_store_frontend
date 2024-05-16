@@ -107,7 +107,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                         </g>
                       </svg>
                     </i>
-                    <span className="label-text">Remember me</span>
+                    <span className="label-text">Sets</span>
                     <input type="checkbox" className="checkbox  checkbox-sm" />
                   </label>
                 </div>
@@ -141,7 +141,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                         </g>
                       </svg>
                     </i>
-                    <span className="label-text">Remember me</span>
+                    <span className="label-text">Anillos</span>
                     <input type="checkbox" className="checkbox  checkbox-sm" />
                   </label>
                 </div>
@@ -178,7 +178,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                         </g>
                       </svg>
                     </i>
-                    <span className="label-text">Remember me</span>
+                    <span className="label-text">Collares</span>
                     <input type="checkbox" className="checkbox  checkbox-sm" />
                   </label>
                 </div>
@@ -278,7 +278,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                         </g>
                       </svg>
                     </i>
-                    <span className="label-text">Remember me</span>
+                    <span className="label-text">Aretes</span>
                     <input type="checkbox" className="checkbox  checkbox-sm" />
                   </label>
                 </div>
@@ -408,7 +408,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                         </g>
                       </svg>
                     </i>
-                    <span className="label-text">Remember me</span>
+                    <span className="label-text">Pulseras</span>
                     <input type="checkbox" className="checkbox  checkbox-sm" />
                   </label>
                 </div>
