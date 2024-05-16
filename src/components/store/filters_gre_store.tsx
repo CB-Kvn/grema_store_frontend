@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { FunnelIcon, MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
+import { MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import "./store_styles.css";
 import { getAll } from "../../controllers/products_controller_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
@@ -25,7 +25,6 @@ export const Filters = () => {
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [selectionFilters, setSelectionFilter] = useState<Filter[]>([]);
-  
 
   const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
@@ -190,8 +189,6 @@ export const Filters = () => {
                       ))}
                     </div>
                   </form>
-
-
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -199,12 +196,26 @@ export const Filters = () => {
         </Transition.Root>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6  lg:px-8">
-          <div className="flex items-baseline justify-end border-b border-t mt-20 mb-6 pt-3">
-            <Filtering name={"Categoria"}></Filtering>
-            <Filtering name={"Color"}></Filtering>
-            <Filtering name={"Forma"}></Filtering>
-            <Filtering name={"Largo"}></Filtering>
-            <Filtering name={"Material"}></Filtering>
+          {/* <div className="flex  mt-20">
+          <button
+                type="button"
+                className="pb-3 text-gray-400 hover:text-gray-500"
+              >
+                <span className="sr-only">View grid</span>
+                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+              </button>
+              <h1>Filtrar:</h1>
+          </div> */}
+        
+          <div className="flex flex-col lg:flex-row  justify-center border-b border-t mt-20 mb-6">
+            <div className="flex justify-center flex-wrap gap-0 lg:gap-0 lg:flex-nowrap lg:space-x-4  lg:mb-0">
+              <Filtering name="Categoria" type="categories" />
+              <Filtering name="Color" type="color" />
+              <Filtering name="Forma" type="shapes" />
+              <Filtering name="Largo" type="size" />
+              <Filtering name="Material" type="material" />
+            </div>
+
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div></div>
@@ -220,21 +231,25 @@ export const Filters = () => {
                 ></Transition>
               </Menu>
 
-              <button
+              {/* <button
                 type="button"
-                className=" pb-3 text-gray-400 hover:text-gray-500"
+                className="pb-3 text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">View grid</span>
                 <FunnelIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
-              {/* <button
-                type="button"
-                className=" my-auto text-gray-400 hover:text-gray-500 lg:hidden"
-                onClick={() => setMobileFiltersOpen(true)}
-              >
-                <span className="sr-only">Filters</span>
-                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
               </button> */}
+
+              {/* Uncomment the button below if you need a filter button for mobile view */}
+              {/* 
+        <button
+          type="button"
+          className="my-auto text-gray-400 hover:text-gray-500 lg:hidden"
+          onClick={() => setMobileFiltersOpen(true)}
+        >
+          <span className="sr-only">Filters</span>
+          <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+        </button> 
+        */}
             </div>
           </div>
 
@@ -244,14 +259,10 @@ export const Filters = () => {
             </h2>
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-            
-
               {/* Product grid */}
               <div className="lg:col-span-4">
                 <div className="">
                   <div className="mx-auto max-w-5xl">
-                   
-
                     <GridProducts products={products}></GridProducts>
                   </div>
                 </div>
