@@ -15,7 +15,7 @@ import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_sl
 
 import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
-;
+
 // import { DateHour } from "../../utils/date-hour";
 import { Alerts } from "../alerts/alerts_guest_gre_sto";
 import { Carousel } from "./carousel_cat_gre_sto";
@@ -129,7 +129,7 @@ export const MenuStore = () => {
   // }, []);
 
   return (
-    <div className=" mt-8" id="store">
+    <div className="" id="store">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -301,7 +301,7 @@ export const MenuStore = () => {
           aria-label="Top"
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
-          <div className="border-b pb-4">
+          <div className="border-b pb-4 pt-7">
             <div className="flex h-16 items-center">
               <button
                 type="button"
