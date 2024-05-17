@@ -32,6 +32,7 @@ export const Carts = () => {
 
   useEffect(() => {
     dispatch(modal_type({type:"alert-eliminar-cart"}))
+    
   }, [])
   
 

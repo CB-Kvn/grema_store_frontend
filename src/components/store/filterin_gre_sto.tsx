@@ -1,7 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef, useState } from "react";
 
-export const Filtering = ({ name, type }: { name: string; type: string }) => {
+export const Filtering = ({
+  name,
+  type,
+  list,
+}: {
+  name: string;
+  type: string;
+  list: string[];
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -18,6 +26,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
   };
 
   useEffect(() => {
+    console.log(list);
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -53,12 +62,12 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
         <>
           {type === "categories" ? (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
+              className="origin-top-right h-40 overflow-y-auto absolute right-0 p-1 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
             >
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <i>
@@ -113,7 +122,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <i>
@@ -147,7 +156,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <i>
@@ -184,7 +193,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <i>
@@ -284,7 +293,7 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <i>
@@ -416,16 +425,16 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
             </div>
           ) : type === "color" ? (
             <div
-              className="origin-top-right h-56 overflow-auto absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
+              className="origin-top-right h-40 overflow-y-auto absolute right-0 p-1 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
             >
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full bg-black mt-1 ml-3"></div>
                       </i>
@@ -436,11 +445,11 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full border bg-white mt-1 ml-3"></div>
                       </i>
@@ -451,11 +460,11 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full bg-gray-500 mt-1 ml-3"></div>
                       </i>
@@ -466,11 +475,11 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full bg-red-600 mt-1 ml-3"></div>
                       </i>
@@ -481,11 +490,11 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full bg-orange-500 mt-1 ml-3"></div>
                       </i>
@@ -496,11 +505,11 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full bg-yellow-400 mt-1 ml-3"></div>
                       </i>
@@ -511,11 +520,11 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full bg-lime-600 mt-1 ml-3"></div>
                       </i>
@@ -526,11 +535,11 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full bg-blue-600 mt-1 ml-3"></div>
                       </i>
@@ -541,11 +550,11 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full bg-indigo-700 mt-1 ml-3"></div>
                       </i>
@@ -556,11 +565,11 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de</span>
+                      <span className="label-text">Tonos </span>
                       <i>
                         <div className="w-3 h-3 rounded-full bg-pink-500 mt-1 ml-3"></div>
                       </i>
@@ -571,13 +580,13 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
 
-              <div className="py-1" role="none">
+              <div className="" role="none">
                 <div className="form-control">
                   <label className="label cursor-pointer">
                     <div className="inline-flex">
-                      <span className="label-text">Tonos de </span>
+                      <span className="label-text">Tonos </span>
                       <i>
-                        <div className="w-3 h-3 rounded-full bg-cyan-600 mt-1 ml-3"></div>
+                        <div className="w-3 h-3 rounded-full bg-amber-950 mt-1 ml-3"></div>
                       </i>
                     </div>
 
@@ -586,6 +595,99 @@ export const Filtering = ({ name, type }: { name: string; type: string }) => {
                 </div>
               </div>
             </div>
+          ) : type === "shapes" ? (
+            <>
+              <div
+                className="origin-top-right h-40 overflow-y-auto absolute right-0 p-1 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+              >
+                {list.map((element) => {
+                  return (
+                    <div className="" role="none">
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <div className="inline-flex">
+                            <span className="label-text">{element}</span>
+                            {/* <i>
+                        <div className="w-3 h-3 rounded-full bg-black mt-1 ml-3"></div>
+                      </i> */}
+                          </div>
+
+                          <input
+                            type="checkbox"
+                            className="checkbox  checkbox-sm"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          ) : type === "size" ? (
+            <>
+              <div
+                className="origin-top-right h-40 overflow-y-auto absolute right-0 p-1 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+              >
+                {list.map((element) => {
+                  return (
+                    <div className="" role="none">
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <div className="inline-flex">
+                            <span className="label-text">{element}</span>
+                            {/* <i>
+                        <div className="w-3 h-3 rounded-full bg-black mt-1 ml-3"></div>
+                      </i> */}
+                          </div>
+
+                          <input
+                            type="checkbox"
+                            className="checkbox  checkbox-sm"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          ) : type === "material" ? (
+            <>
+              <div
+                className="origin-top-right h-40 overflow-y-auto absolute right-0 p-1 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+              >
+                {list.map((element) => {
+                  return (
+                    <div className="" role="none">
+                      <div className="form-control">
+                        <label className="label cursor-pointer">
+                          <div className="inline-flex">
+                            <span className="label-text">{element}</span>
+                            {/* <i>
+                        <div className="w-3 h-3 rounded-full bg-black mt-1 ml-3"></div>
+                      </i> */}
+                          </div>
+
+                          <input
+                            type="checkbox"
+                            className="checkbox  checkbox-sm"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
           ) : (
             <></>
           )}

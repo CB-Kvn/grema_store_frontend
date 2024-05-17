@@ -1,10 +1,16 @@
-import { useAppSelector } from "../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { ButtonsNav } from "./buttons_nav_gre_sto";
 import { ModalLogin } from "../sign&log/index_gre_sto";
 import { OptionProfile } from "./option_profile_gre_sto";
+import { useEffect } from "react";
+import { getFilters } from "../../controllers/filters_controller_gre_sto";
 
 export const Navigation = () => {
   const login = useAppSelector((state) => state.login);
+  const dispatch = useAppDispatch()
+useEffect(() => {
+  getFilters(dispatch)
+}, [])
 
   return (
     <>

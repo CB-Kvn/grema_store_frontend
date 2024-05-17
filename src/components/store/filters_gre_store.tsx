@@ -1,51 +1,51 @@
 import { Fragment, useEffect, useState } from "react";
-import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import { Dialog,  Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
+// import { MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import "./store_styles.css";
 import { getAll } from "../../controllers/products_controller_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import {
-  getFilters,
-  getProductsFilters,
-} from "../../controllers/filters_controller_gre_sto";
-import { Filter } from "../../interfaces/filters_interface_gre_sto";
+// import {
+//   getProductsFilters,
+// } from "../../controllers/filters_controller_gre_sto";
+// import { Filter } from "../../interfaces/filters_interface_gre_sto";
 import { GridProducts } from "./grid_products_gre_sto";
 import {
   loginController,
   loginRefreshController,
 } from "../../controllers/login_controller_gre_sto";
 import { Filtering } from "./filterin_gre_sto";
+import { getFilters } from "../../controllers/filters_controller_gre_sto";
 
 export const Filters = () => {
   const dispatch = useAppDispatch();
   const login = useAppSelector((state) => state.login);
-  const filters = useAppSelector((state) => state.filters.filters);
+  const filters = useAppSelector((state) => state.filters.dataFilter);
   const products = useAppSelector((state) => state.products.dataProducts);
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [selectionFilters, setSelectionFilter] = useState<Filter[]>([]);
+  // const [selectionFilters, setSelectionFilter] = useState<Filter[]>([]);
 
-  const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = event.target;
-    setSelectionFilter((prevFilter) => {
-      if (checked) {
-        return [...prevFilter, { value, checked }];
-      } else {
-        return prevFilter.filter((filter) => filter.value !== value);
-      }
-    });
-  };
-  const isChecked = (value: string) => {
-    let checked = false;
+  // const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { value, checked } = event.target;
+  //   setSelectionFilter((prevFilter) => {
+  //     if (checked) {
+  //       return [...prevFilter, { value, checked }];
+  //     } else {
+  //       return prevFilter.filter((filter) => filter.value !== value);
+  //     }
+  //   });
+  // };
+  // const isChecked = (value: string) => {
+  //   let checked = false;
 
-    selectionFilters.find((element) => {
-      if (element.value === value) {
-        checked = true;
-      }
-    });
-    return checked;
-  };
+  //   selectionFilters.find((element) => {
+  //     if (element.value === value) {
+  //       checked = true;
+  //     }
+  //   });
+  //   return checked;
+  // };
   const handlerGuestOpen = () => {
     const element = document.querySelector("#my_modal_3") as HTMLInputElement;
     element.checked = true;
@@ -64,14 +64,15 @@ export const Filters = () => {
       loginRefreshController(dispatch, login);
     }
   };
-  useEffect(() => {
-    getProductsFilters(filters, selectionFilters, dispatch, login);
-  }, [selectionFilters]);
+
+  // useEffect(() => {
+  //   getProductsFilters(filters, selectionFilters, dispatch, login);
+  // }, [selectionFilters]);
 
   useEffect(() => {
     if (login.success === true) {
       getAll(dispatch, login);
-      getFilters(dispatch, login);
+      getFilters(dispatch);
     }
   }, [login]);
 
@@ -127,7 +128,7 @@ export const Filters = () => {
                   </div>
 
                   {/* Filters */}
-                  <form className="mt-4 border-t border-gray-200">
+                  {/* <form className="mt-4 border-t border-gray-200">
                     <div>
                       {filters.map((section) => (
                         <Disclosure
@@ -188,7 +189,7 @@ export const Filters = () => {
                         </Disclosure>
                       ))}
                     </div>
-                  </form>
+                  </form> */}
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -209,11 +210,11 @@ export const Filters = () => {
         
           <div className="flex flex-col lg:flex-row  justify-center border-b border-t mt-20 mb-6">
             <div className="flex justify-center flex-wrap gap-0 lg:gap-0 lg:flex-nowrap lg:space-x-4  lg:mb-0">
-              <Filtering name="Categoria" type="categories" />
-              <Filtering name="Color" type="color" />
-              <Filtering name="Forma" type="shapes" />
-              <Filtering name="Largo" type="size" />
-              <Filtering name="Material" type="material" />
+              <Filtering name="Categoria" type="categories" list = {filters.categoria}  />
+              <Filtering name="Color" type="color" list = {filters.color}  />
+              <Filtering name="Forma" type="shapes" list = {filters.forma}  />
+              <Filtering name="Largo" type="size" list = {filters.tam}  />
+              <Filtering name="Material" type="material"  list = {filters.material} />
             </div>
 
             <div className="flex items-center">
