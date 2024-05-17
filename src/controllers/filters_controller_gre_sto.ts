@@ -1,21 +1,18 @@
 import { Filter, FiltersToApi, propsFilters } from "../interfaces/filters_interface_gre_sto";
 import { LoginInit } from "../interfaces/login_interface_gre_sto";
-import { add_filters_store } from "../redux/reducers_slices/filters_gre_sto_slice";
+import { add_filters_list } from "../redux/reducers_slices/filters_gre_sto_slice";
 import { update_products_filters_store } from "../redux/reducers_slices/products_gre_sto_slice";
 import { getAllFilters, getProductFilters } from "../services/filters_service_gre_sto";
-import { parseFilters, parseFiltersToApi } from '../utils/verify_parse_data/parseFilters'
+import { parseFiltersToApi } from '../utils/verify_parse_data/parseFilters'
 import { parseProducts } from "../utils/verify_parse_data/parseProducts";
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getFilters = async (dispatch: any,login:LoginInit) => {
+export const getFilters = async (dispatch: any) => {
   try {
-    const data = await getAllFilters(login.token);
+    const data = await getAllFilters();
 
-    const date_ready = parseFilters(data!.data);
-
-
-    dispatch(add_filters_store({ data: { filters: date_ready.filters } }))
+    dispatch(add_filters_list({color:data?.data.color,tam:data?.data.size,forma:data?.data.shape,material:data?.data.material,categoria:data?.data.category}))
 
   } catch (error) {
     console.log(error);

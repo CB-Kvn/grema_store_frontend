@@ -51,11 +51,23 @@ export interface Option {
 }
 
 export interface FiltersToApi {
-    color:     string[];
-    tam:       string[];
-    forma:     string[];
-    material:  string[];
-    categoria: string[];
+    dataFilter:{
+        color:     string[];
+        tam:       string[];
+        forma:     string[];
+        material:  string[];
+        categoria: string[];
+    },
+    dataSearch:{
+        color:     string[];
+        tam:       string[];
+        forma:     string[];
+        material:  string[];
+        categoria: string[];
+    }
+
+
+    
 }
 export interface Filter {
     value: string;
