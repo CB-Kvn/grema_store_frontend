@@ -4,7 +4,7 @@ import { APIResponseProducts, ArrayParseProducts,Inventory } from "../../interfa
 
 export const parseProducts = (data: APIResponseProducts) => {
 
-    const products: ArrayParseProducts[] = data.data.map((element: Inventory) => {
+    const products: ArrayParseProducts[] = data.data.product.map((element: Inventory) => {
         return {
 
 

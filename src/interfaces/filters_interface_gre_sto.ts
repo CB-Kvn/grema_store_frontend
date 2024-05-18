@@ -50,7 +50,7 @@ export interface Option {
     checked: boolean;
 }
 
-export interface FiltersToApi {
+export interface FiltersTo {
     dataFilter:{
         color:     string[];
         tam:       string[];
@@ -69,8 +69,28 @@ export interface FiltersToApi {
 
     
 }
+
+export interface DataFilter {
+        color:     string[];
+        tam:       string[];
+        forma:     string[];
+        material:  string[];
+        categoria: string[];
+    }
+   
+
+
 export interface Filter {
+    color: valuesFilters[];
+    tam:   valuesFilters[];
+    forma: valuesFilters[];
+    material:valuesFilters[];
+    categoria:valuesFilters[];
+    
+  }
+  export interface valuesFilters {
     value: string;
     checked: boolean;
   }
+
 

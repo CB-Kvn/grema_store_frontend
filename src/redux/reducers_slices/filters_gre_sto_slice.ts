@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { createSlice } from "@reduxjs/toolkit";
-import { FiltersToApi } from "../../interfaces/filters_interface_gre_sto";
+import { FiltersTo } from "../../interfaces/filters_interface_gre_sto";
 
 
 // Define the initial state using that type
-const initialState: FiltersToApi = {
+const initialState: FiltersTo = {
     dataFilter:{
         color:[],
         tam:[],
@@ -29,22 +29,69 @@ export const FiltersSlice = createSlice({
     initialState,
 
     reducers: {
-        add_filtersSearch_color: (state, action) => {
-            state.dataSearch.color.push(action.payload.color)
-        },
-        add_filtersSearch_tam: (state, action) => {
-            state.dataSearch.tam.push(action.payload.tam)
-        },
-        add_filtersSearch_forma: (state, action) => {
-            state.dataSearch.forma.push(action.payload.forma)
-        },
-        add_filtersSearch_material: (state, action) => {
-            state.dataSearch.material.push(action.payload.material)
-        },
-        add_filtersSearch_categoria: (state, action) => {
-            state.dataSearch.categoria.push(action.payload.categoria)
-        },
+        
+        add_filter: (state, action) => {
 
+        
+            switch (action.payload.filter) {
+                case "color":
+                    state.dataSearch["color"].push(action.payload.color)
+                    break;
+                    case "tam":
+                        state.dataSearch["tam"].push(action.payload.tam)
+                    break;
+            
+                    case "forma":
+                        state.dataSearch["forma"].push(action.payload.forma)
+                    break;
+            
+                    case "material":
+                        state.dataSearch["material"].push(action.payload.material)
+                    break;
+                    case "categoria":
+                        state.dataSearch["categoria"].push(action.payload.categoria)
+                    break;
+            
+            
+                default:
+                    break;
+            }
+
+
+        },
+        remove_filter: (state, action) => {
+
+        
+            switch (action.payload.filter) {
+                case "color":
+                    state.dataSearch["color"].filter((filter) => filter !== action.payload.name);
+                    break;
+                    case "tam":
+                        state.dataSearch["tam"].filter((filter) => filter !== action.payload.name);
+                    break;
+            
+                    case "forma":
+                        state.dataSearch["forma"].filter((filter) => filter !== action.payload.name);
+                    break;
+            
+                    case "material":
+                        state.dataSearch["material"].filter((filter) => filter !== action.payload.name);
+                    break;
+                    case "categoria":
+                        state.dataSearch["categoria"].filter((filter) => filter !== action.payload.name); 
+                    break;
+            
+            
+                default:
+                    break;
+            }
+
+
+        }
+
+
+
+        ,
         add_filters_list: (state, action) => {
             state.dataFilter.color = action.payload.color.map(((element:any)=>{return element.color}))
             state.dataFilter.tam  = action.payload.tam.map(((element:any)=>{return element.size}))
@@ -57,6 +104,6 @@ export const FiltersSlice = createSlice({
     },
 })
 
-export const { add_filtersSearch_color,add_filtersSearch_tam,add_filtersSearch_forma,add_filtersSearch_material,add_filtersSearch_categoria,add_filters_list } = FiltersSlice.actions
+export const { add_filters_list,add_filter } = FiltersSlice.actions
 
 export default FiltersSlice.reducer

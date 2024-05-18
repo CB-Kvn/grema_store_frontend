@@ -54,7 +54,8 @@ const initialState = {
     },
     modal_alert:{
         type:""
-    }
+    },
+    
 
     
 }

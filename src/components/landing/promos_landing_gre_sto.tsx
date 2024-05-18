@@ -36,37 +36,14 @@ export const Promos = () => {
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
                           <img
-                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
+                            src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/urixxsljqygxo8wiyyjy"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
-                            alt=""
-                            className="h-full w-full object-cover object-center"
-                          />
-                        </div>
-                      </div>
-                      <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
-                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
-                            alt=""
-                            className="h-full w-full object-cover object-center"
-                          />
-                        </div>
-                        <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
-                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
-                            alt=""
-                            className="h-full w-full object-cover object-center"
-                          />
-                        </div>
-                        <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
-                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
+                            src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/gdswzruo0ti3hngah5lt"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
@@ -75,14 +52,37 @@ export const Promos = () => {
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
+                            src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/m58rtoqkgmluyonbrehk"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                            src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
+                            src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/jz5tseeipssxkcycxj5l"
+                            alt=""
+                            className="h-full w-full object-cover object-center"
+                          />
+                        </div>
+                        <div className="h-64 w-44 overflow-hidden rounded-lg">
+                          <img
+                            src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/shwtg4ymdsojcqjdaiy2"
+                            alt=""
+                            className="h-full w-full object-cover object-center"
+                          />
+                        </div>
+                      </div>
+                      <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="h-64 w-44 overflow-hidden rounded-lg">
+                          <img
+                            src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/otlciqb6wqwvse5zw3vv"
+                            alt=""
+                            className="h-full w-full object-cover object-center"
+                          />
+                        </div>
+                        <div className="h-64 w-44 overflow-hidden rounded-lg">
+                          <img
+                            src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/r5v1xuji9ttm0e539lho"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />

@@ -15,7 +15,10 @@ import {
   loginRefreshController,
 } from "../../controllers/login_controller_gre_sto";
 import { Filtering } from "./filterin_gre_sto";
-import { getFilters } from "../../controllers/filters_controller_gre_sto";
+import { Filter } from "../../interfaces/filters_interface_gre_sto";
+import { Pagination } from "./pagination_gre_sto";
+import { getProductsFilters } from "../../controllers/filters_controller_gre_sto";
+// import { getAllProducts } from "../../services/products_service_gre_sto";
 
 export const Filters = () => {
   const dispatch = useAppDispatch();
@@ -24,28 +27,16 @@ export const Filters = () => {
   const products = useAppSelector((state) => state.products.dataProducts);
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  // const [selectionFilters, setSelectionFilter] = useState<Filter[]>([]);
 
-  // const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { value, checked } = event.target;
-  //   setSelectionFilter((prevFilter) => {
-  //     if (checked) {
-  //       return [...prevFilter, { value, checked }];
-  //     } else {
-  //       return prevFilter.filter((filter) => filter.value !== value);
-  //     }
-  //   });
-  // };
-  // const isChecked = (value: string) => {
-  //   let checked = false;
-
-  //   selectionFilters.find((element) => {
-  //     if (element.value === value) {
-  //       checked = true;
-  //     }
-  //   });
-  //   return checked;
-  // };
+  const initialFilters: Filter = {
+    color: [],
+    tam: [],
+    forma: [],
+    material: [],
+    categoria: []
+  };
+  const [selectionFilters, setSelectionFilter] = useState<Filter>(initialFilters);
+ 
   const handlerGuestOpen = () => {
     const element = document.querySelector("#my_modal_3") as HTMLInputElement;
     element.checked = true;
@@ -65,19 +56,23 @@ export const Filters = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getProductsFilters(filters, selectionFilters, dispatch, login);
-  // }, [selectionFilters]);
+  useEffect(() => {
+    
+    getProductsFilters(filters,selectionFilters,dispatch)
+  }, [selectionFilters]);
+
+
 
   useEffect(() => {
     if (login.success === true) {
-      getAll(dispatch, login);
-      getFilters(dispatch);
+      // getAll(dispatch, login);
+      
     }
   }, [login]);
 
   useEffect(() => {
     loginFlow();
+    getAll(dispatch, login);
   }, []);
 
   return (
@@ -210,11 +205,11 @@ export const Filters = () => {
         
           <div className="flex flex-col lg:flex-row  justify-center border-b border-t mt-20 mb-6">
             <div className="flex justify-center flex-wrap gap-0 lg:gap-0 lg:flex-nowrap lg:space-x-4  lg:mb-0">
-              <Filtering name="Categoria" type="categories" list = {filters.categoria}  />
-              <Filtering name="Color" type="color" list = {filters.color}  />
-              <Filtering name="Forma" type="shapes" list = {filters.forma}  />
-              <Filtering name="Largo" type="size" list = {filters.tam}  />
-              <Filtering name="Material" type="material"  list = {filters.material} />
+              <Filtering name="Categoria" type="categories" list = {filters.categoria} setSelectionFilter={setSelectionFilter} filters={selectionFilters}  />
+              <Filtering name="Color" type="color" list = {filters.color} setSelectionFilter={setSelectionFilter} filters={selectionFilters}  />
+              <Filtering name="Forma" type="shapes" list = {filters.forma} setSelectionFilter={setSelectionFilter} filters={selectionFilters}   />
+              <Filtering name="Largo" type="size" list = {filters.tam} setSelectionFilter={setSelectionFilter} filters={selectionFilters}  />
+              <Filtering name="Material" type="material"  list = {filters.material} setSelectionFilter={setSelectionFilter} filters={selectionFilters}  />
             </div>
 
             <div className="flex items-center">
@@ -268,7 +263,12 @@ export const Filters = () => {
                   </div>
                 </div>
               </div>
+              
             </div>
+            <div className="flex justify-center mt-10">
+            <Pagination></Pagination>
+            </div>
+           
           </section>
         </main>
       </div>

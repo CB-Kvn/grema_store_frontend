@@ -8,10 +8,10 @@ export const BannerPrincipal = () => {
         className={`hero min-h-screen transition-opacity duration-1000`}
         id="/"
         style={{
-          backgroundImage: `url(https://grema-store-frontend.vercel.app/images/backs9.jpg)`,
+          // backgroundImage: `url(https://grema-store-frontend.vercel.app/images/backs9.jpg)`,
         }}
       >
-        <div className="hero-overlay bg-opacity-10"></div>
+        <div className="hero-overlay bg-opacity-0"></div>
         <div className="hero-content text-center text-neutral-content bg-white bg-opacity-30 rounded-2xl">
           <div className="max-w-md">
             <h1

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { APIResponseFilters, FiltersToApi } from "../interfaces/filters_interface_gre_sto";
+import { APIResponseFilters, DataFilter} from "../interfaces/filters_interface_gre_sto";
 import { APIResponseProducts } from "../interfaces/products_interface_gre_sto";
 
 
@@ -29,7 +29,7 @@ export const getAllFilters = async ( token?:string) => {
 
 }
 
-export const getProductFilters = async (data:FiltersToApi, token:string) => {
+export const getProductFilters = async (data:DataFilter, token:string) => {
 
     try {
         

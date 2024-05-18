@@ -45,7 +45,7 @@ export const GridProducts = ({
         <AlertMsg type={alert.type}></AlertMsg>
       </div>
 
-      <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-4">
+      <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5 md:gap-4">
         {products.map((element, index) => (
           <article
             key={index}
@@ -392,7 +392,7 @@ export const GridProducts = ({
               </p>
             </div>
             <div className="mt-2 block items-start justify-between">
-              <div className="h-16">
+              <div className="h-16 lg:h-12">
                 <h3 className="text-xs font-semibold sm:text-base md:text-sm text-center">
                   <a href="#" title="" className="cursor-pointer">
                     {element.name}
@@ -402,7 +402,7 @@ export const GridProducts = ({
                 <div className="flex justify-center mt-1">
                   <div className="inline-flex text-center">
                     <p
-                      className="text-base font-semibold "
+                      className="text-base md:text-sm font-semibold "
                       style={{ color: "#393939" }}
                     >
                       {new Intl.NumberFormat("es-CR", {
@@ -464,7 +464,7 @@ export const GridProducts = ({
                         </svg>
 
                         <p
-                          className="text-base font-semibold  line-through"
+                          className="text-base md:text-sm font-semibold  line-through"
                           style={{ color: "#393939" }}
                         >
                           {new Intl.NumberFormat("es-CR", {
