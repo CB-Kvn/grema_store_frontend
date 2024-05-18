@@ -6,6 +6,7 @@ import { ProductSlice } from "./products_gre_sto_slice";
 import { FiltersSlice } from "./filters_gre_sto_slice";
 import { LoveSlice } from "./love_gre_sto_slice";
 import { SelectedSlice } from "./shopcar_gre_sto_slice";
+import { PaginationSlice } from "./pagination_gre_sto"
 
 export const rootReducer = combineReducers({
     login: LoginSlice.reducer,
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
     products: ProductSlice.reducer,
     filters: FiltersSlice.reducer,
     love: LoveSlice.reducer,
-    shopcar: SelectedSlice.reducer
+    shopcar: SelectedSlice.reducer,
+    pagination: PaginationSlice.reducer
 })
 

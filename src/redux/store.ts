@@ -7,6 +7,7 @@ import { ProductSlice } from "./reducers_slices/products_gre_sto_slice"
 import { FiltersSlice } from "./reducers_slices/filters_gre_sto_slice"
 import { LoveSlice } from "./reducers_slices/love_gre_sto_slice"
 import { SelectedSlice } from "./reducers_slices/shopcar_gre_sto_slice"
+import { PaginationSlice } from "./reducers_slices/pagination_gre_sto";
 
 
 
@@ -33,7 +34,8 @@ export const store  = configureStore({
         products: ProductSlice.reducer,
         filters: FiltersSlice.reducer,
         love: LoveSlice.reducer,
-        shopcar: SelectedSlice.reducer
+        shopcar: SelectedSlice.reducer,
+        pagination: PaginationSlice.reducer
     }
     
 })

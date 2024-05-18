@@ -2,7 +2,12 @@ export interface APIResponseProducts {
     success: string;
     status:  number;
     msg:     string;
-    data:    Inventory[];
+    data:    newApiData;
+}
+
+export interface newApiData {
+    product: Inventory[]
+    total:number
 }
 
 export interface Inventory {

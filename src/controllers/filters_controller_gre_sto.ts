@@ -1,11 +1,10 @@
-import { Filter, FiltersToApi, propsFilters } from "../interfaces/filters_interface_gre_sto";
-import { LoginInit } from "../interfaces/login_interface_gre_sto";
+import { DataFilter, Filter} from "../interfaces/filters_interface_gre_sto";
 import { add_filters_list } from "../redux/reducers_slices/filters_gre_sto_slice";
+import { set_top_num } from "../redux/reducers_slices/pagination_gre_sto";
 import { update_products_filters_store } from "../redux/reducers_slices/products_gre_sto_slice";
 import { getAllFilters, getProductFilters } from "../services/filters_service_gre_sto";
-import { parseFiltersToApi } from '../utils/verify_parse_data/parseFilters'
+import { parseFiltersToApi } from "../utils/verify_parse_data/parseFilters";
 import { parseProducts } from "../utils/verify_parse_data/parseProducts";
-
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getFilters = async (dispatch: any) => {
@@ -21,16 +20,22 @@ export const getFilters = async (dispatch: any) => {
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getProductsFilters = async (filters: propsFilters[], selectedFilters: Filter[], _dispatch: any,login:LoginInit) => {
+export const getProductsFilters = async (filters: DataFilter, selectedFilters: Filter, _dispatch: any) => {
+
 
 
   const data = parseFiltersToApi(filters, selectedFilters)
+  
 
-  const dataApi = await getProductFilters(data! as FiltersToApi,login.token);
+  const dataApi = await getProductFilters(data! as DataFilter,"");
+
+  console.log(dataApi)
 
   const date_ready = parseProducts(dataApi!);
 
   _dispatch(update_products_filters_store({data: date_ready}))
+
+  _dispatch(set_top_num({num:Math.ceil(dataApi!.data.total/8)}))
 
 
 }

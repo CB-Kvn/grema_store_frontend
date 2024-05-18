@@ -11,6 +11,7 @@ export const getAll = async (dispatch:any,login:LoginInit) => {
     
     const date_ready = parseProducts(data!);
 
+
     dispatch(add_products_store({data: date_ready}))
     
   } catch (error) {
