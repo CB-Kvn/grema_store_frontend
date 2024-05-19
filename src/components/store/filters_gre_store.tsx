@@ -59,7 +59,7 @@ export const Filters = () => {
   useEffect(() => {
     
     getProductsFilters(filters,selectionFilters,dispatch,pagination)
-  }, [selectionFilters || pagination]);
+  }, [selectionFilters,pagination]);
 
 
 
