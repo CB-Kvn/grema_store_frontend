@@ -29,12 +29,22 @@ export const getAllFilters = async ( token?:string) => {
 
 }
 
-export const getProductFilters = async (data:DataFilter, token:string) => {
+export const getProductFilters = async (data:DataFilter, token:string,page:number) => {
 
     try {
-        
+        const pageSize = 10
+        const skip = (page - 1) * pageSize;
+        const take = pageSize;
+
+
+        const dataRequest = {
+            ...data,
+            skip,
+            take
+        }
+
         const url_filter = '/product/get-all-filters'
-        const response = await axios.post(url+url_filter,data,{
+        const response = await axios.post(url+url_filter,dataRequest,{
             headers:{
                 grema_store_token : token
             }
