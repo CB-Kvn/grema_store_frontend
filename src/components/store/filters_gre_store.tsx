@@ -18,9 +18,11 @@ import { Filtering } from "./filterin_gre_sto";
 import { Filter } from "../../interfaces/filters_interface_gre_sto";
 import { Pagination } from "./pagination_gre_sto";
 import { getProductsFilters } from "../../controllers/filters_controller_gre_sto";
+import { useParams } from "react-router-dom";
 // import { getAllProducts } from "../../services/products_service_gre_sto";
 
 export const Filters = () => {
+  const { page } = useParams();
   const dispatch = useAppDispatch();
   const login = useAppSelector((state) => state.login);
   const filters = useAppSelector((state) => state.filters.dataFilter);
@@ -58,7 +60,7 @@ export const Filters = () => {
 
   useEffect(() => {
     
-    getProductsFilters(filters,selectionFilters,dispatch,pagination)
+    getProductsFilters(filters,selectionFilters,dispatch,Number(page!))
   }, [selectionFilters,pagination]);
 
 

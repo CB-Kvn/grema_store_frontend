@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import { decrement, increment } from "../../redux/reducers_slices/pagination_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 
@@ -10,7 +11,10 @@ export const Pagination = () => {
       <div className="join justify-center">  
         <button className="join-item btn btn-sm" onClick={() => dispatch(decrement())}>«</button>
         <button className="join-item btn btn-sm">Pagina {pagination}</button>
+        <Link to={`/store/${pagination+1}`}>
         <button className="join-item btn btn-sm" onClick={() => dispatch(increment())}>»</button>
+        </Link>
+        
       </div>
     </>
   );

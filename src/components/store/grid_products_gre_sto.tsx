@@ -59,10 +59,142 @@ export const GridProducts = ({
               <div className="inline-flex mr-5 ">
                 <aside className="absolute top-8 right-0 mr-3 ">
                   <aside className="tooltip tooltip-left" data-tip="Comprar">
+                    
+                  </aside>
+                </aside>
+                {love.some((item) => item.productId === element.id) ? (
+                  <>
+                    <aside className="absolute top-0 right-0 mr-3">
+                      <svg
+                        width="35px"
+                        height="35px"
+                        viewBox="0 0 1024 1024"
+                        className="icon tooltip"
+                        data-tip="Agregar Favoritos"
+                        onClick={(event) => {
+                          event.preventDefault(),
+                            handleUnLovinArticle(element.id);
+                        }}
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M895.36 243.904a251.52 251.52 0 0 0-355.776 0l-20.096 20.096-20.096-20.096A251.52 251.52 0 0 0 143.616 599.68S466.24 926.72 512 928c14.336 0.384 86.4-59.52 164.224-128.192l-0.512-0.64a22.016 22.016 0 0 0-11.968-40.896 21.76 21.76 0 0 0-14.784 5.888l-0.064-0.064 62.336-56.832a22.08 22.08 0 0 0-7.808 16.704 22.4 22.4 0 0 0 22.4 22.464c5.44 0 10.24-2.176 14.208-5.44l0.256 0.32 50.048-45.76-0.448-0.448a22.08 22.08 0 0 0-16.768-36.992 21.952 21.952 0 0 0-14.656 5.824l80.384-73.472 0.512 0.512a22.08 22.08 0 0 0-5.696 14.592 22.4 22.4 0 0 0 22.4 22.464 22.016 22.016 0 0 0 14.272-5.504l0.32 0.384 24.832-23.168a251.776 251.776 0 0 0-0.128-355.84z"
+                          fill=""
+                        />
+                        <path
+                          d="M510.976 878.656c-51.008-33.344-207.168-180.416-335.488-310.528a206.976 206.976 0 0 1-0.192-292.544c39.04-39.104 91.008-60.608 146.24-60.608s107.136 21.504 146.176 60.544l51.84 51.84 51.84-51.776c39.04-39.04 90.944-60.544 146.176-60.544s107.2 21.504 146.176 60.544c39.04 39.04 60.544 90.944 60.544 146.24s-21.504 107.136-60.544 146.176c-140.096 131.776-301.76 276.032-352.768 310.656z"
+                          fill="#FF5F5F"
+                        />
+                        <path
+                          d="M308.032 641.984a15.872 15.872 0 0 1-10.112-3.648 757.12 757.12 0 0 1-53.504-48.896 875.968 875.968 0 0 0-25.856-24.64C141.376 495.488 145.344 423.616 145.536 420.544 143.808 318.976 237.376 264.64 241.344 262.4a16 16 0 0 1 15.808 27.84c-0.832 0.448-81.088 47.488-79.744 131.2-0.064 3.648-2.368 61.248 62.528 119.552 8.704 7.808 17.536 16.448 26.816 25.536 15.616 15.36 31.808 31.168 51.328 47.104a15.936 15.936 0 1 1-10.048 28.352zM422.656 751.36a15.872 15.872 0 0 1-11.2-4.544l-61.312-60.032a16 16 0 1 1 22.4-22.912l61.312 60.032a16 16 0 0 1-11.2 27.456z"
+                          fill="#FFFFFF"
+                        />
+                      </svg>
+                    </aside>
+                  </>
+                ) : (
+                  <aside className="absolute top-0 right-0 mr-3">
                     <svg
-                      width="30px"
-                      height="30px"
-                      className="mt-2"
+                      width="35px"
+                      height="35px"
+                      viewBox="0 0 1024 1024"
+                      className="icon tooltip"
+                      data-tip="Agregar Favoritos"
+                      onClick={(event) => {
+                        event.preventDefault(),
+                          handleLovinArticle({
+                            productId: element.id,
+                            userId: login.userId,
+                            type: "Fav",
+                            quantity: 0,
+                            image: element.imageSrc,
+                            name: element.name,
+                          });
+                      }}
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M895.36 243.904a251.52 251.52 0 0 0-355.776 0l-20.096 20.096-20.096-20.096A251.52 251.52 0 0 0 143.616 599.68S466.24 926.72 512 928c14.336 0.384 86.4-59.52 164.224-128.192l-0.512-0.64a22.016 22.016 0 0 0-11.968-40.896 21.76 21.76 0 0 0-14.784 5.888l-0.064-0.064 62.336-56.832a22.08 22.08 0 0 0-7.808 16.704 22.4 22.4 0 0 0 22.4 22.464c5.44 0 10.24-2.176 14.208-5.44l0.256 0.32 50.048-45.76-0.448-0.448a22.08 22.08 0 0 0-16.768-36.992 21.952 21.952 0 0 0-14.656 5.824l80.384-73.472 0.512 0.512a22.08 22.08 0 0 0-5.696 14.592 22.4 22.4 0 0 0 22.4 22.464 22.016 22.016 0 0 0 14.272-5.504l0.32 0.384 24.832-23.168a251.776 251.776 0 0 0-0.128-355.84z"
+                        fill=""
+                      />
+                      <path
+                        d="M510.976 878.656c-51.008-33.344-207.168-180.416-335.488-310.528a206.976 206.976 0 0 1-0.192-292.544c39.04-39.104 91.008-60.608 146.24-60.608s107.136 21.504 146.176 60.544l51.84 51.84 51.84-51.776c39.04-39.04 90.944-60.544 146.176-60.544s107.2 21.504 146.176 60.544c39.04 39.04 60.544 90.944 60.544 146.24s-21.504 107.136-60.544 146.176c-140.096 131.776-301.76 276.032-352.768 310.656z"
+                        fill="#FFFFFF"
+                      />
+                      <path
+                        d="M308.032 641.984a15.872 15.872 0 0 1-10.112-3.648 757.12 757.12 0 0 1-53.504-48.896 875.968 875.968 0 0 0-25.856-24.64C141.376 495.488 145.344 423.616 145.536 420.544 143.808 318.976 237.376 264.64 241.344 262.4a16 16 0 0 1 15.808 27.84c-0.832 0.448-81.088 47.488-79.744 131.2-0.064 3.648-2.368 61.248 62.528 119.552 8.704 7.808 17.536 16.448 26.816 25.536 15.616 15.36 31.808 31.168 51.328 47.104a15.936 15.936 0 1 1-10.048 28.352zM422.656 751.36a15.872 15.872 0 0 1-11.2-4.544l-61.312-60.032a16 16 0 1 1 22.4-22.912l61.312 60.032a16 16 0 0 1-11.2 27.456z"
+                        fill="#FFFFFF"
+                      />
+                    </svg>
+                  </aside>
+                )}
+              </div>
+            </div>
+            
+            <div className=" p-1 px-2 block items-start justify-between group relative bg-slate-50 bg-opacity-70">
+              <div className="h-16 lg:h-12 relative group-hover:opacity-0 transition-opacity duration-300">
+                <h3 className="text-xs font-semibold sm:text-base md:text-sm text-start">
+                  <a href="#" title="" className="cursor-pointer">
+                    {element.name}
+                    <span className="absolute" aria-hidden="true"></span>
+                  </a>
+                </h3>
+                <div className="flex justify-start mt-1">
+                  <div className="inline-flex text-center">
+                    {element.desc > 0 ? (
+                      <div className="inline-flex">
+                        <p
+                          className="text-base md:text-sm font-semibold"
+                          style={{ color: "#393939" }}
+                        >
+                          {new Intl.NumberFormat("es-CR", {
+                            style: "currency",
+                            currency: "CRC",
+                            maximumFractionDigits: 0,
+                            minimumFractionDigits: 0,
+                          }).format(
+                            Number(element!.price) -
+                              Number(element!.price) * (element!.desc / 100)
+                          )}
+                        </p>
+                        <p
+                          className="text-xs font-semibold line-through ml-1"
+                          style={{ color: "#393939", marginTop: "2px" }}
+                        >
+                          {new Intl.NumberFormat("es-CR", {
+                            style: "currency",
+                            currency: "CRC",
+                            maximumFractionDigits: 0,
+                            minimumFractionDigits: 0,
+                          }).format(Number(element!.price))}
+                        </p>
+                      </div>
+                    ) : (
+                      <p
+                        className="text-base md:text-sm font-semibold"
+                        style={{ color: "#393939" }}
+                      >
+                        {new Intl.NumberFormat("es-CR", {
+                          style: "currency",
+                          currency: "CRC",
+                          maximumFractionDigits: 0,
+                          minimumFractionDigits: 0,
+                        }).format(Number(element!.price))}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+              
+                
+                  <button className="btn  btn-sm absolute left-0 right-0 bottom-0 w-3/4 top-0 m-auto transform translate-y-4 opacity-0 border-2 border-[#9E577A] hover:border-[#9E577A] group-hover:opacity-100 group-hover:translate-y-0 transition duration-300 bg-[#F6DAEF] hover:bg-[#E6B0D4]">
+                    Comprar
+                    <svg
+                      width="15px"
+                      height="15px"
+                      className=""
                       viewBox="0 0 512 512"
                       baseProfile="tiny"
                       overflow="visible"
@@ -310,140 +442,9 @@ export const GridProducts = ({
                         </g>
                       </g>
                     </svg>
-                  </aside>
-                </aside>
-                {love.some((item) => item.productId === element.id) ? (
-                  <>
-                    <aside className="absolute top-0 right-0 mr-3">
-                      <svg
-                        width="35px"
-                        height="35px"
-                        viewBox="0 0 1024 1024"
-                        className="icon tooltip"
-                        data-tip="Agregar Favoritos"
-                        onClick={(event) => {
-                          event.preventDefault(),
-                            handleUnLovinArticle(element.id);
-                        }}
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M895.36 243.904a251.52 251.52 0 0 0-355.776 0l-20.096 20.096-20.096-20.096A251.52 251.52 0 0 0 143.616 599.68S466.24 926.72 512 928c14.336 0.384 86.4-59.52 164.224-128.192l-0.512-0.64a22.016 22.016 0 0 0-11.968-40.896 21.76 21.76 0 0 0-14.784 5.888l-0.064-0.064 62.336-56.832a22.08 22.08 0 0 0-7.808 16.704 22.4 22.4 0 0 0 22.4 22.464c5.44 0 10.24-2.176 14.208-5.44l0.256 0.32 50.048-45.76-0.448-0.448a22.08 22.08 0 0 0-16.768-36.992 21.952 21.952 0 0 0-14.656 5.824l80.384-73.472 0.512 0.512a22.08 22.08 0 0 0-5.696 14.592 22.4 22.4 0 0 0 22.4 22.464 22.016 22.016 0 0 0 14.272-5.504l0.32 0.384 24.832-23.168a251.776 251.776 0 0 0-0.128-355.84z"
-                          fill=""
-                        />
-                        <path
-                          d="M510.976 878.656c-51.008-33.344-207.168-180.416-335.488-310.528a206.976 206.976 0 0 1-0.192-292.544c39.04-39.104 91.008-60.608 146.24-60.608s107.136 21.504 146.176 60.544l51.84 51.84 51.84-51.776c39.04-39.04 90.944-60.544 146.176-60.544s107.2 21.504 146.176 60.544c39.04 39.04 60.544 90.944 60.544 146.24s-21.504 107.136-60.544 146.176c-140.096 131.776-301.76 276.032-352.768 310.656z"
-                          fill="#FF5F5F"
-                        />
-                        <path
-                          d="M308.032 641.984a15.872 15.872 0 0 1-10.112-3.648 757.12 757.12 0 0 1-53.504-48.896 875.968 875.968 0 0 0-25.856-24.64C141.376 495.488 145.344 423.616 145.536 420.544 143.808 318.976 237.376 264.64 241.344 262.4a16 16 0 0 1 15.808 27.84c-0.832 0.448-81.088 47.488-79.744 131.2-0.064 3.648-2.368 61.248 62.528 119.552 8.704 7.808 17.536 16.448 26.816 25.536 15.616 15.36 31.808 31.168 51.328 47.104a15.936 15.936 0 1 1-10.048 28.352zM422.656 751.36a15.872 15.872 0 0 1-11.2-4.544l-61.312-60.032a16 16 0 1 1 22.4-22.912l61.312 60.032a16 16 0 0 1-11.2 27.456z"
-                          fill="#FFFFFF"
-                        />
-                      </svg>
-                    </aside>
-                  </>
-                ) : (
-                  <aside className="absolute top-0 right-0 mr-3">
-                    <svg
-                      width="35px"
-                      height="35px"
-                      viewBox="0 0 1024 1024"
-                      className="icon tooltip"
-                      data-tip="Agregar Favoritos"
-                      onClick={(event) => {
-                        event.preventDefault(),
-                          handleLovinArticle({
-                            productId: element.id,
-                            userId: login.userId,
-                            type: "Fav",
-                            quantity: 0,
-                            image: element.imageSrc,
-                            name: element.name,
-                          });
-                      }}
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M895.36 243.904a251.52 251.52 0 0 0-355.776 0l-20.096 20.096-20.096-20.096A251.52 251.52 0 0 0 143.616 599.68S466.24 926.72 512 928c14.336 0.384 86.4-59.52 164.224-128.192l-0.512-0.64a22.016 22.016 0 0 0-11.968-40.896 21.76 21.76 0 0 0-14.784 5.888l-0.064-0.064 62.336-56.832a22.08 22.08 0 0 0-7.808 16.704 22.4 22.4 0 0 0 22.4 22.464c5.44 0 10.24-2.176 14.208-5.44l0.256 0.32 50.048-45.76-0.448-0.448a22.08 22.08 0 0 0-16.768-36.992 21.952 21.952 0 0 0-14.656 5.824l80.384-73.472 0.512 0.512a22.08 22.08 0 0 0-5.696 14.592 22.4 22.4 0 0 0 22.4 22.464 22.016 22.016 0 0 0 14.272-5.504l0.32 0.384 24.832-23.168a251.776 251.776 0 0 0-0.128-355.84z"
-                        fill=""
-                      />
-                      <path
-                        d="M510.976 878.656c-51.008-33.344-207.168-180.416-335.488-310.528a206.976 206.976 0 0 1-0.192-292.544c39.04-39.104 91.008-60.608 146.24-60.608s107.136 21.504 146.176 60.544l51.84 51.84 51.84-51.776c39.04-39.04 90.944-60.544 146.176-60.544s107.2 21.504 146.176 60.544c39.04 39.04 60.544 90.944 60.544 146.24s-21.504 107.136-60.544 146.176c-140.096 131.776-301.76 276.032-352.768 310.656z"
-                        fill="#FFFFFF"
-                      />
-                      <path
-                        d="M308.032 641.984a15.872 15.872 0 0 1-10.112-3.648 757.12 757.12 0 0 1-53.504-48.896 875.968 875.968 0 0 0-25.856-24.64C141.376 495.488 145.344 423.616 145.536 420.544 143.808 318.976 237.376 264.64 241.344 262.4a16 16 0 0 1 15.808 27.84c-0.832 0.448-81.088 47.488-79.744 131.2-0.064 3.648-2.368 61.248 62.528 119.552 8.704 7.808 17.536 16.448 26.816 25.536 15.616 15.36 31.808 31.168 51.328 47.104a15.936 15.936 0 1 1-10.048 28.352zM422.656 751.36a15.872 15.872 0 0 1-11.2-4.544l-61.312-60.032a16 16 0 1 1 22.4-22.912l61.312 60.032a16 16 0 0 1-11.2 27.456z"
-                        fill="#FFFFFF"
-                      />
-                    </svg>
-                  </aside>
-                )}
-              </div>
-            </div>
-            <div className="absolute top-0 m-1 rounded-full bg-white">
-              <p className="text-[10px] rounded-full bg-black p-1 font-bold uppercase tracking-wide text-white sm:px-3 sm:py-1">
-                Sale
-              </p>
-            </div>
-            <div className=" p-1 px-2 block items-start justify-between group relative bg-slate-50 bg-opacity-70">
-              <div className="h-16 lg:h-12 relative group-hover:opacity-0 transition-opacity duration-300">
-                <h3 className="text-xs font-semibold sm:text-base md:text-sm text-start">
-                  <a href="#" title="" className="cursor-pointer">
-                    {element.name}
-                    <span className="absolute" aria-hidden="true"></span>
-                  </a>
-                </h3>
-                <div className="flex justify-start mt-1">
-                  <div className="inline-flex text-center">
-                    {element.desc > 0 ? (
-                      <div className="inline-flex">
-                        <p
-                          className="text-base md:text-sm font-semibold"
-                          style={{ color: "#393939" }}
-                        >
-                          {new Intl.NumberFormat("es-CR", {
-                            style: "currency",
-                            currency: "CRC",
-                            maximumFractionDigits: 0,
-                            minimumFractionDigits: 0,
-                          }).format(
-                            Number(element!.price) -
-                              Number(element!.price) * (element!.desc / 100)
-                          )}
-                        </p>
-                        <p
-                          className="text-xs font-semibold line-through ml-1"
-                          style={{ color: "#393939", marginTop: "2px" }}
-                        >
-                          {new Intl.NumberFormat("es-CR", {
-                            style: "currency",
-                            currency: "CRC",
-                            maximumFractionDigits: 0,
-                            minimumFractionDigits: 0,
-                          }).format(Number(element!.price))}
-                        </p>
-                      </div>
-                    ) : (
-                      <p
-                        className="text-base md:text-sm font-semibold"
-                        style={{ color: "#393939" }}
-                      >
-                        {new Intl.NumberFormat("es-CR", {
-                          style: "currency",
-                          currency: "CRC",
-                          maximumFractionDigits: 0,
-                          minimumFractionDigits: 0,
-                        }).format(Number(element!.price))}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <button className="btn btn-block btn-sm absolute left-0 right-0 bottom-0 top-0 m-auto w-3/4 transform translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300 bg-gray-400">
-                block
-              </button>
+                  </button>
+               
+             
             </div>
 
             <BannerSpecial color={""}></BannerSpecial>

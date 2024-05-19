@@ -20,7 +20,7 @@ export const App =()=> {
    
     <Routes>
       <Route path="/" element={<LandingPage></LandingPage>}></Route>
-      <Route path="/store" element={<Store></Store> }></Route>
+      <Route path="/store/:page" element={<Store></Store> }></Route>
       <Route path="/profile" element={<Profile></Profile>}></Route> 
       <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
       <Route path="/checkout" element={<Checkout></Checkout>}> </Route>
