@@ -31,3 +31,17 @@
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
   }
+
+  
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+.group-hover\:opacity-100 {
+  opacity: 0;
+}
+.group:hover .group-hover\:translate-y-0 {
+  transform: translateY(0);
+}
+.group-hover\:translate-y-0 {
+  transform: translateY(4rem); /* Ajusta el valor según sea necesario */
+}

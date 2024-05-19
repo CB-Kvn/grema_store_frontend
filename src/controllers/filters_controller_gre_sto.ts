@@ -35,7 +35,7 @@ export const getProductsFilters = async (filters: DataFilter, selectedFilters: F
 
   _dispatch(update_products_filters_store({data: date_ready}))
 
-  _dispatch(set_top_num({num:Math.ceil(dataApi!.data.total/8)}))
+  _dispatch(set_top_num({num:Math.ceil(dataApi!.data.total/10)}))
 
 
 }

@@ -1,5 +1,3 @@
-
-
 import {
   addFavorities,
   removeFavorities,
@@ -10,7 +8,6 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { AlertMsg } from "./alert_gre_sto";
 import { BannerSpecial } from "./banner_special_gre_sto";
 import { Modal_Product } from "./modal_product_gre_sto";
-
 
 export const GridProducts = ({
   products,
@@ -38,7 +35,6 @@ export const GridProducts = ({
   //   element.checked = true;
   // };
 
-
   return (
     <>
       <div className="">
@@ -49,7 +45,7 @@ export const GridProducts = ({
         {products.map((element, index) => (
           <article
             key={index}
-            className="relative transform transition-transform duration-500 ease-in-out hover:scale-105"
+            className=" group relative transform transition-transform duration-500 ease-in-out hover:scale-105"
             style={{ animationDelay: `${index * 100}ms` }}
           >
             <div className="overflow-hidden">
@@ -391,97 +387,63 @@ export const GridProducts = ({
                 Sale
               </p>
             </div>
-            <div className="mt-2 block items-start justify-between">
-              <div className="h-16 lg:h-12">
-                <h3 className="text-xs font-semibold sm:text-base md:text-sm text-center">
+            <div className=" p-1 px-2 block items-start justify-between group relative bg-slate-50 bg-opacity-70">
+              <div className="h-16 lg:h-12 relative group-hover:opacity-0 transition-opacity duration-300">
+                <h3 className="text-xs font-semibold sm:text-base md:text-sm text-start">
                   <a href="#" title="" className="cursor-pointer">
                     {element.name}
                     <span className="absolute" aria-hidden="true"></span>
                   </a>
                 </h3>
-                <div className="flex justify-center mt-1">
+                <div className="flex justify-start mt-1">
                   <div className="inline-flex text-center">
-                    <p
-                      className="text-base md:text-sm font-semibold "
-                      style={{ color: "#393939" }}
-                    >
-                      {new Intl.NumberFormat("es-CR", {
-                        style: "currency",
-                        currency: "CRC",
-                      }).format(Number(element!.price))}
-                    </p>
                     {element.desc > 0 ? (
                       <div className="inline-flex">
-                        <svg
-                          className="my-1 mx-2"
-                          width="15px"
-                          height="15px"
-                          viewBox="0 -2.5 20 20"
-                          version="1.1"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="#000000"
-                          transform="matrix(1, 0, 0, -1, 0, 0)"
-                        >
-                          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                          <g
-                            id="SVGRepo_tracerCarrier"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></g>
-                          <g id="SVGRepo_iconCarrier">
-                            {" "}
-                            <title>arrow_right_up [#291]</title>{" "}
-                            <desc>Created with Sketch.</desc> <defs> </defs>{" "}
-                            <g
-                              id="Page-1"
-                              stroke="none"
-                              stroke-width="1"
-                              fill="none"
-                              fill-rule="evenodd"
-                            >
-                              {" "}
-                              <g
-                                id="Dribbble-Light-Preview"
-                                transform="translate(-100.000000, -6882.000000)"
-                                fill="#000000"
-                              >
-                                {" "}
-                                <g
-                                  id="icons"
-                                  transform="translate(56.000000, 160.000000)"
-                                >
-                                  {" "}
-                                  <polygon
-                                    id="arrow_right_up-[#291]"
-                                    points="56 6722 56 6724 60.653 6724 54.354 6730.298 51.821 6727.765 44 6735.586 45.414 6737 51.821 6730.593 52.94 6731.713 52.937 6731.716 54.351 6733.13 62 6725.481 62 6730 64 6730 64 6722"
-                                  >
-                                    {" "}
-                                  </polygon>{" "}
-                                </g>{" "}
-                              </g>{" "}
-                            </g>{" "}
-                          </g>
-                        </svg>
-
                         <p
-                          className="text-base md:text-sm font-semibold  line-through"
+                          className="text-base md:text-sm font-semibold"
                           style={{ color: "#393939" }}
                         >
                           {new Intl.NumberFormat("es-CR", {
                             style: "currency",
                             currency: "CRC",
+                            maximumFractionDigits: 0,
+                            minimumFractionDigits: 0,
                           }).format(
                             Number(element!.price) -
                               Number(element!.price) * (element!.desc / 100)
                           )}
                         </p>
+                        <p
+                          className="text-xs font-semibold line-through ml-1"
+                          style={{ color: "#393939", marginTop: "2px" }}
+                        >
+                          {new Intl.NumberFormat("es-CR", {
+                            style: "currency",
+                            currency: "CRC",
+                            maximumFractionDigits: 0,
+                            minimumFractionDigits: 0,
+                          }).format(Number(element!.price))}
+                        </p>
                       </div>
                     ) : (
-                      <></>
+                      <p
+                        className="text-base md:text-sm font-semibold"
+                        style={{ color: "#393939" }}
+                      >
+                        {new Intl.NumberFormat("es-CR", {
+                          style: "currency",
+                          currency: "CRC",
+                          maximumFractionDigits: 0,
+                          minimumFractionDigits: 0,
+                        }).format(Number(element!.price))}
+                      </p>
                     )}
                   </div>
                 </div>
               </div>
+              <button className="btn btn-block btn-sm absolute left-0 right-0 bottom-0 top-0 m-auto w-3/4 transform translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300 bg-gray-400">
+                block
+              </button>
             </div>
 
             <BannerSpecial color={""}></BannerSpecial>
