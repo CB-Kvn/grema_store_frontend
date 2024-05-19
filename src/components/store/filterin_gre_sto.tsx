@@ -2,6 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 // import { useAppSelector } from "../../redux/store";
 import { Filter } from "../../interfaces/filters_interface_gre_sto"
+import { reset_pagination } from "../../redux/reducers_slices/pagination_gre_sto";
+import { useAppDispatch } from "../../redux/store";
 // import { useAppDispatch } from "../../redux/store";
 // import { getProductsFilters } from "../../controllers/filters_controller_gre_sto";
 export const Filtering = ({
@@ -17,7 +19,7 @@ export const Filtering = ({
   setSelectionFilter: React.Dispatch<React.SetStateAction<Filter>>
   filters:Filter
 }) => {
-  // const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch()
   // const login = useAppSelector((state) => state.login);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -36,6 +38,7 @@ export const Filtering = ({
   };
 
   const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>, type: keyof Filter) => {
+    dispatch(reset_pagination())
     const { value, checked } = event.target;
     setSelectionFilter((prevFilters) => {
       const updatedFilters = prevFilters[type].map((filter) => 

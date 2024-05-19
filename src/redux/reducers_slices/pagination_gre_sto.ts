@@ -7,7 +7,7 @@ interface CounterState {
 }
 
 const initialState: CounterState = {
-  value: 0,
+  value: 1,
   top:1,
 };
 
@@ -17,7 +17,7 @@ export const PaginationSlice = createSlice({
   reducers: {
     increment(state) {
       
-        if(state.value != (state.top-1)){
+        if(state.value != (state.top)){
             state.value += 1;
         }
       
