@@ -20,14 +20,14 @@ export const getFilters = async (dispatch: any) => {
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getProductsFilters = async (filters: DataFilter, selectedFilters: Filter, _dispatch: any) => {
+export const getProductsFilters = async (filters: DataFilter, selectedFilters: Filter, _dispatch: any, pagination:number) => {
 
 
 
   const data = parseFiltersToApi(filters, selectedFilters)
   
 
-  const dataApi = await getProductFilters(data! as DataFilter,"");
+  const dataApi = await getProductFilters(data! as DataFilter,"",pagination);
 
   console.log(dataApi)
 

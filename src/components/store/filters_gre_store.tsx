@@ -3,7 +3,7 @@ import { Dialog,  Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 // import { MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import "./store_styles.css";
-import { getAll } from "../../controllers/products_controller_gre_sto";
+// import { getAll } from "../../controllers/products_controller_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 // import {
 //   getProductsFilters,
@@ -25,7 +25,7 @@ export const Filters = () => {
   const login = useAppSelector((state) => state.login);
   const filters = useAppSelector((state) => state.filters.dataFilter);
   const products = useAppSelector((state) => state.products.dataProducts);
-
+  const pagination = useAppSelector((state) => state.pagination.value);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   const initialFilters: Filter = {
@@ -58,7 +58,7 @@ export const Filters = () => {
 
   useEffect(() => {
     
-    getProductsFilters(filters,selectionFilters,dispatch)
+    getProductsFilters(filters,selectionFilters,dispatch,pagination)
   }, [selectionFilters]);
 
 
@@ -72,7 +72,7 @@ export const Filters = () => {
 
   useEffect(() => {
     loginFlow();
-    getAll(dispatch, login);
+     
   }, []);
 
   return (
