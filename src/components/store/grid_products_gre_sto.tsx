@@ -197,7 +197,7 @@ export const GridProducts = ({
                 rel="noopener noreferrer"
               >
                 <button className="btn  btn-sm absolute left-0 right-0 bottom-0 w-3/4 top-0 m-auto transform translate-y-4 opacity-0 border-2 border-[#9E577A] hover:border-[#9E577A] group-hover:opacity-100 group-hover:translate-y-0 transition duration-300 bg-[#F6DAEF] hover:bg-[#E6B0D4]"
-                onClick={selectedProduct(element,dispatch)} >
+                onClick={()=> selectedProduct(element,dispatch)} >
                   Comprar
                   <svg
                     width="15px"
