@@ -59,12 +59,13 @@ export interface FiltersTo {
         categoria: string[];
     },
     dataSearch:{
-        color:     string[];
-        tam:       string[];
-        forma:     string[];
-        material:  string[];
-        categoria: string[];
-    }
+        color:     valuesFilters[];
+        tam:       valuesFilters[];
+        forma:     valuesFilters[];
+        material:  valuesFilters[];
+        categoria: valuesFilters[];
+    },
+    change: boolean
 
 
     

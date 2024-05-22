@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 export const BannerPrincipal = () => {
-  
-  return (
+
+ return (
     <>
       <div
         className={`hero min-h-screen transition-opacity duration-1000`}
@@ -30,9 +30,10 @@ export const BannerPrincipal = () => {
               Haz que tus recuerdos duren para siempre con nuestra bisuteria
               elegante y hermosa.
             </p>
-            <Link to={"/store"}>
+            <Link to={`/store/1`}>
             <button
               className="btn bg-nav border-nav"
+             
             >
               Ir a la tienda
             </button>

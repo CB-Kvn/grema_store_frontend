@@ -37,7 +37,7 @@ export const LoginSlice = createSlice({
             state.success = action.payload.data.success
         },
         refresh_token: (state, action: RefreskToken) => {
-            console.log(action.payload)
+        
             state.token = action.payload.data.token!
         },
         update_information:(state,action)=>{

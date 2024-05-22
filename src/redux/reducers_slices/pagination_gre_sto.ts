@@ -24,7 +24,7 @@ export const PaginationSlice = createSlice({
     },
     decrement(state) {
       
-        if(state.value != (0)){
+        if(state.value != (1)){
             state.value -= 1;
         }
       
@@ -32,9 +32,11 @@ export const PaginationSlice = createSlice({
     set_top_num : (state, action)=>{
         state.top = action.payload.num
     },
-    reset_pagination(state) {
-      state.value = initialState.value;
-    }
+    reset_pagination(state,action) {
+      state.value = Number(action.payload.value);
+    },
+    
+
     
   }
 });

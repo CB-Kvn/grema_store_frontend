@@ -8,31 +8,28 @@ import { Footer } from "./components/landing/footer_gre_sto";
 import { Checkout } from "./pages/checkout_page_gre_sto";
 import { BtnFloat } from "./components/btn flotante/btn_float_gre_sto";
 import { useAppSelector } from "./redux/store";
-
-
-
-export const App =()=> {
-
+import { ProductDetailStore } from "./pages/product_detail_store_gre_sto";
+export const App = () => {
   const loader = useAppSelector((state) => state.handler.loader_visible.show);
+  
 
   return (
     <>
    
-    <Routes>
-      <Route path="/" element={<LandingPage></LandingPage>}></Route>
-      <Route path="/store" element={<Store></Store> }></Route>
-      <Route path="/profile" element={<Profile></Profile>}></Route> 
-      <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
-      <Route path="/checkout" element={<Checkout></Checkout>}> </Route>
-      <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}> </Route>
-    </Routes>
-      
+        <Routes>
+          <Route path="/" element={<LandingPage></LandingPage>}></Route>
+          <Route path="/store/:page" element={<Store></Store>}></Route>
+          <Route path="/store-product/:inventoryId" element={<ProductDetailStore></ProductDetailStore>}></Route>
+          <Route path="/profile" element={<Profile></Profile>}></Route>
+          <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
+          <Route path="/checkout" element={<Checkout></Checkout>}></Route>
+          <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
+        </Routes>
+    
 
-    <BtnFloat></BtnFloat>
-    <Footer></Footer>
-    { loader ? <Loader></Loader> : <></>}
-    
+      <BtnFloat></BtnFloat>
+      <Footer></Footer>
+      {loader ? <Loader></Loader> : <></>}
     </>
-    
   );
-}
+};

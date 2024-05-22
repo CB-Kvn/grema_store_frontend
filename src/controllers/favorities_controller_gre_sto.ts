@@ -14,7 +14,7 @@ export const addFavorities = async (dispatch:any,info:Favorites_Carts,login:Logi
             name: info.name!,
             productId: info.productId
         }
-    console.log((data))
+    
        
     const body:Favorites_Carts = {
             id : data.id,
@@ -31,9 +31,9 @@ export const addFavorities = async (dispatch:any,info:Favorites_Carts,login:Logi
             return
         }
     
-        const response = await addFavoritiesService(body,login.token)
+        await addFavoritiesService(body,login.token)
     
-        console.log(response)
+       
     } catch (error) {
         console.log(error)
     }
@@ -61,9 +61,9 @@ export const removeFavorities = async (dispatch:any,data: string ,login:LoginIni
 
         if(idLove === undefined) return
 
-        const response = await removeFavoritiesService(idLove.id,login.token)
+        await removeFavoritiesService(idLove.id,login.token)
         
-        console.log(response)
+        
 
     } catch (error) {
         console.log(error)

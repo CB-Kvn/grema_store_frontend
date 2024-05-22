@@ -1,3 +1,4 @@
+
 import { DataFilter, Filter} from "../interfaces/filters_interface_gre_sto";
 import { add_filters_list } from "../redux/reducers_slices/filters_gre_sto_slice";
 import { set_top_num } from "../redux/reducers_slices/pagination_gre_sto";
@@ -12,7 +13,7 @@ export const getFilters = async (dispatch: any) => {
     const data = await getAllFilters();
 
     dispatch(add_filters_list({color:data?.data.color,tam:data?.data.size,forma:data?.data.shape,material:data?.data.material,categoria:data?.data.category}))
-
+    return {color:data?.data.color,tam:data?.data.size,forma:data?.data.shape,material:data?.data.material,categoria:data?.data.category}
   } catch (error) {
     console.log(error);
   }
@@ -20,16 +21,15 @@ export const getFilters = async (dispatch: any) => {
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getProductsFilters = async (filters: DataFilter, selectedFilters: Filter, _dispatch: any, pagination:number) => {
-
-
-
-  const data = parseFiltersToApi(filters, selectedFilters)
+export const getProductsFilters = async ( selectedFilters: Filter, _dispatch: any, pagination:number) => {
+  
+  
+  const data = parseFiltersToApi(selectedFilters)
   
 
   const dataApi = await getProductFilters(data! as DataFilter,"",pagination);
 
-  console.log(dataApi)
+ 
 
   const date_ready = parseProducts(dataApi!);
 

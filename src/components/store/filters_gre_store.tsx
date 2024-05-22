@@ -1,48 +1,30 @@
 import { Fragment, useEffect, useState } from "react";
-import { Dialog,  Menu, Transition } from "@headlessui/react";
+import { Dialog, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-// import { MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import "./store_styles.css";
-// import { getAll } from "../../controllers/products_controller_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-// import {
-//   getProductsFilters,
-// } from "../../controllers/filters_controller_gre_sto";
-// import { Filter } from "../../interfaces/filters_interface_gre_sto";
 import { GridProducts } from "./grid_products_gre_sto";
 import {
   loginController,
   loginRefreshController,
 } from "../../controllers/login_controller_gre_sto";
 import { Filtering } from "./filterin_gre_sto";
-import { Filter } from "../../interfaces/filters_interface_gre_sto";
 import { Pagination } from "./pagination_gre_sto";
-import { getProductsFilters } from "../../controllers/filters_controller_gre_sto";
-// import { getAllProducts } from "../../services/products_service_gre_sto";
+
 
 export const Filters = () => {
   const dispatch = useAppDispatch();
   const login = useAppSelector((state) => state.login);
   const filters = useAppSelector((state) => state.filters.dataFilter);
   const products = useAppSelector((state) => state.products.dataProducts);
-  const pagination = useAppSelector((state) => state.pagination.value);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  const initialFilters: Filter = {
-    color: [],
-    tam: [],
-    forma: [],
-    material: [],
-    categoria: []
-  };
-  const [selectionFilters, setSelectionFilter] = useState<Filter>(initialFilters);
- 
+
   const handlerGuestOpen = () => {
     const element = document.querySelector("#my_modal_3") as HTMLInputElement;
     element.checked = true;
   };
   const loginFlow = () => {
-    console.log(login);
     if (login.success == false && login.type === "") {
       handlerGuestOpen();
       loginController(dispatch, "", "");
@@ -55,24 +37,29 @@ export const Filters = () => {
       loginRefreshController(dispatch, login);
     }
   };
+  
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   console.log("page");
+  //   filter("page");
+  //   getProductsFilters(filters, filtersUrl, dispatch, Number(page!));
+  // }, [change]);
+
+  // useEffect(() => {
+  //   console.log("filter");
     
-    getProductsFilters(filters,selectionFilters,dispatch,pagination)
-  }, [selectionFilters,pagination]);
-
-
+  //   filter("filter");
+  //   getProductsFilters(filters, filtersUrl, dispatch, Number(page!));
+  // }, [change]);
 
   useEffect(() => {
     if (login.success === true) {
       // getAll(dispatch, login);
-      
     }
   }, [login]);
 
   useEffect(() => {
     loginFlow();
-     
   }, []);
 
   return (
@@ -202,14 +189,34 @@ export const Filters = () => {
               </button>
               <h1>Filtrar:</h1>
           </div> */}
-        
+
           <div className="flex flex-col lg:flex-row  justify-center border-b border-t mt-20 mb-6">
             <div className="flex justify-center flex-wrap gap-0 lg:gap-0 lg:flex-nowrap lg:space-x-4  lg:mb-0">
-              <Filtering name="Categoria" type="categories" list = {filters.categoria} setSelectionFilter={setSelectionFilter} filters={selectionFilters}  />
-              <Filtering name="Color" type="color" list = {filters.color} setSelectionFilter={setSelectionFilter} filters={selectionFilters}  />
-              <Filtering name="Forma" type="shapes" list = {filters.forma} setSelectionFilter={setSelectionFilter} filters={selectionFilters}   />
-              <Filtering name="Largo" type="size" list = {filters.tam} setSelectionFilter={setSelectionFilter} filters={selectionFilters}  />
-              <Filtering name="Material" type="material"  list = {filters.material} setSelectionFilter={setSelectionFilter} filters={selectionFilters}  />
+              <Filtering
+                name="Categoria"
+                type="categories"
+                list={filters.categoria}
+              />
+              <Filtering
+                name="Color"
+                type="color"
+                list={filters.color}
+              />
+              <Filtering
+                name="Forma"
+                type="shapes"
+                list={filters.forma}
+              />
+              <Filtering
+                name="Largo"
+                type="size"
+                list={filters.tam}
+              />
+              <Filtering
+                name="Material"
+                type="material"
+                list={filters.material}
+              />
             </div>
 
             <div className="flex items-center">
@@ -263,12 +270,10 @@ export const Filters = () => {
                   </div>
                 </div>
               </div>
-              
             </div>
             <div className="flex justify-center mt-10">
-            <Pagination></Pagination>
+              <Pagination></Pagination>
             </div>
-           
           </section>
         </main>
       </div>
