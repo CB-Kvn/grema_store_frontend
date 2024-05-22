@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Filter } from "../interfaces/filters_interface_gre_sto";
 import { reset_pagination } from "../redux/reducers_slices/pagination_gre_sto";
 
@@ -35,7 +36,7 @@ export const filter = (source: string,filtersUrl:Filter,dispatch:any,pagination:
           });
           
           navigate(`/store/${pagination}?${searchParams.toString()}`, {
-            replace: true,
+            replace: false,
           });
           break;
         }
@@ -67,8 +68,8 @@ export const filter = (source: string,filtersUrl:Filter,dispatch:any,pagination:
               searchParams.append("tam", tam.value);
             }
           });
-          navigate(`/store/${pagination}?${searchParams.toString()}`, {
-            replace: true,
+          navigate(`/store/1?${searchParams.toString()}`, {
+            replace: false,
           });
           break;
         }

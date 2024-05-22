@@ -9,6 +9,9 @@ import {
 import { useLocation, useParams } from "react-router-dom";
 import { add_url_filters } from "../redux/reducers_slices/filters_gre_sto_slice";
 import { reset_pagination } from "../redux/reducers_slices/pagination_gre_sto";
+import { Filters } from "../components/store/filters_gre_store";
+import { Carts } from "../components/store/carts_gre_sto";
+import { Carousel } from "../components/store/carousel_cat_gre_sto";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -17,12 +20,8 @@ const useQuery = () => {
 export const Store = () => {
   const dispatch = useAppDispatch();
   const { page } = useParams();
-  const history = useHistory();
   const query = useQuery();
-
-
-
-
+  const location = useLocation();
 
   useEffect(() => {
     const categoria = query.getAll("categoria");
@@ -62,7 +61,7 @@ export const Store = () => {
       console.log(page);
       getProductsFilters(filterUrls, dispatch, Number(page));
     }
-  }, [location.search, dispatch]);
+  }, [location, dispatch]);
 
   useEffect(() => {
     dispatch(loader_visible({ msg: "", show: true }));
@@ -80,8 +79,12 @@ export const Store = () => {
         backgroundSize: "cover",
       }}
     >
-      {" "}
       <MenuStore></MenuStore>
+      <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Carousel></Carousel>
+      </nav>
+      <Filters></Filters>
+      <Carts></Carts>
     </div>
   );
 };

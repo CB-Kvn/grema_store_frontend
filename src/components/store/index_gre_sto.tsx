@@ -5,22 +5,12 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { Filters } from "./filters_gre_store";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
-
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
-import { Carts } from "./carts_gre_sto";
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
-
 import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
-
-// import { DateHour } from "../../utils/date-hour";
-import { Alerts } from "../alerts/alerts_guest_gre_sto";
-import { Carousel } from "./carousel_cat_gre_sto";
-// import { getProductsFilters } from "../../controllers/filters_controller_gre_sto";
-// import { Carousel } from "./carousel_cat_gre_sto";
 
 const navigation = {
   categories: [
@@ -104,10 +94,8 @@ function classNames(...classes: string[]) {
 export const MenuStore = () => {
   const login = useAppSelector((state) => state.login);
   const total = useAppSelector((state) => state.shopcar.suma);
-  const modalAlert = useAppSelector((state)=>state.handler.modal_alert.type)
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
-  
 
   const handlingBannerCommercial = () => {
     setOpen(false);
@@ -119,8 +107,8 @@ export const MenuStore = () => {
     dispatch(shopCart_visible({ show: open }));
   };
 
-
   return (
+    <>
     <div className="" id="store">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
@@ -324,8 +312,6 @@ export const MenuStore = () => {
               {/* Flyout menus */}
 
               <div className="ml-auto flex items-center">
-                
-
                 {/* Cart */}
 
                 <div className="ml-4 flow-root lg:ml-6">
@@ -354,27 +340,30 @@ export const MenuStore = () => {
                   <OptionProfile></OptionProfile>
                 ) : (
                   <>
-                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <>
-                    <label htmlFor="my_modal_7" className="btn btn-ghost">
-                      <div className="indicator">Ingresar</div>
-                    </label>
-                  </>
+                    <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                      <>
+                        <label htmlFor="my_modal_7" className="btn btn-ghost">
+                          <div className="indicator">Ingresar</div>
+                        </label>
+                      </>
 
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                      <span
+                        className="h-6 w-px bg-gray-200"
+                        aria-hidden="true"
+                      />
 
-                  <>
-                    <label
-                      htmlFor="my_modal_8"
-                      className="btn btn-ghost"
-                      onClick={() => {
-                        handleSignUp(true);
-                      }}
-                    >
-                      <div className="indicator">Crear cuenta</div>
-                    </label>
-                  </>
-                </div>
+                      <>
+                        <label
+                          htmlFor="my_modal_8"
+                          className="btn btn-ghost"
+                          onClick={() => {
+                            handleSignUp(true);
+                          }}
+                        >
+                          <div className="indicator">Crear cuenta</div>
+                        </label>
+                      </>
+                    </div>
                   </>
                 )}
               </div>
@@ -391,31 +380,13 @@ export const MenuStore = () => {
               {/* <li>Add Document</li> */}
             </ul>
           </div>
-          <Carousel></Carousel>
-        
+          
         </nav>
 
         <ModalLoginStore></ModalLoginStore>
         <ModalSign></ModalSign>
       </header>
-
-      <Filters></Filters>
-      <Carts></Carts>
-
-      {
-          modalAlert === "" ? <><Alerts
-          msg={{
-            msg1: "No estas logeado, continuaras como invitado",
-            msg2: "Recuerda que la informacion se guardara temporalmente!",
-            msg3: "Procura abrir una sesion",
-            msg4: "Continuar!",
-            type: "Init-store",
-          }}
-        ></Alerts>
-          </> : <></>
-      }
-
-      
     </div>
+    </>
   );
 };

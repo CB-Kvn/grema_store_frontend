@@ -5,9 +5,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
 
+
 export const MenuProfile = () => {
   const login = useAppSelector((state) => state.login);
-
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -168,16 +168,20 @@ export const MenuProfile = () => {
                 </div>
               </div>
             </div>
+
+           
             <div className="text-sm breadcrumbs">
               <ul>
-                <li>
-                  <a>Pagina Principal</a>
+                <li >
+                  <a onClick={()=>{console.log("Hola")}} >Pagina Principal</a>
                 </li>
                 <li>
                   <a>Perfil</a>
                 </li>
                 {/* <li>Add Document</li> */}
               </ul>
+
+              
             </div>
           </nav>
         </header>
