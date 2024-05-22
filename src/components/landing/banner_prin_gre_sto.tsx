@@ -30,7 +30,7 @@ export const BannerPrincipal = () => {
               Haz que tus recuerdos duren para siempre con nuestra bisuteria
               elegante y hermosa.
             </p>
-            <Link to={"/store"}>
+            <Link to={`/store/1`}>
             <button
               className="btn bg-nav border-nav"
             >

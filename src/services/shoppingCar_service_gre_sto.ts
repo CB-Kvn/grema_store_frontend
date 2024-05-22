@@ -12,8 +12,6 @@ export const addShoppingService = async (info:ProductSelect, token:string) => {
     
     try {
 
-        console.log(info)
-
 
         const url_filter = '/shopping/add-shopping'
         const response = await axios.post(url+url_filter,{id:info.id,userId:info.userId,productId:info.productId,quantyOrder:info.quantyOrder,type:"Shop"},{

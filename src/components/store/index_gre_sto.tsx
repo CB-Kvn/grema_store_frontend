@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment,useState } from "react";
 import { Dialog, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -19,6 +19,7 @@ import { ModalSign } from "./modal_sign_gre_sto";
 // import { DateHour } from "../../utils/date-hour";
 import { Alerts } from "../alerts/alerts_guest_gre_sto";
 import { Carousel } from "./carousel_cat_gre_sto";
+// import { getProductsFilters } from "../../controllers/filters_controller_gre_sto";
 // import { Carousel } from "./carousel_cat_gre_sto";
 
 const navigation = {
@@ -104,10 +105,9 @@ export const MenuStore = () => {
   const login = useAppSelector((state) => state.login);
   const total = useAppSelector((state) => state.shopcar.suma);
   const modalAlert = useAppSelector((state)=>state.handler.modal_alert.type)
-
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
-  // const [dateHour,setDateHour] = useState<string>('')
+  
 
   const handlingBannerCommercial = () => {
     setOpen(false);
@@ -119,14 +119,6 @@ export const MenuStore = () => {
     dispatch(shopCart_visible({ show: open }));
   };
 
-  // useEffect(() => {
-  //   const cl = setInterval(() => {
-  //     const date = DateHour()
-  //     setDateHour(date)
-  //   }, 1000);
-
-  //   return () => clearInterval(cl);
-  // }, []);
 
   return (
     <div className="" id="store">

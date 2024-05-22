@@ -19,7 +19,8 @@ const initialState: FiltersTo = {
         forma:[],
         material:[],
         categoria:[]
-    }
+    },
+    change: false
     
 }
 
@@ -99,11 +100,16 @@ export const FiltersSlice = createSlice({
             state.dataFilter.material = action.payload.material.map(((element:any)=>{return element.material}))
             state.dataFilter.categoria = action.payload.categoria.map(((element:any)=>{return element.name}))
         },
+        add_url_filters: (state, action) => {
+            state.dataSearch = action.payload.dataSearch
+        }
+
+        
 
 
     },
 })
 
-export const { add_filters_list,add_filter } = FiltersSlice.actions
+export const { add_filters_list,add_filter,add_url_filters } = FiltersSlice.actions
 
 export default FiltersSlice.reducer

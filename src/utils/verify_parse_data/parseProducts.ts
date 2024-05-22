@@ -8,7 +8,7 @@ export const parseProducts = (data: APIResponseProducts) => {
         return {
 
 
-            id: element.product.id,
+            id: element.id,
             quantity:element.quantity || 40,
             name: element.product.name,
             material: element.product.material,

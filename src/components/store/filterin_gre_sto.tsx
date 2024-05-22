@@ -1,31 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef, useState } from "react";
-// import { useAppSelector } from "../../redux/store";
-import { Filter } from "../../interfaces/filters_interface_gre_sto"
+import { Filter } from "../../interfaces/filters_interface_gre_sto";
+import { add_url_filters } from "../../redux/reducers_slices/filters_gre_sto_slice";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { getProductsFilters } from "../../controllers/filters_controller_gre_sto";
 import { reset_pagination } from "../../redux/reducers_slices/pagination_gre_sto";
-import { useAppDispatch } from "../../redux/store";
-// import { useAppDispatch } from "../../redux/store";
-// import { getProductsFilters } from "../../controllers/filters_controller_gre_sto";
+import { filter } from "../../utils/navigate";
+import { useNavigate } from "react-router-dom";
 export const Filtering = ({
   name,
   type,
   list,
-  setSelectionFilter,
-  filters
 }: {
-  name: string
-  type: string
-  list: string[]
-  setSelectionFilter: React.Dispatch<React.SetStateAction<Filter>>
-  filters:Filter
+  name: string;
+  type: string;
+  list: string[];
 }) => {
-  const dispatch = useAppDispatch()
-  // const login = useAppSelector((state) => state.login);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  // const filters = useAppSelector((state) => state.filters)
-  
+  const selectionFilters = useAppSelector((state) => state.filters.dataSearch);
+  const pagination = useAppSelector((state) => state.pagination.value);
+  const dispatch = useAppDispatch();
   const toggleDropdown = () => setIsOpen(!isOpen);
+  const navigate = useNavigate();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -37,24 +34,35 @@ export const Filtering = ({
     }
   };
 
-  const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>, type: keyof Filter) => {
-    dispatch(reset_pagination())
+  const handleCheckbox = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    type: keyof Filter
+  ) => {
     const { value, checked } = event.target;
-    setSelectionFilter((prevFilters) => {
-      const updatedFilters = prevFilters[type].map((filter) => 
-        filter.value === value ? { ...filter, checked } : filter
-      );
-      
-      if (!updatedFilters.some(filter => filter.value === value)) {
-        updatedFilters.push({ value, checked });
-      }
 
-      return { ...prevFilters, [type]: updatedFilters };
-    });
+    const updatedFilters = selectionFilters[type].map((filter) =>
+      filter.value === value ? { ...filter, checked } : filter
+    );
+
+    if (!updatedFilters.some((filter) => filter.value === value) && checked) {
+      updatedFilters.push({ value, checked });
+    }
+
+    const newFilters = {
+      ...selectionFilters,
+      [type]: updatedFilters.filter((filter) => filter.checked),
+    };
+
+    dispatch(add_url_filters({ dataSearch: newFilters }));
+    dispatch(reset_pagination({ value: 1 }));
+    getProductsFilters(newFilters, dispatch, 1);
+    filter("filter", newFilters, dispatch, pagination, navigate);
   };
 
   const isChecked = (type: keyof Filter, value: string): boolean => {
-    return filters[type].some((element) => element.value === value && element.checked);
+    return selectionFilters[type].some(
+      (element) => element.value === value && element.checked
+    );
   };
 
   useEffect(() => {
@@ -148,14 +156,15 @@ export const Filtering = ({
                       </svg>
                     </i>
                     <span className="label-text">Sets</span>
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("categoria","Sets")}
-                    value="Sets"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"categoria");
-                    }}
-                     />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("categoria", "Sets")}
+                      value="Sets"
+                      onChange={(e) => {
+                        handleCheckbox(e, "categoria");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -189,13 +198,15 @@ export const Filtering = ({
                       </svg>
                     </i>
                     <span className="label-text">Anillos</span>
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm" 
-                    checked={isChecked("categoria","Anillos")}
-                    value="Anillos"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"categoria");
-                    }}/>
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("categoria", "Anillos")}
+                      value="Anillos"
+                      onChange={(e) => {
+                        handleCheckbox(e, "categoria");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -232,13 +243,14 @@ export const Filtering = ({
                       </svg>
                     </i>
                     <span className="label-text">Collares</span>
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm" 
-                    checked={isChecked("categoria","Collares")}
-                    value="Collares"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"categoria");
-                    }}
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("categoria", "Collares")}
+                      value="Collares"
+                      onChange={(e) => {
+                        handleCheckbox(e, "categoria");
+                      }}
                     />
                   </label>
                 </div>
@@ -339,13 +351,15 @@ export const Filtering = ({
                       </svg>
                     </i>
                     <span className="label-text">Aretes</span>
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm" 
-                    checked={isChecked("categoria","Aretes")}
-                    value="Aretes"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"categoria");
-                    }}/>
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("categoria", "Aretes")}
+                      value="Aretes"
+                      onChange={(e) => {
+                        handleCheckbox(e, "categoria");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -475,13 +489,15 @@ export const Filtering = ({
                       </svg>
                     </i>
                     <span className="label-text">Pulseras</span>
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm" 
-                    checked={isChecked("categoria","Pulseras")}
-                    value="Pulseras"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"categoria");
-                    }}/>
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("categoria", "Pulseras")}
+                      value="Pulseras"
+                      onChange={(e) => {
+                        handleCheckbox(e, "categoria");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -503,13 +519,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Negro")}
-                    value="Negro"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }} />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Negro")}
+                      value="Negro"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -524,13 +542,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Blanco")}
-                    value="Blanco"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }} />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Blanco")}
+                      value="Blanco"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -545,13 +565,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Gris")}
-                    value="Gris"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }}  />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Gris")}
+                      value="Gris"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -566,13 +588,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Rojo")}
-                    value="Rojo"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }} />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Rojo")}
+                      value="Rojo"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -587,13 +611,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Naranja")}
-                    value="Naranja"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }} />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Naranja")}
+                      value="Naranja"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -608,14 +634,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Amarillo")}
-                    value="Amarillo"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }} 
-                     />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Amarillo")}
+                      value="Amarillo"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -630,13 +657,14 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm" 
-                    checked={isChecked("color","Verde")}
-                    value="Verde"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }} 
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Verde")}
+                      value="Verde"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
                     />
                   </label>
                 </div>
@@ -652,14 +680,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Azul")}
-                    value="Azul"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }}
-                     />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Azul")}
+                      value="Azul"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -674,13 +703,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Morado")}
-                    value="Morado"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }} />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Morado")}
+                      value="Morado"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -695,13 +726,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Rosado")}
-                    value="Rosado"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }} />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Rosado")}
+                      value="Rosado"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -716,13 +749,15 @@ export const Filtering = ({
                       </i>
                     </div>
 
-                    <input type="checkbox" 
-                    className="checkbox  checkbox-sm"
-                    checked={isChecked("color","Cafe")}
-                    value="Cafe"
-                    onChange={(e)=>{
-                      handleCheckbox(e,"color");
-                    }} />
+                    <input
+                      type="checkbox"
+                      className="checkbox  checkbox-sm"
+                      checked={isChecked("color", "Cafe")}
+                      value="Cafe"
+                      onChange={(e) => {
+                        handleCheckbox(e, "color");
+                      }}
+                    />
                   </label>
                 </div>
               </div>
@@ -750,11 +785,11 @@ export const Filtering = ({
                           <input
                             type="checkbox"
                             className="checkbox  checkbox-sm"
-                            checked={isChecked("forma",element)}
+                            checked={isChecked("forma", element)}
                             value={element}
-                            onChange={(e)=>{
-                              handleCheckbox(e,"forma");
-                            }} 
+                            onChange={(e) => {
+                              handleCheckbox(e, "forma");
+                            }}
                           />
                         </label>
                       </div>
@@ -786,11 +821,11 @@ export const Filtering = ({
                           <input
                             type="checkbox"
                             className="checkbox  checkbox-sm"
-                            checked={isChecked("tam",element)}
+                            checked={isChecked("tam", element)}
                             value={element}
-                            onChange={(e)=>{
-                              handleCheckbox(e,"tam");
-                            }} 
+                            onChange={(e) => {
+                              handleCheckbox(e, "tam");
+                            }}
                           />
                         </label>
                       </div>
@@ -822,11 +857,11 @@ export const Filtering = ({
                           <input
                             type="checkbox"
                             className="checkbox  checkbox-sm"
-                            checked={isChecked("material",element)}
+                            checked={isChecked("material", element)}
                             value={element}
-                            onChange={(e)=>{
-                              handleCheckbox(e,"material");
-                            }} 
+                            onChange={(e) => {
+                              handleCheckbox(e, "material");
+                            }}
                           />
                         </label>
                       </div>
