@@ -40,8 +40,8 @@ export const ProductDetail = ({
       <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <section className="">
           <div className="container mx-auto px-4">
-            <div className="lg:col-gap-12 xl:col-gap-16  grid grid-cols-1 xxs:grid-cols-2 xxs:gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5">
-              <div className="lg:col-span-3 lg:row-end-1">
+            <div className=" grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5">
+              <div className="col-span-2 sm:mx-auto sm:col-span-1 md:col-span-1 lg:col-span-3 lg:row-end-1">
                 <div className="lg:flex lg:items-start">
                   <div className="lg:order-2 lg:ml-5">
                     <div className="max-w-screen-xxxs overflow-hidden rounded-lg">
@@ -102,7 +102,7 @@ export const ProductDetail = ({
                 </div>
               </div>
 
-              <div className="mt-6 md:col-span-1  lg:col-span-2 lg:row-span-2 lg:row-end-2 sm:0 md:ml-10  xxs:ml-2">
+              <div className="mt-6 col-span-2 sm:col-span-1   md:col-span-1  lg:col-span-2 lg:row-span-2 lg:row-end-2 sm:0 md:ml-10 sm:mt-0 xxs:ml-14">
                 <h1
                   className="md: text-4xl font-bold text-gray-900 lg:text-4xl"
                   style={{
@@ -644,7 +644,7 @@ export const ProductDetail = ({
                 </div>
               </div>
 
-              <div className="col-span-2 lg:col-span-3">
+              <div className="col-span-2 sm:col-span-3 lg:col-span-4">
                 <div className="border-b border-gray-300">
                   <nav className="flex gap-4">
                     <a
