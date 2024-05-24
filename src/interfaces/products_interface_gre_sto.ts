@@ -75,5 +75,10 @@ export interface ProductSelect {
     images:string[]
     quantyOrder?:number
     type?:string
+    color?: string
+    shape?: string
+    category?: string
+    material?:  string
+    tam?:string
   
   }
