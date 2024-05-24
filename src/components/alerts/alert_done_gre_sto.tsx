@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useEffect, useRef } from "react";
 import { useAppDispatch } from "../../redux/store";
-import { loader_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
+import { alert_type, loader_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 
-export const AlertDone = () => {
+export const AlertDone = ({component,loading}:{component:React.Dispatch<React.SetStateAction<React.ElementType<any> | null>>,loading:React.Dispatch<React.SetStateAction<boolean>>}) => {
     const audioRef = useRef<HTMLAudioElement>(null);
     const dispatch = useAppDispatch()
   useEffect(() => {
@@ -30,7 +31,7 @@ export const AlertDone = () => {
           
         </p>
         <div className="mt-8 flex flex-col justify-center space-y-3 sm:flex-row sm:space-x-3 sm:space-y-0">
-          <button className="whitespace-nowrap rounded-md bg-emerald-500 px-4 py-3 font-medium text-white">
+          <button className="whitespace-nowrap rounded-md bg-emerald-500 px-4 py-3 font-medium text-white" onClick={()=>{component(null),loading(true),dispatch(alert_type({ type: "" }));}}>
             Si, volver
           </button>
         </div>

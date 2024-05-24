@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
+import { alert_type } from "../../redux/reducers_slices/handler_gre_sto_slice";
+import { useAppDispatch } from "../../redux/store";
 
 
 
-export const AlertDelete = () => {
+export const AlertDelete = ({component,loading}:{component:React.Dispatch<React.SetStateAction<React.ElementType<any> | null>>,loading:React.Dispatch<React.SetStateAction<boolean>>}) => {
   const audioRef = useRef<HTMLAudioElement>(null);
-  
+  const dispatch = useAppDispatch()
   useEffect(() => {
     
    
@@ -68,10 +70,10 @@ export const AlertDelete = () => {
           <span className="truncate font-medium">James Keyser</span>?
         </p>
         <div className="mt-8 flex flex-col justify-center space-y-3 sm:flex-row sm:space-x-3 sm:space-y-0">
-          <button className="whitespace-nowrap rounded-md bg-red-500 px-4 py-3 font-medium text-white">
+          <button className="whitespace-nowrap rounded-md bg-red-500 px-4 py-3 font-medium text-white" onClick={()=>{component(null),loading(true),dispatch(alert_type({ type: "" }));}}>
             Si, eliminar
           </button>
-          <button className="whitespace-nowrap rounded-md bg-gray-200 px-4 py-3 font-medium">
+          <button className="whitespace-nowrap rounded-md bg-gray-200 px-4 py-3 font-medium" onClick={()=>{component(null),loading(true),dispatch(alert_type({ type: "" }));}}>
             Cancelar
           </button>
         </div>
