@@ -1,5 +1,4 @@
 import { useState } from "react";
-;
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
 import { addSelectionOrder } from "../../controllers/shopCar_controller_gre_sto";

@@ -85,6 +85,7 @@ export const Store = () => {
       </nav>
       <Filters></Filters>
       <Carts></Carts>
+      
     </div>
   );
 };

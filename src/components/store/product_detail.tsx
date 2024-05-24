@@ -2,14 +2,22 @@
 
 import { useEffect, useState } from "react";
 import { BannerSpecial } from "./banner_special_gre_sto";
+import { Alert } from "../alerts/alert_modal_gre_sto";
+import { alert_type } from "../../redux/reducers_slices/handler_gre_sto_slice";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { addSelectionOrder } from "../../controllers/shopCar_controller_gre_sto";
+import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
 
 export const ProductDetail = ({
   productSelected,
 }: {
   productSelected: any;
 }) => {
+  const dispatch = useAppDispatch();
+  const login = useAppSelector((state)=>state.login)
   const [counter, setCounter] = useState<number>(0);
   const [photo, setPhoto] = useState<string>("");
+  const alert = useAppSelector((state)=>state.handler.alert.type)
   const Increment = () => {
     let num = 0;
     num = counter + 1;
@@ -25,16 +33,20 @@ export const ProductDetail = ({
     }
   };
 
-  const changeImage = (photo:string) => {
-    setPhoto(photo)
-  }
+  const changeImage = (photo: string) => {
+    setPhoto(photo);
+  };
+
+  const order = (data:ProductSelect,counter:number) =>{
+    addSelectionOrder(data,dispatch,counter,login)
+}
 
   useEffect(() => {
     if (productSelected && productSelected.images.length > 0) {
       setPhoto(productSelected.images[0]);
     }
-  }, [productSelected])
-  
+  }, [productSelected]);
+
   return (
     <>
       <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -45,14 +57,18 @@ export const ProductDetail = ({
                 <div className="lg:flex lg:items-start">
                   <div className="lg:order-2 lg:ml-5">
                     <div className="max-w-screen-xxxs overflow-hidden rounded-lg">
-                      {
-                        photo ? (<img
+                      {photo ? (
+                        <img
                           className="h-full w-full max-w-full object-cover"
                           src={photo}
                           alt=""
-                        />):(<></>)
-                      }
-                      <BannerSpecial type={productSelected.type}></BannerSpecial>
+                        />
+                      ) : (
+                        <></>
+                      )}
+                      <BannerSpecial
+                        type={productSelected.type}
+                      ></BannerSpecial>
                     </div>
                   </div>
 
@@ -61,7 +77,7 @@ export const ProductDetail = ({
                       <button
                         type="button"
                         className="btn flex-0 aspect-square mb-3 h-20 w-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center relative"
-                      onClick={()=>changeImage(productSelected?.images[0])}
+                        onClick={() => changeImage(productSelected?.images[0])}
                       >
                         {productSelected?.images[0] && (
                           <img
@@ -74,7 +90,7 @@ export const ProductDetail = ({
                       <button
                         type="button"
                         className="btn flex-0 aspect-square mb-3 h-20 w-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center relative"
-                        onClick={()=>changeImage(productSelected?.images[1])}
+                        onClick={() => changeImage(productSelected?.images[1])}
                       >
                         {productSelected?.images[1] && (
                           <img
@@ -87,7 +103,7 @@ export const ProductDetail = ({
                       <button
                         type="button"
                         className="btn flex-0 aspect-square mb-3 h-20 w-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center relative"
-                        onClick={()=>changeImage(productSelected?.images[2])}                      
+                        onClick={() => changeImage(productSelected?.images[2])}
                       >
                         {productSelected?.images[2] && (
                           <img
@@ -606,6 +622,7 @@ export const ProductDetail = ({
                 </div>
                 <div className="flex flex-col items-center space-y-4 border-b-[#9d567a] border-b-2 py-4 sm:flex-row sm:space-y-0">
                   <div className="flex items-end">
+                    <div className="block">
                     <h1 className="text-xl font-bold">
                       Precio :
                       {new Intl.NumberFormat("es-CR", {
@@ -619,28 +636,51 @@ export const ProductDetail = ({
                             (productSelected!.desc / 100)
                       )}
                     </h1>
+                    {
+                      productSelected.desc === 0 ? (<></>):(<p className="text-lg line-through ">
+                      Antes :
+                      {new Intl.NumberFormat("es-CR", {
+                        style: "currency",
+                        currency: "CRC",
+                        maximumFractionDigits: 0,
+                        minimumFractionDigits: 0,
+                      }).format(
+                        Number(productSelected!.precio)
+                      )}
+                    </p>)
+                    }
+                    
+                    </div>
+                    
                   </div>
-
-                  <button
-                    type="button"
-                    className=" btn inline-flex items-center sm:ml-10 justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
+                  <div
+                    
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="shrink-0 mr-3 h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
+                    <label
+                      htmlFor="my_modal_90"
+                      className="btn inline-flex items-center sm:ml-10 justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
+                      onClick={() => {
+                        dispatch(alert_type({ type: "add" }));
+                        order(productSelected,counter), setCounter(0)
+                      }}                   
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                      />
-                    </svg>
-                    Añadir
-                  </button>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="shrink-0 mr-3 h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                        />
+                      </svg>
+                      Añadir
+                    </label>
+                  </div>
                 </div>
               </div>
 
@@ -671,6 +711,10 @@ export const ProductDetail = ({
           </div>
         </section>
       </nav>
+      
+      <Alert typeAlert={alert}></Alert>
+      
+      
     </>
   );
 };

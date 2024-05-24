@@ -6,10 +6,8 @@ import {
 import { Favorites_Carts } from "../../interfaces/lovin_interface_gre_sto";
 import { ArrayParseProducts } from "../../interfaces/products_interface_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { AlertMsg } from "./alert_gre_sto";
 import { BannerSpecial } from "./banner_special_gre_sto";
 import { selectedProduct } from "../../controllers/store_controller_gre_sto";
-
 
 export const GridProducts = ({
   products,
@@ -19,7 +17,7 @@ export const GridProducts = ({
   const dispatch = useAppDispatch();
 
   const love = useAppSelector((state) => state.love.data);
-  const alert = useAppSelector((state) => state.handler.alert);
+
   const login = useAppSelector((state) => state.login);
   
 
@@ -32,9 +30,6 @@ export const GridProducts = ({
 
   return (
     <>
-      <div className="">
-        <AlertMsg type={alert.type}></AlertMsg>
-      </div>
 
       <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5 md:gap-4">
         {products.map((element, index) => (
@@ -449,9 +444,10 @@ export const GridProducts = ({
             <BannerSpecial type={element.typeDesc}></BannerSpecial>
           </article>
         ))}
+
       </div>
 
-    
+
     </>
   );
 };
