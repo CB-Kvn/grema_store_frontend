@@ -20,9 +20,9 @@ export const getAll = async (dispatch:any,login:LoginInit, page:number) => {
   }
 };
 
-export const getUniqueProduct = async (dispatch:any,login:LoginInit, page:number,productId:string) => {
+export const getUniqueProduct = async (dispatch:any,productId:string) => {
   try {
-    const data = await getUniqueProductService(login.token,page,productId);
+    const data = await getUniqueProductService(productId);
     console.log(data)
     const date_ready = parseProductUnique(data!);
 

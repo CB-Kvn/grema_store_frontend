@@ -9,7 +9,7 @@ import { ProductDetail } from '../components/store/product_detail';
 
 export const ProductDetailStore = () => {
 
-  const login = useAppSelector((state)  =>  state.login) 
+   
   const productSelected = useAppSelector(
     (state) => state.products.dataSelected
   );
@@ -23,7 +23,7 @@ export const ProductDetailStore = () => {
   useEffect(() => {
     console.log(inventoryId)
     console.log(["Entrando"])
-    getUniqueProduct(dispatch,login,1,inventoryId!)
+    getUniqueProduct(dispatch,inventoryId!)
   }, [location,dispatch]);
 
   
