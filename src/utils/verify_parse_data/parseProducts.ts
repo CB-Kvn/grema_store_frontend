@@ -1,4 +1,5 @@
-import { APIResponseProducts, ArrayParseProducts,Inventory } from "../../interfaces/products_interface_gre_sto";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { APIResponseProducts, ArrayParseProducts,Inventory,} from "../../interfaces/products_interface_gre_sto";
 
 
 
@@ -23,6 +24,32 @@ export const parseProducts = (data: APIResponseProducts) => {
             description: element.product.description || "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dolore, iusto inventore vitae ullam recusandae facilis culpa id magni perspiciatis corporis error, aut qui odit atque quasi ipsa animi soluta!"
         }
     })
+
+    return products
+
+}
+
+
+export const parseProductUnique = (data: any) => {
+    console.log(data.data)
+
+    const products = {
+       
+            id: data.data.product.id,
+            productId:data.data.product.product.id ,
+            nombre: data.data.product.product.name,
+            precio: data.data.product.price,
+            quantyInv: data.data.product.quantity ,
+            desc: data.data.product.desc || 0,
+            description: data.data.product.product.description ,
+            images: data.data.product.image,
+            type: data.data.product.typeDesc,
+            color: data.data.product.product.color,
+            shape: data.data.product.product.shape,
+            material: data.data.product.product.material,
+            tam: data.data.product.product.size,
+    }
+   
 
     return products
 

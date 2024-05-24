@@ -8,8 +8,8 @@ import { ArrayParseProducts } from "../../interfaces/products_interface_gre_sto"
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { AlertMsg } from "./alert_gre_sto";
 import { BannerSpecial } from "./banner_special_gre_sto";
-import { Modal_Product } from "./modal_product_gre_sto";
 import { selectedProduct } from "../../controllers/store_controller_gre_sto";
+
 
 export const GridProducts = ({
   products,
@@ -21,9 +21,7 @@ export const GridProducts = ({
   const love = useAppSelector((state) => state.love.data);
   const alert = useAppSelector((state) => state.handler.alert);
   const login = useAppSelector((state) => state.login);
-  const productSelected = useAppSelector(
-    (state) => state.products.dataSelected
-  );
+  
 
   const handleLovinArticle = (info: Favorites_Carts) => {
     addFavorities(dispatch, info, login);
@@ -31,11 +29,6 @@ export const GridProducts = ({
   const handleUnLovinArticle = (data: string) => {
     removeFavorities(dispatch, data, login, love);
   };
-  // const handleModalProduct = async (data: ArrayParseProducts) => {
-  //   await selectedProduct(data, dispatch);
-  //   const element = document.querySelector("#my_modal_10") as HTMLInputElement;
-  //   element.checked = true;
-  // };
 
   return (
     <>
@@ -454,12 +447,12 @@ export const GridProducts = ({
               </Link>
             </div>
 
-            <BannerSpecial color={""}></BannerSpecial>
+            <BannerSpecial type={element.typeDesc}></BannerSpecial>
           </article>
         ))}
       </div>
 
-      {!productSelected ? <></> : <Modal_Product></Modal_Product>}
+    
     </>
   );
 };

@@ -1,26 +1,26 @@
-export const BannerSpecial = ({ color }: { color: string }) => {
+export const BannerSpecial = ({ type }: { type: string }) => {
   return (
     <>
-      {color === "red" ? (
+      {type === "Oferta" ? (
         <div
           className="flex h-10 rounded-b-xl"
           style={{ background: "linear-gradient(to right, #f5b2b2, #f49d9d)" }}
         >
-          <p className="m-auto" style={{color: "#393939" }}>Grema-Store</p>
+          <p className="m-auto" style={{color: "white" }}>Grema-Store</p>
         </div>
-      ) : color === "green" ? (
+      ) : type === "Liquidacion" ? (
         <div
           className="flex h-10 rounded-b-xl"
           style={{ background: "linear-gradient(to right, #b2f5ea, #9df4d3)" }}
         >
-          <p className="m-auto" style={{color: "#393939" }}>Grema-Store</p>
+          <p className="m-auto" style={{color: "#393939" }}>Liquidacion</p>
         </div>
-      ) : color === "blue" ? (
+      ) : type === "Temporada" ? (
         <div
           className="flex h-10 rounded-b-xl"
           style={{ background: "linear-gradient(to right, #a0c4ff, #a0e9ff)" }}
         >
-          <p className="m-auto" style={{color: "#393939" }}>Grema-Store</p>
+          <p className="m-auto" style={{color: "#white" }}>Grema-Store</p>
         </div>
       ) : (
         <div
@@ -31,101 +31,6 @@ export const BannerSpecial = ({ color }: { color: string }) => {
         </div>
       )}
 
-      {/* <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 rounded-b-xl">
-        <div
-          className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-          aria-hidden="true"
-        >
-          <div
-            className="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#fde68a] to-[#ffb718] opacity-30"
-            style={{
-              clipPath:
-                "polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)",
-            }}
-          />
-        </div>
-        <div
-          className="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-          aria-hidden="true"
-        >
-          <div
-            className="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#fde68a] to-[#ffb718] opacity-30"
-            style={{
-              clipPath:
-                "polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)",
-            }}
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <p className="text-sm leading-6 text-gray-900">
-            <strong className="font-semibold">GeneriCon 2023</strong>
-          </p>
-        </div>
-      </div>
-
-      <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 rounded-b-xl">
-        <div
-          className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-          aria-hidden="true"
-        >
-          <div
-            className="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-red-500 to-red-700 opacity-30"
-            style={{
-              clipPath:
-                "polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)",
-            }}
-          />
-        </div>
-        <div
-          className="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-          aria-hidden="true"
-        >
-          <div
-            className="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-red-500 to-red-700 opacity-30"
-            style={{
-              clipPath:
-                "polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)",
-            }}
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <p className="text-sm leading-6 text-gray-900">
-            <strong className="font-semibold">GeneriCon 2023</strong>
-          </p>
-        </div>
-      </div>
-
-      <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 rounded-b-xl">
-        <div
-          className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-          aria-hidden="true"
-        >
-          <div
-            className="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-blue-500 to-blue-700 opacity-30"
-            style={{
-              clipPath:
-                "polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)",
-            }}
-          />
-        </div>
-        <div
-          className="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-          aria-hidden="true"
-        >
-          <div
-            className="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-blue-500 to-blue-700 opacity-30"
-            style={{
-              clipPath:
-                "polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)",
-            }}
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <p className="text-sm leading-6 text-gray-900">
-            <strong className="font-semibold">GeneriCon 2023</strong>
-          </p>
-        </div>
-      </div> */}
     </>
   );
 };

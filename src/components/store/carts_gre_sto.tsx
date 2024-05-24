@@ -1,16 +1,13 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect} from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { modal_type, shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { Link } from "react-router-dom";
-import { Alerts } from "../alerts/alerts_guest_gre_sto";
-// import { Alerts} from "../alerts/alerts_guest_gre_sto";
 
 export const Carts = () => {
   const dispatch = useAppDispatch();
-  const [id,setId] = useState<string>("")
-  const login = useAppSelector((state)=>state.login)
+
   const open = useAppSelector((state) => state.handler.shopCart_visible.show);
   const shoppingCar  = useAppSelector(
     (state) => state.shopcar
@@ -26,7 +23,7 @@ export const Carts = () => {
 
   const handleCartShoppingRemove = (id:string)=>{
     handlerOpen()
-    setId(id)
+    console.log(id)
     dispatch(shopCart_visible({ show: false }));
   }
 
@@ -252,15 +249,6 @@ export const Carts = () => {
         </Dialog>
         
       </Transition.Root>
-      <Alerts msg={{
-        msg1:"Quieres eliminar el articulo de la bolsa?",
-        msg2:"",
-        msg3:"",
-        msg4:"Eliminar!",
-        id:id,
-        type:"alert-eliminar-cart",
-        login:login
-      }}></Alerts> 
     </>
   );
 };
