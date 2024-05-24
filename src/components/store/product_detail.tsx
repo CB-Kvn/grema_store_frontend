@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BannerSpecial } from "./banner_special_gre_sto";
 
 export const ProductDetail = ({
   productSelected,
@@ -8,7 +9,7 @@ export const ProductDetail = ({
   productSelected: any;
 }) => {
   const [counter, setCounter] = useState<number>(0);
-
+  const [photo, setPhoto] = useState<string>("");
   const Increment = () => {
     let num = 0;
     num = counter + 1;
@@ -16,7 +17,6 @@ export const ProductDetail = ({
       setCounter(num);
     }
   };
-
   const Decrement = () => {
     if (counter > 0) {
       let num = 0;
@@ -24,6 +24,17 @@ export const ProductDetail = ({
       setCounter(num);
     }
   };
+
+  const changeImage = (photo:string) => {
+    setPhoto(photo)
+  }
+
+  useEffect(() => {
+    if (productSelected && productSelected.images.length > 0) {
+      setPhoto(productSelected.images[0]);
+    }
+  }, [productSelected])
+  
   return (
     <>
       <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -34,11 +45,14 @@ export const ProductDetail = ({
                 <div className="lg:flex lg:items-start">
                   <div className="lg:order-2 lg:ml-5">
                     <div className="max-w-screen-xxxs overflow-hidden rounded-lg">
-                      <img
-                        className="h-full w-full max-w-full object-cover"
-                        src={productSelected?.images[0]}
-                        alt=""
-                      />
+                      {
+                        photo ? (<img
+                          className="h-full w-full max-w-full object-cover"
+                          src={photo}
+                          alt=""
+                        />):(<></>)
+                      }
+                      <BannerSpecial type={productSelected.type}></BannerSpecial>
                     </div>
                   </div>
 
@@ -46,33 +60,42 @@ export const ProductDetail = ({
                     <div className="flex flex-row items-start lg:flex-col">
                       <button
                         type="button"
-                        className="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center"
+                        className="btn flex-0 aspect-square mb-3 h-20 w-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center relative"
+                      onClick={()=>changeImage(productSelected?.images[0])}
                       >
-                        <img
-                          className="h-full w-full object-cover"
-                          src={productSelected?.images[1]}
-                          alt=""
-                        />
+                        {productSelected?.images[0] && (
+                          <img
+                            className="absolute inset-0 h-full w-full object-cover"
+                            src={productSelected.images[0]}
+                            alt="Producto"
+                          />
+                        )}
                       </button>
                       <button
                         type="button"
-                        className="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center"
+                        className="btn flex-0 aspect-square mb-3 h-20 w-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center relative"
+                        onClick={()=>changeImage(productSelected?.images[1])}
                       >
-                        <img
-                          className="h-full w-full object-cover"
-                          src={productSelected?.images[2]}
-                          alt=""
-                        />
+                        {productSelected?.images[1] && (
+                          <img
+                            className="absolute inset-0 h-full w-full object-cover"
+                            src={productSelected.images[1]}
+                            alt="Producto"
+                          />
+                        )}
                       </button>
                       <button
                         type="button"
-                        className="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center"
+                        className="btn flex-0 aspect-square mb-3 h-20 w-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center relative"
+                        onClick={()=>changeImage(productSelected?.images[2])}                      
                       >
-                        <img
-                          className="h-full w-full object-cover"
-                          src={productSelected?.images[3]}
-                          alt=""
-                        />
+                        {productSelected?.images[2] && (
+                          <img
+                            className="absolute inset-0 h-full w-full object-cover"
+                            src={productSelected.images[2]}
+                            alt="Producto"
+                          />
+                        )}
                       </button>
                     </div>
                   </div>
@@ -550,9 +573,7 @@ export const ProductDetail = ({
 
                 <div className="mt-10 flex flex-col items-center space-y-4 border-t-2 border-y-[#9d567a] border-b-2 py-4 sm:flex-row sm:space-y-0">
                   <div className="flex items-end">
-                    <h1 className="text-base">
-                      Ordenar : 
-                    </h1>
+                    <h1 className="text-base">Ordenar :</h1>
                   </div>
                   <div className="inline-flex ml-3">
                     <div className="flex items-center">
@@ -582,12 +603,11 @@ export const ProductDetail = ({
                       </button>
                     </div>
                   </div>
-
                 </div>
                 <div className="flex flex-col items-center space-y-4 border-b-[#9d567a] border-b-2 py-4 sm:flex-row sm:space-y-0">
                   <div className="flex items-end">
                     <h1 className="text-xl font-bold">
-                      Precio : 
+                      Precio :
                       {new Intl.NumberFormat("es-CR", {
                         style: "currency",
                         currency: "CRC",
@@ -600,7 +620,6 @@ export const ProductDetail = ({
                       )}
                     </h1>
                   </div>
-                  
 
                   <button
                     type="button"
@@ -625,14 +644,10 @@ export const ProductDetail = ({
                 </div>
               </div>
 
-
-              
-
               <div className="col-span-2 lg:col-span-3">
                 <div className="border-b border-gray-300">
                   <nav className="flex gap-4">
                     <a
-                      
                       title=""
                       className="border-b-2 border-gray-900 py-4 text-lg font-medium text-gray-900 hover:border-gray-400 hover:text-gray-800"
                     >
@@ -647,7 +662,6 @@ export const ProductDetail = ({
                 </div>
 
                 <div className=" flow-root mt-7">
-              
                   <p className="mt-4 text-base text-justify">
                     {productSelected.description}
                   </p>

@@ -447,7 +447,7 @@ export const GridProducts = ({
               </Link>
             </div>
 
-            <BannerSpecial color={""}></BannerSpecial>
+            <BannerSpecial type={element.typeDesc}></BannerSpecial>
           </article>
         ))}
       </div>

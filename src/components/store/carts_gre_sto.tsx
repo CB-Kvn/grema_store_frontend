@@ -252,15 +252,6 @@ export const Carts = () => {
         </Dialog>
         
       </Transition.Root>
-      <Alerts msg={{
-        msg1:"Quieres eliminar el articulo de la bolsa?",
-        msg2:"",
-        msg3:"",
-        msg4:"Eliminar!",
-        id:id,
-        type:"alert-eliminar-cart",
-        login:login
-      }}></Alerts> 
     </>
   );
 };
