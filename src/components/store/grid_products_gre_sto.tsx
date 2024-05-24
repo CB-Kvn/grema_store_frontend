@@ -132,10 +132,10 @@ export const GridProducts = ({
             <div className=" p-1 px-2 block items-start justify-between group relative bg-slate-50 bg-opacity-70">
               <div className="h-16 lg:h-12 relative group-hover:opacity-0 transition-opacity duration-300">
                 <h3 className="text-xs font-semibold sm:text-base md:text-sm text-start">
-                  <a href="#" title="" className="cursor-pointer">
+                  <div className="cursor-pointer">
                     {element.name}
                     <span className="absolute" aria-hidden="true"></span>
-                  </a>
+                  </div>
                 </h3>
                 <div className="flex justify-start mt-1">
                   <div className="inline-flex text-center">
