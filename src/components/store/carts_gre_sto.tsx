@@ -1,42 +1,39 @@
-import { Fragment, useEffect} from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { modal_type, shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
+import {
+  alert_type,
+  shopCart_visible,
+} from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export const Carts = () => {
   const dispatch = useAppDispatch();
 
   const open = useAppSelector((state) => state.handler.shopCart_visible.show);
-  const shoppingCar  = useAppSelector(
-    (state) => state.shopcar
-  );
+  const shoppingCar = useAppSelector((state) => state.shopcar);
 
   const handleCartShopping = (open: boolean) => {
     dispatch(shopCart_visible({ show: open }));
   };
   const handlerOpen = () => {
-    const element = document.querySelector("#my_modal_3") as HTMLInputElement;
+    const element = document.querySelector("#my_modal_6") as HTMLInputElement;
     element.checked = true;
   };
 
-  const handleCartShoppingRemove = (id:string)=>{
-    handlerOpen()
-    console.log(id)
-    dispatch(shopCart_visible({ show: false }));
-  }
+  const handleCartShoppingRemove = () => {
+    dispatch(alert_type({ type: "delete" }));
+    handlerOpen();
 
-  useEffect(() => {
-    dispatch(modal_type({type:"alert-eliminar-cart"}))
-    
-  }, [])
-  
+    dispatch(shopCart_visible({ type: [false] }));
+  };
+
 
   return (
     <>
       {" "}
-      
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
@@ -56,7 +53,7 @@ export const Carts = () => {
           >
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </Transition.Child>
-         
+
           <div className="fixed inset-0 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
@@ -73,7 +70,6 @@ export const Carts = () => {
                     <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                       <div className=" justify-center ml-4 flex lg:ml-0 mt-8">
                         <a href="#">
-                        
                           <img
                             className="w-64 h-24 "
                             src="https://grema-store-frontend.vercel.app/images/logoH.png"
@@ -107,7 +103,6 @@ export const Carts = () => {
                             </button>
                           </div>
                         </div>
-                        
 
                         <div className="mt-8">
                           <div className="flow-root">
@@ -135,7 +130,8 @@ export const Carts = () => {
                                           <a>{product.nombre}</a>
                                         </h3>
                                         <p className="ml-4">
-                                         ₡ {product.precio -
+                                          ₡{" "}
+                                          {product.precio -
                                             product.precio *
                                               (product.desc / 100)}
                                         </p>
@@ -153,7 +149,7 @@ export const Carts = () => {
                                         <button
                                           type="button"
                                           className="font-medium Remove"
-                                          onClick={()=>{handleCartShoppingRemove(product.id)}}
+                                          // onClick={()=>{handleCartShoppingRemove(product.id)}}
                                         >
                                           <aside>
                                             <svg
@@ -224,31 +220,30 @@ export const Carts = () => {
                         <p className="mt-0.5 text-sm text-gray-500">
                           Shipping and taxes calculated at checkout.
                         </p>
-                        <div className="mt-6">
-                          <Link to={"/checkout"}>
-                          <a
-                            
-                            className="flex items-center justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium Check"
+                        
+                          <div
+                            className="mt-6"
+                            onClick={() => handleCartShoppingRemove()}
                           >
-                            Proceder a pagar
-                          </a>
-                          </Link>
+                            <Link to={"/checkout"}> 
+                             <a className="flex items-center justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium Check">
+                              Proceder a pagar
+                            </a> 
+                            </Link>
+                          </div>
+                         
                           
-                        </div>
                       </div>
-                      
                     </div>
-                    
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
             </div>
             
           </div>
-          
         </Dialog>
-        
       </Transition.Root>
+      
     </>
   );
 };

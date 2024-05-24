@@ -51,11 +51,8 @@ const initialState = {
     },
     alert:{
         type:"",
+        enable:false
     },
-    modal_alert:{
-        type:""
-    },
-    
 
     
 }
@@ -106,16 +103,14 @@ export const HandlersSlice = createSlice({
         },
         alert_type:(state,action)=>{
             state.alert.type = action.payload.type
-            
+            state.alert.enable = action.payload.enable
         },
-        modal_type:(state,action)=>{
-            state.modal_alert.type = action.payload.type
-        }
+
 
 
     },
 })
 
-export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify,password_confirm,counter_page,add_personal_info,add_address_info,add_profile_info,alert_type,modal_type } = HandlersSlice.actions
+export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify,password_confirm,counter_page,add_personal_info,add_address_info,add_profile_info,alert_type } = HandlersSlice.actions
 
 export default HandlersSlice.reducer

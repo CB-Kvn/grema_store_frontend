@@ -220,9 +220,43 @@ export const AmountCheck = () => {
                 </p>
               </div>
             </div>
-            <button className="btn btn-block mt-3 bg-[#9C5478] text-white hover:text-[#9C5478]">
-              Realizar orden
-            </button>
+
+            <div className="mt-6 flex items-center justify-between">
+              <label
+                htmlFor="my_modal_90"
+                className="btn btn-block inline-flex items-center  justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
+              >
+                <svg
+                  viewBox="0 0 1024 1024"
+                  className="icon h-5 w-5"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#000000"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M182.87 146.29h585.14v292.57h73.14V73.14H109.72v877.72h402.29v-73.15H182.87z"
+                      fill="#ffffff"
+                    ></path>
+                    <path
+                      d="M713.14 481.52L512 582.1v88.24c0 110.29 62.31 211.11 160.95 260.43l40.19 20.09 40.19-20.09c98.64-49.32 160.95-150.14 160.95-260.43V582.1L713.14 481.52z m128 188.81c0 83.12-46.18 157.84-120.52 195.01l-7.48 3.74-7.48-3.74c-74.34-37.17-120.52-111.9-120.52-195.01V627.3l128-64 128 64v43.03z"
+                      fill="#ffffff"
+                    ></path>
+                    <path
+                      d="M657.87 683.21l-36.33 41.11 93.25 82.43 113.93-131.09-41.39-36L709.69 729zM256 256h438.86v73.14H256zM256 438.86h292.57V512H256zM256 621.71h146.29v73.14H256z"
+                      fill="#ffffff"
+                    ></path>
+                  </g>
+                </svg>
+                Realizar orden
+              </label>
+            </div>
           </div>
         </div>
       </div>

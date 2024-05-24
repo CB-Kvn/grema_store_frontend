@@ -6,7 +6,7 @@ import { MenuProfile } from "../components/profile/menu_profile_gre_sto";
 import { Account } from "../components/profile/account_gre_sto";
 import { ProfileSendOrderInformation } from "../components/profile/send_order_information_gre_sto";
 import { UserCard } from "../components/profile/user_card_gre_sto";
-// import { TabsProfile } from "../components/profile/tabsProfile";
+
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
@@ -35,6 +35,7 @@ export const Profile = () => {
             <ProfileSendOrderInformation></ProfileSendOrderInformation>
           </div>
         </div>
+        
       </div>
     </>
   );
