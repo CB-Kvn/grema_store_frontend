@@ -20,17 +20,14 @@ export const Filters = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
 
-  const handlerGuestOpen = () => {
-    const element = document.querySelector("#my_modal_3") as HTMLInputElement;
-    element.checked = true;
-  };
+  
   const loginFlow = () => {
     if (login.success == false && login.type === "") {
-      handlerGuestOpen();
+      // handlerGuestOpen();
       loginController(dispatch, "", "");
     }
     if (login.success == true && login.type === "guest") {
-      handlerGuestOpen();
+      // handlerGuestOpen();
       loginRefreshController(dispatch, login);
     }
     if (login.success === true && login.type === "inscript") {
@@ -38,19 +35,6 @@ export const Filters = () => {
     }
   };
   
-
-  // useEffect(() => {
-  //   console.log("page");
-  //   filter("page");
-  //   getProductsFilters(filters, filtersUrl, dispatch, Number(page!));
-  // }, [change]);
-
-  // useEffect(() => {
-  //   console.log("filter");
-    
-  //   filter("filter");
-  //   getProductsFilters(filters, filtersUrl, dispatch, Number(page!));
-  // }, [change]);
 
   useEffect(() => {
     if (login.success === true) {

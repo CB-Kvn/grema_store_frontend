@@ -14,7 +14,7 @@ export const MenuProfile = () => {
   const handleSignUp = (open: boolean) => {
     dispatch(new_user_form({ show: open }));
   };
-
+  
   return (
     <>
       <div className=" mt-8" id="store">
