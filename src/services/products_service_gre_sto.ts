@@ -28,7 +28,7 @@ export const getAllProducts = async (token:string,page:number) => {
 }
 
 
-export const getUniqueProductService = async (token:string,page:number,productId:string) => {
+export const getUniqueProductService = async (productId:string) => {
 
     try {
 
