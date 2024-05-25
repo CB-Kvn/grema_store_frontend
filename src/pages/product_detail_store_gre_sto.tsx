@@ -30,6 +30,15 @@ export const ProductDetailStore = () => {
     }, 1500);
   }, [location,dispatch]);
 
+  useEffect(() => {
+    dispatch(loader_visible({ msg: "", show: true }));
+
+    setTimeout(() => {
+      dispatch(loader_visible({ msg: "", show: false }));
+    }, 1500);
+  }, []);
+
+
   
   return (
     <div

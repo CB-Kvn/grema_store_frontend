@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef } from "react";
 import { alert_type } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { useAppDispatch } from "../../redux/store";
