@@ -8,16 +8,15 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { addSelectionOrder } from "../../controllers/shopCar_controller_gre_sto";
 import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
 
-export const ProductDetail = ({
-  productSelected,
-}: {
-  productSelected: any;
-}) => {
+export const ProductDetail = () => {
   const dispatch = useAppDispatch();
   const login = useAppSelector((state)=>state.login)
   const [counter, setCounter] = useState<number>(0);
   const [photo, setPhoto] = useState<string>("");
   const alert = useAppSelector((state)=>state.handler.alert.type)
+  const productSelected = useAppSelector(
+    (state) => state.products.dataSelected
+  );
   const Increment = () => {
     let num = 0;
     num = counter + 1;
@@ -67,7 +66,7 @@ export const ProductDetail = ({
                         <></>
                       )}
                       <BannerSpecial
-                        type={productSelected.type}
+                        type={productSelected!.type!}
                       ></BannerSpecial>
                     </div>
                   </div>
@@ -77,7 +76,7 @@ export const ProductDetail = ({
                       <button
                         type="button"
                         className="btn flex-0 aspect-square mb-3 h-20 w-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center relative"
-                        onClick={() => changeImage(productSelected?.images[0])}
+                        onClick={() => changeImage(productSelected!.images[0])}
                       >
                         {productSelected?.images[0] && (
                           <img
@@ -90,7 +89,7 @@ export const ProductDetail = ({
                       <button
                         type="button"
                         className="btn flex-0 aspect-square mb-3 h-20 w-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center relative"
-                        onClick={() => changeImage(productSelected?.images[1])}
+                        onClick={() => changeImage(productSelected!.images[1])}
                       >
                         {productSelected?.images[1] && (
                           <img
@@ -103,7 +102,7 @@ export const ProductDetail = ({
                       <button
                         type="button"
                         className="btn flex-0 aspect-square mb-3 h-20 w-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center relative"
-                        onClick={() => changeImage(productSelected?.images[2])}
+                        onClick={() => changeImage(productSelected!.images[2])}
                       >
                         {productSelected?.images[2] && (
                           <img
@@ -161,7 +160,7 @@ export const ProductDetail = ({
                         </g>
                       </svg>
                     </i>
-                    {productSelected.shape}
+                    {productSelected!.shape}
                     <i className="mx-3">
                       <svg
                         viewBox="0 0 24 24"
@@ -187,7 +186,7 @@ export const ProductDetail = ({
                         </g>
                       </svg>
                     </i>
-                    {productSelected.tam}
+                    {productSelected!.tam}
                     <i className="mx-3">
                       <svg
                         fill="#9B5176"
@@ -495,7 +494,7 @@ export const ProductDetail = ({
                         </g>
                       </svg>
                     </i>
-                    {productSelected.material}
+                    {productSelected!.material}
                   </li>
 
                   <li className="flex items-center text-left text-sm font-medium text-gray-600">
@@ -637,7 +636,7 @@ export const ProductDetail = ({
                       )}
                     </h1>
                     {
-                      productSelected.desc === 0 ? (<></>):(<p className="text-lg line-through ">
+                      productSelected!.desc === 0 ? (<></>):(<p className="text-lg line-through ">
                       Antes :
                       {new Intl.NumberFormat("es-CR", {
                         style: "currency",
@@ -661,7 +660,7 @@ export const ProductDetail = ({
                       className="btn inline-flex items-center sm:ml-10 justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
                       onClick={() => {
                         dispatch(alert_type({ type: "add" }));
-                        order(productSelected,counter), setCounter(0)
+                        order(productSelected!,counter), setCounter(0)
                       }}                   
                     >
                       <svg
@@ -703,7 +702,7 @@ export const ProductDetail = ({
 
                 <div className=" flow-root mt-7">
                   <p className="mt-4 text-base text-justify">
-                    {productSelected.description}
+                    {productSelected!.description}
                   </p>
                 </div>
               </div>
