@@ -1,35 +1,45 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import {
+
   alert_type,
   shopCart_visible,
 } from "../../redux/reducers_slices/handler_gre_sto_slice";
-import { Link } from "react-router-dom";
+// import { Alert } from "../alerts/alert_modal_gre_sto";
+// import { Alert } from "../alerts/alert_modal_gre_sto";
+// import { Alert } from "../alerts/alert_modal_gre_sto";
 // import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+export const handleCartShopping = (open: boolean,dispatch:any) => {
+  dispatch(shopCart_visible({ show: open }));
+};
 
 export const Carts = () => {
   const dispatch = useAppDispatch();
 
   const open = useAppSelector((state) => state.handler.shopCart_visible.show);
+  // const alert = useAppSelector((state) => state.handler.alert.type);
   const shoppingCar = useAppSelector((state) => state.shopcar);
+  
+  
 
-  const handleCartShopping = (open: boolean) => {
-    dispatch(shopCart_visible({ show: open }));
-  };
-  const handlerOpen = () => {
-    const element = document.querySelector("#my_modal_6") as HTMLInputElement;
-    element.checked = true;
-  };
+ 
+  // const handlerOpen = () => {
+  //   const element = document.querySelector("#my_modal_6") as HTMLInputElement;
+  //   element.checked = true;
+  // };
 
-  const handleCartShoppingRemove = () => {
-    dispatch(alert_type({ type: "delete" }));
-    handlerOpen();
+  // const handleCartShoppingRemove = () => {
+  //   dispatch(alert_type({ type: "delete" }));
+  //   handlerOpen();
 
-    dispatch(shopCart_visible({ type: [false] }));
-  };
+  //   dispatch(shopCart_visible({ type: [false] }));
+  // };
 
+ 
 
   return (
     <>
@@ -39,7 +49,7 @@ export const Carts = () => {
           as="div"
           className="relative z-10"
           onClose={() => {
-            handleCartShopping(false);
+            handleCartShopping(false,dispatch);
           }}
         >
           <Transition.Child
@@ -90,7 +100,7 @@ export const Carts = () => {
                               type="button"
                               className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
                               onClick={() => {
-                                handleCartShopping(false);
+                                handleCartShopping(false,dispatch);
                               }}
                             >
                               <span className="absolute -inset-0.5" />
@@ -220,30 +230,52 @@ export const Carts = () => {
                         <p className="mt-0.5 text-sm text-gray-500">
                           Shipping and taxes calculated at checkout.
                         </p>
-                        
-                          <div
+
+                        <label
+                          htmlFor="my_modal_90"
+                          className="btn inline-flex items-center sm:ml-10 justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
+                          onClick={() => {
+                            handleCartShopping(false,dispatch)
+                            dispatch(alert_type({ type: "zeroCart" }))
+                          
+                          }}
+                        >
+                          Proceder a pagar
+                        </label>
+
+                        {/* <div
                             className="mt-6"
-                            onClick={() => handleCartShoppingRemove()}
+                            onClick={() => {
+                              if(shoppingCar.data.length === 0){
+                                
+                              }
+                            }}
                           >
-                            <Link to={"/checkout"}> 
+                            
                              <a className="flex items-center justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium Check">
                               Proceder a pagar
                             </a> 
-                            </Link>
+                            
                           </div>
-                         
-                          
+                          */}
                       </div>
                     </div>
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
             </div>
+
+            
+            
+           
+              
+            
+          
+             
             
           </div>
         </Dialog>
       </Transition.Root>
-      
     </>
   );
 };

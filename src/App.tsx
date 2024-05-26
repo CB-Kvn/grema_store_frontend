@@ -10,9 +10,10 @@ import { BtnFloat } from "./components/btn flotante/btn_float_gre_sto";
 import { useAppSelector } from "./redux/store";
 import { ProductDetailStore } from "./pages/product_detail_store_gre_sto";
 
+
 export const App = () => {
   const loader = useAppSelector((state) => state.handler.loader_visible.show);
-
+  
   return (
     <>
    
