@@ -659,8 +659,13 @@ export const ProductDetail = () => {
                       htmlFor="my_modal_90"
                       className="btn inline-flex items-center sm:ml-10 justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
                       onClick={() => {
-                        dispatch(alert_type({ type: "add" }));
-                        order(productSelected!,counter), setCounter(0)
+                        if(counter === 0){
+                          dispatch(alert_type({ type: "zero" }));
+                        }else{
+                          dispatch(alert_type({ type: "add" }));
+                          order(productSelected!,counter), setCounter(0)
+                        }
+                        
                       }}                   
                     >
                       <svg

@@ -8,7 +8,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
-import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
+import {  shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
 
@@ -375,14 +375,13 @@ export const MenuStore = () => {
                 <a>Pagina Principal</a>
               </li>
               <li>
-                <a>Tienda</a>
+                <a >Tienda</a>
               </li>
               {/* <li>Add Document</li> */}
             </ul>
           </div>
           
         </nav>
-        
         <ModalLoginStore></ModalLoginStore>
         <ModalSign></ModalSign>
       </header>

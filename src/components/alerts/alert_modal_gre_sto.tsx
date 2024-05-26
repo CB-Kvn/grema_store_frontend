@@ -7,7 +7,13 @@ import { AlertDelete } from "./alert_delete_gre_sto";
 import { AlertDone } from "./alert_done_gre_sto";
 import { AlertAdd } from "./alert_add_gre_sto";
 import { useAppDispatch } from "../../redux/store";
-import { alert_type, loader_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
+import {
+  alert_type,
+  loader_visible,
+} from "../../redux/reducers_slices/handler_gre_sto_slice";
+import { AlertZero } from "./alert_zero_gre_sto";
+import { AlertZeroCart } from "./alert_zero_cart_gre_sto";
+// import { handleCartShopping } from "../store/carts_gre_sto";
 
 export const Alert = ({ typeAlert }: { typeAlert: string }) => {
   const [Component, setComponent] = useState<React.ElementType | null>(null);
@@ -15,30 +21,40 @@ export const Alert = ({ typeAlert }: { typeAlert: string }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(loader_visible({show: true }));
+    dispatch(loader_visible({ show: true }));
     setTimeout(() => {
       switch (typeAlert) {
-        case "delete":
+        case 'delete':
           setComponent(() => AlertDelete);
 
           break;
-        case "add":
+        case 'add':
           setComponent(() => AlertAdd);
 
           break;
-        case "done":
+        case 'done':
           setComponent(() => AlertDone);
 
           break;
+        case 'zero':
+          setComponent(() => AlertZero);
+          break;
+        case 'zeroCart':
+          setComponent(() => AlertZeroCart);
+          
+          break;
         default:
-          setComponent(() => null);
+          setComponent(null);
           break;
       }
-      dispatch(loader_visible({ msg: "", show: false }));
+      
+      dispatch(loader_visible({ msg: '', show: false }));
     }, 1500);
-
-    setLoading(false);
   }, [typeAlert]);
+
+  useEffect(() => {
+    setLoading(false);
+  }, [Component]);
 
   useEffect(() => {
     console.log(Component);
@@ -47,27 +63,29 @@ export const Alert = ({ typeAlert }: { typeAlert: string }) => {
   useEffect(() => {
     console.log(loading);
   }, [loading]);
-  
 
   return (
-    <div className="">
-      {!loading ? (
-        <div className="" >
+    <div>
+      {!loading && (
+        <div>
           <input type="checkbox" id="my_modal_90" className="modal-toggle" />
           <div className="modal" role="dialog">
-            <div
-              className= { Component ? "modal-box bg-white": "modal-box bg-transparent" }
-              
-            >
-              {Component ? <Component component={setComponent} loading= {setLoading}/> : <></>}
+            <div className={Component ? "modal-box bg-white" : "modal-box shadow-none bg-transparent"}>
+              {Component && <Component component={setComponent} loading={setLoading} />}
             </div>
-            <label className="modal-backdrop" htmlFor="my_modal_90" onClick={()=> {setComponent(null), setLoading(true),dispatch(alert_type({ type: "" }));}}>
+            <label
+              className="modal-backdrop"
+              htmlFor="my_modal_90"
+              onClick={() => {
+                setComponent(null)
+                setLoading(true)
+                dispatch(alert_type({ type: '' }))
+              }}
+            >
               Close
             </label>
           </div>
         </div>
-      ) : (
-        <></>
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { MenuStore } from "../components/store/index_gre_sto";
 import { loader_visible } from "../redux/reducers_slices/handler_gre_sto_slice";
-import { useAppDispatch } from "../redux/store";
+import { useAppDispatch, useAppSelector} from "../redux/store";
 import {
   getFilters,
   getProductsFilters,
@@ -12,6 +12,7 @@ import { reset_pagination } from "../redux/reducers_slices/pagination_gre_sto";
 import { Filters } from "../components/store/filters_gre_store";
 import { Carts } from "../components/store/carts_gre_sto";
 import { Carousel } from "../components/store/carousel_cat_gre_sto";
+import { Alert } from "../components/alerts/alert_modal_gre_sto";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -22,6 +23,7 @@ export const Store = () => {
   const { page } = useParams();
   const query = useQuery();
   const location = useLocation();
+  const alert = useAppSelector((state) => state.handler.alert.type);
 
   useEffect(() => {
     const categoria = query.getAll("categoria");
@@ -85,6 +87,9 @@ export const Store = () => {
       </nav>
       <Filters></Filters>
       <Carts></Carts>
+      
+      <Alert typeAlert={alert}></Alert>
+      
       
     </div>
   );
