@@ -1,21 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useRef } from "react";
+
 import { alert_type } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { useAppDispatch } from "../../redux/store";
 
 
 
 export const AlertDelete = ({component,loading}:{component:React.Dispatch<React.SetStateAction<React.ElementType<any> | null>>,loading:React.Dispatch<React.SetStateAction<boolean>>}) => {
-  const audioRef = useRef<HTMLAudioElement>(null);
+ 
   const dispatch = useAppDispatch()
-  useEffect(() => {
-    
-   
-    if (audioRef.current) {
-      audioRef.current.volume = 0.2;
-      audioRef.current.play();
-    }
-  }, []);
+ 
 
   return (
     <>
@@ -79,7 +72,7 @@ export const AlertDelete = ({component,loading}:{component:React.Dispatch<React.
           </button>
         </div>
       </div>
-      <audio ref={audioRef} src="/src/assets/coin-donation-2-180438.mp3" />
+    
     </>
   );
 };

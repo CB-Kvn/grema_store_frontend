@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useEffect, useRef } from "react";
+import { useEffect} from "react";
 import { useAppDispatch } from "../../redux/store";
 import { alert_type, loader_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 
 export const AlertDone = ({component,loading}:{component:React.Dispatch<React.SetStateAction<React.ElementType<any> | null>>,loading:React.Dispatch<React.SetStateAction<boolean>>}) => {
-    const audioRef = useRef<HTMLAudioElement>(null);
+  
     const dispatch = useAppDispatch()
   useEffect(() => {
 
@@ -13,11 +13,6 @@ export const AlertDone = ({component,loading}:{component:React.Dispatch<React.Se
     setTimeout(() => {
       dispatch(loader_visible({ msg: "", show: false }));
     }, 1500);
-
-    if (audioRef.current) {
-      audioRef.current.volume = 0.2;
-      audioRef.current.play();
-    }
   }, []);
     
   return (
@@ -36,7 +31,7 @@ export const AlertDone = ({component,loading}:{component:React.Dispatch<React.Se
           </button>
         </div>
       </div>
-      <audio ref={audioRef} src="/src/assets/coin-donation-2-180438.mp3" />
+    
     </>
   );
 };
