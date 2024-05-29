@@ -15,7 +15,7 @@ export const BannerPrincipal = () => {
         <div className="hero-content text-center text-neutral-content bg-white bg-opacity-30 rounded-2xl">
           <div className="max-w-md">
             <h1
-              className="mb-5 text-5xl font-bold text-font-nav sm:text-7xl"
+              className="mb-5 sx:text-3xl  xxxs:text-4xl  xxs:text-5xl font-bold text-font-nav sm:text-7xl"
               style={{
                 fontFamily: "Dancing Script,cursive",
                 color: "#393939",
@@ -24,7 +24,7 @@ export const BannerPrincipal = () => {
               Bienvenidos a Grema Store
             </h1>
             <p
-              className="mb-5 text-2xl text-font-nav sm:text-xl"
+              className="mb-5 xxxs:text-md xxs:text-lg text-font-nav sm:text-2xl"
               style={{ color: "#393939" }}
             >
               Haz que tus recuerdos duren para siempre con nuestra bisuteria
