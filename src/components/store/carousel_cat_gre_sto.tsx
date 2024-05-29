@@ -22,8 +22,8 @@ export const Carousel = () => {
         loop={true}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        slidesPerView={2}
-        spaceBetween={20}
+        slidesPerView={1}
+        spaceBetween={25}
         breakpoints={{
           512: {
             slidesPerView: 2,
