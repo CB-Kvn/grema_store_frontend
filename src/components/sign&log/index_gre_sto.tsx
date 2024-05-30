@@ -2,6 +2,7 @@ import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { Login } from "./login_up_gre_sto";
 import { SignUp } from "./sign_up_gre_sto";
+import { images_background } from "../../utils/images_store.json"
 
 export const ModalLogin = () => {
   const changeForm = useAppSelector((state) => state.newUser);
@@ -85,7 +86,7 @@ export const ModalLogin = () => {
               className="modal-box"
               style={{
                 backgroundImage:
-                  "url(https://grema-store-frontend.vercel.app/images/backs3.png",
+                `url(${images_background[0]})`,
               }}
             >
               <SignUp location={""}></SignUp>

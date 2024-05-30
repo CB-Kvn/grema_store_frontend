@@ -2,7 +2,8 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { useState } from "react";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 import { loginController } from "../../controllers/login_controller_gre_sto";
-;
+import { images_logo } from "../../utils/images_store.json"
+
 
 // import { useDispatch } from "react-redux"
 // import { login_successful } from "../redux/reducers_slices/login_gre_sto_slice"
@@ -29,7 +30,7 @@ export const Login = ({ location }: { location: string }) => {
         <div className=" sm:mx-auto sm:w-full sm:max-w-6xl">
           <img
             className="mx-auto "
-            src="https://grema-store-frontend.vercel.app/images/logologo.png"
+            src={images_logo[2]}
             alt="Your Company"
           />
         </div>

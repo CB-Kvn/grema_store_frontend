@@ -8,11 +8,8 @@ import {
   alert_type,
   shopCart_visible,
 } from "../../redux/reducers_slices/handler_gre_sto_slice";
-// import { Alert } from "../alerts/alert_modal_gre_sto";
-// import { Alert } from "../alerts/alert_modal_gre_sto";
-// import { Alert } from "../alerts/alert_modal_gre_sto";
-// import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { images_logo } from "../../utils/images_store.json"
+
 export const handleCartShopping = (open: boolean,dispatch:any) => {
   dispatch(shopCart_visible({ show: open }));
 };
@@ -82,7 +79,7 @@ export const Carts = () => {
                         <a href="#">
                           <img
                             className="w-64 h-24 "
-                            src="https://grema-store-frontend.vercel.app/images/logoH.png"
+                            src={images_logo[0]}  
                             alt=""
                           />
                         </a>
@@ -227,13 +224,11 @@ export const Carts = () => {
                           <p>Subtotal</p>
                           <p>₡ {shoppingCar.total}</p>
                         </div>
-                        <p className="mt-0.5 text-sm text-gray-500">
-                          Shipping and taxes calculated at checkout.
-                        </p>
+    
 
                         <label
                           htmlFor="my_modal_90"
-                          className="btn inline-flex items-center sm:ml-10 justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
+                          className="btn  btn-block mt-5 inline-flex items-center  justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
                           onClick={() => {
                             handleCartShopping(false,dispatch)
                             dispatch(alert_type({ type: "zeroCart" }))

@@ -1,7 +1,6 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
+import { Swiper, SwiperSlide } from "swiper/react";
+import { images_categories } from "../../utils/images_store.json"
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -52,7 +51,7 @@ export const Carousel = () => {
           <div className="relative w-52 h-64">
             <img
               className="absolute inset-0 w-full h-full object-cover mask mask-squircle "
-              src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/d3yshwkdeplydtumxkxw"
+              src={images_categories[0]}
               alt="Imagen 1"
             />
             <div className="absolute inset-10 flex justify-center items-center ">
@@ -72,7 +71,7 @@ export const Carousel = () => {
           <div className="relative w-52 h-64">
             <img
               className="absolute inset-0 w-full h-full object-cover mask mask-squircle"
-              src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/bh324pdrocl5uz0y08ph"
+              src={images_categories[1]}
               alt="Imagen 1"
             />
             <div className="absolute inset-10 flex justify-center items-center">
@@ -92,8 +91,7 @@ export const Carousel = () => {
           <div className="relative w-52 h-64">
             <img
               className="absolute inset-0 w-full h-full object-cover mask mask-squircle"
-              src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/uw2qz0sp81wrus8lxfma"
-              alt="Imagen 1"
+              src={images_categories[2]}
             />
             <div className="absolute inset-10 flex justify-center items-center">
               <h1
@@ -112,8 +110,7 @@ export const Carousel = () => {
           <div className="relative w-52 h-64">
             <img
               className="absolute inset-0 w-full h-full object-cover mask mask-squircle"
-              src="https://res.cloudinary.com/denqtcsyy/image/upload/f_auto,q_auto/v1/photos-static-page/xkd4rszstm9pb8kv4ory"
-              alt="Imagen 1"
+              src={images_categories[3]}
             />
             <div className="absolute inset-10 flex justify-center items-center">
               <h1
@@ -132,7 +129,7 @@ export const Carousel = () => {
           <div className="relative w-52 h-64">
             <img
               className="absolute inset-0 w-full h-full object-cover mask mask-squircle"
-              src="https://grema-store-frontend.vercel.app/images/WhatsApp Image 2024-01-12 at 2.02.36 PM.jpeg"
+              src={images_categories[4]}
               alt="Imagen 1"
             />
             <div className="absolute inset-10 flex justify-center items-center">

@@ -2,6 +2,7 @@ import { Alert } from "../components/alerts/alert_modal_gre_sto";
 import { AmountCheck } from "../components/checkout/amount_check_gre_sto";
 import { ProductsCheck } from "../components/checkout/products_check_gre_sto";
 import { MenuProfile } from "../components/profile/menu_profile_gre_sto";
+import { images_background } from "../utils/images_store.json"
 
 export const Checkout = () => {
   return (
@@ -10,7 +11,7 @@ export const Checkout = () => {
         className=""
         style={{
           backgroundImage:
-            "url(https://grema-store-frontend.vercel.app/images/backs6.png",
+            `url(${images_background[2]})`,
           backgroundSize: "cover",
         }}
       >

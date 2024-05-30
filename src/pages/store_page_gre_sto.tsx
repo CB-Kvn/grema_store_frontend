@@ -13,6 +13,10 @@ import { Filters } from "../components/store/filters_gre_store";
 import { Carts } from "../components/store/carts_gre_sto";
 import { Carousel } from "../components/store/carousel_cat_gre_sto";
 import { Alert } from "../components/alerts/alert_modal_gre_sto";
+import { images_background } from "../utils/images_store.json"
+
+
+
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -77,7 +81,7 @@ export const Store = () => {
     <div
       style={{
         backgroundImage:
-          "url(https://grema-store-frontend.vercel.app/images/backs8.png",
+          `url(${images_background[1]})`,
         backgroundSize: "cover",
       }}
     >

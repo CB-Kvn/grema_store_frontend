@@ -6,6 +6,7 @@ import { MenuProfile } from "../components/profile/menu_profile_gre_sto";
 import { Account } from "../components/profile/account_gre_sto";
 import { ProfileSendOrderInformation } from "../components/profile/send_order_information_gre_sto";
 import { UserCard } from "../components/profile/user_card_gre_sto";
+import { images_background } from "../utils/images_store.json"
 
 
 export const Profile = () => {
@@ -23,7 +24,7 @@ export const Profile = () => {
         className=""
         style={{
           backgroundImage:
-            "url(https://grema-store-frontend.vercel.app/images/backs6.png",
+            `url(${images_background[2]})`,
           backgroundSize: "cover",
         }}
       >

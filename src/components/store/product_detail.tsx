@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { addSelectionOrder } from "../../controllers/shopCar_controller_gre_sto";
 import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
 
+
 export const ProductDetail = () => {
   const dispatch = useAppDispatch();
   const login = useAppSelector((state)=>state.login)
@@ -685,6 +686,8 @@ export const ProductDetail = () => {
                       Añadir
                     </label>
                   </div>
+
+
                 </div>
               </div>
 

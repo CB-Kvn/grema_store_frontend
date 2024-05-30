@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 import { OptionProfile } from "../navigation/option_profile_gre_sto";
+import { images_logo } from "../../utils/images_store.json"
 
 
 export const MenuProfile = () => {
@@ -119,14 +120,14 @@ export const MenuProfile = () => {
                     style={{ color: "#393939" }}
                   />
                 </button>
-
+                
                 {/* Logo */}
                 <div className="ml-4 flex lg:ml-0">
                   <a href="#">
                     <span className="sr-only">Your Company</span>
                     <img
                       className="w-64 h-24 "
-                      src="https://grema-store-frontend.vercel.app/images/logoH.png"
+                      src={images_logo[0]}  
                       alt=""
                     />
                   </a>

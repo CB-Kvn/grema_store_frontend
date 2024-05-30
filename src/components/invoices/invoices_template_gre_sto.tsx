@@ -1,4 +1,6 @@
 import "./styles.css";
+import { images_logo } from "../../utils/images_store.json"
+
 export const InvoiceTemplate = () => {
   return (
     <>
@@ -12,7 +14,7 @@ export const InvoiceTemplate = () => {
         </div>
         <div>
         <div className="image">
-          <img src="/src/assets/logologo.png" alt=""></img>
+          <img src={images_logo[2]} alt=""></img>
         </div>
         <div className="button">
           <a href="/" className="btn">

@@ -65,12 +65,12 @@ export const Alert = ({ typeAlert }: { typeAlert: string }) => {
   }, [loading]);
 
   return (
-    <div>
+    <div className="">
       {!loading && (
         <div>
           <input type="checkbox" id="my_modal_90" className="modal-toggle" />
           <div className="modal" role="dialog">
-            <div className={Component ? "modal-box bg-white" : "modal-box shadow-none bg-transparent"}>
+            <div className={Component ? "modal-box  bg-white" : "modal-box shadow-none bg-transparent"}>
               {Component && <Component component={setComponent} loading={setLoading} />}
             </div>
             <label

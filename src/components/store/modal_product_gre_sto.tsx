@@ -5,11 +5,9 @@ import { addSelectionOrder } from "../../controllers/shopCar_controller_gre_sto"
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
+import { images_background } from "../../utils/images_store.json"
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 import './style.css';
 
 
@@ -54,7 +52,7 @@ const login = useAppSelector((state)=> state.login)
     <>
       <input type="checkbox" id="my_modal_10" className="modal-toggle" />
       <div className="modal" role="dialog">
-        <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs8.png'}}>
+        <div className="modal-box" style={{backgroundImage:`url(${images_background[1]})`}}>
           <div className="grid justify-center w-full ">
 
           <Swiper

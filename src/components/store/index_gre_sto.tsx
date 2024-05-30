@@ -11,6 +11,7 @@ import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice
 import { shopCart_visible } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { ModalLoginStore } from "./modal_login_gre_sto";
 import { ModalSign } from "./modal_sign_gre_sto";
+import { images_logo } from "../../utils/images_store.json"
 
 const navigation = {
   categories: [
@@ -307,12 +308,12 @@ export const MenuStore = () => {
                     <span className="sr-only">Your Company</span>
                     <img
                       className="w-80 h-28 hidden sm:block"
-                      src="https://grema-store-frontend.vercel.app/images/logoH.png"
+                      src={images_logo[0]}  
                       alt=""
                     />
                     <img
                       className="w-36 h-36 block sm:hidden mx-auto"
-                      src="https://grema-store-frontend.vercel.app/images/logologo.png"
+                      src={images_logo[2]}
                       alt=""
                     />
                   </a>

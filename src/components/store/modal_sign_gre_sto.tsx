@@ -1,6 +1,8 @@
 import { new_user_form } from "../../redux/reducers_slices/sign_up_gre_sto_slice";
 import { useAppDispatch } from "../../redux/store";
 import { SignUp } from "../sign&log/sign_up_gre_sto";
+import { images_background } from "../../utils/images_store.json"
+
 
 export const ModalSign = () => {
    const dispatch = useAppDispatch()
@@ -13,7 +15,7 @@ export const ModalSign = () => {
 
       <input type="checkbox" id="my_modal_8" className="modal-toggle" />
       <div className="modal" role="dialog">
-        <div className="modal-box" style={{backgroundImage:'url(https://grema-store-frontend.vercel.app/images/backs3.png'}}>
+        <div className="modal-box" style={{backgroundImage:`url(${images_background[0]})`,}}>
           
         <SignUp location={"store"}></SignUp>
         </div>

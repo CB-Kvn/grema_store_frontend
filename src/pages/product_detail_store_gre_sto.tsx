@@ -7,6 +7,8 @@ import { ProductDetail } from "../components/store/product_detail";
 import { loader_visible } from "../redux/reducers_slices/handler_gre_sto_slice";
 import { Carts } from "../components/store/carts_gre_sto";
 import { Alert } from "../components/alerts/alert_modal_gre_sto";
+import { images_background } from "../utils/images_store.json"
+
 
 export const ProductDetailStore = () => {
  
@@ -32,7 +34,7 @@ export const ProductDetailStore = () => {
     <div
       style={{
         backgroundImage:
-          "url(https://grema-store-frontend.vercel.app/images/backs8.png",
+          `url(${images_background[1]})`,
         backgroundSize: "cover",
       }}
     >

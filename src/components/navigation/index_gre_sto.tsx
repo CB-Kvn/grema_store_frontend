@@ -2,7 +2,7 @@ import { useAppSelector } from "../../redux/store";
 import { ButtonsNav } from "./buttons_nav_gre_sto";
 import { ModalLogin } from "../sign&log/index_gre_sto";
 import { OptionProfile } from "./option_profile_gre_sto";
-
+import { images_logo } from "../../utils/images_store.json"
 export const Navigation = () => {
   const login = useAppSelector((state) => state.login);
  
@@ -44,7 +44,7 @@ export const Navigation = () => {
                 className="w-64 h-24 "
                 style={{
                   backgroundImage:
-                    "url(https://grema-store-frontend.vercel.app/images/logoH.png",
+                    `url(${images_logo[0]})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -64,7 +64,7 @@ export const Navigation = () => {
                 className="w-16 h-16  my-auto"
                 style={{
                   backgroundImage:
-                    "url(https://grema-store-frontend.vercel.app/images/logoS.png",
+                  `url(${images_logo[1]})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -85,7 +85,7 @@ export const Navigation = () => {
                 className="w-64 h-24 "
                 style={{
                   backgroundImage:
-                    "url(https://grema-store-frontend.vercel.app/images/logoH.png",
+                    `url(${images_logo[0]})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",

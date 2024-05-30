@@ -1,8 +1,7 @@
-;
 import { useAppSelector } from "../../redux/store";
 import { useDispatch } from "react-redux";
 import { update_carrier_selected } from "../../redux/reducers_slices/shopcar_gre_sto_slice";
-
+import { images_logo } from "../../utils/images_store.json"
 export const ProductsCheck = () => {
   const checkProduct = useAppSelector((state) => state.shopcar);
   const dispatch = useDispatch();
@@ -56,7 +55,7 @@ export const ProductsCheck = () => {
                 >
                   <img
                     className="w-28 object-contain"
-                    src="/src/assets/logo_web_retina1.jpg"
+                    src={images_logo[3]}
                     alt=""
                   />
                   <div className="ml-5">
@@ -90,7 +89,7 @@ export const ProductsCheck = () => {
                 >
                   <img
                     className="w-28 object-contain"
-                    src="/src/assets/logo_web_retina1.jpg"
+                    src={images_logo[3]}
                     alt=""
                   />
                   <div className="ml-5">
