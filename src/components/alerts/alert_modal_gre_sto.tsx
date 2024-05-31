@@ -65,7 +65,7 @@ export const Alert = ({ typeAlert }: { typeAlert: string }) => {
   }, [loading]);
 
   return (
-    <div className="">
+    <div className="" >
       {!loading && (
         <div>
           <input type="checkbox" id="my_modal_90" className="modal-toggle" />
