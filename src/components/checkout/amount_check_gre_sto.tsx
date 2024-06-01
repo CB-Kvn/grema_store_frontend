@@ -1,8 +1,15 @@
+import { checkoutOrder } from "../../controllers/checkout_controller_gre_sto";
+import { User } from "../../interfaces/user_interface_gre_sto";
 import { useAppSelector } from "../../redux/store";
 
 export const AmountCheck = () => {
   const prodCheck = useAppSelector((state) => state.shopcar);
   const login = useAppSelector((state) => state.login);
+  const infoUser:User = useAppSelector((state) => state.handler.info_user);
+
+  const checkOut = () =>{
+    checkoutOrder(infoUser,prodCheck,login)                                                                                                                                                                                                                                                                                                                                                           
+  }
   return (
     <>
       <div className="mt-10 grid grid-cols-8 px-6 sm:grid-cols-10">
@@ -225,6 +232,7 @@ export const AmountCheck = () => {
               <label
                 htmlFor="my_modal_90"
                 className="btn btn-block inline-flex items-center  justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
+              onClick={()=>{checkOut()}}
               >
                 <svg
                   viewBox="0 0 1024 1024"

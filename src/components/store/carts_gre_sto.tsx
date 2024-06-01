@@ -9,6 +9,7 @@ import {
   shopCart_visible,
 } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { images_logo } from "../../utils/images_store.json"
+import { useNavigate } from "react-router-dom";
 
 export const handleCartShopping = (open: boolean,dispatch:any) => {
   dispatch(shopCart_visible({ show: open }));
@@ -16,9 +17,8 @@ export const handleCartShopping = (open: boolean,dispatch:any) => {
 
 export const Carts = () => {
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
   const open = useAppSelector((state) => state.handler.shopCart_visible.show);
-  // const alert = useAppSelector((state) => state.handler.alert.type);
   const shoppingCar = useAppSelector((state) => state.shopcar);
   
   
@@ -231,28 +231,17 @@ export const Carts = () => {
                           className="btn  btn-block mt-5 inline-flex items-center  justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
                           onClick={() => {
                             handleCartShopping(false,dispatch)
-                            dispatch(alert_type({ type: "zeroCart" }))
+                            if(shoppingCar.suma === 0){
+                              dispatch(alert_type({ type: "zeroCart" }))
+                            }
+                            navigate("/checkout");
                           
                           }}
+                          
                         >
                           Proceder a pagar
                         </label>
 
-                        {/* <div
-                            className="mt-6"
-                            onClick={() => {
-                              if(shoppingCar.data.length === 0){
-                                
-                              }
-                            }}
-                          >
-                            
-                             <a className="flex items-center justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium Check">
-                              Proceder a pagar
-                            </a> 
-                            
-                          </div>
-                          */}
                       </div>
                     </div>
                   </Dialog.Panel>
