@@ -34,6 +34,11 @@ export const filter = (source: string,filtersUrl:Filter,dispatch:any,pagination:
               searchParams.append("tam", tam.value);
             }
           });
+          filtersUrl.descuento.forEach((descuento) => {
+            if (descuento.checked) {
+              searchParams.append("descuento", descuento.value);
+            }
+          });
           
           navigate(`/store/${pagination}?${searchParams.toString()}`, {
             replace: false,
@@ -66,6 +71,11 @@ export const filter = (source: string,filtersUrl:Filter,dispatch:any,pagination:
           filtersUrl.tam.forEach((tam) => {
             if (tam.checked) {
               searchParams.append("tam", tam.value);
+            }
+          });
+          filtersUrl.descuento.forEach((descuento) => {
+            if (descuento.checked) {
+              searchParams.append("descuento", descuento.value);
             }
           });
           navigate(`/store/1?${searchParams.toString()}`, {

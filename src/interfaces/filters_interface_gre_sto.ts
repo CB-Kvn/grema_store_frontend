@@ -3,6 +3,7 @@ export interface APIResponseFilters {
     status:  number;
     msg:     string;
     data:    Filters;
+
 }
 
 export interface Filters {
@@ -11,6 +12,7 @@ export interface Filters {
     size:     Size[];
     material: Material[];
     category: Category[];
+    descuento: Descuento[]
 }
 
 export interface Category {
@@ -31,6 +33,9 @@ export interface Shape {
 
 export interface Size {
     size: string;
+}
+export interface Descuento {
+    descuento: string;
 }
 
 
@@ -57,6 +62,7 @@ export interface FiltersTo {
         forma:     string[];
         material:  string[];
         categoria: string[];
+        descuento: string[]
     },
     dataSearch:{
         color:     valuesFilters[];
@@ -64,6 +70,7 @@ export interface FiltersTo {
         forma:     valuesFilters[];
         material:  valuesFilters[];
         categoria: valuesFilters[];
+        descuento: valuesFilters[];
     },
     change: boolean
 
@@ -77,6 +84,7 @@ export interface DataFilter {
         forma:     string[];
         material:  string[];
         categoria: string[];
+        descuento: string[];
     }
    
 
@@ -87,7 +95,7 @@ export interface Filter {
     forma: valuesFilters[];
     material:valuesFilters[];
     categoria:valuesFilters[];
-    
+    descuento:valuesFilters[];
   }
   export interface valuesFilters {
     value: string;

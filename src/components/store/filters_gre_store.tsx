@@ -201,6 +201,11 @@ export const Filters = () => {
                 type="material"
                 list={filters.material}
               />
+              <Filtering
+                name="Descuentos"
+                type="descuento"
+                list={filters.descuento}
+              />
             </div>
 
             <div className="flex items-center">

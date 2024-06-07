@@ -95,6 +95,7 @@ function classNames(...classes: string[]) {
 export const MenuStore = () => {
   const login = useAppSelector((state) => state.login);
   const total = useAppSelector((state) => state.shopcar.suma);
+  const confirm = useAppSelector((state) => state.handler.confirmation_page.enable);
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -248,7 +249,8 @@ export const MenuStore = () => {
                     </Tab.Panels>
                   </Tab.Group>
 
-                  <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                  {
+                    confirm ? (<></>): (<div className="space-y-6 border-t border-gray-200 px-4 py-6">
                     <div className="flow-root" style={{ color: "#C2A78D" }}>
                       <a
                         href="#"
@@ -267,7 +269,10 @@ export const MenuStore = () => {
                         Create account
                       </a>
                     </div>
-                  </div>
+                  </div>)
+                  }
+                  
+
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -320,7 +325,8 @@ export const MenuStore = () => {
                 </div>
 
                 {/* Flyout menus */}
-                <div className="ml-auto flex items-center">
+                {
+                  confirm ? (<></>):(<div className="ml-auto flex items-center">
                   {/* Cart */}
                   <div className="ml-4 flow-root lg:ml-6">
                     <a
@@ -369,22 +375,36 @@ export const MenuStore = () => {
                     </div>
                   )}
                 </div>
+)
+                }
+                
+
               </div>
             </div>
-            <div className="text-sm breadcrumbs">
-              <ul>
-                <li>
-                  <a>Pagina Principal</a>
-                </li>
-                <li>
-                  <a>Tienda</a>
-                </li>
-                {/* <li>Add Document</li> */}
-              </ul>
-            </div>
+
+            {
+            confirm ? (<></>):(<div className="text-sm breadcrumbs">
+            <ul>
+              <li>
+                <a>Pagina Principal</a>
+              </li>
+              <li>
+                <a>Tienda</a>
+              </li>
+              {/* <li>Add Document</li> */}
+            </ul>
+          </div>)
+          }
+
+            
+
           </nav>
-          <ModalLoginStore></ModalLoginStore>
-          <ModalSign></ModalSign>
+          {
+            confirm ? (<></>):(<>
+            <ModalLoginStore></ModalLoginStore>
+          <ModalSign></ModalSign></>)
+          }
+          
         </header>
       </div>
     </>

@@ -9,6 +9,7 @@ import { Checkout } from "./pages/checkout_page_gre_sto";
 import { BtnFloat } from "./components/btn flotante/btn_float_gre_sto";
 import { useAppSelector } from "./redux/store";
 import { ProductDetailStore } from "./pages/product_detail_store_gre_sto";
+import { ConfirmationOrder } from "./pages/confirmation_order_gre_sto";
 
 
 export const App = () => {
@@ -25,6 +26,7 @@ export const App = () => {
           <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
           <Route path="/checkout" element={<Checkout></Checkout>}></Route>
           <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
+          <Route path="/confirm" element={<ConfirmationOrder></ConfirmationOrder>}></Route>
         </Routes>
     
 

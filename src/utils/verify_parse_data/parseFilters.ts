@@ -9,15 +9,11 @@ export const parseFiltersToApi = (selectedFilters: Filter) => {
         tam: getCheckedValues(selectedFilters.tam),
         forma: getCheckedValues(selectedFilters.forma),
         material: getCheckedValues(selectedFilters.material),
-        categoria: getCheckedValues(selectedFilters.categoria)
+        categoria: getCheckedValues(selectedFilters.categoria),
+        descuento: getCheckedValues(selectedFilters.descuento)
       };
-
-   
-  
-
     return selectedValues
 }
-
 export const getCheckedValues = (category: valuesFilters[]): string[] => {
     return category
       .filter(item => item.checked)

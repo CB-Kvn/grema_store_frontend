@@ -1,6 +1,5 @@
 import axios from "axios";
-import { APIResponseFilters, DataFilter} from "../interfaces/filters_interface_gre_sto";
-import { APIResponseProducts } from "../interfaces/products_interface_gre_sto";
+import { APIResponseFilters } from "../interfaces/filters_interface_gre_sto";
 
 
 
@@ -29,35 +28,3 @@ export const getAllFilters = async ( token?:string) => {
 
 }
 
-export const getProductFilters = async (data:DataFilter, token:string,page:number) => {
-
-    try {
-        const pageSize = 10
-        const skip = (page - 1) * pageSize;
-        const take = pageSize;
-
-
-        const dataRequest = {
-            ...data,
-            skip,
-            take
-        }
-
-        const url_filter = '/product/get-all-filters'
-        const response = await axios.post(url+url_filter,dataRequest,{
-            headers:{
-                grema_store_token : token
-            }
-        }
-          );
-
-
-        return response.data as APIResponseProducts
-
-    } catch (error) {
-        console.log({
-           error: error, msg: 'Error en la consulta' 
-        })
-    }
-
-}

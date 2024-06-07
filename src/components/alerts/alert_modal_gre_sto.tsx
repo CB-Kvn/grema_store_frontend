@@ -13,6 +13,7 @@ import {
 } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { AlertZero } from "./alert_zero_gre_sto";
 import { AlertZeroCart } from "./alert_zero_cart_gre_sto";
+import { AlertDoneSend } from "./alert_done_send_gre_sto";
 // import { handleCartShopping } from "../store/carts_gre_sto";
 
 export const Alert = ({ typeAlert }: { typeAlert: string }) => {
@@ -24,31 +25,34 @@ export const Alert = ({ typeAlert }: { typeAlert: string }) => {
     dispatch(loader_visible({ show: true }));
     setTimeout(() => {
       switch (typeAlert) {
-        case 'delete':
+        case "delete":
           setComponent(() => AlertDelete);
 
           break;
-        case 'add':
+        case "add":
           setComponent(() => AlertAdd);
 
           break;
-        case 'done':
+        case "done":
           setComponent(() => AlertDone);
 
           break;
-        case 'zero':
+        case "zero":
           setComponent(() => AlertZero);
           break;
-        case 'zeroCart':
+        case "zeroCart":
           setComponent(() => AlertZeroCart);
-          
+          break;
+        case "msgToClient":
+          setComponent(() => AlertDoneSend);
+
           break;
         default:
           setComponent(null);
           break;
       }
-      
-      dispatch(loader_visible({ msg: '', show: false }));
+
+      dispatch(loader_visible({ msg: "", show: false }));
     }, 1500);
   }, [typeAlert]);
 
@@ -65,21 +69,29 @@ export const Alert = ({ typeAlert }: { typeAlert: string }) => {
   }, [loading]);
 
   return (
-    <div className="" >
+    <div className="">
       {!loading && (
         <div>
           <input type="checkbox" id="my_modal_90" className="modal-toggle" />
           <div className="modal" role="dialog">
-            <div className={Component ? "modal-box  bg-white" : "modal-box shadow-none bg-transparent"}>
-              {Component && <Component component={setComponent} loading={setLoading} />}
+            <div
+              className={
+                Component
+                  ? "modal-box  bg-white"
+                  : "modal-box shadow-none bg-transparent"
+              }
+            >
+              {Component && (
+                <Component component={setComponent} loading={setLoading} />
+              )}
             </div>
             <label
               className="modal-backdrop"
               htmlFor="my_modal_90"
               onClick={() => {
-                setComponent(null)
-                setLoading(true)
-                dispatch(alert_type({ type: '' }))
+                setComponent(null);
+                setLoading(true);
+                dispatch(alert_type({ type: "" }));
               }}
             >
               Close

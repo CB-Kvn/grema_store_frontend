@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface APIResponseProducts {
     success: string;
     status:  number;
@@ -61,6 +62,7 @@ export interface ArrayParseProducts{
 export interface reducerInitialProducts{
     dataProducts: ArrayParseProducts[]
     dataSelected: ProductSelect | null
+    dataShowProducts: any
 }
 
 export interface ProductSelect {
@@ -82,3 +84,26 @@ export interface ProductSelect {
     tam?:string
   
   }
+
+  export interface ShowProduct {
+    id:                       string;
+    productId:                string;
+    quantity:                 number;
+    image:                    string[];
+    price:                    string;
+    status:                   boolean;
+    typeDesc:                 string;
+    desc:                     number;
+    createAtProductInventory: Date;
+    updateAtProductInventory: Date;
+    product:                  Product;
+}
+
+export interface Product {
+    color:       string;
+    name:        string;
+    description: string;
+    material:    string;
+    shape:       string;
+    size:        string;
+}

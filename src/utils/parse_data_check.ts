@@ -8,9 +8,13 @@ export const parserChechOut = (infoUser:User,prodCheck:reducerInitialProductSele
     const idOrder = uuidv4()
 
     const preDataOrder = {
-        id:idOrder,
+        orderNumber:idOrder,
         amount:prodCheck.total,
         userId:login.userId,
+        name: infoUser.personal.name,
+        idGues: login.userId,
+        phone: login.phone,
+        address: login.address,
         typeUser:login.type,
         tax:0,
         typeShipping:  prodCheck.envio_type,
@@ -20,7 +24,7 @@ export const parserChechOut = (infoUser:User,prodCheck:reducerInitialProductSele
         return {
             orderNumber: idOrder,
             productId: element.id,
-            quantity: element.quantyOrder,
+            quantity: element.quantyOrder!,
             price: element.precio - (element.precio*(element.desc/100))
         }
     })
@@ -28,6 +32,9 @@ export const parserChechOut = (infoUser:User,prodCheck:reducerInitialProductSele
 
     return {
         ...preDataOrder,
-        ...detailsOrder
+        details:{
+            ...detailsOrder
+        }
+        
     }
 }

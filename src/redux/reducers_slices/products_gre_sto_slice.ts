@@ -27,7 +27,8 @@ const initialState: reducerInitialProducts = {
         color: "",
         shape: "",
         category: "",
-    }
+    },
+    dataShowProducts:{}
     
 }
 
@@ -45,11 +46,14 @@ export const ProductSlice = createSlice({
         },
         selected_product:(state,action)=>{
             state.dataSelected = action.payload.data
+        },
+        show_products_landing:(state,action)=>{
+            state.dataShowProducts = action.payload.data
         }
 
     },
 })
 
-export const { add_products_store,update_products_filters_store,selected_product } = ProductSlice.actions
+export const { add_products_store,update_products_filters_store,selected_product,show_products_landing } = ProductSlice.actions
 
 export default ProductSlice.reducer

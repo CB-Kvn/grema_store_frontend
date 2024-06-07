@@ -53,6 +53,12 @@ const initialState = {
         type:"",
         enable:false
     },
+    discount_show:{
+        enable:false
+    },
+    confirmation_page:{
+        enable:false
+    }
 
     
 }
@@ -105,12 +111,18 @@ export const HandlersSlice = createSlice({
             state.alert.type = action.payload.type
             state.alert.enable = action.payload.enable
         },
+        discount_active:(state,action)=>{
+            state.discount_show.enable = action.payload.enable
+        },
+        confirmation_active:(state,action)=>{
+            state.confirmation_page.enable = action.payload.enable
+        },
 
 
 
     },
 })
 
-export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify,password_confirm,counter_page,add_personal_info,add_address_info,add_profile_info,alert_type } = HandlersSlice.actions
+export const { toast_visible,signUp_visible,shopCart_visible,loader_visible,password_verify,password_confirm,counter_page,add_personal_info,add_address_info,add_profile_info,alert_type,discount_active,confirmation_active } = HandlersSlice.actions
 
 export default HandlersSlice.reducer

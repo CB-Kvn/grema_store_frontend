@@ -4,7 +4,6 @@ import { loader_visible } from "../redux/reducers_slices/handler_gre_sto_slice";
 import { useAppDispatch, useAppSelector} from "../redux/store";
 import {
   getFilters,
-  getProductsFilters,
 } from "../controllers/filters_controller_gre_sto";
 import { useLocation, useParams } from "react-router-dom";
 import { add_url_filters } from "../redux/reducers_slices/filters_gre_sto_slice";
@@ -14,6 +13,7 @@ import { Carts } from "../components/store/carts_gre_sto";
 import { Carousel } from "../components/store/carousel_cat_gre_sto";
 import { Alert } from "../components/alerts/alert_modal_gre_sto";
 import { images_background } from "../utils/images_store.json"
+import { getProductsFilters } from "../controllers/products_controller_gre_sto";
 
 
 
@@ -35,6 +35,7 @@ export const Store = () => {
     const tam = query.getAll("tam");
     const forma = query.getAll("forma");
     const material = query.getAll("material");
+    const descuento = query.getAll("descuento");
 
     const filterUrls = {
       categoria: categoria.map((category) => ({
@@ -56,6 +57,10 @@ export const Store = () => {
       })),
       material: material.map((material) => ({
         value: material,
+        checked: true,
+      })),
+      descuento: descuento.map((descuento) => ({
+        value: descuento,
         checked: true,
       })),
     };

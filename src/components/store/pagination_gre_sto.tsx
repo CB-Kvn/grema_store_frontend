@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { getProductsFilters } from "../../controllers/filters_controller_gre_sto";
 import {
   decrement,
   increment,
 } from "../../redux/reducers_slices/pagination_gre_sto";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { filter } from "../../utils/navigate";
+import { getProductsFilters } from "../../controllers/products_controller_gre_sto";
 
 export const Pagination = () => {
   const pagination = useAppSelector((state) => state.pagination.value);
