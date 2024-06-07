@@ -26,7 +26,7 @@ export const App = () => {
           <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
           <Route path="/checkout" element={<Checkout></Checkout>}></Route>
           <Route path="/invoice" element={<InvoiceToSend></InvoiceToSend>}></Route>
-          <Route path="/confirm" element={<ConfirmationOrder></ConfirmationOrder>}></Route>
+          <Route path="/confirm/:id" element={<ConfirmationOrder></ConfirmationOrder>}></Route>
         </Routes>
     
 

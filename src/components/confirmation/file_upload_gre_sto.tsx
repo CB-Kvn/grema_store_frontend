@@ -31,6 +31,7 @@ export const FileUpload = () => {
 
 
   const sendConfirmation = () => {
+
     confirmationOrder(uploadedFiles,id!)
   }
   
@@ -104,6 +105,11 @@ export const FileUpload = () => {
             </li>
           ))}
         </ul>
+      )}
+      {isUploading && (
+        <div className="flex justify-center items-center w-1/3 h-48 border-2 border-dashed rounded-lg p-4">
+          <p>Loading...</p>
+        </div>
       )}
 
       <label
