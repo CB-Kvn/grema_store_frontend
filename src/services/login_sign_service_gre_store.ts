@@ -68,7 +68,7 @@ export const signService = async (params1: UserHttpService,params2:FileList) => 
         const formData = new FormData()
         
         for (let i = 0; i < params2.length; i++) {
-            formData.append(`images`, params2[i]);
+            formData.append(`files`, params2[i]);
         }
 
         formData.append('body',JSON.stringify(params1))

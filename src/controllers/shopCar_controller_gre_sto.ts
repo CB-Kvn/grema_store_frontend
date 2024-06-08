@@ -22,7 +22,7 @@ export const addSelectionOrder = async (data: ProductSelect, dispatch: any, coun
         }
 
         orderData.quantyOrder = counter
-        orderData.productId = Number(orderData.id)
+        orderData.inventoryId = orderData.id
         orderData.userId = login.userId
         orderData.id = uuidv4()
 

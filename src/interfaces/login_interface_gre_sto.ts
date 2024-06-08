@@ -50,7 +50,6 @@ export interface Location {
 export interface UserHttpService {
   id: number,
   name: string,
-  lastName: string,
   cellphone: string,
   genre: string,
   profile: {

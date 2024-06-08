@@ -12,14 +12,14 @@ export const addFavorities = async (dispatch:any,info:Favorites_Carts,login:Logi
             id : uuidv4(),
             image: info.image!,
             name: info.name!,
-            productId: info.productId
+            inventoryId: info.inventoryId
         }
     
        
     const body:Favorites_Carts = {
             id : data.id,
             userId: info.userId,
-            productId: info.productId,
+            inventoryId: info.inventoryId,
             type: "Fav",
             quantity: 0
       
@@ -52,7 +52,7 @@ export const removeFavorities = async (dispatch:any,data: string ,login:LoginIni
         
         const idLove = love.find((element:LoveProduct)=>{
             
-            if(data === element.productId){
+            if(data === element.inventoryId){
                 return element
             }
             

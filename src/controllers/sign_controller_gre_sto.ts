@@ -22,8 +22,7 @@ export const SignSave = async (
     const info = {
 
       id: Number(data.personal.id),
-      name: data.personal.name,
-      lastName: data.personal.lastName,
+      name: data.personal.name +" "+data.personal.lastName,
       cellphone: data.personal.cellphone,
       genre: data.personal.genre,
       status: true,

@@ -53,7 +53,7 @@ export const GridProducts = ({
                     data-tip="Comprar"
                   ></aside>
                 </aside>
-                {love.some((item) => item.productId === element.id) ? (
+                {love.some((item) => item.inventoryId === element.id) ? (
                   <>
                     <aside className="absolute top-0 right-0 mr-3">
                       <svg
@@ -95,7 +95,7 @@ export const GridProducts = ({
                       onClick={(event) => {
                         event.preventDefault(),
                           handleLovinArticle({
-                            productId: element.id,
+                            inventoryId: element.id,
                             userId: login.userId,
                             type: "Fav",
                             quantity: 0,

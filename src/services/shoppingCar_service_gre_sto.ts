@@ -14,7 +14,7 @@ export const addShoppingService = async (info:ProductSelect, token:string) => {
 
 
         const url_filter = '/shopping/add-shopping'
-        const response = await axios.post(url+url_filter,{id:info.id,userId:info.userId,productId:info.productId,quantyOrder:info.quantyOrder,type:"Shop"},{
+        const response = await axios.post(url+url_filter,{id:info.id,userId:info.userId,inventoryId:info.inventoryId,quantyOrder:info.quantyOrder,type:"Shop"},{
             headers:{
                 grema_store_token : token
             }

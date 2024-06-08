@@ -21,7 +21,7 @@ export const LoveSlice = createSlice({
 
         },
         remove_products_love: (state, action: RemoveLove) => {
-            state.data = state.data.filter(love => love.productId !== action.payload.id);
+            state.data = state.data.filter(love => love.inventoryId !== action.payload.id);
         },
 
 

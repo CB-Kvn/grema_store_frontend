@@ -11,8 +11,9 @@ export const parserChechOut = (infoUser:User,prodCheck:reducerInitialProductSele
         orderNumber:idOrder,
         amount:prodCheck.total,
         userId:login.userId,
-        name: infoUser.personal.name,
+        name: login.name,
         idGues: login.userId,
+        email:login.email,
         phone: login.phone,
         address: login.address,
         typeUser:login.type,
@@ -23,6 +24,7 @@ export const parserChechOut = (infoUser:User,prodCheck:reducerInitialProductSele
     const detailsOrder = prodCheck.data.map((element)=>{
         return {
             orderNumber: idOrder,
+            inventoryId: element.inventoryId,
             productId: element.id,
             quantity: element.quantyOrder!,
             price: element.precio - (element.precio*(element.desc/100))
@@ -32,9 +34,8 @@ export const parserChechOut = (infoUser:User,prodCheck:reducerInitialProductSele
 
     return {
         ...preDataOrder,
-        details:{
-            ...detailsOrder
-        }
+        details:detailsOrder
+        
         
     }
 }
