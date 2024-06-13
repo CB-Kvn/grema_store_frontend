@@ -12,7 +12,7 @@ export const AlertDelete = ({component,loading}:{component:React.Dispatch<React.
 
   return (
     <>
-      <div className="m-10 flex max-w-lg flex-col items-center rounded-md border px-8 py-10 text-gray-800 shadow-lg">
+      <div className="m-10 flex max-w-lg flex-col items-center rounded-md border  text-gray-800 shadow-lg">
         <svg
           viewBox="-3 0 32 32"
           className="h-16 w-16"

@@ -1,24 +1,65 @@
+import { useEffect, useState } from "react";
 import { checkoutOrder } from "../../controllers/checkout_controller_gre_sto";
 import { User } from "../../interfaces/user_interface_gre_sto";
 import { useAppSelector } from "../../redux/store";
+import { GuestCheck } from "../../interfaces/login_interface_gre_sto";
+import { formatPhoneNumber } from "../../utils/format_phone_number";
 
 export const AmountCheck = () => {
   const prodCheck = useAppSelector((state) => state.shopcar);
   const login = useAppSelector((state) => state.login);
-  const infoUser:User = useAppSelector((state) => state.handler.info_user);
+  const infoUser: User = useAppSelector((state) => state.handler.info_user);
+  const [email, setEmail] = useState<string>("");
+  const [id, setId] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [tax, setTax] = useState<number>(0);
+  const [change,setChange]= useState<boolean>(false);
 
-  const checkOut = () =>{
-    checkoutOrder(infoUser,prodCheck,login)                                                                                                                                                                                                                                                                                                                                                           
-  }
+  const checkOut = () => {
+    const dataGuest: GuestCheck = {
+      id,
+      email,
+      name,
+      phone,
+      address,
+      tax,
+    };
+    checkoutOrder(infoUser, prodCheck, login, dataGuest);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedNumber = formatPhoneNumber(e.target.value);
+    setPhone(formattedNumber);
+  };
+
+  useEffect(() => {
+    setTax((prodCheck.total + prodCheck.envio_price) * 0.13);
+  }, [prodCheck.envio_price]);
+
   return (
     <>
       <div className="mt-10 grid grid-cols-8 px-6 sm:grid-cols-10">
         <div className="col-span-12 overflow-hidden rounded-xl bg-gray-50 bg-opacity-75 px-8 pt-6 pb-8 shadow">
           <div className=" bg-gray-50 bg-opacity-20">
-            <p className="text-xl font-medium">Detalles de envio</p>
-            <p className="text-gray-400">
-              Completa o revisa los datos de envio.
-            </p>
+            <div className="flex justify-between items-center">
+              <div>
+                <p className="text-xl font-medium">Detalles de envio</p>
+                <p className="text-gray-400">
+                  Completa o revisa los datos de envio.
+                </p>
+              </div>
+
+              {login.type != "guest" ? (
+                <button className="inline-block ml-auto text-sm font-semibold text-[#9F587B] underline decoration-2 hover:text-[#7e7e80]" onClick={()=>{setChange(true) } }>
+    
+                  Modificar
+                </button>
+              ) : (
+                <></>
+              )}
+            </div>
             <div className="">
               <label className="mt-4 mb-2 block text-sm font-medium">
                 Correo electronico
@@ -28,9 +69,13 @@ export const AmountCheck = () => {
                   <input
                     type="text"
                     id="card-no"
+                    disabled={login.type === "guest" ? false : true}
                     name="card-no"
                     className="w-full rounded-md border border-[#9C5478]  px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                    placeholder={login.email}
+                    placeholder={
+                      login.type === "guest" ? "Escribe tu email" : login.email
+                    }
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                     <svg
@@ -57,10 +102,14 @@ export const AmountCheck = () => {
                 <div className="relative w-10/12 flex-shrink-0">
                   <input
                     type="text"
+                    disabled={login.type === "guest" ? false : true}
                     id="card-no"
                     name="card-no"
                     className="w-full rounded-md border border-[#9C5478]  px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                    placeholder={login.name}
+                    placeholder={
+                      login.type === "guest" ? "Escribe tu nombre" : login.name
+                    }
+                    onChange={(e) => setName(e.target.value)}
                   />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                     <svg
@@ -88,10 +137,16 @@ export const AmountCheck = () => {
                 <div className="relative w-10/12 flex-shrink-0">
                   <input
                     type="text"
+                    disabled={login.type === "guest" ? false : true}
                     id="card-no"
                     name="card-no"
                     className="w-full rounded-md border border-[#9C5478]  px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                    placeholder={login.userId}
+                    placeholder={
+                      login.type === "guest"
+                        ? "Escribe tu # identificación"
+                        : login.userId
+                    }
+                    onChange={(e) => setId(e.target.value)}
                   />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                     <svg
@@ -120,9 +175,14 @@ export const AmountCheck = () => {
                   <input
                     type="text"
                     id="card-no"
+                    disabled={login.type === "guest" ? false : true}
                     name="card-no"
                     className="w-full rounded-md border border-[#9C5478]  px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                    placeholder={login.phone}
+                    placeholder={
+                      login.type === "guest" ? "00-00-00-00" : login.phone
+                    }
+                    value={phone === "" ? "" : phone}
+                    onChange={(e) => handleChange(e)}
                   />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                     <svg
@@ -160,9 +220,11 @@ export const AmountCheck = () => {
                 <div className="relative flex-shrink-0 w-10/12">
                   <textarea
                     id="billing-address"
+                    disabled={login.type === "guest" ? false : true}
                     name="billing-address"
                     className="w-full rounded-md border border-[#9C5478] py-6 pl-10 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                     placeholder={login.address}
+                    onChange={(e) => setAddress(e.target.value)}
                   />
                   <div className="pointer-events-none absolute pt-6 left-0 inline-flex items-center px-3">
                     <svg
@@ -216,6 +278,17 @@ export const AmountCheck = () => {
                     }).format(prodCheck.envio_price)}
                   </p>
                 </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-medium text-gray-900">
+                    Imp ventas 13%
+                  </p>
+                  <p className="font-semibold text-gray-900">
+                    {new Intl.NumberFormat("es-CR", {
+                      style: "currency",
+                      currency: "CRC",
+                    }).format(tax)}
+                  </p>
+                </div>
               </div>
               <div className="mt-6 flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-900">Total</p>
@@ -232,7 +305,9 @@ export const AmountCheck = () => {
               <label
                 htmlFor="my_modal_90"
                 className="btn btn-block inline-flex items-center  justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
-              onClick={()=>{checkOut()}}
+                onClick={() => {
+                  checkOut();
+                }}
               >
                 <svg
                   viewBox="0 0 1024 1024"

@@ -45,7 +45,7 @@ export const AlertAdd = ({
   
 
   return (
-    <div className="m-10 flex max-w-lg flex-col items-center px-8 py-10 text-gray-800">
+    <div className="m-10 flex max-w-lg flex-col items-center  text-gray-800">
       <svg
         viewBox="0 0 24 24"
         className="h-16 w-16"

@@ -32,7 +32,7 @@ export const AlertZeroCart = ({
 
   return (
     <>
-      <div className="m-10 flex max-w-lg flex-col items-center px-8 py-10 text-gray-800">
+      <div className="m-10 flex max-w-lg flex-col items-center text-gray-800">
         <svg viewBox="0 0 24 24" className="h-16 w-16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
           <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
