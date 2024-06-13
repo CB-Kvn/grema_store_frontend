@@ -8,7 +8,6 @@ import { AlertDone } from "./alert_done_gre_sto";
 import { AlertAdd } from "./alert_add_gre_sto";
 import { useAppDispatch } from "../../redux/store";
 import {
-  alert_type,
   loader_visible,
 } from "../../redux/reducers_slices/handler_gre_sto_slice";
 import { AlertZero } from "./alert_zero_gre_sto";
@@ -85,17 +84,6 @@ export const Alert = ({ typeAlert }: { typeAlert: string }) => {
                 <Component component={setComponent} loading={setLoading} />
               )}
             </div>
-            <label
-              className="modal-backdrop"
-              htmlFor="my_modal_90"
-              onClick={() => {
-                setComponent(null);
-                setLoading(true);
-                dispatch(alert_type({ type: "" }));
-              }}
-            >
-              Close
-            </label>
           </div>
         </div>
       )}

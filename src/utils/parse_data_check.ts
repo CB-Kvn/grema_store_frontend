@@ -19,7 +19,11 @@ export const parserChechOut = (infoUser:User,prodCheck:reducerInitialProductSele
         typeUser:login.type,
         tax:0,
         typeShipping:  prodCheck.envio_type,
-        shipping: prodCheck.envio_price
+        shipping: prodCheck.envio_price,
+        to:login.email ,
+        subject: "Por favor confirmar orden",
+        text: "Recuerde que debe agregar al formulario el comprobante  imagen o el pdf ",
+        type:"msgToConfirmation"
     }
     const detailsOrder = prodCheck.data.map((element)=>{
         return {

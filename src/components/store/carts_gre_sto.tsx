@@ -4,14 +4,15 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import {
-
   alert_type,
   shopCart_visible,
 } from "../../redux/reducers_slices/handler_gre_sto_slice";
-import { images_logo } from "../../utils/images_store.json"
+import { images_logo } from "../../utils/images_store.json";
 import { useNavigate } from "react-router-dom";
+import { ProductSelect } from "../../interfaces/products_interface_gre_sto";
+import { UpdateSelectionOrder } from "../../controllers/shopCar_controller_gre_sto";
 
-export const handleCartShopping = (open: boolean,dispatch:any) => {
+export const handleCartShopping = (open: boolean, dispatch: any) => {
   dispatch(shopCart_visible({ show: open }));
 };
 
@@ -20,10 +21,7 @@ export const Carts = () => {
   const navigate = useNavigate();
   const open = useAppSelector((state) => state.handler.shopCart_visible.show);
   const shoppingCar = useAppSelector((state) => state.shopcar);
-  
-  
 
- 
   // const handlerOpen = () => {
   //   const element = document.querySelector("#my_modal_6") as HTMLInputElement;
   //   element.checked = true;
@@ -36,7 +34,21 @@ export const Carts = () => {
   //   dispatch(shopCart_visible({ type: [false] }));
   // };
 
- 
+  const Increment = (product:ProductSelect) => {
+    let num = 0;
+    num = product.quantyOrder! + 1;
+    if (product!.quantyInv >= num) {
+      UpdateSelectionOrder({id:product.id,counter:num},dispatch)
+    }
+  };
+  const Decrement = (product:ProductSelect) => {
+    if (product.quantyOrder! > 0) {
+      let num = 0;
+      num = product.quantyOrder! - 1;
+      UpdateSelectionOrder({id:product.id,counter:num},dispatch)
+    }
+  };
+
 
   return (
     <>
@@ -46,7 +58,7 @@ export const Carts = () => {
           as="div"
           className="relative z-10"
           onClose={() => {
-            handleCartShopping(false,dispatch);
+            handleCartShopping(false, dispatch);
           }}
         >
           <Transition.Child
@@ -79,7 +91,7 @@ export const Carts = () => {
                         <a href="#">
                           <img
                             className="w-64 h-24 "
-                            src={images_logo[0]}  
+                            src={images_logo[0]}
                             alt=""
                           />
                         </a>
@@ -97,7 +109,7 @@ export const Carts = () => {
                               type="button"
                               className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
                               onClick={() => {
-                                handleCartShopping(false,dispatch);
+                                handleCartShopping(false, dispatch);
                               }}
                             >
                               <span className="absolute -inset-0.5" />
@@ -151,6 +163,39 @@ export const Carts = () => {
                                       >
                                         Qty {product.quantyOrder}
                                       </p>
+
+                                      <div className="inline-flex ml-3">
+                                        <div className="flex items-center">
+                                          <button
+                                            className=" btn btn-sm px-4 py-2  z-10  text-white rounded-l-md"
+                                            style={{
+                                              backgroundColor: "#9d567a",
+                                            }}
+                                            onClick={() => {
+                                              Decrement(product);
+                                            }}
+                                          >
+                                            -
+                                          </button>
+                                          <input
+                                            type="text"
+                                            className="input-sm px-4 py-2 -ml-1  bg-gray-100 text-center w-16"
+                                            value={product.quantyOrder}
+                                            readOnly
+                                          ></input>
+                                          <button
+                                            className=" btn btn-sm px-4 -ml-1 py-2 z-10 text-white  rounded-r-md"
+                                            style={{
+                                              backgroundColor: "#9d567a",
+                                            }}
+                                            onClick={() => {
+                                              Increment(product);
+                                            }}
+                                          >
+                                            +
+                                          </button>
+                                        </div>
+                                      </div>
 
                                       <div className="flex">
                                         <button
@@ -224,39 +269,26 @@ export const Carts = () => {
                           <p>Subtotal</p>
                           <p>₡ {shoppingCar.total}</p>
                         </div>
-    
 
                         <label
                           htmlFor="my_modal_90"
                           className="btn  btn-block mt-5 inline-flex items-center  justify-center rounded-md border-2 border-transparent bg-[#9d567a] bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-[#9d567a]  hover:bg-opacity-80"
                           onClick={() => {
-                            handleCartShopping(false,dispatch)
-                            if(shoppingCar.suma === 0){
-                              dispatch(alert_type({ type: "zeroCart" }))
+                            handleCartShopping(false, dispatch);
+                            if (shoppingCar.suma === 0) {
+                              dispatch(alert_type({ type: "zeroCart" }));
                             }
                             navigate("/checkout");
-                          
                           }}
-                          
                         >
                           Proceder a pagar
                         </label>
-
                       </div>
                     </div>
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
             </div>
-
-            
-            
-           
-              
-            
-          
-             
-            
           </div>
         </Dialog>
       </Transition.Root>

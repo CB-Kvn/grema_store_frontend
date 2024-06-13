@@ -28,8 +28,6 @@ export interface RemoveProductSelect {
 }
 
 export interface UpdateQuantyProductSelect {
-    payload: {
-        id:number,
-        quanty: number
-    }
+    id:string
+    counter:number
 }

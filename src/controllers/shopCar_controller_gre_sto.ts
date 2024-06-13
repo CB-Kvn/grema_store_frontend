@@ -62,6 +62,7 @@ export const RemoveSelectionOrder = async (data: RemoveProductSelect, dispatch: 
 
 }
 
-export const UpdateSelectionOrder = (data: UpdateQuantyProductSelect, dispatch: any, counter: number) => {
-    dispatch(update_products_selected({ id: data.payload.id, quanty: counter }))
+export const UpdateSelectionOrder = (data: UpdateQuantyProductSelect, dispatch: any) => {
+
+    dispatch(update_products_selected({ id: data.id, counter: data.counter }))
 }

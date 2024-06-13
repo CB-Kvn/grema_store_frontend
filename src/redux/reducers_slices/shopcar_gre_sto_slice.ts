@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AddProductSelect, reducerInitialProductSelect, RemoveProductSelect, UpdateQuantyProductSelect } from "../../interfaces/shopcar_interface_gre_sto";
+import { AddProductSelect, reducerInitialProductSelect, RemoveProductSelect } from "../../interfaces/shopcar_interface_gre_sto";
 
 
 const initialState: reducerInitialProductSelect = {
@@ -41,19 +41,29 @@ export const SelectedSlice = createSlice({
             state.suma = num
             state.total = total 
         },
-        update_products_selected: (state, action: UpdateQuantyProductSelect) => {
-            state.data = state.data.filter((love) => {
-                if(love.id !== action.payload.id.toString()){
-                    love.quantyInv = action.payload.quanty
-                }
-                });
+        update_products_selected: (state, action) => {
+            const product = state.data.find((product) => product.id === action.payload.id);
+            if (product) {
+              product.quantyOrder = action.payload.counter;
+            }
+
+            const num = state.data.reduce((acumulador, producto) => {
+                return acumulador + producto.quantyOrder!;
+              }, 0);
+            const total = state.data.reduce((acumulador, producto) => {
+                return acumulador + ( producto.quantyOrder! * ( producto.precio - (producto.precio * ( producto.desc / 100))) );
+              }, 0);
+            
+            state.suma = num
+            state.total = total 
+
+
         },
 
         update_carrier_selected:(state,action)=>{
             state.envio_type = action.payload.type
             state.envio_price = action.payload.price
         }
-
     },
 })
 

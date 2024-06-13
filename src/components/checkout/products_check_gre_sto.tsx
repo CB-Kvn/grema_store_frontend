@@ -36,14 +36,18 @@ export const ProductsCheck = () => {
             </div>
 
             <p className="mt-8 text-lg font-medium">Metodos de envio</p>
+
+
             <form className="mt-5 grid gap-6">
+
+
               <div className="relative">
                 <input
                   className="peer hidden"
                   id="radio_1"
                   type="radio"
                   name="radio"
-                  checked
+                  
                   onClick={() => {
                     handlerCarrier(2850, "GAM");
                   }}
@@ -77,7 +81,7 @@ export const ProductsCheck = () => {
                   id="radio_2"
                   type="radio"
                   name="radio"
-                  checked
+                
                   onClick={() => {
                     handlerCarrier(3650, "Resto del País");
                   }}
@@ -105,7 +109,11 @@ export const ProductsCheck = () => {
                   </div>
                 </label>
               </div>
+
+
             </form>
+
+
           </div>
         </div>
       </div>
